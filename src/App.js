@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'; // Import useState hook
+import { useState, useRef, useEffect } from 'react'; // Import useState hook
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/system/Container';
@@ -14,6 +14,7 @@ import BaseTypography from '@mui/material/Typography';
 import BaseChip from '@mui/material/Chip';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import './Scrollbar.css';
+import ScrollProgressIndicator from './components/ScrollProgressIndicator';
 
 const Typography = styled(BaseTypography)`
   ${({ theme }) => `
@@ -34,9 +35,46 @@ function App() {
   const experienceSectionRef = useRef(null);
   const projectsSectionRef = useRef(null);
 
+  const [activeSection, setActiveSection] = useState(null);
+
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({ behavior: 'smooth' });
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const landingSectionRect = landingSectionRef.current.getBoundingClientRect();
+      const experienceSectionRect = experienceSectionRef.current.getBoundingClientRect();
+      const projectsSectionRect = projectsSectionRef.current.getBoundingClientRect();
+
+      const isInView = (rect) => {
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        const topThreshold = -0.5; // 50% from the top of the viewport
+        const bottomThreshold = 1.7; // 125% from the top of the viewport
+      
+        return (
+          rect.top >= topThreshold * windowHeight &&
+          rect.bottom <= bottomThreshold * windowHeight
+        );
+      };
+      
+      if (isInView(landingSectionRect)) {
+        setActiveSection('landing');
+      } else if (isInView(experienceSectionRect)) {
+        setActiveSection('experience');
+      } else if (isInView(projectsSectionRect)) {
+        setActiveSection('projects');
+      } else {
+        setActiveSection(null);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   // Use state to manage the current theme
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -79,10 +117,11 @@ function App() {
       />
       <Container maxWidth="lg">
         <ScreenProvider screenSize={screenSize}>
-          <AppNavBar Typography={Typography} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} />
+          <AppNavBar Typography={Typography} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} activeSection={activeSection} />
+          <ScrollProgressIndicator Typography={Typography} Chip={Chip} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} activeSection={activeSection} />     
           <LandingSection ref={landingSectionRef} Typography={Typography} />
           <ExperienceSection ref={experienceSectionRef} Typography={Typography} Chip={Chip} />
-          <ProjectsSection ref={projectsSectionRef} Typography={Typography} Chip={Chip} />
+          <ProjectsSection ref={projectsSectionRef} Typography={Typography} Chip={Chip} />     
         </ScreenProvider>
       </Container>
     </ThemeProvider>

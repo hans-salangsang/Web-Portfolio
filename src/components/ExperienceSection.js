@@ -32,12 +32,12 @@ function ExperienceSection({ Typography, Chip }, ref) {
               </Typography>
 
               <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" sx={{ pt: 2 }}>
-                <Chip label="Java" color="primary" />
-                <Chip label="JavaScript" color="primary" />
-                <Chip label="TypeScript" color="primary" />
-                <Chip label="jQuery" color="primary" />
-                <Chip label="XML" color="primary" />
-                <Chip label="Python" color="primary" />
+                <Chip label="Java" color="darkBlue" />
+                <Chip label="JavaScript" color="darkBlue" />
+                <Chip label="TypeScript" color="darkBlue" />
+                <Chip label="jQuery" color="darkBlue" />
+                <Chip label="XML" color="darkBlue" />
+                <Chip label="Python" color="darkBlue" />
               </Stack>
 
             </Grid>
@@ -55,14 +55,14 @@ function ExperienceSection({ Typography, Chip }, ref) {
               </Typography>
 
               <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" sx={{ pt: 2 }}>
-                <Chip label="ReactJS" color="primary" />
-                <Chip label="Laravel" color="primary" />
-                <Chip label="MySQL" color="primary" />
-                <Chip label="GitLab" color="primary" />
-                <Chip label="Figma" color="primary" />
-                <Chip label="HTML" color="primary" />
-                <Chip label="CSS" color="primary" />
-                <Chip label="Bootstrap" color="primary" />
+                <Chip label="ReactJS" color="darkBlue" />
+                <Chip label="Laravel" color="darkBlue" />
+                <Chip label="MySQL" color="darkBlue" />
+                <Chip label="GitLab" color="darkBlue" />
+                <Chip label="Figma" color="darkBlue" />
+                <Chip label="HTML" color="darkBlue" />
+                <Chip label="CSS" color="darkBlue" />
+                <Chip label="Bootstrap" color="darkBlue" />
               </Stack>
 
             </Grid>

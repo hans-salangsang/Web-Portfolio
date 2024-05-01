@@ -155,12 +155,17 @@ let lightTheme = createTheme({
         dark: '#FAFAFA',
       },
     },
-    primary: {
+    darkBlue: {
       main: '#819EC5',
       contrastText: '#202431',
     },
-    secondary: {
-      main: '#FF4081',
+    lightBlue: {
+      main: '#819EC5',
+      contrastText: '#202431',
+    },
+    white: {
+      main: '#202431',
+      contrastText: '#819EC5',
     },
   },
   typography,
@@ -198,12 +203,17 @@ let darkTheme = createTheme({
         dark: '#101218',
       },
     },
-    primary: {
+    darkBlue: {
       main: '#202431',
       contrastText: '#819EC5',
     },
-    secondary: {
-      main: '#FF4081',
+    lightBlue: {
+      main: '#819EC5',
+      contrastText: '#819EC5',
+    },
+    white: {
+      main: '#FAFAFA',
+      contrastText: '#819EC5',
     },
   },
   typography,
