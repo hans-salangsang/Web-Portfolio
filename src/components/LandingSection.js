@@ -4,7 +4,7 @@ import Container from '@mui/material/Container';
 
 function LandingSection({ Typography }, ref) {
   return (
-    <Container ref={ref} sx={{ minHeight: '100vh', pt: '200px' }}>
+    <Container maxWidth="lg" ref={ref} sx={{ minHeight: '100vh', pt: '200px' }}>
       <Stack spacing={2}>
         <Typography variant="h2" color="text.textPrimary.light" fontWeight={800} paragraph textAlign="center">
             Hans<br />Salangsang

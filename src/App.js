@@ -8,6 +8,8 @@ import AppNavBar from './components/AppNavBar';
 import LandingSection from './components/LandingSection';
 import ExperienceSection from './components/ExperienceSection';
 import ProjectsSection from './components/ProjectsSection';
+import ConnectSection from './components/ConnectSection';
+import Footer from './components/Footer';
 import { lightTheme, darkTheme } from './theme';
 import { styled } from '@mui/material/styles';
 import BaseTypography from '@mui/material/Typography';
@@ -34,8 +36,9 @@ function App() {
   const landingSectionRef = useRef(null);
   const experienceSectionRef = useRef(null);
   const projectsSectionRef = useRef(null);
+  const connectSectionRef = useRef(null);
 
-  const [activeSection, setActiveSection] = useState(null);
+  const [activeSection, setActiveSection] = useState('landing');
 
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({ behavior: 'smooth' });
@@ -46,11 +49,12 @@ function App() {
       const landingSectionRect = landingSectionRef.current.getBoundingClientRect();
       const experienceSectionRect = experienceSectionRef.current.getBoundingClientRect();
       const projectsSectionRect = projectsSectionRef.current.getBoundingClientRect();
+      const connectSectionRect = connectSectionRef.current.getBoundingClientRect();
 
       const isInView = (rect) => {
         const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-        const topThreshold = -0.5; // 50% from the top of the viewport
-        const bottomThreshold = 1.7; // 125% from the top of the viewport
+        const topThreshold = -0.2;
+        const bottomThreshold = 1.2;
       
         return (
           rect.top >= topThreshold * windowHeight &&
@@ -64,8 +68,8 @@ function App() {
         setActiveSection('experience');
       } else if (isInView(projectsSectionRect)) {
         setActiveSection('projects');
-      } else {
-        setActiveSection(null);
+      } else if (isInView(connectSectionRect)) {
+        setActiveSection('connect');
       }
     };
 
@@ -115,15 +119,19 @@ function App() {
           }
         }}
       />
-      <Container maxWidth="lg">
-        <ScreenProvider screenSize={screenSize}>
-          <AppNavBar Typography={Typography} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} activeSection={activeSection} />
-          <ScrollProgressIndicator Typography={Typography} Chip={Chip} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} activeSection={activeSection} />     
-          <LandingSection ref={landingSectionRef} Typography={Typography} />
-          <ExperienceSection ref={experienceSectionRef} Typography={Typography} Chip={Chip} />
-          <ProjectsSection ref={projectsSectionRef} Typography={Typography} Chip={Chip} />     
-        </ScreenProvider>
-      </Container>
+      <ScreenProvider screenSize={screenSize}>
+        <AppNavBar Typography={Typography} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />
+        <ScrollProgressIndicator Typography={Typography} Chip={Chip} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />     
+        <LandingSection ref={landingSectionRef} Typography={Typography} />
+        <ExperienceSection ref={experienceSectionRef} Typography={Typography} Chip={Chip} />
+        <ProjectsSection ref={projectsSectionRef} Typography={Typography} Chip={Chip} />   
+        <Container sx={{ background: theme.palette.background.contrast, minWidth: "100%" }}>
+          <ConnectSection ref={connectSectionRef} Typography={Typography} Chip={Chip} />       
+        </Container>   
+        <Container sx={{ background: theme.palette.background.footer, minWidth: "100%" }}>
+          <Footer Typography={Typography} Chip={Chip} />       
+        </Container>
+      </ScreenProvider>
     </ThemeProvider>
   );
 }

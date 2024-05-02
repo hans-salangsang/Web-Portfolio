@@ -9,6 +9,7 @@ import BaseDarkModeIcon from '@mui/icons-material/DarkMode';
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import { useTheme } from '@mui/material/styles';
+import { motion } from 'framer-motion';
 
 const LightModeIcon = styled(BaseLightModeIcon)`
   ${({ theme }) => `
@@ -24,7 +25,7 @@ const DarkModeIcon = styled(BaseDarkModeIcon)`
   `}
 `;
 
-function AppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSection, landingSectionRef, experienceSectionRef, projectsSectionRef }) {
+function AppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSection, landingSectionRef, experienceSectionRef, projectsSectionRef, connectSectionRef, activeSection }) {
 
   const screenSize = useScreenSize();
   const theme = useTheme();
@@ -68,7 +69,7 @@ function AppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSection, lan
           )}
         </Grid>
         <Grid item xs={6} sm={7} md={8} lg={7} sx={{ display: 'flex', justifyContent: 'center' }}>
-          <DynamicIsland Typography={Typography} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} />
+          <DynamicIsland Typography={Typography} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />
         </Grid>
           <Grid item xs sm md sx={{ justifyContent: 'flex-end', mr: 10, py: screenSize === 'md' ? 2 : 0 }}>
             <Stack 
@@ -87,20 +88,26 @@ function AppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSection, lan
               }}              
             >
               {!isDarkMode && (
-                <Zoom in={!isDarkMode} style={{ transformOrigin: 'center' }}>
-                  <IconButton onClick={handleToggleDarkMode} size="small">
-                    <LightModeIcon />
-                  </IconButton>
-                </Zoom>
+                  <motion.div
+                    whileHover={{ scale: 1.2, marginTop: -4 }}
+                    whileTap={{ scale: 0.9, marginTop: -2 }}
+                  >
+                    <IconButton onClick={handleToggleDarkMode} size="small">
+                      <LightModeIcon />
+                    </IconButton>
+                  </motion.div>
                 )
               }
 
               {isDarkMode && (
-                <Zoom in={isDarkMode} style={{ transformOrigin: 'center' }}>
-                  <IconButton onClick={handleToggleDarkMode} size="small">
-                    <DarkModeIcon />
-                  </IconButton>
-                </Zoom>
+                  <motion.div
+                    whileHover={{ scale: 1.2, marginTop: -4 }}
+                    whileTap={{ scale: 0.9, marginTop: -2 }}
+                  >
+                    <IconButton onClick={handleToggleDarkMode} size="small">
+                      <DarkModeIcon />
+                    </IconButton>
+                  </motion.div>
                 )
               }
 

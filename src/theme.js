@@ -132,11 +132,22 @@ const components = {
     },
 };
 
+const transitions = {
+  duration: {
+    standard: 150,
+  },
+  easing: {
+    standard: 'ease-in-out',
+  },
+};
+
 let lightTheme = createTheme({
   palette: {
     background: {
       default: '#F4F4F6',
-      contrast: "#202431",
+      contrast: "#101218",
+      accent: "#202431",
+      footer: "#819EC5",
     },
     text: {
       textPrimary: {
@@ -154,29 +165,29 @@ let lightTheme = createTheme({
         main: '#202431',
         dark: '#FAFAFA',
       },
+      textDynamicIsland: {
+        light: '#F4F4F6',
+        main: '#819EC5',
+        dark: '#858899',
+      },
+      textFooter: {
+        light: '#F4F4F6',
+        main: '#9B9EAB',
+        dark: '#819EC5',
+        footer: '#101218',
+      },
     },
     darkBlue: {
       main: '#819EC5',
-      contrastText: '#202431',
+      contrastText: '#FAFAFA',
     },
     lightBlue: {
       main: '#819EC5',
       contrastText: '#202431',
     },
-    white: {
-      main: '#202431',
-      contrastText: '#819EC5',
-    },
   },
   typography,
-  transitions: {
-    duration: {
-      standard: 250,
-    },
-    easing: {
-      standard: 'ease-in-out',
-    },
-  },
+  transitions,
   components,
 });
 
@@ -184,7 +195,9 @@ let darkTheme = createTheme({
   palette: {
     background: {
       default: '#101218',
-      contrast: "#819EC5",
+      contrast: "#F4F4F6",
+      accent: "#819EC5",
+      footer: "#819EC5",
     },
     text: {
       textPrimary: {
@@ -202,6 +215,17 @@ let darkTheme = createTheme({
         main: '#202431',
         dark: '#101218',
       },
+      textDynamicIsland: {
+        light: '#F4F4F6',
+        main: '#202431',
+        dark: '#546D8C',
+      },
+      textFooter: {
+        light: '#202431',
+        main: '#696F8C',
+        dark: '#819EC5',
+        footer: '#101218',
+      },
     },
     darkBlue: {
       main: '#202431',
@@ -209,22 +233,11 @@ let darkTheme = createTheme({
     },
     lightBlue: {
       main: '#819EC5',
-      contrastText: '#819EC5',
-    },
-    white: {
-      main: '#FAFAFA',
-      contrastText: '#819EC5',
+      contrastText: '#202431',
     },
   },
   typography,
-  transitions: {
-    duration: {
-      standard: 250,
-    },
-    easing: {
-      standard: 'ease-in-out',
-    },
-  },
+  transitions,
   components,
 });
 
