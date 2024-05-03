@@ -44,42 +44,6 @@ function App() {
     ref.current.scrollIntoView({ behavior: 'smooth' });
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const landingSectionRect = landingSectionRef.current.getBoundingClientRect();
-      const experienceSectionRect = experienceSectionRef.current.getBoundingClientRect();
-      const projectsSectionRect = projectsSectionRef.current.getBoundingClientRect();
-      const connectSectionRect = connectSectionRef.current.getBoundingClientRect();
-
-      const isInView = (rect) => {
-        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-        const topThreshold = -0.2;
-        const bottomThreshold = 1.2;
-      
-        return (
-          rect.top >= topThreshold * windowHeight &&
-          rect.bottom <= bottomThreshold * windowHeight
-        );
-      };
-      
-      if (isInView(landingSectionRect)) {
-        setActiveSection('landing');
-      } else if (isInView(experienceSectionRect)) {
-        setActiveSection('experience');
-      } else if (isInView(projectsSectionRect)) {
-        setActiveSection('projects');
-      } else if (isInView(connectSectionRect)) {
-        setActiveSection('connect');
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   // Use state to manage the current theme
   const [isDarkMode, setIsDarkMode] = useState(true);
 
@@ -107,6 +71,53 @@ function App() {
   } else {
     screenSize = "unknown";
   }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const landingSectionRect = landingSectionRef.current.getBoundingClientRect();
+      const experienceSectionRect = experienceSectionRef.current.getBoundingClientRect();
+      const projectsSectionRect = projectsSectionRef.current.getBoundingClientRect();
+      const connectSectionRect = connectSectionRef.current.getBoundingClientRect();
+
+      const isInView = (rect) => {
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        const topThreshold = -0.2;
+        const bottomThreshold = 1.2;
+
+        let view = false;
+
+        if(isXs || isSm) {
+          console.log(rect.top)
+          view = rect.top >= -0.8 * windowHeight &&
+          rect.top <= 0.8 * windowHeight
+        }
+        else {
+          view = rect.top >= topThreshold * windowHeight &&
+          rect.bottom <= bottomThreshold * windowHeight
+        }
+      
+        return (
+          view
+        );
+      };
+      
+      if (isInView(landingSectionRect)) {
+        setActiveSection('landing');
+      } else if (isInView(experienceSectionRect)) {
+        setActiveSection('experience');
+      } else if (isInView(projectsSectionRect)) {
+        setActiveSection('projects');
+      } else if (isInView(connectSectionRect)) {
+        setActiveSection('connect');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
