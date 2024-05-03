@@ -185,6 +185,10 @@ let lightTheme = createTheme({
       main: '#819EC5',
       contrastText: '#202431',
     },
+    switchThumb: {
+      track: '#9B9EAB',
+      main: '#FAFAFA',
+    },
   },
   typography,
   transitions,
@@ -234,6 +238,10 @@ let darkTheme = createTheme({
     lightBlue: {
       main: '#819EC5',
       contrastText: '#202431',
+    },
+    switchThumb: {
+      track: '#353746',
+      main: '#696E8C',
     },
   },
   typography,
