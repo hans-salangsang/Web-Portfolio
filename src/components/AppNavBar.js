@@ -92,7 +92,7 @@ function AppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSection, lan
       elevation={0}
     >
       <Grid container direction="row" justifyContent="space-around" alignItems="flex-start" sx={{ mt: 3, mb: 2, px: 2 }}>
-        <Grid item xs sm md sx={{ ml: 10, display: 'flex', py: 1 }}>
+        <Grid item xs sm={1} md sx={{ pl: screenSize === 'xs' || screenSize === 'sm' ? 0 : screenSize === 'md' ? 1 : 10, display: 'flex', py: 1 }}>
           {(screenSize !== 'xs' && screenSize !== 'sm' && screenSize !== 'md') && (
             <Typography variant="h6" color="text.textPrimary.light" fontWeight={400} fontFamily="Jetbrains Mono, sans-serif" textAlign="left">
               Hans<span style={{ fontSize: '0.5em' }}>&nbsp;</span><span style={{ color: theme.palette.text.textSecondary.light }}>Salangsang</span>
@@ -105,10 +105,10 @@ function AppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSection, lan
             </>
           )}
         </Grid>
-        <Grid item xs={6} sm={7} md={8} lg={7} sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Grid item xs={10} sm={8} md={8} lg={7} sx={{ display: 'flex', justifyContent: 'center' }}>
           <DynamicIsland Typography={Typography} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />
         </Grid>
-          <Grid item xs sm md sx={{ justifyContent: 'flex-end', mr: 10, py: screenSize === 'md' ? 2 : 0 }}>
+          <Grid item xs sm={1} md sx={{ justifyContent: 'flex-end', pr: screenSize === 'xs' || screenSize === 'sm' ? 0 : screenSize === 'md' ? 1 : 10, py: screenSize === 'md' ? 2 : 0 }}>
             <Stack 
               direction={
                 (screenSize !== 'xs' && screenSize !== 'lg' && screenSize !== 'xl') 

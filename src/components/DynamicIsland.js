@@ -27,7 +27,7 @@ function DynamicIsland({ Typography, scrollToSection, landingSectionRef, experie
   const [hoveredButton, setHoveredButton] = useState("");
 
   return (
-    <Toolbar variant="dense" sx={{ backgroundColor: 'background.accent', justifyContent: 'center', borderRadius: 8, width: screenSize === 'xs' ? '90%' : screenSize === 'sm' ? '85%' : '60%' }}>
+    <Toolbar variant="dense" sx={{ backgroundColor: 'background.accent', justifyContent: 'center', borderRadius: 8, width: screenSize === 'xs' ? '90%' : screenSize === 'sm' ? '90%' : '70%' }}>
       <Stack direction="row" spacing={1}>
         <motion.div
           whileHover={{ scale: 1.2, marginTop: -4 }}

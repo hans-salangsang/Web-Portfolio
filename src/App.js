@@ -121,13 +121,24 @@ function App() {
       />
       <ScreenProvider screenSize={screenSize}>
         <AppNavBar Typography={Typography} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />
-        <ScrollProgressIndicator Typography={Typography} Chip={Chip} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />     
-        <LandingSection ref={landingSectionRef} Typography={Typography} />
-        <ExperienceSection ref={experienceSectionRef} Typography={Typography} Chip={Chip} />
-        <ProjectsSection ref={projectsSectionRef} Typography={Typography} Chip={Chip} />   
+        <ScrollProgressIndicator Typography={Typography} Chip={Chip} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />  
+        
+        <Container sx={{ minWidth: "100%" }}>
+          <LandingSection ref={landingSectionRef} Typography={Typography} />
+        </Container>   
+
+        <Container sx={{ minWidth: "100%" }}>
+          <ExperienceSection ref={experienceSectionRef} Typography={Typography} Chip={Chip} />
+        </Container> 
+        
+        <Container sx={{ minWidth: "100%" }}>
+          <ProjectsSection ref={projectsSectionRef} Typography={Typography} Chip={Chip} />  
+        </Container> 
+
         <Container sx={{ background: theme.palette.background.contrast, minWidth: "100%" }}>
           <ConnectSection ref={connectSectionRef} Typography={Typography} Chip={Chip} />       
         </Container>   
+
         <Container sx={{ background: theme.palette.background.footer, minWidth: "100%" }}>
           <Footer Typography={Typography} Chip={Chip} />       
         </Container>
