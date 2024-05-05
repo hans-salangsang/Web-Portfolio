@@ -1,11 +1,13 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
+import { useScreenSize } from '../ScreenContext';
 
 function Footer({ Typography, Chip }) {
+  const screenSize = useScreenSize();
+
   return (
-    <Container sx={{ minWidth: "90%" }}>
+    <Container sx={{ minWidth: screenSize === "xl" ? "83%" : "90%" }}>
       <Grid container sx={{ py: 1 }}>
 
         <Grid item xs={4}>

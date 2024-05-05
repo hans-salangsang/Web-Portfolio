@@ -1,17 +1,8 @@
 import React from 'react';
-import BaseToolbar from '@mui/material/Toolbar'
-import { useScreenSize } from '../ScreenContext';
 import { styled } from '@mui/material/styles';
 import Stack from '@mui/material/Stack';
 
-const Toolbar = styled(BaseToolbar)`
-  ${({ theme }) => `
-    transition: background ${theme.transitions.duration.standard}ms ${theme.transitions.easing.standard};
-  `}
-`;
-
 function ScrollProgressIndicator({ Typography, Chip, scrollToSection, landingSectionRef, experienceSectionRef, projectsSectionRef, connectSectionRef, activeSection }) {
-  const screenSize = useScreenSize();
 
   const CustomChip = styled(Chip)(({ theme }) => ({
     '&:hover': {

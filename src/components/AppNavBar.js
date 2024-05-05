@@ -3,14 +3,9 @@ import { Grid, AppBar, Stack } from '@mui/material';
 import Clock from './Clock';
 import DynamicIsland from './DynamicIsland';
 import { useScreenSize } from '../ScreenContext';
-import Zoom from '@mui/material/Zoom';
-import LightModeIcon from '@mui/icons-material/LightMode';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import IconButton from '@mui/material/IconButton';
 import Switch from '@mui/material/Switch';
 import { styled } from '@mui/material/styles';
 import { useTheme } from '@mui/material/styles';
-import { motion } from 'framer-motion';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 56,
@@ -27,9 +22,9 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       color: '#fff',
       transform: 'translateX(22px)',
       '& .MuiSwitch-thumb:before': {
-        backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
+        backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 400 525"><path fill="${encodeURIComponent(
           theme.palette.text.textPrimary.light,
-        )}" d="M4.2 2.5l-.7 1.8-1.8.7 1.8.7.7 1.8.6-1.8L6.7 5l-1.9-.7-.6-1.8zm15 8.3a6.7 6.7 0 11-6.6-6.6 5.8 5.8 0 006.6 6.6z"/></svg>')`,
+        )}" d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>')`,
       },
       '& + .MuiSwitch-track': {
         opacity: 1,
@@ -92,23 +87,26 @@ function AppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSection, lan
       elevation={0}
     >
       <Grid container direction="row" justifyContent="space-around" alignItems="flex-start" sx={{ mt: 3, mb: 2, px: 2 }}>
-        <Grid item xs sm={1} md sx={{ pl: screenSize === 'xs' || screenSize === 'sm' ? 0 : screenSize === 'md' ? 1 : 10, display: 'flex', py: 1 }}>
-          {(screenSize !== 'xs' && screenSize !== 'sm' && screenSize !== 'md') && (
-            <Typography variant="h6" color="text.textPrimary.light" fontWeight={400} fontFamily="Jetbrains Mono, sans-serif" textAlign="left">
-              Hans<span style={{ fontSize: '0.5em' }}>&nbsp;</span><span style={{ color: theme.palette.text.textSecondary.light }}>Salangsang</span>
-            </Typography>
-          )}
-          {(screenSize === 'xs' || screenSize === 'sm' || screenSize === 'md') && (
-            <>
-              <Typography variant="h6" color="text.textPrimary.light" fontWeight={400} textAlign="left">H</Typography>
-              <Typography variant="h6" color="text.textSecondary.light" fontWeight={400} textAlign="left">S</Typography>
-            </>
-          )}
-        </Grid>
-        <Grid item xs={10} sm={8} md={8} lg={7} sx={{ display: 'flex', justifyContent: 'center' }}>
+        {screenSize !== 'xs' && (
+          <Grid item xs={0} sm={1} md sx={{ pl: screenSize === 'xs' || screenSize === 'sm' ? 0 : screenSize === 'md' ? 4 : 10, display: 'flex', py: 1 }}>
+            {(screenSize !== 'xs' && screenSize !== 'sm' && screenSize !== 'md') && (
+              <Typography variant="h6" color="text.textPrimary.light" fontWeight={400} fontFamily="Jetbrains Mono, sans-serif" textAlign="left">
+                Hans<span style={{ fontSize: '0.5em' }}>&nbsp;</span><span style={{ color: theme.palette.text.textSecondary.light }}>Salangsang</span>
+              </Typography>
+            )}
+            {(screenSize === 'xs' || screenSize === 'sm' || screenSize === 'md') && (
+              <>
+                <Typography variant="h6" color="text.textPrimary.light" fontWeight={400} textAlign="left">H</Typography>
+                <Typography variant="h6" color="text.textSecondary.light" fontWeight={400} textAlign="left">S</Typography>
+              </>
+            )}
+          </Grid>
+        )}
+        <Grid item xs={12} sm={8} md={8} lg={7} sx={{ display: 'flex', justifyContent: 'center' }}>
           <DynamicIsland Typography={Typography} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />
         </Grid>
-          <Grid item xs sm={1} md sx={{ justifyContent: 'flex-end', pr: screenSize === 'xs' || screenSize === 'sm' ? 0 : screenSize === 'md' ? 1 : 10, py: screenSize === 'md' ? 2 : 0 }}>
+        {screenSize !== 'xs' && (
+          <Grid item xs={0} sm={1} md sx={{ justifyContent: 'flex-end', pr: screenSize === 'xs' || screenSize === 'sm' ? 0 : screenSize === 'md' ? 4 : 10, py: screenSize === 'md' ? 2 : 0 }}>
             <Stack 
               direction={
                 (screenSize !== 'xs' && screenSize !== 'lg' && screenSize !== 'xl') 
@@ -148,6 +146,7 @@ function AppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSection, lan
               )}
             </Stack>
           </Grid>
+        )}
       </Grid>
     </AppBar>
   );

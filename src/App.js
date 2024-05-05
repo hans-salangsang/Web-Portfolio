@@ -87,9 +87,8 @@ function App() {
         let view = false;
 
         if(isXs || isSm) {
-          console.log(rect.top)
           view = rect.top >= -0.8 * windowHeight &&
-          rect.top <= 0.8 * windowHeight
+          rect.top <= 0.2 * windowHeight
         }
         else {
           view = rect.top >= topThreshold * windowHeight &&

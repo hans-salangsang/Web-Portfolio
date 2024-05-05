@@ -28,7 +28,7 @@ function DynamicIsland({ Typography, scrollToSection, landingSectionRef, experie
 
   return (
     <Toolbar variant="dense" sx={{ backgroundColor: 'background.accent', justifyContent: 'center', borderRadius: 8, width: screenSize === 'xs' ? '90%' : screenSize === 'sm' ? '90%' : '70%' }}>
-      <Stack direction="row" spacing={1}>
+      <Stack direction="row" spacing={screenSize === "xl" ? 3 : screenSize === "xs" ? 0 : 1 }>
         <motion.div
           whileHover={{ scale: 1.2, marginTop: -4 }}
           whileTap={{ scale: 0.9, marginTop: -2 }}

@@ -1,11 +1,13 @@
 import React, { forwardRef } from 'react';
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
+import { useScreenSize } from '../ScreenContext';
 
 function ConnectSection({ Typography, Chip }, ref) {
+  const screenSize = useScreenSize();
+
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth={screenSize === "xl" ? "xl" : "lg"}>
       <Grid ref={ref} container sx={{ minHeight: '80vh', pt: '60px' }}>
 
         <Grid container item xs={12}>

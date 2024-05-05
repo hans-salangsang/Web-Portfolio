@@ -1,10 +1,13 @@
 import React, { forwardRef } from 'react';
 import { Stack } from '@mui/material';
 import Container from '@mui/material/Container';
+import { useScreenSize } from '../ScreenContext';
 
 function LandingSection({ Typography }, ref) {
+  const screenSize = useScreenSize();
+
   return (
-    <Container maxWidth="lg" ref={ref} sx={{ minHeight: '100vh', pt: '200px' }}>
+    <Container maxWidth={screenSize === "xl" ? "xl" : "lg"} ref={ref} sx={{ minHeight: '100vh', pt: '30vh' }}>
       <Stack spacing={2}>
         <Typography variant="h2" color="text.textPrimary.light" fontWeight={800} paragraph textAlign="center">
             Hans<br />Salangsang
