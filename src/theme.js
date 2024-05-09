@@ -49,7 +49,7 @@ const typography = {
     },
   },
   h6: {
-    fontFamily: 'Poppins, sans-sefif',
+    fontFamily: 'Jetbrains Mono, sans-sefif',
     [baseTheme.breakpoints.down('md')]: {
       fontSize: "1rem",
     },
@@ -123,19 +123,19 @@ const typography = {
 };
 
 const components = {
-    MuiChip: {
-      styleOverrides: {
-        root: {
-          fontFamily: 'Poppins, sans-serif',
-          [baseTheme.breakpoints.down('md')]: {
-            fontSize: "0.75rem",
-          },
-          [baseTheme.breakpoints.up('xl')]: {
-            fontSize: "1rem",
-          },
+  MuiChip: {
+    styleOverrides: {
+      root: {
+        fontFamily: 'Poppins, sans-serif',
+        [baseTheme.breakpoints.down('md')]: {
+          fontSize: "0.75rem",
+        },
+        [baseTheme.breakpoints.up('xl')]: {
+          fontSize: "1rem",
         },
       },
     },
+  },
 };
 
 const transitions = {

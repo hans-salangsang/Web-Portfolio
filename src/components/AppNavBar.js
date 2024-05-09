@@ -3,6 +3,7 @@ import { Grid, AppBar, Stack } from '@mui/material';
 import Clock from './Clock';
 import DynamicIsland from './DynamicIsland';
 import { useScreenSize } from '../ScreenContext';
+import Container from '@mui/material/Container';
 import Switch from '@mui/material/Switch';
 import { styled } from '@mui/material/styles';
 import { useTheme } from '@mui/material/styles';
@@ -81,11 +82,12 @@ function AppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSection, lan
       sx={(theme) => ({
         backdropFilter: 'blur(30px)',
         justifyContent: 'center',
-        backgroundColor: 'transparent', // Added for browsers that don't support backdrop-filter
+        backgroundColor: 'transparent',
         transition: `background-color ${theme.transitions.duration.standard}ms ${theme.transitions.easing.standard}`,
       })}
       elevation={0}
     >
+    {screenSize !== 'xs' && (
       <Grid container direction="row" justifyContent="space-around" alignItems="flex-start" sx={{ mt: 3, mb: 2, px: 2 }}>
         {screenSize !== 'xs' && (
           <Grid item xs={0} sm={1} md sx={{ pl: screenSize === 'xs' || screenSize === 'sm' ? 0 : screenSize === 'md' ? 4 : 10, display: 'flex', py: 1 }}>
@@ -102,9 +104,11 @@ function AppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSection, lan
             )}
           </Grid>
         )}
+        {screenSize !== 'xs' && (
         <Grid item xs={12} sm={8} md={8} lg={7} sx={{ display: 'flex', justifyContent: 'center' }}>
           <DynamicIsland Typography={Typography} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />
         </Grid>
+        )}
         {screenSize !== 'xs' && (
           <Grid item xs={0} sm={1} md sx={{ justifyContent: 'flex-end', pr: screenSize === 'xs' || screenSize === 'sm' ? 0 : screenSize === 'md' ? 4 : 10, py: screenSize === 'md' ? 2 : 0 }}>
             <Stack 
@@ -148,6 +152,28 @@ function AppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSection, lan
           </Grid>
         )}
       </Grid>
+    )}
+    {screenSize === 'xs' && (
+      <Container maxWidth={screenSize === "xl" ? "xl" : "lg"} sx={{ px: 3 }}>
+        <Grid container direction="row" justifyContent="space-between" alignItems="flex-start" sx={{ mt: 3, mb: 2 }}>
+          
+            <Grid item xs={8} sx={{ py: 1 }}>
+              <Typography variant="h5" color="text.textPrimary.light" fontWeight={400} fontFamily="Jetbrains Mono, sans-serif" textAlign="left">
+                Hans<span style={{ fontSize: '0.5em' }}>&nbsp;</span><span style={{ color: theme.palette.text.textSecondary.light }}>Salangsang</span>
+              </Typography>
+            </Grid>
+          
+            <Grid item xs={4} sx={{ py: 1, display: 'flex', justifyContent: 'flex-end' }}>
+              <MaterialUISwitch
+                onChange={handleToggleDarkMode}
+                size="small"
+                defaultChecked
+              />
+            </Grid>
+
+        </Grid>
+      </Container>
+    )}
     </AppBar>
   );
 }

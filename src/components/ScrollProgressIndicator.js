@@ -5,8 +5,9 @@ import Stack from '@mui/material/Stack';
 function ScrollProgressIndicator({ Typography, Chip, scrollToSection, landingSectionRef, experienceSectionRef, projectsSectionRef, connectSectionRef, activeSection }) {
 
   const CustomChip = styled(Chip)(({ theme }) => ({
+    boxShadow: theme.shadows[5],
     '&:hover': {
-      backgroundColor:  theme.palette.background.contrast,
+      backgroundColor: "#ABBFD8",
     },
   }));  
 

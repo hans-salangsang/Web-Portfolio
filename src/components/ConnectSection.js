@@ -8,7 +8,7 @@ function ConnectSection({ Typography, Chip }, ref) {
 
   return (
     <Container maxWidth={screenSize === "xl" ? "xl" : "lg"}>
-      <Grid ref={ref} container sx={{ minHeight: '80vh', pt: '60px' }}>
+      <Grid ref={ref} container sx={{ minHeight: screenSize === 'xs' ? '80vh' : '80vh', pt: '60px' }}>
 
         <Grid container item xs={12}>
 

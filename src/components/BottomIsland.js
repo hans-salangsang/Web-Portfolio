@@ -6,7 +6,6 @@ import { useScreenSize } from '../ScreenContext';
 import { styled } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { useTheme } from '@mui/material/styles';
 
 const Toolbar = styled(BaseToolbar)`
   ${({ theme }) => `
@@ -23,14 +22,13 @@ const Button = styled(BaseButton)(({ theme }) => ({
   },
 }));
 
-function DynamicIsland({ Typography, scrollToSection, landingSectionRef, experienceSectionRef, projectsSectionRef, connectSectionRef, activeSection }) {
+function BottomIsland({ Typography, scrollToSection, landingSectionRef, experienceSectionRef, projectsSectionRef, connectSectionRef, activeSection }) {
   const screenSize = useScreenSize();
-  const theme = useTheme();
   const [hoveredButton, setHoveredButton] = useState("");
 
   return (
-    <Toolbar variant="dense" sx={{ backgroundColor: 'background.accent', justifyContent: 'center', borderRadius: 8, boxShadow: theme.shadows[5], width: screenSize === 'xs' ? '90%' : screenSize === 'sm' ? '80%' : '70%' }}>
-      <Stack direction="row" spacing={screenSize === "xl" ? 8 : screenSize === "xs" ? 0 : screenSize === "sm" ? 2 : 5}>
+    <Toolbar variant="dense" sx={{ backgroundColor: 'background.accent', justifyContent: 'center', width: '100%' }}>
+      <Stack direction="row" spacing={screenSize === "xl" ? 3 : screenSize === "xs" ? 3 : 2 }>
         <motion.div
           whileHover={{ scale: 1.2, marginTop: -4 }}
           whileTap={{ scale: 0.9, marginTop: -2 }}
@@ -75,4 +73,4 @@ function DynamicIsland({ Typography, scrollToSection, landingSectionRef, experie
   );
 }
 
-export default DynamicIsland;
+export default BottomIsland;

@@ -5,6 +5,7 @@ import Container from '@mui/system/Container';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { ScreenProvider } from './ScreenContext';
 import AppNavBar from './components/AppNavBar';
+import BottomAppNavBar from './components/BottomAppNavBar';
 import LandingSection from './components/LandingSection';
 import ExperienceSection from './components/ExperienceSection';
 import ProjectsSection from './components/ProjectsSection';
@@ -17,6 +18,8 @@ import BaseChip from '@mui/material/Chip';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import './Scrollbar.css';
 import ScrollProgressIndicator from './components/ScrollProgressIndicator';
+import FloatingSocials from './components/FloatingSocials';
+import BackToTop from './components/BackToTop';
 
 const Typography = styled(BaseTypography)`
   ${({ theme }) => `
@@ -126,12 +129,24 @@ function App() {
           body: { 
             backgroundColor: theme.palette.background.default,
             transition: `background-color ${theme.transitions.duration.standard}ms ${theme.transitions.easing.standard}`,
-          }
+          },
+          '::selection': {
+            backgroundColor: '#ABBFD8',
+            color: '#101218',
+          },
         }}
       />
       <ScreenProvider screenSize={screenSize}>
-        <AppNavBar Typography={Typography} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />
-        <ScrollProgressIndicator Typography={Typography} Chip={Chip} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />  
+        <Container sx={{ minWidth: "100%" }}>
+          <AppNavBar Typography={Typography} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />
+        </Container>
+        {screenSize === 'xs' && (
+          <BottomAppNavBar Typography={Typography} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />
+        )}
+        
+        <ScrollProgressIndicator Typography={Typography} Chip={Chip} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />
+        <BackToTop Typography={Typography} Chip={Chip} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} />  
+        <FloatingSocials Typography={Typography} />   
         
         <Container sx={{ minWidth: "100%" }}>
           <LandingSection ref={landingSectionRef} Typography={Typography} />

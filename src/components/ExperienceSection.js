@@ -20,9 +20,7 @@ function ExperienceSection({ Typography, Chip }, ref) {
               </Grid>
 
               <Grid item xs={8}>
-                <ScrollRevealAnimation>
-                  <Typography variant="h4" color="text.textPrimary.light" fontWeight={400} sx={{ pb: 5 }}>Experience</Typography>
-                </ScrollRevealAnimation>
+                <Typography variant="h4" color="text.textPrimary.light" fontWeight={400} sx={{ pb: 5 }}>Experience</Typography>
               </Grid>
             </Grid>
 
@@ -75,9 +73,7 @@ function ExperienceSection({ Typography, Chip }, ref) {
                 </Grid>
                 <Grid item xs={8}>
 
-                  <ScrollRevealAnimation>
-                    <Typography variant="h4" color="text.textPrimary.light" fontWeight={400} sx={{ pb: 5 }}>Experience</Typography>
-                  </ScrollRevealAnimation>
+                  <Typography variant="h4" color="text.textPrimary.light" fontWeight={400} sx={{ pb: 5 }}>Experience</Typography>
 
                 </Grid>
               </Grid>

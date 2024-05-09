@@ -16,9 +16,7 @@ function ProjectsSection({ Typography, Chip }, ref) {
 
             <Grid container item spacing={2}>
               <Grid item xs={12}>
-                <ScrollRevealAnimation>
                   <Typography variant="h4" color="text.textPrimary.light" fontWeight={400} sx={{ pb: 5 }}>Projects</Typography>
-                </ScrollRevealAnimation>  
               </Grid>
             </Grid>
 
