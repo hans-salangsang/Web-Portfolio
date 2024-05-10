@@ -153,6 +153,7 @@ let lightTheme = createTheme({
       default: '#F4F4F6',
       contrast: "#101218",
       accent: "#202431",
+      accentHover: "#101218",
       footer: "#819EC5",
     },
     text: {
@@ -207,6 +208,7 @@ let darkTheme = createTheme({
       default: '#101218',
       contrast: "#F4F4F6",
       accent: "#819EC5",
+      accentHover: "#ABBFD8",
       footer: "#819EC5",
     },
     text: {

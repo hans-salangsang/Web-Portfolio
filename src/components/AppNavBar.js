@@ -80,7 +80,7 @@ function AppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSection, lan
     <AppBar
       position="fixed"
       sx={(theme) => ({
-        backdropFilter: 'blur(30px)',
+        backdropFilter: 'blur(16px)',
         justifyContent: 'center',
         backgroundColor: 'transparent',
         transition: `background-color ${theme.transitions.duration.standard}ms ${theme.transitions.easing.standard}`,
@@ -153,6 +153,7 @@ function AppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSection, lan
         )}
       </Grid>
     )}
+    
     {screenSize === 'xs' && (
       <Container maxWidth={screenSize === "xl" ? "xl" : "lg"} sx={{ px: 3 }}>
         <Grid container direction="row" justifyContent="space-between" alignItems="flex-start" sx={{ mt: 3, mb: 2 }}>

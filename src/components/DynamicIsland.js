@@ -15,6 +15,8 @@ const Toolbar = styled(BaseToolbar)`
 `;
 
 const Button = styled(BaseButton)(({ theme }) => ({
+  paddingLeft: '2vw',
+  paddingRight: '2vw',
   '&:hover .MuiTypography-root': {
     color: theme.palette.text.textDynamicIsland.main,
   },
@@ -29,8 +31,8 @@ function DynamicIsland({ Typography, scrollToSection, landingSectionRef, experie
   const [hoveredButton, setHoveredButton] = useState("");
 
   return (
-    <Toolbar variant="dense" sx={{ backgroundColor: 'background.accent', justifyContent: 'center', borderRadius: 8, boxShadow: theme.shadows[5], width: screenSize === 'xs' ? '90%' : screenSize === 'sm' ? '80%' : '70%' }}>
-      <Stack direction="row" spacing={screenSize === "xl" ? 8 : screenSize === "xs" ? 0 : screenSize === "sm" ? 2 : 5}>
+    <Toolbar variant="dense" sx={{ backgroundColor: hoveredButton !== '' ? "background.accentHover" : "background.accent", justifyContent: 'center', borderRadius: 8, boxShadow: theme.shadows[5], width: screenSize === 'xs' ? '90%' : screenSize === 'sm' ? '80%' : '70%' }}>
+      <Stack direction="row" spacing={0}>
         <motion.div
           whileHover={{ scale: 1.2, marginTop: -4 }}
           whileTap={{ scale: 0.9, marginTop: -2 }}

@@ -5,21 +5,24 @@ import BaseButton from '@mui/material/Button'
 import BaseIconButton from '@mui/material/IconButton';
 import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import { motion } from 'framer-motion';
+import { useScreenSize } from '../ScreenContext';
 
 const IconButton = styled(BaseIconButton)(({ theme }) => ({
-  backgroundColor: "#819EC5",
-  color: "#42566E",
+  backgroundColor: "rgba(129, 158, 197, 0.3)",
+  backdropFilter: 'blur(8px)',
+  color: "rgba(129, 158, 197, 1)",
   boxShadow: theme.shadows[5],
   '&:hover': {
-    color: "#202431",
-    backgroundColor: "#ABBFD8",
+    color: "rgba(16, 18, 24, 1)",
+    backgroundColor: "rgba(129, 158, 197, 0.7)",
   },
 }));
 
 function BackToTop({ Typography, Chip, scrollToSection, landingSectionRef }) {
+  const screenSize = useScreenSize();
 
   return (
-    <Stack direction="column" spacing={1} useFlexGap flexWrap="wrap" sx={{ pt: 2, mr: 1.5, position: 'fixed', top: '89%', right: 0, zIndex: 999 }}>
+    <Stack direction="column" spacing={1} useFlexGap flexWrap="wrap" sx={{ position: 'fixed', top: screenSize === 'xs' ? '86vh' : '91vh', right: 15, zIndex: 999 }}>
       <motion.div
         whileHover={{ scale: 1.2, marginTop: -4 }}
         whileTap={{ scale: 0.9, marginTop: -2 }}

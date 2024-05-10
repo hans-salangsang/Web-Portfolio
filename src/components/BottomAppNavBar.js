@@ -80,7 +80,7 @@ function BottomAppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSectio
       <AppBar
         position="fixed"
         sx={(theme) => ({
-          backdropFilter: 'blur(30px)',
+          backdropFilter: 'blur(16px)',
           justifyContent: 'center',
           backgroundColor: 'transparent',
           transition: `background-color ${theme.transitions.duration.standard}ms ${theme.transitions.easing.standard}`,
@@ -89,7 +89,7 @@ function BottomAppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSectio
         })}
         elevation={0}
       >
-        <Grid container direction="row" justifyContent="space-around" alignItems="flex-start" sx={{ mt: 2 }}>
+        <Grid container direction="row" justifyContent="space-around" alignItems="flex-start">
           <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
             <BottomIsland Typography={Typography} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />
           </Grid>

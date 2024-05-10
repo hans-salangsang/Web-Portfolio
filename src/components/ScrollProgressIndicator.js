@@ -6,17 +6,19 @@ function ScrollProgressIndicator({ Typography, Chip, scrollToSection, landingSec
 
   const CustomChip = styled(Chip)(({ theme }) => ({
     boxShadow: theme.shadows[5],
+    backgroundColor: "rgba(129, 158, 197, 0.3)",
+    backdropFilter: 'blur(8px)',
     '&:hover': {
-      backgroundColor: "#ABBFD8",
+      backgroundColor: "rgba(129, 158, 197, 0.7)",
     },
   }));  
 
   return (
-    <Stack direction="column" spacing={1} useFlexGap flexWrap="wrap" sx={{ pt: 2, mr: 1.5, maxWidth: '6px', position: 'fixed', top: '40%', right: 0, zIndex: 999 }}>
-      <CustomChip color="lightBlue" onClick={() => scrollToSection(landingSectionRef)} sx={{ maxHeight: activeSection === 'landing' ? '30px' : '6px' }} />
-      <CustomChip color="lightBlue" onClick={() => scrollToSection(experienceSectionRef)} sx={{ maxHeight: activeSection === 'experience' ? '30px' : '6px' }} />
-      <CustomChip color="lightBlue" onClick={() => scrollToSection(projectsSectionRef)} sx={{ maxHeight: activeSection === 'projects' ? '30px' : '6px' }} />
-      <CustomChip color="lightBlue" onClick={() => scrollToSection(connectSectionRef)} sx={{ maxHeight: activeSection === 'connect' ? '30px' : '6px' }} />
+    <Stack direction="column" spacing={1} useFlexGap flexWrap="wrap" sx={{ maxWidth: '6px', position: 'fixed', top: '40vh', right: 15, zIndex: 999 }}>
+      <CustomChip onClick={() => scrollToSection(landingSectionRef)} sx={{ maxHeight: activeSection === 'landing' ? '30px' : '6px' }} />
+      <CustomChip onClick={() => scrollToSection(experienceSectionRef)} sx={{ maxHeight: activeSection === 'experience' ? '30px' : '6px' }} />
+      <CustomChip onClick={() => scrollToSection(projectsSectionRef)} sx={{ maxHeight: activeSection === 'projects' ? '30px' : '6px' }} />
+      <CustomChip onClick={() => scrollToSection(connectSectionRef)} sx={{ maxHeight: activeSection === 'connect' ? '30px' : '6px' }} />
     </Stack>
   );
 }
