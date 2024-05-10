@@ -53,7 +53,7 @@ function FloatingSocials({ Typography, Chip }) {
           borderRadius: 8, 
           boxShadow: theme.shadows[5], 
           position: 'fixed', 
-          top: screenSize === 'xs' ? '60vh' : '62vh', 
+          top: screenSize === 'xs' ? '73vh' : '62vh', 
           left: 15, 
           zIndex: 999,
           backdropFilter: 'blur(8px)', }}>
@@ -67,7 +67,14 @@ function FloatingSocials({ Typography, Chip }) {
             scale: hoveredButton === '' ? 1 : (hoveredButton !== 'GitHub' ? 0.9 : 1),
           }}
         >
-          <IconButton aria-label="GitHub" size="small">
+          <IconButton 
+            aria-label="GitHub" 
+            size="small"
+            component="a"
+            href="https://github.com/hans-salangsang"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <GitHubIcon />
           </IconButton>
         </motion.div>
@@ -81,24 +88,18 @@ function FloatingSocials({ Typography, Chip }) {
             scale: hoveredButton === '' ? 1 : (hoveredButton !== 'LinkedIn' ? 0.9 : 1),
           }}
         >
-          <IconButton aria-label="LinkedIn" size="small">
+          <IconButton 
+            aria-label="LinkedIn" 
+            size="small"
+            component="a"
+            href="https://www.linkedin.com/in/hans-wilhelm-salangsang/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <LinkedInIcon />
           </IconButton>
         </motion.div>
 
-        <motion.div
-          whileHover={{ scale: 1.2, marginTop: -4 }}
-          whileTap={{ scale: 0.9, marginTop: -2 }}
-          onMouseEnter={() => setHoveredButton('Facebook')} 
-          onMouseLeave={() => setHoveredButton('')}
-          animate={{ 
-            scale: hoveredButton === '' ? 1 : (hoveredButton !== 'Facebook' ? 0.9 : 1),
-          }}
-        >
-          <IconButton aria-label="Facebook" size="small">
-            <FacebookIcon />
-          </IconButton>
-        </motion.div>
       </Stack>
   );
 }
