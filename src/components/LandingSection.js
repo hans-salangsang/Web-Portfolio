@@ -15,8 +15,8 @@ function LandingSection({ Typography }, ref) {
         <Typography variant="h5" color="text.textSecondary.light" fontWeight={400} textAlign="center">Full-Stack Web Developer</Typography>
         <Typography variant="body2" color="text.textPrimary.main" fontWeight={400} paragraph textAlign="center">
             From graphic design to programming, I've explored pixels and codes to become a versatile web developer.
-            <Typography variant="body2" color="text.textPrimary.light" fontWeight={400} fontFamily="JetBrains Mono, sans-serif" paragraph textAlign="center" sx={{ mt: '10vh' }}>
-                Let's create your digital dreams together!
+            <Typography variant="body2" color="text.textPrimary.light" fontWeight={400} fontFamily="JetBrains Mono, sans-serif" paragraph textAlign="center" sx={{ mt: screenSize === "xs" ? "17vh" : "20vh" }}>
+                Let's create your{screenSize === "xs" ? <br /> : " "}digital dreams together!
             </Typography>
         </Typography>
       </Stack>

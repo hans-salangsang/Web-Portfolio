@@ -9,7 +9,7 @@ import { useScreenSize } from '../ScreenContext';
 
 const IconButton = styled(BaseIconButton)(({ theme }) => ({
   backgroundColor: "rgba(129, 158, 197, 0.3)",
-  backdropFilter: 'blur(8px)',
+  backdropFilter: 'blur(12px)',
   color: "rgba(129, 158, 197, 1)",
   boxShadow: theme.shadows[5],
   '&:hover': {
@@ -22,7 +22,7 @@ function BackToTop({ Typography, Chip, scrollToSection, landingSectionRef }) {
   const screenSize = useScreenSize();
 
   return (
-    <Stack direction="column" spacing={1} useFlexGap flexWrap="wrap" sx={{ position: 'fixed', top: screenSize === 'xs' ? '86vh' : '91vh', right: 15, zIndex: 999 }}>
+    <Stack direction="column" spacing={1} useFlexGap flexWrap="wrap" sx={{ position: 'fixed', top: screenSize === 'xs' ? '82vh' : '91vh', right: 15, zIndex: 999 }}>
       <motion.div
         whileHover={{ scale: 1.2, marginTop: -4 }}
         whileTap={{ scale: 0.9, marginTop: -2 }}

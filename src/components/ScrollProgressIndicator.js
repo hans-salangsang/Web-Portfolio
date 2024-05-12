@@ -7,7 +7,7 @@ function ScrollProgressIndicator({ Typography, Chip, scrollToSection, landingSec
   const CustomChip = styled(Chip)(({ theme }) => ({
     boxShadow: theme.shadows[5],
     backgroundColor: "rgba(129, 158, 197, 0.3)",
-    backdropFilter: 'blur(8px)',
+    backdropFilter: 'blur(12px)',
     '&:hover': {
       backgroundColor: "rgba(129, 158, 197, 0.7)",
     },

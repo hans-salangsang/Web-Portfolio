@@ -53,11 +53,11 @@ function FloatingSocials({ Typography, Chip }) {
           borderRadius: 8, 
           boxShadow: theme.shadows[5], 
           position: 'fixed', 
-          top: screenSize === 'xs' ? '73vh' : '62vh', 
+          top: screenSize === 'xs' ? '60vh' : '62vh', 
           left: 15, 
           zIndex: 999,
-          backdropFilter: 'blur(8px)', }}>
-
+          backdropFilter: 'blur(12px)', }}
+      >
         <motion.div
           whileHover={{ scale: 1.2, marginTop: -4 }}
           whileTap={{ scale: 0.9, marginTop: -2 }}

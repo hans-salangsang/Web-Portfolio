@@ -80,7 +80,7 @@ function BottomAppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSectio
       <AppBar
         position="fixed"
         sx={(theme) => ({
-          backdropFilter: 'blur(16px)',
+          backdropFilter: 'blur(12px)',
           justifyContent: 'center',
           backgroundColor: 'transparent',
           transition: `background-color ${theme.transitions.duration.standard}ms ${theme.transitions.easing.standard}`,

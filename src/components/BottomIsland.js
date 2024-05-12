@@ -6,6 +6,7 @@ import { useScreenSize } from '../ScreenContext';
 import { styled } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useTheme } from '@mui/material/styles';
 
 const Toolbar = styled(BaseToolbar)`
   ${({ theme }) => `
@@ -26,10 +27,11 @@ const Button = styled(BaseButton)(({ theme }) => ({
 
 function BottomIsland({ Typography, scrollToSection, landingSectionRef, experienceSectionRef, projectsSectionRef, connectSectionRef, activeSection }) {
   const screenSize = useScreenSize();
+  const theme = useTheme();
   const [hoveredButton, setHoveredButton] = useState("");
 
   return (
-    <Toolbar variant="dense" sx={{ backgroundColor: hoveredButton !== '' ? "background.accentHover" : "background.accent", justifyContent: 'center', width: '100%' }}>
+    <Toolbar variant="dense" sx={{ maxHeight: '5%', backgroundColor: hoveredButton !== '' ? "background.accentHover" : "background.accent", justifyContent: 'center', width: '90%', mb: 2, mt: 2, borderRadius: 8, boxShadow: theme.shadows[5] }}>
       <Stack direction="row" spacing={0}>
         <motion.div
           whileHover={{ scale: 1.2, marginTop: -4 }}

@@ -80,7 +80,7 @@ function AppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSection, lan
     <AppBar
       position="fixed"
       sx={(theme) => ({
-        backdropFilter: 'blur(16px)',
+        backdropFilter: 'blur(12px)',
         justifyContent: 'center',
         backgroundColor: 'transparent',
         transition: `background-color ${theme.transitions.duration.standard}ms ${theme.transitions.easing.standard}`,
@@ -156,7 +156,7 @@ function AppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSection, lan
     
     {screenSize === 'xs' && (
       <Container maxWidth={screenSize === "xl" ? "xl" : "lg"} sx={{ px: 3 }}>
-        <Grid container direction="row" justifyContent="space-between" alignItems="flex-start" sx={{ mt: 3, mb: 2 }}>
+        <Grid container direction="row" justifyContent="space-between" alignItems="flex-start" sx={{ mt: 2, mb: 1 }}>
           
             <Grid item xs={8} sx={{ py: 1 }}>
               <Typography variant="h5" color="text.textPrimary.light" fontWeight={400} fontFamily="Jetbrains Mono, sans-serif" textAlign="left">
