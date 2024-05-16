@@ -136,6 +136,19 @@ const components = {
       },
     },
   },
+  MuiTooltip: {
+    styleOverrides: {
+      tooltip: {
+        fontFamily: 'Poppins, sans-serif',
+        [baseTheme.breakpoints.down('md')]: {
+          fontSize: '0.75rem',
+        },
+        [baseTheme.breakpoints.up('xl')]: {
+          fontSize: '1rem',
+        },
+      },
+    },
+  },
 };
 
 const transitions = {

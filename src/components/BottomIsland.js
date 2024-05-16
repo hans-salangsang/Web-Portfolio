@@ -18,6 +18,7 @@ const Button = styled(BaseButton)(({ theme }) => ({
   paddingLeft: '5vw',
   paddingRight: '5vw',
   '&:hover .MuiTypography-root': {
+    fontWeight: 600,
     color: theme.palette.text.textDynamicIsland.main,
   },
   '&:hover': {

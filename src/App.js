@@ -20,6 +20,7 @@ import './Scrollbar.css';
 import ScrollProgressIndicator from './components/ScrollProgressIndicator';
 import FloatingSocials from './components/FloatingSocials';
 import BackToTop from './components/BackToTop';
+import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 
 const Typography = styled(BaseTypography)`
   ${({ theme }) => `
@@ -122,53 +123,55 @@ function App() {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <GlobalStyles
-        styles={{
-          body: { 
-            backgroundColor: theme.palette.background.default,
-            transition: `background-color ${theme.transitions.duration.standard}ms ${theme.transitions.easing.standard}`,
-          },
-          '::selection': {
-            backgroundColor: '#ABBFD8',
-            color: '#101218',
-          },
-        }}
-      />
-      <ScreenProvider screenSize={screenSize}>
-        <Container sx={{ minWidth: "100%" }}>
-          <AppNavBar Typography={Typography} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />
-        </Container>
-        {screenSize === 'xs' && (
-          <BottomAppNavBar Typography={Typography} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />
-        )}
-        
-        <ScrollProgressIndicator Typography={Typography} Chip={Chip} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />
-        <BackToTop Typography={Typography} Chip={Chip} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} />  
-        <FloatingSocials Typography={Typography} />   
-        
-        <Container sx={{ minWidth: "100%" }}>
-          <LandingSection ref={landingSectionRef} Typography={Typography} />
-        </Container>   
+    <ParallaxProvider>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <GlobalStyles
+          styles={{
+            body: { 
+              backgroundColor: theme.palette.background.default,
+              transition: `background-color ${theme.transitions.duration.standard}ms ${theme.transitions.easing.standard}`,
+            },
+            '::selection': {
+              backgroundColor: '#ABBFD8',
+              color: '#101218',
+            },
+          }}
+        />
+        <ScreenProvider screenSize={screenSize}>
+          <Container sx={{ minWidth: "100%" }}>
+            <AppNavBar Typography={Typography} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />
+          </Container>
+          {screenSize === 'xs' && (
+            <BottomAppNavBar Typography={Typography} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />
+          )}
+          
+          <ScrollProgressIndicator Typography={Typography} Chip={Chip} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} experienceSectionRef={experienceSectionRef} projectsSectionRef={projectsSectionRef} connectSectionRef={connectSectionRef} activeSection={activeSection} />
+          <BackToTop Typography={Typography} Chip={Chip} scrollToSection={scrollToSection} landingSectionRef={landingSectionRef} />  
+          <FloatingSocials Typography={Typography} />   
+          
+          <Container sx={{ minWidth: "100%" }}>
+            <LandingSection ref={landingSectionRef} Typography={Typography} />
+          </Container>   
 
-        <Container sx={{ minWidth: "100%" }}>
-          <ExperienceSection ref={experienceSectionRef} Typography={Typography} Chip={Chip} />
-        </Container> 
-        
-        <Container sx={{ minWidth: "100%" }}>
-          <ProjectsSection ref={projectsSectionRef} Typography={Typography} Chip={Chip} />  
-        </Container> 
+          <Container sx={{ minWidth: "100%" }}>
+            <ExperienceSection ref={experienceSectionRef} Typography={Typography} Chip={Chip} />
+          </Container> 
+          
+          <Container sx={{ minWidth: "100%" }}>
+            <ProjectsSection ref={projectsSectionRef} Typography={Typography} Chip={Chip} />  
+          </Container> 
 
-        <Container sx={{ background: theme.palette.background.contrast, minWidth: "100%" }}>
-          <ConnectSection ref={connectSectionRef} Typography={Typography} Chip={Chip} />       
-        </Container>   
+          <Container sx={{ background: theme.palette.background.contrast, minWidth: "100%" }}>
+            <ConnectSection ref={connectSectionRef} Typography={Typography} Chip={Chip} />       
+          </Container>   
 
-        <Container sx={{ background: theme.palette.background.footer, minWidth: "100%" }}>
-          <Footer Typography={Typography} Chip={Chip} />       
-        </Container>
-      </ScreenProvider>
-    </ThemeProvider>
+          <Container sx={{ background: theme.palette.background.footer, minWidth: "100%" }}>
+            <Footer Typography={Typography} Chip={Chip} />       
+          </Container>
+        </ScreenProvider>
+      </ThemeProvider>
+    </ParallaxProvider>
   );
 }
 

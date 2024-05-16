@@ -27,21 +27,21 @@ function ExperienceSection({ Typography, Chip }, ref) {
             <Grid container item spacing={3}>
 
               <Grid item xs={4}>
-                <ScrollRevealAnimation>
+                <ScrollRevealAnimation spring={true} reveal={true}>
                   <Typography variant="h6" color="text.textSecondary.light" fontWeight={400} textAlign="right">Infor</Typography>
                   <Typography variant="subtitle2" color="text.textSecondary.dark" fontWeight={400} textAlign="right">August 2023 - Present</Typography>
                 </ScrollRevealAnimation>
               </Grid>
 
               <Grid item xs={8}>
-                <ScrollRevealAnimation>
+                <ScrollRevealAnimation spring={true} reveal={true}>
                   <Typography variant="h6" color="text.textPrimary.light" fontWeight={600}>Technical Consultant, <span style={{ fontWeight: 300 }}>Associate</span></Typography>
                   <Typography variant="body2" color="text.textPrimary.main" fontWeight={400}>
                     From graphic design to programming, I've journeyed through pixels and codes to become a versatile web developer. From graphic design to programming, I've journeyed through pixels and codes to become a versatile web developer.
                   </Typography>
                 </ScrollRevealAnimation>
 
-                <ScrollRevealAnimation>
+                <ScrollRevealAnimation spring={true} reveal={true}>
                   <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" sx={{ pt: 2 }}>
                     <Chip label="Java" color="darkBlue" />
                     <Chip label="JavaScript" color="darkBlue" />
@@ -81,21 +81,21 @@ function ExperienceSection({ Typography, Chip }, ref) {
               <Grid container item spacing={3}>
 
                 <Grid item xs={4}>
-                  <ScrollRevealAnimation>
+                  <ScrollRevealAnimation spring={true} reveal={true}>
                     <Typography variant="h6" color="text.textSecondary.light" fontWeight={400} textAlign="right">Infor</Typography>
                     <Typography variant="body2" color="text.textSecondary.dark" fontWeight={400} sx={{ mt: 1 }} textAlign="right">August 2023 - Present</Typography>
                   </ScrollRevealAnimation>
                 </Grid>
 
                 <Grid item xs={8}>
-                  <ScrollRevealAnimation>
+                  <ScrollRevealAnimation spring={true} reveal={true}>
                     <Typography variant="h6" color="text.textPrimary.light" fontWeight={600}>Technical Consultant, <span style={{ fontWeight: 300 }}>Associate</span></Typography>
                     <Typography variant="body2" color="text.textPrimary.main" fontWeight={400} sx={{ mt: 1 }}>
                       From graphic design to programming, I've journeyed through pixels and codes to become a versatile web developer. From graphic design to programming, I've journeyed through pixels and codes to become a versatile web developer.
                     </Typography>
                   </ScrollRevealAnimation>
 
-                  <ScrollRevealAnimation>
+                  <ScrollRevealAnimation spring={true} reveal={true}>
                     <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap" sx={{ pt: 2 }}>
                       <Chip label="Java" color="darkBlue" />
                       <Chip label="JavaScript" color="darkBlue" />

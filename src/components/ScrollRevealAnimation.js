@@ -7,25 +7,25 @@ import {
   useVelocity,
 } from "framer-motion";
 
-function ScrollRevealAnimation({ children, delay }) {
+function ScrollRevealAnimation({ children, delay, spring, reveal, zIndex }) {
   const { scrollY } = useScroll();
   const scrollVelocity = useSpring(useVelocity(scrollY), {
-    damping: 15,
+    damping: 40,
     stiffness: 200,
   });
 
   const inputRange = [-1000, 1000];
-  const outputRangeDown = [-5, -50];
-  const outputRangeUp = [5, 50];
+  const outputRangeDown = [0, -50];
+  const outputRangeUp = [0, 50];
 
   const y = useTransform(scrollVelocity, inputRange, scrollVelocity.current >= -10000 ? outputRangeDown : outputRangeUp);
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.3, filter: "blur(20px)" }}
-      whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-      viewport={{ once: true, amount: 0.9 }}
-      style = {{ y }}
+      initial={reveal && { opacity: 0, scale: 0.3, filter: "blur(20px)" }}
+      whileInView={reveal && { opacity: 1, scale: 1, filter: "blur(0px)" }}
+      viewport={reveal && { once: true, amount: 0.9 }}
+      style = {{ ...(spring && { y }), zIndex: zIndex }}
     >
       {children}
     </motion.div>

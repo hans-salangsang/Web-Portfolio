@@ -11,6 +11,7 @@ import { useState } from 'react';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import Tooltip from './CustomTooltip';
 
 const Stack = styled(BaseStack)`
   ${({ theme }) => `
@@ -58,47 +59,52 @@ function FloatingSocials({ Typography, Chip }) {
           zIndex: 999,
           backdropFilter: 'blur(12px)', }}
       >
-        <motion.div
-          whileHover={{ scale: 1.2, marginTop: -4 }}
-          whileTap={{ scale: 0.9, marginTop: -2 }}
-          onMouseEnter={() => setHoveredButton('GitHub')} 
-          onMouseLeave={() => setHoveredButton('')}
-          animate={{ 
-            scale: hoveredButton === '' ? 1 : (hoveredButton !== 'GitHub' ? 0.9 : 1),
-          }}
-        >
-          <IconButton 
-            aria-label="GitHub" 
-            size="small"
-            component="a"
-            href="https://github.com/hans-salangsang"
-            target="_blank"
-            rel="noopener noreferrer"
+          
+        <Tooltip title="GitHub" placement="right">
+          <motion.div
+            whileHover={{ scale: 1.2, marginTop: -4 }}
+            whileTap={{ scale: 0.9, marginTop: -2 }}
+            onMouseEnter={() => setHoveredButton('GitHub')} 
+            onMouseLeave={() => setHoveredButton('')}
+            animate={{ 
+              scale: hoveredButton === '' ? 1 : (hoveredButton !== 'GitHub' ? 0.9 : 1),
+            }}
           >
-            <GitHubIcon />
-          </IconButton>
-        </motion.div>
+              <IconButton 
+                aria-label="GitHub" 
+                size="small"
+                component="a"
+                href="https://github.com/hans-salangsang"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <GitHubIcon />
+              </IconButton>
+          </motion.div>
+        </Tooltip>
 
-        <motion.div
-          whileHover={{ scale: 1.2, marginTop: -4 }}
-          whileTap={{ scale: 0.9, marginTop: -2 }}
-          onMouseEnter={() => setHoveredButton('LinkedIn')} 
-          onMouseLeave={() => setHoveredButton('')}
-          animate={{ 
-            scale: hoveredButton === '' ? 1 : (hoveredButton !== 'LinkedIn' ? 0.9 : 1),
-          }}
-        >
-          <IconButton 
-            aria-label="LinkedIn" 
-            size="small"
-            component="a"
-            href="https://www.linkedin.com/in/hans-wilhelm-salangsang/"
-            target="_blank"
-            rel="noopener noreferrer"
+        <Tooltip title="LinkedIn" placement="right">
+          <motion.div
+            whileHover={{ scale: 1.2, marginTop: -4 }}
+            whileTap={{ scale: 0.9, marginTop: -2 }}
+            onMouseEnter={() => setHoveredButton('LinkedIn')} 
+            onMouseLeave={() => setHoveredButton('')}
+            animate={{ 
+              scale: hoveredButton === '' ? 1 : (hoveredButton !== 'LinkedIn' ? 0.9 : 1),
+            }}
           >
-            <LinkedInIcon />
-          </IconButton>
-        </motion.div>
+            <IconButton 
+              aria-label="LinkedIn" 
+              size="small"
+              component="a"
+              href="https://www.linkedin.com/in/hans-wilhelm-salangsang/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedInIcon />
+            </IconButton>
+          </motion.div>
+        </Tooltip>
 
       </Stack>
   );

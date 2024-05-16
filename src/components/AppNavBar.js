@@ -7,6 +7,7 @@ import Container from '@mui/material/Container';
 import Switch from '@mui/material/Switch';
 import { styled } from '@mui/material/styles';
 import { useTheme } from '@mui/material/styles';
+import Tooltip from './CustomTooltip';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 56,
@@ -126,14 +127,23 @@ function AppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSection, lan
                 py: screenSize === 'md' ? 0 : 1,
               }}              
             >
-              <MaterialUISwitch
-                onChange={handleToggleDarkMode}
-                size="small"
-                defaultChecked
-              />
+              <Tooltip title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'} placement="bottom">
+                <MaterialUISwitch
+                  onChange={handleToggleDarkMode}
+                  size="small"
+                  defaultChecked
+                />
+              </Tooltip>
 
               {(screenSize !== 'xs' && screenSize !== 'sm') && (
                 <>
+                <Tooltip 
+                  title={
+                    <span>
+                      This is my local time.<br />UTC+8
+                    </span>
+                  } 
+                  placement="bottom">
                   <Typography 
                     variant="body2" 
                     color="text.textPrimary.light" 
@@ -146,6 +156,7 @@ function AppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSection, lan
                     <Clock onUpdate={updateTime} />
                     {currentTime}
                   </Typography>
+                </Tooltip>
                 </>
               )}
             </Stack>
@@ -165,11 +176,13 @@ function AppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSection, lan
             </Grid>
           
             <Grid item xs={4} sx={{ py: 1, display: 'flex', justifyContent: 'flex-end' }}>
-              <MaterialUISwitch
-                onChange={handleToggleDarkMode}
-                size="small"
-                defaultChecked
-              />
+              <Tooltip title={isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'} placement="bottom">
+                <MaterialUISwitch
+                  onChange={handleToggleDarkMode}
+                  size="small"
+                  defaultChecked
+                />
+              </Tooltip>
             </Grid>
 
         </Grid>
