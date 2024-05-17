@@ -19,13 +19,13 @@ function LandingSection({ Typography }, ref) {
           <Parallax speed={-20}>
             <Typography variant="h2" color="text.textPrimary.light" fontWeight={800} paragraph textAlign="left">
               Hans<br />Salangsang
-              <Typography variant="h5" color="text.textSecondary.light" fontWeight={400} textAlign="left" sx={{ mt: screenSize === "xs" ? 1 : screenSize === "xl" ? 2 : 1 }}>Full-Stack Web Developer</Typography>
+              <Typography variant="h5" color="text.textSecondary.light" fontWeight={400} textAlign="left" sx={{ mt: screenSize === "xs" ? "2vh" : screenSize === "xl" ? "1vh" : "2vh" }}>Full-Stack Web Developer</Typography>
             </Typography>
           </Parallax>
         </ScrollRevealAnimation>
 
         <ScrollRevealAnimation spring={true} reveal={true}>
-            <Typography variant="body2" color="text.textPrimary.main" fontWeight={400} paragraph textAlign="right" sx={{ mt: screenSize === "xs" ? 35 : screenSize === "xl" ? 32 : 17 }}>
+            <Typography variant="body2" color="text.textPrimary.main" fontWeight={400} paragraph textAlign="right" sx={{ mt: screenSize === "xs" ? "42vh" : screenSize === "xl" ? "25vh" : "18vh" }}>
               {screenSize === 'xs' && (
                 <>
                 From graphic design to programming,<br />
