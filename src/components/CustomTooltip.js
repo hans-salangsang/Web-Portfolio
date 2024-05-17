@@ -6,6 +6,7 @@ import { useTheme } from '@mui/material/styles';
 import { useState } from 'react';
 import BaseTooltip from '@mui/material/Tooltip';
 import Zoom from '@mui/material/Zoom';
+import { alpha } from '@mui/material/styles';
 
 const Tooltip = styled(BaseTooltip)(({ theme }) => ({
     '.MuiTooltip-arrow': {
@@ -38,11 +39,13 @@ const CustomTooltip = styled(({ title, placement, className, ...props }) => (
      />
   ))(({ theme }) => ({
     [`& .MuiTooltip-arrow`]: {
-        color: theme.palette.background.contrast,
+        color: alpha(theme.palette.background.contrast, 0.8),
+        backdropFilter: 'blur(6px)',
     },
     [`& .MuiTooltip-tooltip`]: {
         color: theme.palette.text.textFooter.light,
-        backgroundColor: theme.palette.background.contrast,
+        backgroundColor: alpha(theme.palette.background.contrast, 0.8),
+        backdropFilter: 'blur(6px)',
     },
   }));
 

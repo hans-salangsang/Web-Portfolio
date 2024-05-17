@@ -21,6 +21,7 @@ import ScrollProgressIndicator from './components/ScrollProgressIndicator';
 import FloatingSocials from './components/FloatingSocials';
 import BackToTop from './components/BackToTop';
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
+import useSmoothScroll from './components/useSmoothScroll';
 
 const Typography = styled(BaseTypography)`
   ${({ theme }) => `
@@ -122,6 +123,8 @@ function App() {
     };
   }, []);
 
+  // useSmoothScroll();
+  
   return (
     <ParallaxProvider>
       <ThemeProvider theme={theme}>

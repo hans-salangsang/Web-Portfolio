@@ -18,7 +18,7 @@ function ScrollRevealAnimation({ children, delay, spring, reveal, zIndex }) {
   const outputRangeDown = [0, -50];
   const outputRangeUp = [0, 50];
 
-  const y = useTransform(scrollVelocity, inputRange, scrollVelocity.current >= -10000 ? outputRangeDown : outputRangeUp);
+  const y = useTransform(scrollVelocity, inputRange, scrollVelocity.current >= -100000 ? outputRangeDown : outputRangeUp);
 
   return (
     <motion.div

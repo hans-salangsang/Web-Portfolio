@@ -3,7 +3,8 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import { useScreenSize } from '../ScreenContext';
-import ScrollRevealAnimation from './ScrollRevealAnimation'
+import ScrollRevealAnimation from './ScrollRevealAnimation';
+import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 
 function ExperienceSection({ Typography, Chip }, ref) {
   const screenSize = useScreenSize();
@@ -61,22 +62,19 @@ function ExperienceSection({ Typography, Chip }, ref) {
       )}
 
       {screenSize !== 'xs' && (
-        <Grid ref={ref} container sx={{ minHeight: '100vh', pt: '150px' }}>
+        <Grid ref={ref} container sx={{ minHeight: '100vh', pt: '30vh' }}>
 
           <Grid container item xs={5}>
+            <Grid item xs={12}>
+              <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
+                <Parallax speed={-15}>
+                  <Typography variant="h4" color="text.textPrimary.light" fontWeight={400} sx={{ mt: screenSize === "xs" ? 27 : screenSize === "xl" ? 28 : 16 }}>Experience</Typography>
+                </Parallax>
+              </ScrollRevealAnimation>
+            </Grid>
           </Grid>
 
           <Grid container item xs={7} spacing={5}>
-
-              <Grid container item spacing={2}>
-                <Grid item xs={4}>
-                </Grid>
-                <Grid item xs={8}>
-
-                  <Typography variant="h4" color="text.textPrimary.light" fontWeight={400} sx={{ pb: 5 }}>Experience</Typography>
-
-                </Grid>
-              </Grid>
 
               <Grid container item spacing={3}>
 
