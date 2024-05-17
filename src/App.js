@@ -134,6 +134,7 @@ function App() {
             body: { 
               backgroundColor: theme.palette.background.default,
               transition: `background-color ${theme.transitions.duration.standard}ms ${theme.transitions.easing.standard}`,
+              cursor: `url(${process.env.PUBLIC_URL}/custom_cursor.svg), auto`,
             },
             '::selection': {
               backgroundColor: '#ABBFD8',
