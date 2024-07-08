@@ -13,13 +13,15 @@ function ExperienceSection({ Typography, Chip }, ref) {
   return (
     <Container maxWidth={screenSize === "xl" ? "xl" : "lg"}>
       {screenSize === 'xs' && (
-        <Grid ref={ref} container sx={{ minHeight: '100vh', pt: '15vh' }}>
+        <Grid ref={ref} container sx={{ minHeight: '100vh', pt: '20vh' }}>
           
           <Grid container item xs={12} spacing={6}>
 
             <Grid container item>
               <Grid item xs={12}>
-                <Typography variant="h4" color="text.textPrimary.light" fontWeight={400} sx={{ mb: 6 }}>Experience</Typography>
+                <ScrollRevealAnimation spring={true} reveal={true}>
+                  <Typography variant="h4" color="text.textPrimary.light" fontWeight={400} sx={{ mb: 3 }}>Experience</Typography>
+                </ScrollRevealAnimation>
               </Grid>
             </Grid>
 
@@ -93,17 +95,7 @@ function ExperienceSection({ Typography, Chip }, ref) {
       )}
 
       {screenSize !== 'xs' && (
-        <Grid ref={ref} container sx={{ minHeight: '100vh', pt: '30vh' }}>
-
-          <Grid container item xs={5}>
-            <Grid item xs={12}>
-              <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
-                <Parallax speed={-15}>
-                  <Typography variant="h4" color="text.textPrimary.light" fontWeight={400} sx={{ mt: screenSize === "xs" ? 27 : screenSize === "xl" ? 28 : 16 }}>Experience</Typography>
-                </Parallax>
-              </ScrollRevealAnimation>
-            </Grid>
-          </Grid>
+        <Grid ref={ref} container sx={{ minHeight: '100vh', pt: '30vh', pb: '10vh' }}>
 
           <Grid container item xs={7} spacing={5}>
 
@@ -171,6 +163,16 @@ function ExperienceSection({ Typography, Chip }, ref) {
 
               </Grid>
 
+          </Grid>
+
+          <Grid container item xs={5}>
+            <Grid item xs={12}>
+              <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
+                <Parallax speed={-15}>
+                  <Typography variant="h4" color="text.textPrimary.light" fontWeight={400} sx={{ mt: screenSize === "xs" ? 27 : screenSize === "xl" ? 28 : 16, textAlign: 'right' }}>Experience</Typography>
+                </Parallax>
+              </ScrollRevealAnimation>
+            </Grid>
           </Grid>
 
         </Grid>

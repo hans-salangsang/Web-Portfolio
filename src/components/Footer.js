@@ -7,7 +7,7 @@ function Footer({ Typography, Chip }) {
   const screenSize = useScreenSize();
 
   return (
-    <Container sx={{ minWidth: screenSize === "xl" ? "83%" : "90%", pb: screenSize === "xs" ? 7 : 0 }}>
+    <Container sx={{ minWidth: screenSize === "xl" ? "83%" : "90%", pb: screenSize === "xs" ? 6 : 0 }}>
       <Grid container sx={{ py: 1 }}>
 
         <Grid item xs={4}>

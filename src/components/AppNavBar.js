@@ -8,6 +8,7 @@ import Switch from '@mui/material/Switch';
 import { styled } from '@mui/material/styles';
 import { useTheme } from '@mui/material/styles';
 import Tooltip from './CustomTooltip';
+import BaseButton from '@mui/material/Button'
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 56,
@@ -91,18 +92,18 @@ function AppNavBar({ setIsDarkMode, isDarkMode, Typography, scrollToSection, lan
     {screenSize !== 'xs' && (
       <Grid container direction="row" justifyContent="space-around" alignItems="flex-start" sx={{ mt: 3, mb: 2, px: 2 }}>
         {screenSize !== 'xs' && (
-          <Grid item xs={0} sm={1} md sx={{ pl: screenSize === 'xs' || screenSize === 'sm' ? 0 : screenSize === 'md' ? 4 : 10, display: 'flex', py: 1 }}>
-            {(screenSize !== 'xs' && screenSize !== 'sm' && screenSize !== 'md') && (
-              <Typography variant="h6" color="text.textPrimary.light" fontWeight={400} fontFamily="Jetbrains Mono, sans-serif" textAlign="left">
-                Hans<span style={{ fontSize: '0.5em' }}>&nbsp;</span><span style={{ color: theme.palette.text.textSecondary.light }}>Salangsang</span>
-              </Typography>
-            )}
-            {(screenSize === 'xs' || screenSize === 'sm' || screenSize === 'md') && (
-              <>
-                <Typography variant="h6" color="text.textPrimary.light" fontWeight={400} textAlign="left">H</Typography>
-                <Typography variant="h6" color="text.textSecondary.light" fontWeight={400} textAlign="left">S</Typography>
-              </>
-            )}
+          <Grid item xs={0} sm={1} md sx={{ pl: screenSize === 'xs' || screenSize === 'sm' ? 0 : screenSize === 'md' ? 4 : 10, display: 'flex', py: 1 }} onClick={() => scrollToSection(landingSectionRef)}>
+              {(screenSize !== 'xs' && screenSize !== 'sm' && screenSize !== 'md') && (
+                <Typography variant="h6" color="text.textPrimary.light" fontWeight={400} fontFamily="Jetbrains Mono, sans-serif" textAlign="left" sx={{ cursor: 'pointer' }}>
+                  Hans<span style={{ fontSize: '0.5em' }}>&nbsp;</span><span style={{ color: theme.palette.text.textSecondary.light }}>Salangsang</span>
+                </Typography>
+              )}
+              {(screenSize === 'xs' || screenSize === 'sm' || screenSize === 'md') && (
+                <>
+                  <Typography variant="h6" color="text.textPrimary.light" fontWeight={400} textAlign="left" sx={{ cursor: 'pointer' }}>H</Typography>
+                  <Typography variant="h6" color="text.textSecondary.light" fontWeight={400} textAlign="left" sx={{ cursor: 'pointer' }}>S</Typography>
+                </>
+              )}
           </Grid>
         )}
         {screenSize !== 'xs' && (
