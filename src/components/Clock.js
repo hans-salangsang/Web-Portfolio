@@ -1,14 +1,16 @@
-import { useState, useEffect } from 'react';
-import { format } from 'date-fns';
+import { useState, useEffect } from "react";
+import { format } from "date-fns";
 
 function Clock({ onUpdate }) {
-  const [time, setTime] = useState('');
+  const [time, setTime] = useState("");
 
   useEffect(() => {
     const fetchTime = async () => {
       try {
         // Fetch the current time from the API only once during component mount
-        const response = await fetch('http://worldtimeapi.org/api/timezone/Asia/Manila');
+        const response = await fetch(
+          "http://worldtimeapi.org/api/timezone/Asia/Manila"
+        );
         const data = await response.json();
         const currentTime = data.datetime;
         setTime(currentTime);
@@ -16,7 +18,7 @@ function Clock({ onUpdate }) {
         // Call the onUpdate callback to pass the initial time to the parent component
         onUpdate(formatTime(currentTime));
       } catch (error) {
-        console.error('Error fetching time:', error);
+        console.error("Error fetching time:", error);
       }
     };
 
@@ -42,7 +44,7 @@ function Clock({ onUpdate }) {
 }
 
 function formatTime(datetime) {
-  return format(new Date(datetime), 'h:mm aa'); // Format as "h:mm AM/PM"
+  return format(new Date(datetime), "h:mm aa"); // Format as "h:mm AM/PM"
 }
 
 export default Clock;

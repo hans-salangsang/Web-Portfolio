@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 const useSmoothScroll = () => {
   useEffect(() => {
@@ -7,14 +7,14 @@ const useSmoothScroll = () => {
       const scrollStep = event.deltaY * 3;
       window.scrollBy({
         top: scrollStep,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     };
 
-    window.addEventListener('wheel', handleScroll, { passive: false });
+    window.addEventListener("wheel", handleScroll, { passive: false });
 
     return () => {
-      window.removeEventListener('wheel', handleScroll);
+      window.removeEventListener("wheel", handleScroll);
     };
   }, []);
 };
