@@ -23,6 +23,7 @@ import BackToTop from "./components/BackToTop";
 import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 import useSmoothScroll from "./components/useSmoothScroll";
 import { ToastContainer } from "react-toastify";
+import Box from "@mui/material/Box";
 
 const Typography = styled(BaseTypography)`
   ${({ theme }) => `
@@ -193,11 +194,11 @@ function App() {
           />
           <FloatingSocials Typography={Typography} />
 
-          <Container sx={{ minWidth: "100%" }}>
+          <Container>
             <LandingSection ref={landingSectionRef} Typography={Typography} />
           </Container>
 
-          <Container sx={{ minWidth: "100%" }}>
+          <Container>
             <ExperienceSection
               ref={experienceSectionRef}
               Typography={Typography}
@@ -205,7 +206,7 @@ function App() {
             />
           </Container>
 
-          <Container sx={{ minWidth: "100%" }}>
+          <Container>
             <ProjectsSection
               ref={projectsSectionRef}
               Typography={Typography}
@@ -213,18 +214,24 @@ function App() {
             />
           </Container>
 
-          <Container
+          <Box
             sx={{
               background: theme.palette.background.contrast,
               minWidth: "100%",
             }}
           >
-            <ConnectSection
-              ref={connectSectionRef}
-              Typography={Typography}
-              Chip={Chip}
-            />
-          </Container>
+            <Container
+              sx={{
+                background: theme.palette.background.contrast,
+              }}
+            >
+              <ConnectSection
+                ref={connectSectionRef}
+                Typography={Typography}
+                Chip={Chip}
+              />
+            </Container>
+          </Box>
 
           <Container
             sx={{
