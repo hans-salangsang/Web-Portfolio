@@ -24,6 +24,8 @@ import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 import useSmoothScroll from "./components/useSmoothScroll";
 import { ToastContainer } from "react-toastify";
 import Box from "@mui/material/Box";
+import ScrollRevealAnimation from "./components/ScrollRevealAnimation";
+import Spline from "@splinetool/react-spline";
 
 const Typography = styled(BaseTypography)`
   ${({ theme }) => `
@@ -193,6 +195,30 @@ function App() {
             landingSectionRef={landingSectionRef}
           />
           <FloatingSocials Typography={Typography} />
+
+          <script
+            type="module"
+            src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"
+          ></script>
+          <spline-viewer
+            url="https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode"
+            events-target="global"
+          ></spline-viewer>
+          <Box
+            sx={{
+              position: "fixed",
+              top: 0,
+              left: "0%",
+              width: "100%",
+              height: "100%",
+              zIndex: 0,
+              pointerEvents: "auto",
+            }}
+          >
+            <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
+              <Spline scene="https://prod.spline.design/vem2yBgnwn-vr0UR/scene.splinecode" />
+            </ScrollRevealAnimation>
+          </Box>
 
           <Container>
             <LandingSection ref={landingSectionRef} Typography={Typography} />
