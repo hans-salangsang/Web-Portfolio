@@ -141,7 +141,7 @@ function App() {
             body: {
               backgroundColor: theme.palette.background.default,
               transition: `background-color ${theme.transitions.duration.standard}ms ${theme.transitions.easing.standard}`,
-              cursor: `url(${process.env.PUBLIC_URL}/custom_cursor.svg), auto`,
+              // cursor: `url(${process.env.PUBLIC_URL}/custom_cursor.svg), auto`,
             },
             "::selection": {
               backgroundColor: "#ABBFD8",
@@ -215,9 +215,7 @@ function App() {
               pointerEvents: "auto",
             }}
           >
-            <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
-              <Spline scene="https://prod.spline.design/vem2yBgnwn-vr0UR/scene.splinecode" />
-            </ScrollRevealAnimation>
+            <Spline scene="https://prod.spline.design/bxRSfezUVh06n1oh/scene.splinecode" />
           </Box>
 
           <Container>
