@@ -26,10 +26,11 @@ function ScrollRevealAnimation({ children, delay, spring, reveal, zIndex }) {
 
   return (
     <motion.div
-      initial={reveal && { opacity: 0, scale: 0.3, filter: "blur(20px)" }}
-      whileInView={reveal && { opacity: 1, scale: 1, filter: "blur(0px)" }}
+      initial={reveal && { opacity: 0 }}
+      whileInView={reveal && { opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut", delay: delay || 0 }}
       viewport={reveal && { once: true, amount: 0.9 }}
-      style={{ ...(spring && { y }), zIndex: zIndex }}
+      style={{ zIndex }}
     >
       {children}
     </motion.div>

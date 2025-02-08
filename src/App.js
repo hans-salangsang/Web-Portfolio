@@ -206,7 +206,7 @@ function App() {
           ></spline-viewer>
           <Box
             sx={{
-              position: "fixed",
+              position: "absolute",
               top: 0,
               left: "0%",
               width: "100%",
@@ -215,7 +215,8 @@ function App() {
               pointerEvents: "auto",
             }}
           >
-            <Spline scene="https://prod.spline.design/bxRSfezUVh06n1oh/scene.splinecode" />
+            {/* keyboard */}
+            <Spline scene="https://prod.spline.design/gqzHKulT7OQ4j813/scene.splinecode" />
           </Box>
 
           <Container>

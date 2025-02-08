@@ -59,35 +59,33 @@ function LandingSection({ Typography }, ref) {
           <Grid container>
             <Grid item xs={6}>
               <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
-                <Parallax speed={-20}>
+                <Typography
+                  variant="h2"
+                  color="text.textPrimary.light"
+                  fontWeight={800}
+                  paragraph
+                  textAlign="left"
+                >
+                  Hans
+                  <br />
+                  Salangsang
                   <Typography
-                    variant="h2"
-                    color="text.textPrimary.light"
-                    fontWeight={800}
-                    paragraph
+                    variant="h5"
+                    color="text.textSecondary.light"
+                    fontWeight={400}
                     textAlign="left"
+                    sx={{
+                      mt:
+                        screenSize === "xs"
+                          ? "2vh"
+                          : screenSize === "xl"
+                          ? "1vh"
+                          : "2vh",
+                    }}
                   >
-                    Hans
-                    <br />
-                    Salangsang
-                    <Typography
-                      variant="h5"
-                      color="text.textSecondary.light"
-                      fontWeight={400}
-                      textAlign="left"
-                      sx={{
-                        mt:
-                          screenSize === "xs"
-                            ? "2vh"
-                            : screenSize === "xl"
-                            ? "1vh"
-                            : "2vh",
-                      }}
-                    >
-                      Full-Stack Web Developer
-                    </Typography>
+                    Full-Stack Web Developer
                   </Typography>
-                </Parallax>
+                </Typography>
               </ScrollRevealAnimation>
             </Grid>
 

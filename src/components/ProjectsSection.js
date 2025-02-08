@@ -176,23 +176,17 @@ function ExperienceSection({ Typography, Chip }, ref) {
           <Grid container item xs={5}>
             <Grid item xs={12}>
               <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
-                <Parallax speed={-15}>
-                  <Typography
-                    variant="h4"
-                    color="text.textPrimary.light"
-                    fontWeight={400}
-                    sx={{
-                      mt:
-                        screenSize === "xs"
-                          ? 27
-                          : screenSize === "xl"
-                          ? 28
-                          : 16,
-                    }}
-                  >
-                    Projects
-                  </Typography>
-                </Parallax>
+                <Typography
+                  variant="h4"
+                  color="text.textPrimary.light"
+                  fontWeight={400}
+                  sx={{
+                    mt:
+                      screenSize === "xs" ? 27 : screenSize === "xl" ? 28 : 16,
+                  }}
+                >
+                  Projects
+                </Typography>
               </ScrollRevealAnimation>
             </Grid>
           </Grid>

@@ -91,7 +91,7 @@ function AppNavBar({
     <AppBar
       position="fixed"
       sx={(theme) => ({
-        backdropFilter: "blur(50px)",
+        // backdropFilter: "blur(50px)",
         justifyContent: "center",
         backgroundColor: "transparent",
         transition: `background-color ${theme.transitions.duration.standard}ms ${theme.transitions.easing.standard}`,

@@ -43,11 +43,14 @@ function DynamicIsland({
     <Toolbar
       variant="dense"
       sx={{
-        backgroundColor:
-          hoveredButton !== "" ? "background.accentHover" : "background.accent",
+        // backgroundColor:
+        // hoveredButton !== "" ? "background.accentHover" : "background.accent",
+        backdropFilter: "blur(200px)",
         justifyContent: "center",
-        borderRadius: 8,
-        boxShadow: theme.shadows[5],
+        backgroundColor: "transparent",
+        justifyContent: "center",
+        borderRadius: 3,
+        // boxShadow: theme.shadows[5],
         width:
           screenSize === "xs" ? "90%" : screenSize === "sm" ? "80%" : "70%",
       }}
