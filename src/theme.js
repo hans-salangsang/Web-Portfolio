@@ -16,7 +16,7 @@ const typography = {
     },
   },
   h2: {
-    fontFamily: "Jetbrains Mono, sans-serif",
+    fontFamily: "Inter, sans-serif",
     [baseTheme.breakpoints.down("md")]: {
       fontSize: "3rem",
     },
@@ -25,7 +25,7 @@ const typography = {
     },
   },
   h3: {
-    fontFamily: "Jetbrains Mono, sans-serif",
+    fontFamily: "Jetbrains Mono, monospace",
     [baseTheme.breakpoints.down("md")]: {
       fontSize: "2.5rem",
     },
@@ -34,7 +34,7 @@ const typography = {
     },
   },
   h4: {
-    fontFamily: "Jetbrains Mono, sans-serif",
+    fontFamily: "Jetbrains Mono, monospace",
     [baseTheme.breakpoints.down("md")]: {
       fontSize: "1.75rem",
     },
@@ -43,7 +43,7 @@ const typography = {
     },
   },
   h5: {
-    fontFamily: "Jetbrains Mono, sans-serif",
+    fontFamily: "Jetbrains Mono, monospace",
     [baseTheme.breakpoints.down("md")]: {
       fontSize: "1.25rem",
     },
@@ -52,7 +52,7 @@ const typography = {
     },
   },
   h6: {
-    fontFamily: "Jetbrains Mono, sans-serif",
+    fontFamily: "Jetbrains Mono, monospace",
     [baseTheme.breakpoints.down("md")]: {
       fontSize: "1rem",
     },
@@ -301,7 +301,7 @@ let darkTheme = createTheme({
         dark: "#585C74",
       },
       textSecondary: {
-        light: "red",
+        light: "#6093D6",
         main: "#6093D6",
         dark: "#42566E",
       },

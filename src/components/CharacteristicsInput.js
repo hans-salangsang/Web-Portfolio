@@ -9,6 +9,9 @@ const TextField = styled(BaseTextField)(({ theme }) => ({
   "& label.MuiFormLabel-root": {
     color: theme.palette.textField.label,
   },
+  "&:hover label": {
+    color: theme.palette.textField.labelHovered,
+  },
   "& label.Mui-focused": {
     color: theme.palette.textField.labelFocused,
   },
@@ -19,10 +22,10 @@ const TextField = styled(BaseTextField)(({ theme }) => ({
       borderColor: "red",
     },
     "&:hover fieldset": {
-      borderColor: "#B2BAC2",
+      borderColor: "red",
     },
     "&.Mui-focused fieldset": {
-      borderColor: "#6F7E8C",
+      borderColor: "red",
     },
     color: theme.palette.textField.text,
     backgroundColor: theme.palette.textField.fill,
@@ -62,11 +65,14 @@ const TextField = styled(BaseTextField)(({ theme }) => ({
 }));
 
 const Button = styled(BaseButton)(({ theme }) => ({
+  fontWeight: 700,
   backgroundColor: theme.palette.button.fill,
   color: theme.palette.button.text,
+  borderColor: theme.palette.button.border,
   "&:hover": {
     backgroundColor: theme.palette.button.fillHovered,
     color: theme.palette.button.textHovered,
+    borderColor: theme.palette.button.borderHovered,
   },
 }));
 
@@ -105,36 +111,33 @@ const CharacteristicsInput = ({ onInputSubmit }) => {
   };
 
   return (
-    <Stack spacing={0} sx={{ mt: 2 }}>
+    <Stack spacing={1} sx={{ mt: "15vh" }}>
       <TextField
         id="characteristics"
         name="characteristics"
-        label="creative, detail-oriented, team player..."
+        label="What qualities do you look for in a developer?"
         sx={{
-          "& .MuiInputLabel-root": { whiteSpace: "normal" }, // Allow label wrapping
+          "& .MuiInputLabel-root": { whiteSpace: "normal" },
         }}
         fullWidth
         multiline
-        rows={3}
+        rows={1}
         defaultValue="Default Value"
-        variant="outlined"
+        variant="filled"
         size="small"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        helperText={
-          error
-            ? "Please enter some characteristics."
-            : "Enter the characteristics that you are looking for in a developer."
-        }
+        helperText={error ? "Please enter some characteristics." : ""}
         error={error}
       />
       <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
         <Button
-          variant="contained"
+          variant="outlined"
+          size="small"
           sx={{ width: "100%" }}
           onClick={handleSubmit}
         >
-          Apply Personality
+          Style My Portfolio
         </Button>
       </motion.div>
     </Stack>

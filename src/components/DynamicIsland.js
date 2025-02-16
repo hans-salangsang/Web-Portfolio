@@ -19,7 +19,7 @@ const Button = styled(BaseButton)(({ theme }) => ({
   paddingRight: "2vw",
   "&:hover .MuiTypography-root": {
     fontWeight: 600,
-    color: theme.palette.text.textDynamicIsland.main,
+    color: theme.palette.text.textDynamicIsland.light,
   },
   "&:hover": {
     backgroundColor: "transparent",
@@ -78,10 +78,10 @@ function DynamicIsland({
               variant="button"
               color={
                 activeSection === "experience"
-                  ? "text.textDynamicIsland.light"
+                  ? "text.textDynamicIsland.main"
                   : "text.textDynamicIsland.dark"
               }
-              fontWeight={activeSection === "experience" ? 600 : 400}
+              fontWeight={activeSection === "experience" ? 700 : 700}
               textAlign="center"
             >
               Experience
@@ -106,10 +106,10 @@ function DynamicIsland({
               variant="button"
               color={
                 activeSection === "projects"
-                  ? "text.textDynamicIsland.light"
+                  ? "text.textDynamicIsland.main"
                   : "text.textDynamicIsland.dark"
               }
-              fontWeight={activeSection === "projects" ? 600 : 400}
+              fontWeight={activeSection === "projects" ? 700 : 700}
               textAlign="center"
             >
               Projects
@@ -134,10 +134,10 @@ function DynamicIsland({
               variant="button"
               color={
                 activeSection === "connect"
-                  ? "text.textDynamicIsland.light"
+                  ? "text.textDynamicIsland.main"
                   : "text.textDynamicIsland.dark"
               }
-              fontWeight={activeSection === "connect" ? 600 : 400}
+              fontWeight={activeSection === "connect" ? 700 : 700}
               textAlign="center"
             >
               Connect

@@ -137,7 +137,7 @@ function AppNavBar({
                   >
                     Hans<span style={{ fontSize: "0.5em" }}>&nbsp;</span>
                     <span
-                      style={{ color: theme.palette.text.textSecondary.light }}
+                      style={{ color: theme.palette.text.textSecondary.main }}
                     >
                       Salangsang
                     </span>
@@ -158,7 +158,7 @@ function AppNavBar({
                   </Typography>
                   <Typography
                     variant="h6"
-                    color="text.textSecondary.light"
+                    color="text.textSecondary.main"
                     fontWeight={400}
                     textAlign="left"
                     sx={{ cursor: "pointer" }}

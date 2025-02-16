@@ -51,18 +51,9 @@ function App() {
   const [activeSection, setActiveSection] = useState("landing");
 
   const [accentColor, setAccentColor] = useState("#6093D6");
+  const [backgroundColor, setBackgroundColor] = useState("#101218");
   const [darkBackgroundColor, setDarkBackgroundColor] = useState("#101218");
   const [lightBackgroundColor, setLightBackgroundColor] = useState("#F4F4F6");
-
-  const handleColorChange = (newColor, newDescription) => {
-    setAccentColor(newColor);
-    setDarkBackgroundColor(
-      tinycolor(newColor).setAlpha(1).darken(50).toString()
-    );
-    setLightBackgroundColor(
-      tinycolor(newColor).setAlpha(1).lighten(45).toString()
-    );
-  };
 
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({ behavior: "smooth" });
@@ -70,6 +61,23 @@ function App() {
 
   // Use state to manage the current theme
   const [isDarkMode, setIsDarkMode] = useState(true);
+
+  const handleColorChange = (newColor, newDescription) => {
+    setAccentColor(newColor);
+
+    const newDark = tinycolor(newColor).setAlpha(1).darken(55).toString();
+    const newLight = tinycolor(newColor).setAlpha(1).brighten(55).toString();
+
+    setAccentColor(newColor);
+    setDarkBackgroundColor(newDark);
+    setLightBackgroundColor(newLight);
+
+    setBackgroundColor(isDarkMode ? newDark : newLight);
+  };
+
+  useEffect(() => {
+    handleColorChange(accentColor, "Initial color");
+  }, [isDarkMode]);
 
   // Create theme dynamically based on the color state
   let theme = createTheme({
@@ -80,7 +88,7 @@ function App() {
         ...(isDarkMode
           ? darkTheme.palette.background
           : lightTheme.palette.background),
-        default: isDarkMode ? darkBackgroundColor : lightBackgroundColor,
+        default: backgroundColor,
       },
       text: {
         ...(isDarkMode ? darkTheme.palette.text : lightTheme.palette.text),
@@ -88,33 +96,113 @@ function App() {
           ...(isDarkMode
             ? darkTheme.palette.text.textPrimary
             : lightTheme.palette.text.textPrimary),
-          light: tinycolor(
-            isDarkMode
-              ? tinycolor(darkBackgroundColor)
-              : tinycolor(lightBackgroundColor)
-          ).isDark()
+          light: tinycolor(backgroundColor).isDark()
             ? tinycolor(accentColor).brighten(55).toString()
             : tinycolor(accentColor).darken(55).toString(),
-          main: tinycolor(
-            isDarkMode
-              ? tinycolor(darkBackgroundColor)
-              : tinycolor(lightBackgroundColor)
-          ).isDark()
-            ? tinycolor(accentColor).desaturate(70).lighten(10).toString()
-            : tinycolor(accentColor).desaturate(70).darken(10).toString(),
+          main: tinycolor(backgroundColor).isDark()
+            ? tinycolor(accentColor).desaturate(70).brighten(15).toString()
+            : tinycolor(accentColor).desaturate(70).darken(15).toString(),
         },
         textSecondary: {
           ...(isDarkMode
             ? darkTheme.palette.text.textSecondary
             : lightTheme.palette.text.textSecondary),
-          main: tinycolor(
-            isDarkMode
-              ? tinycolor(darkBackgroundColor)
-              : tinycolor(lightBackgroundColor)
-          ).isDark()
-            ? tinycolor(accentColor).saturate(100).lighten(10).toString()
+          main: tinycolor(backgroundColor).isDark()
+            ? tinycolor(accentColor).saturate(100).brighten(10).toString()
             : tinycolor(accentColor).saturate(100).darken(10).toString(),
         },
+        textDynamicIsland: {
+          ...(isDarkMode
+            ? darkTheme.palette.text.textDynamicIsland
+            : lightTheme.palette.text.textDynamicIsland),
+          light: tinycolor(backgroundColor).isDark()
+            ? tinycolor(accentColor)
+                .saturate(0)
+                .brighten(40)
+                .spin(45)
+                .toString()
+            : tinycolor(accentColor)
+                .saturate(100)
+                .darken(40)
+                .spin(45)
+                .toString(),
+          main: tinycolor(backgroundColor).isDark()
+            ? tinycolor(accentColor)
+                .saturate(0)
+                .brighten(50)
+                .spin(45)
+                .toString()
+            : tinycolor(accentColor)
+                .saturate(100)
+                .darken(60)
+                .spin(45)
+                .toString(),
+          dark: tinycolor(backgroundColor).isDark()
+            ? tinycolor(accentColor).saturate(0).brighten(0).spin(45).toString()
+            : tinycolor(accentColor)
+                .saturate(100)
+                .darken(20)
+                .spin(45)
+                .toString(),
+        },
+      },
+      textField: {
+        fill: backgroundColor,
+        fillHovered: backgroundColor,
+        fillFocused: backgroundColor,
+        text: tinycolor(backgroundColor).isDark()
+          ? tinycolor(accentColor).brighten(55).toString()
+          : tinycolor(accentColor).darken(55).toString(),
+        label: tinycolor(backgroundColor).isDark()
+          ? tinycolor(accentColor).desaturate(70).brighten(15).toString()
+          : tinycolor(accentColor).desaturate(70).darken(15).toString(),
+        labelHovered: tinycolor(backgroundColor).isDark()
+          ? tinycolor(accentColor).brighten(55).toString()
+          : tinycolor(accentColor).darken(55).toString(),
+        labelFocused: tinycolor(backgroundColor).isDark()
+          ? tinycolor(accentColor).saturate(100).brighten(10).toString()
+          : tinycolor(accentColor).saturate(100).darken(10).toString(),
+        helperText: "9B9EAB",
+        border: tinycolor(backgroundColor).isDark()
+          ? tinycolor(accentColor).desaturate(70).brighten(15).toString()
+          : tinycolor(accentColor).desaturate(70).darken(15).toString(),
+        borderHovered: tinycolor(backgroundColor).isDark()
+          ? tinycolor(accentColor).brighten(55).toString()
+          : tinycolor(accentColor).darken(55).toString(),
+        borderFocused: tinycolor(backgroundColor).isDark()
+          ? tinycolor(accentColor).saturate(100).brighten(10).toString()
+          : tinycolor(accentColor).saturate(100).darken(10).toString(),
+      },
+      button: {
+        ...(isDarkMode ? darkTheme.palette.button : lightTheme.palette.button),
+        fill: backgroundColor,
+        fillHovered: tinycolor(backgroundColor).isDark()
+          ? tinycolor(backgroundColor)
+              .saturate(0)
+              .brighten(10)
+              .spin(45)
+              .toString()
+          : tinycolor(backgroundColor)
+              .saturate(0)
+              .darken(0)
+              .spin(45)
+              .toString(),
+        fillFocused: "#E9E9ED",
+        text: tinycolor(backgroundColor).isDark()
+          ? tinycolor(accentColor).saturate(0).brighten(0).spin(45).toString()
+          : tinycolor(accentColor).saturate(100).darken(20).spin(45).toString(),
+        textHovered: tinycolor(backgroundColor).isDark()
+          ? tinycolor(accentColor).saturate(0).brighten(40).spin(45).toString()
+          : tinycolor(accentColor).saturate(100).darken(40).spin(45).toString(),
+        label: "#42566E",
+        labelFocused: "#6093D6",
+        border: tinycolor(backgroundColor).isDark()
+          ? tinycolor(accentColor).saturate(0).brighten(0).spin(45).toString()
+          : tinycolor(accentColor).saturate(100).darken(20).spin(45).toString(),
+        borderHovered: tinycolor(backgroundColor).isDark()
+          ? tinycolor(accentColor).saturate(0).brighten(40).spin(45).toString()
+          : tinycolor(accentColor).saturate(100).darken(40).spin(45).toString(),
+        borderFocused: "#6093D6",
       },
     },
   });

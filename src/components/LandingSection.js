@@ -69,6 +69,23 @@ function LandingSection({ Typography, onColorChange }, ref) {
             <Grid item xs={12}>
               <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
                 <Typography
+                  variant="body1"
+                  color="text.textSecondary.main"
+                  fontWeight={400}
+                  textAlign="left"
+                  sx={{
+                    fontFamily: "JetBrains Mono, monospace",
+                    mb:
+                      screenSize === "xs"
+                        ? "2vh"
+                        : screenSize === "xl"
+                        ? "2vh"
+                        : "2vh",
+                  }}
+                >
+                  Hello, I'm
+                </Typography>
+                <Typography
                   variant="h1"
                   color="text.textPrimary.light"
                   fontWeight={700}
@@ -77,42 +94,26 @@ function LandingSection({ Typography, onColorChange }, ref) {
                   lineHeight={1}
                   letterSpacing="0.02em"
                 >
-                  <Typography
-                    variant="h6"
-                    color="text.textSecondary.main"
-                    fontWeight={400}
-                    textAlign="left"
-                    sx={{
-                      mb:
-                        screenSize === "xs"
-                          ? "2vh"
-                          : screenSize === "xl"
-                          ? "2vh"
-                          : "2vh",
-                    }}
-                  >
-                    Hello, I am
-                  </Typography>
                   Hans Salangsang
-                  <Typography
-                    variant="h1"
-                    color="text.textPrimary.main"
-                    fontWeight={200}
-                    paragraph
-                    textAlign="left"
-                    lineHeight={0.8}
-                    letterSpacing="0.02em"
-                    sx={{
-                      mt:
-                        screenSize === "xs"
-                          ? "2vh"
-                          : screenSize === "xl"
-                          ? "2vh"
-                          : "2vh",
-                    }}
-                  >
-                    Fullstack Developer
-                  </Typography>
+                </Typography>
+                <Typography
+                  variant="h2"
+                  color="text.textPrimary.main"
+                  fontWeight={200}
+                  paragraph
+                  textAlign="left"
+                  lineHeight={1}
+                  letterSpacing="0.02em"
+                  sx={{
+                    mt:
+                      screenSize === "xs"
+                        ? "2vh"
+                        : screenSize === "xl"
+                        ? "2vh"
+                        : "2vh",
+                  }}
+                >
+                  Fullstack Developer
                 </Typography>
               </ScrollRevealAnimation>
             </Grid>
@@ -159,14 +160,18 @@ function LandingSection({ Typography, onColorChange }, ref) {
                     fontWeight={700}
                     paragraph
                     textAlign="left"
-                    lineHeight={1.6}
+                    lineHeight={1.8}
                   >
                     Let’s build something great together!
                   </Typography>
                 </Typography>
               </ScrollRevealAnimation>
             </Grid>
-            <CharacteristicsInput onInputSubmit={handleCharacteristicsSubmit} />
+            <Grid item xs={5}>
+              <CharacteristicsInput
+                onInputSubmit={handleCharacteristicsSubmit}
+              />
+            </Grid>
           </Grid>
         )}
       </Stack>
