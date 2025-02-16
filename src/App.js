@@ -26,6 +26,7 @@ import { ToastContainer } from "react-toastify";
 import Box from "@mui/material/Box";
 import ScrollRevealAnimation from "./components/ScrollRevealAnimation";
 import Spline from "@splinetool/react-spline";
+import tinycolor from "tinycolor2";
 
 const Typography = styled(BaseTypography)`
   ${({ theme }) => `
@@ -49,6 +50,20 @@ function App() {
 
   const [activeSection, setActiveSection] = useState("landing");
 
+  const [accentColor, setAccentColor] = useState("#6093D6");
+  const [darkBackgroundColor, setDarkBackgroundColor] = useState("#101218");
+  const [lightBackgroundColor, setLightBackgroundColor] = useState("#F4F4F6");
+
+  const handleColorChange = (newColor, newDescription) => {
+    setAccentColor(newColor);
+    setDarkBackgroundColor(
+      tinycolor(newColor).setAlpha(1).darken(50).toString()
+    );
+    setLightBackgroundColor(
+      tinycolor(newColor).setAlpha(1).lighten(45).toString()
+    );
+  };
+
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({ behavior: "smooth" });
   };
@@ -56,7 +71,53 @@ function App() {
   // Use state to manage the current theme
   const [isDarkMode, setIsDarkMode] = useState(true);
 
-  let theme = createTheme(isDarkMode ? darkTheme : lightTheme);
+  // Create theme dynamically based on the color state
+  let theme = createTheme({
+    ...(isDarkMode ? darkTheme : lightTheme),
+    palette: {
+      ...(isDarkMode ? darkTheme.palette : lightTheme.palette),
+      background: {
+        ...(isDarkMode
+          ? darkTheme.palette.background
+          : lightTheme.palette.background),
+        default: isDarkMode ? darkBackgroundColor : lightBackgroundColor,
+      },
+      text: {
+        ...(isDarkMode ? darkTheme.palette.text : lightTheme.palette.text),
+        textPrimary: {
+          ...(isDarkMode
+            ? darkTheme.palette.text.textPrimary
+            : lightTheme.palette.text.textPrimary),
+          light: tinycolor(
+            isDarkMode
+              ? tinycolor(darkBackgroundColor)
+              : tinycolor(lightBackgroundColor)
+          ).isDark()
+            ? tinycolor(accentColor).brighten(55).toString()
+            : tinycolor(accentColor).darken(55).toString(),
+          main: tinycolor(
+            isDarkMode
+              ? tinycolor(darkBackgroundColor)
+              : tinycolor(lightBackgroundColor)
+          ).isDark()
+            ? tinycolor(accentColor).desaturate(70).lighten(10).toString()
+            : tinycolor(accentColor).desaturate(70).darken(10).toString(),
+        },
+        textSecondary: {
+          ...(isDarkMode
+            ? darkTheme.palette.text.textSecondary
+            : lightTheme.palette.text.textSecondary),
+          main: tinycolor(
+            isDarkMode
+              ? tinycolor(darkBackgroundColor)
+              : tinycolor(lightBackgroundColor)
+          ).isDark()
+            ? tinycolor(accentColor).saturate(100).lighten(10).toString()
+            : tinycolor(accentColor).saturate(100).darken(10).toString(),
+        },
+      },
+    },
+  });
 
   // Use MediaQuery to determine screen size
   const isXs = useMediaQuery(theme.breakpoints.down("sm"));
@@ -220,7 +281,11 @@ function App() {
           </Box>
 
           <Container>
-            <LandingSection ref={landingSectionRef} Typography={Typography} />
+            <LandingSection
+              ref={landingSectionRef}
+              Typography={Typography}
+              onColorChange={handleColorChange}
+            />
           </Container>
 
           <Container>

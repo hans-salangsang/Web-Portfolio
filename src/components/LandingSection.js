@@ -7,9 +7,16 @@ import { useState, useEffect } from "react";
 import { useAnimate, useInView, stagger, motion } from "framer-motion";
 import ScrollRevealAnimation from "./ScrollRevealAnimation";
 import { ParallaxProvider, Parallax } from "react-scroll-parallax";
+import CharacteristicsInput from "./CharacteristicsInput";
 
-function LandingSection({ Typography }, ref) {
+function LandingSection({ Typography, onColorChange }, ref) {
   const screenSize = useScreenSize();
+
+  const handleCharacteristicsSubmit = (newColor, newDescription) => {
+    console.log("New Color:", newColor);
+
+    onColorChange(newColor, newDescription);
+  };
 
   return (
     <Container
@@ -17,7 +24,7 @@ function LandingSection({ Typography }, ref) {
       ref={ref}
       sx={{
         minHeight: "100vh",
-        pt: screenSize === "xs" ? "0vh" : "36vh",
+        pt: screenSize === "xs" ? "0vh" : "20vh",
         pb: "15vh",
       }}
     >
@@ -50,40 +57,61 @@ function LandingSection({ Typography }, ref) {
                       : "2vh",
                 }}
               >
-                Full-Stack Web Developer
+                Hello, I'm Hans! From graphic design to programming, I've
+                explored pixels and codes to become a versatile web developer.
+                Let's create your digital dreams together!
               </Typography>
             </Typography>
           </ScrollRevealAnimation>
         )}
         {screenSize !== "xs" && (
           <Grid container>
-            <Grid item xs={6}>
+            <Grid item xs={12}>
               <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
                 <Typography
-                  variant="h2"
+                  variant="h1"
                   color="text.textPrimary.light"
-                  fontWeight={800}
+                  fontWeight={700}
                   paragraph
                   textAlign="left"
+                  lineHeight={1}
+                  letterSpacing="0.02em"
                 >
-                  Hans
-                  <br />
-                  Salangsang
                   <Typography
-                    variant="h5"
-                    color="text.textSecondary.light"
+                    variant="h6"
+                    color="text.textSecondary.main"
                     fontWeight={400}
                     textAlign="left"
+                    sx={{
+                      mb:
+                        screenSize === "xs"
+                          ? "2vh"
+                          : screenSize === "xl"
+                          ? "2vh"
+                          : "2vh",
+                    }}
+                  >
+                    Hello, I am
+                  </Typography>
+                  Hans Salangsang
+                  <Typography
+                    variant="h1"
+                    color="text.textPrimary.main"
+                    fontWeight={200}
+                    paragraph
+                    textAlign="left"
+                    lineHeight={0.8}
+                    letterSpacing="0.02em"
                     sx={{
                       mt:
                         screenSize === "xs"
                           ? "2vh"
                           : screenSize === "xl"
-                          ? "1vh"
+                          ? "2vh"
                           : "2vh",
                     }}
                   >
-                    Full-Stack Web Developer
+                    Fullstack Developer
                   </Typography>
                 </Typography>
               </ScrollRevealAnimation>
@@ -97,7 +125,7 @@ function LandingSection({ Typography }, ref) {
                   screenSize === "xs"
                     ? "22vh"
                     : screenSize === "xl"
-                    ? "25vh"
+                    ? "5vh"
                     : "18vh",
               }}
             >
@@ -107,36 +135,38 @@ function LandingSection({ Typography }, ref) {
                   color="text.textPrimary.main"
                   fontWeight={400}
                   paragraph
-                  textAlign="right"
+                  textAlign="left"
+                  lineHeight={1.6}
                 >
                   {screenSize === "xs" && (
                     <>
                       From graphic design to programming,
                       <br />
                       I've explored pixels and codes to become
-                      <br />a versatile web developer.
+                      <br />a versatile developer.
                     </>
                   )}
                   {screenSize !== "xs" && (
                     <>
-                      From graphic design to programming, I've explored pixels
-                      and codes to become a versatile web developer.
+                      From graphic design to programming, I've explored
+                      <br />
+                      pixels and codes to become a versatile developer.
                     </>
                   )}
                   <Typography
                     variant="body2"
                     color="text.textPrimary.light"
-                    fontWeight={400}
-                    fontFamily="JetBrains Mono, sans-serif"
+                    fontWeight={700}
                     paragraph
-                    textAlign="right"
+                    textAlign="left"
+                    lineHeight={1.6}
                   >
-                    Let's create your{screenSize === "xs" ? <br /> : " "}digital
-                    dreams together!
+                    Let’s build something great together!
                   </Typography>
                 </Typography>
               </ScrollRevealAnimation>
             </Grid>
+            <CharacteristicsInput onInputSubmit={handleCharacteristicsSubmit} />
           </Grid>
         )}
       </Stack>
