@@ -36,38 +36,28 @@ function FloatingSocials({ Typography, Chip }) {
   const IconButton = styled(BaseIconButton)(({ theme }) => ({
     backgroundColor: "transparent",
     color:
-      hoveredButton !== "" ? "rgba(16, 18, 24, 0.3)" : "rgba(129, 158, 197, 1)",
+      hoveredButton !== ""
+        ? theme.palette.text.textDynamicIsland.dark
+        : theme.palette.text.textDynamicIsland.dark,
     "&:hover": {
-      color: "rgba(16, 18, 24, 1)",
+      color: theme.palette.text.textDynamicIsland.light,
       backgroundColor: "transparent",
     },
   }));
 
   return (
     <Stack
-      direction="column"
-      justifyContent="space-evenly"
+      direction="row"
+      justifyContent="space-between"
       spacing={0}
       sx={{
-        py: 1,
-        minHeight: 120,
-        backgroundColor:
-          hoveredButton !== ""
-            ? "rgba(129, 158, 197, 0.7)"
-            : "rgba(129, 158, 197, 0.3)",
-        borderRadius: 8,
-        boxShadow: theme.shadows[5],
-        position: "fixed",
-        top: screenSize === "xs" ? "60vh" : "62vh",
-        left: 15,
-        zIndex: 999,
-        backdropFilter: "blur(12px)",
+        borderRadius: 2,
       }}
     >
-      <Tooltip title="GitHub" placement="right">
+      <Tooltip title="GitHub" placement="bottom">
         <motion.div
-          whileHover={{ scale: 1.2, marginTop: -4 }}
-          whileTap={{ scale: 0.9, marginTop: -2 }}
+          whileHover={{ scale: 1.2, y: -4 }}
+          whileTap={{ scale: 0.9, y: -2 }}
           onMouseEnter={() => setHoveredButton("GitHub")}
           onMouseLeave={() => setHoveredButton("")}
           animate={{
@@ -88,10 +78,10 @@ function FloatingSocials({ Typography, Chip }) {
         </motion.div>
       </Tooltip>
 
-      <Tooltip title="LinkedIn" placement="right">
+      <Tooltip title="LinkedIn" placement="bottom">
         <motion.div
-          whileHover={{ scale: 1.2, marginTop: -4 }}
-          whileTap={{ scale: 0.9, marginTop: -2 }}
+          whileHover={{ scale: 1.2, y: -4 }}
+          whileTap={{ scale: 0.9, y: -2 }}
           onMouseEnter={() => setHoveredButton("LinkedIn")}
           onMouseLeave={() => setHoveredButton("")}
           animate={{

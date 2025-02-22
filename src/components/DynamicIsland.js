@@ -15,10 +15,10 @@ const Toolbar = styled(BaseToolbar)`
 `;
 
 const Button = styled(BaseButton)(({ theme }) => ({
-  paddingLeft: "2vw",
-  paddingRight: "2vw",
+  paddingLeft: "50px",
+  paddingRight: "50px",
   "&:hover .MuiTypography-root": {
-    fontWeight: 600,
+    fontWeight: 700,
     color: theme.palette.text.textDynamicIsland.light,
   },
   "&:hover": {
@@ -47,18 +47,17 @@ function DynamicIsland({
         // hoveredButton !== "" ? "background.accentHover" : "background.accent",
         backdropFilter: "blur(200px)",
         justifyContent: "center",
-        backgroundColor: "transparent",
+        backgroundColor: theme.palette.background.default,
         justifyContent: "center",
-        borderRadius: 3,
+        borderRadius: 2,
         // boxShadow: theme.shadows[5],
-        width:
-          screenSize === "xs" ? "90%" : screenSize === "sm" ? "80%" : "70%",
+        width: "650px",
       }}
     >
       <Stack direction="row" spacing={0}>
         <motion.div
-          whileHover={{ scale: 1.2, marginTop: -4 }}
-          whileTap={{ scale: 0.9, marginTop: -2 }}
+          whileHover={{ scale: 1.2, y: -4 }}
+          whileTap={{ scale: 0.9, y: -2 }}
           onMouseEnter={() => setHoveredButton("Experience")}
           onMouseLeave={() => setHoveredButton("")}
           animate={{
@@ -83,14 +82,21 @@ function DynamicIsland({
               }
               fontWeight={activeSection === "experience" ? 700 : 700}
               textAlign="center"
+              sx={{
+                borderBottom:
+                  activeSection === "experience"
+                    ? "2px solid currentColor"
+                    : "none",
+                paddingBottom: activeSection === "experience" ? "0px" : "0",
+              }}
             >
               Experience
             </Typography>
           </Button>
         </motion.div>
         <motion.div
-          whileHover={{ scale: 1.2, marginTop: -4 }}
-          whileTap={{ scale: 0.9, marginTop: -2 }}
+          whileHover={{ scale: 1.2, y: -4 }}
+          whileTap={{ scale: 0.9, y: -2 }}
           onMouseEnter={() => setHoveredButton("Projects")}
           onMouseLeave={() => setHoveredButton("")}
           animate={{
@@ -111,14 +117,21 @@ function DynamicIsland({
               }
               fontWeight={activeSection === "projects" ? 700 : 700}
               textAlign="center"
+              sx={{
+                borderBottom:
+                  activeSection === "projects"
+                    ? "2px solid currentColor"
+                    : "none",
+                paddingBottom: activeSection === "projects" ? "0px" : "0",
+              }}
             >
               Projects
             </Typography>
           </Button>
         </motion.div>
         <motion.div
-          whileHover={{ scale: 1.2, marginTop: -4 }}
-          whileTap={{ scale: 0.9, marginTop: -2 }}
+          whileHover={{ scale: 1.2, y: -4 }}
+          whileTap={{ scale: 0.9, y: -2 }}
           onMouseEnter={() => setHoveredButton("Connect")}
           onMouseLeave={() => setHoveredButton("")}
           animate={{
@@ -139,6 +152,13 @@ function DynamicIsland({
               }
               fontWeight={activeSection === "connect" ? 700 : 700}
               textAlign="center"
+              sx={{
+                borderBottom:
+                  activeSection === "connect"
+                    ? "2px solid currentColor"
+                    : "none",
+                paddingBottom: activeSection === "connect" ? "0px" : "0",
+              }}
             >
               Connect
             </Typography>

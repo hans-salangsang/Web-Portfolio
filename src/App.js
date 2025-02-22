@@ -18,7 +18,6 @@ import BaseChip from "@mui/material/Chip";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import "./Scrollbar.css";
 import ScrollProgressIndicator from "./components/ScrollProgressIndicator";
-import FloatingSocials from "./components/FloatingSocials";
 import BackToTop from "./components/BackToTop";
 import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 import useSmoothScroll from "./components/useSmoothScroll";
@@ -27,6 +26,7 @@ import Box from "@mui/material/Box";
 import ScrollRevealAnimation from "./components/ScrollRevealAnimation";
 import Spline from "@splinetool/react-spline";
 import tinycolor from "tinycolor2";
+import Grid from "@mui/material/Grid";
 
 const Typography = styled(BaseTypography)`
   ${({ theme }) => `
@@ -51,9 +51,9 @@ function App() {
   const [activeSection, setActiveSection] = useState("landing");
 
   const [accentColor, setAccentColor] = useState("#6093D6");
-  const [backgroundColor, setBackgroundColor] = useState("#101218");
-  const [darkBackgroundColor, setDarkBackgroundColor] = useState("#101218");
-  const [lightBackgroundColor, setLightBackgroundColor] = useState("#F4F4F6");
+  const [backgroundColor, setBackgroundColor] = useState("");
+  const [darkBackgroundColor, setDarkBackgroundColor] = useState("");
+  const [lightBackgroundColor, setLightBackgroundColor] = useState("");
 
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({ behavior: "smooth" });
@@ -102,6 +102,17 @@ function App() {
           main: tinycolor(backgroundColor).isDark()
             ? tinycolor(accentColor).desaturate(70).brighten(15).toString()
             : tinycolor(accentColor).desaturate(70).darken(15).toString(),
+          dark: tinycolor(backgroundColor).isDark()
+            ? tinycolor(accentColor)
+                .saturate(0)
+                .brighten(0)
+                .spin(180)
+                .toString()
+            : tinycolor(accentColor)
+                .saturate(100)
+                .darken(20)
+                .spin(180)
+                .toString(),
         },
         textSecondary: {
           ...(isDarkMode
@@ -110,6 +121,9 @@ function App() {
           main: tinycolor(backgroundColor).isDark()
             ? tinycolor(accentColor).saturate(100).brighten(10).toString()
             : tinycolor(accentColor).saturate(100).darken(10).toString(),
+          dark: tinycolor(backgroundColor).isDark()
+            ? tinycolor(accentColor).desaturate(70).brighten(0).toString()
+            : tinycolor(accentColor).desaturate(70).darken(0).toString(),
         },
         textDynamicIsland: {
           ...(isDarkMode
@@ -119,30 +133,34 @@ function App() {
             ? tinycolor(accentColor)
                 .saturate(0)
                 .brighten(40)
-                .spin(45)
+                .spin(40)
                 .toString()
             : tinycolor(accentColor)
                 .saturate(100)
                 .darken(40)
-                .spin(45)
+                .spin(40)
                 .toString(),
           main: tinycolor(backgroundColor).isDark()
             ? tinycolor(accentColor)
                 .saturate(0)
                 .brighten(50)
-                .spin(45)
+                .spin(40)
                 .toString()
             : tinycolor(accentColor)
                 .saturate(100)
                 .darken(60)
-                .spin(45)
+                .spin(40)
                 .toString(),
           dark: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).saturate(0).brighten(0).spin(45).toString()
+            ? tinycolor(accentColor)
+                .saturate(0)
+                .brighten(0)
+                .spin(180)
+                .toString()
             : tinycolor(accentColor)
                 .saturate(100)
                 .darken(20)
-                .spin(45)
+                .spin(180)
                 .toString(),
         },
       },
@@ -177,31 +195,23 @@ function App() {
         ...(isDarkMode ? darkTheme.palette.button : lightTheme.palette.button),
         fill: backgroundColor,
         fillHovered: tinycolor(backgroundColor).isDark()
-          ? tinycolor(backgroundColor)
-              .saturate(0)
-              .brighten(10)
-              .spin(45)
-              .toString()
-          : tinycolor(backgroundColor)
-              .saturate(0)
-              .darken(0)
-              .spin(45)
-              .toString(),
+          ? tinycolor(backgroundColor).saturate(0).brighten(5).toString()
+          : tinycolor(backgroundColor).saturate(0).darken(5).toString(),
         fillFocused: "#E9E9ED",
         text: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).saturate(0).brighten(0).spin(45).toString()
-          : tinycolor(accentColor).saturate(100).darken(20).spin(45).toString(),
+          ? tinycolor(accentColor).saturate(100).brighten(10).toString()
+          : tinycolor(accentColor).saturate(100).darken(10).toString(),
         textHovered: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).saturate(0).brighten(40).spin(45).toString()
-          : tinycolor(accentColor).saturate(100).darken(40).spin(45).toString(),
+          ? tinycolor(accentColor).saturate(100).brighten(20).toString()
+          : tinycolor(accentColor).saturate(100).darken(20).toString(),
         label: "#42566E",
         labelFocused: "#6093D6",
         border: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).saturate(0).brighten(0).spin(45).toString()
-          : tinycolor(accentColor).saturate(100).darken(20).spin(45).toString(),
+          ? tinycolor(accentColor).saturate(100).brighten(10).toString()
+          : tinycolor(accentColor).saturate(100).darken(10).toString(),
         borderHovered: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).saturate(0).brighten(40).spin(45).toString()
-          : tinycolor(accentColor).saturate(100).darken(40).spin(45).toString(),
+          ? tinycolor(accentColor).saturate(100).brighten(20).toString()
+          : tinycolor(accentColor).saturate(100).darken(20).toString(),
         borderFocused: "#6093D6",
       },
     },
@@ -280,6 +290,7 @@ function App() {
   }, []);
 
   // useSmoothScroll();
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
     <ParallaxProvider>
@@ -343,7 +354,6 @@ function App() {
             scrollToSection={scrollToSection}
             landingSectionRef={landingSectionRef}
           />
-          <FloatingSocials Typography={Typography} />
 
           <script
             type="module"
@@ -365,59 +375,67 @@ function App() {
             }}
           >
             {/* keyboard */}
-            <Spline scene="https://prod.spline.design/gqzHKulT7OQ4j813/scene.splinecode" />
+            {/* <Spline scene="https://prod.spline.design/gqzHKulT7OQ4j813/scene.splinecode" /> */}
           </Box>
 
-          <Container>
-            <LandingSection
-              ref={landingSectionRef}
-              Typography={Typography}
-              onColorChange={handleColorChange}
-            />
-          </Container>
+          <Container maxWidth="lg">
+            <Grid container>
+              <Grid
+                item
+                xs={12}
+                lg={5}
+                sx={{
+                  position: { lg: "sticky", xs: "relative" },
+                  top: 0,
+                  height: { lg: "100vh", xs: "auto" },
+                  overflow: { lg: "hidden", xs: "visible" },
+                  pt: { lg: theme.spacing(30), xs: theme.spacing(15) },
+                }}
+              >
+                <LandingSection
+                  ref={landingSectionRef}
+                  Typography={Typography}
+                  onColorChange={handleColorChange}
+                />
+              </Grid>
 
-          <Container>
-            <ExperienceSection
-              ref={experienceSectionRef}
-              Typography={Typography}
-              Chip={Chip}
-            />
-          </Container>
+              <Grid item xs={1}></Grid>
 
-          <Container>
-            <ProjectsSection
-              ref={projectsSectionRef}
-              Typography={Typography}
-              Chip={Chip}
-            />
-          </Container>
+              <Grid
+                item
+                xs={12}
+                lg={6}
+                sx={{
+                  pt: theme.spacing(30),
+                }}
+              >
+                <ExperienceSection
+                  ref={experienceSectionRef}
+                  Typography={Typography}
+                  Chip={Chip}
+                />
 
-          <Box
-            sx={{
-              background: theme.palette.background.contrast,
-              minWidth: "100%",
-            }}
-          >
-            <Container
-              sx={{
-                background: theme.palette.background.contrast,
-              }}
-            >
-              <ConnectSection
-                ref={connectSectionRef}
-                Typography={Typography}
-                Chip={Chip}
-              />
-            </Container>
-          </Box>
+                <ProjectsSection
+                  ref={projectsSectionRef}
+                  Typography={Typography}
+                  Chip={Chip}
+                />
 
-          <Container
-            sx={{
-              background: theme.palette.background.footer,
-              minWidth: "100%",
-            }}
-          >
-            <Footer Typography={Typography} Chip={Chip} />
+                <Box
+                  sx={{
+                    background: theme.palette.background.contrast,
+                    minWidth: "100%",
+                  }}
+                >
+                  <ConnectSection
+                    ref={connectSectionRef}
+                    Typography={Typography}
+                    Chip={Chip}
+                  />
+                </Box>
+                <Footer Typography={Typography} Chip={Chip} />
+              </Grid>
+            </Grid>
           </Container>
         </ScreenProvider>
       </ThemeProvider>

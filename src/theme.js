@@ -5,123 +5,57 @@ const baseTheme = createTheme();
 const typography = {
   h1: {
     fontFamily: "Inter, sans-serif",
-    [baseTheme.breakpoints.down("md")]: {
-      fontSize: "4rem",
-    },
-    [baseTheme.breakpoints.up("md")]: {
-      fontSize: "4.5rem",
-    },
-    [baseTheme.breakpoints.up("lg")]: {
-      fontSize: "5rem",
-    },
+    fontSize: "3rem",
   },
   h2: {
     fontFamily: "Inter, sans-serif",
-    [baseTheme.breakpoints.down("md")]: {
-      fontSize: "3rem",
-    },
-    [baseTheme.breakpoints.up("lg")]: {
-      fontSize: "4rem",
-    },
+    fontSize: "2rem",
   },
   h3: {
     fontFamily: "Jetbrains Mono, monospace",
-    [baseTheme.breakpoints.down("md")]: {
-      fontSize: "2.5rem",
-    },
-    [baseTheme.breakpoints.up("lg")]: {
-      fontSize: "3rem",
-    },
+    fontSize: "1.5rem",
   },
   h4: {
-    fontFamily: "Jetbrains Mono, monospace",
-    [baseTheme.breakpoints.down("md")]: {
-      fontSize: "1.75rem",
-    },
-    [baseTheme.breakpoints.up("lg")]: {
-      fontSize: "2.25rem",
-    },
+    fontFamily: "Inter, sans-serif",
+    fontSize: "1.115rem",
   },
   h5: {
     fontFamily: "Jetbrains Mono, monospace",
-    [baseTheme.breakpoints.down("md")]: {
-      fontSize: "1.25rem",
-    },
-    [baseTheme.breakpoints.up("lg")]: {
-      fontSize: "1.75rem",
-    },
+    fontSize: "1rem",
   },
   h6: {
     fontFamily: "Jetbrains Mono, monospace",
-    [baseTheme.breakpoints.down("md")]: {
-      fontSize: "1rem",
-    },
-    [baseTheme.breakpoints.up("lg")]: {
-      fontSize: "1.25rem",
-    },
+    fontSize: "1rem",
   },
   subtitle1: {
     fontFamily: "Inter, sans-serif",
-    [baseTheme.breakpoints.down("md")]: {
-      fontSize: "0.875rem",
-    },
-    [baseTheme.breakpoints.up("lg")]: {
-      fontSize: "1.125rem",
-    },
+    fontSize: "1rem",
   },
   subtitle2: {
     fontFamily: "Inter, sans-serif",
-    [baseTheme.breakpoints.down("md")]: {
-      fontSize: "0.75rem",
-    },
-    [baseTheme.breakpoints.up("lg")]: {
-      fontSize: "0.875rem",
-    },
+    fontSize: "0.875rem",
   },
   body1: {
     fontFamily: "Inter, sans-serif",
-    [baseTheme.breakpoints.down("md")]: {
-      fontSize: "0.975rem",
-    },
-    [baseTheme.breakpoints.up("lg")]: {
-      fontSize: "1.225rem",
-    },
+    fontSize: "0.875rem",
   },
   body2: {
     fontFamily: "Inter, sans-serif",
-    [baseTheme.breakpoints.down("md")]: {
-      fontSize: "0.85rem",
-    },
-    [baseTheme.breakpoints.up("lg")]: {
-      fontSize: "0.975rem",
-    },
+    fontSize: "0.8rem",
   },
   button: {
     fontFamily: "Inter, sans-serif",
-    [baseTheme.breakpoints.down("md")]: {
-      fontSize: "0.85rem",
-    },
-    [baseTheme.breakpoints.up("lg")]: {
-      fontSize: "0.975rem",
-    },
+    fontSize: "0.875rem",
+    fontWeight: 600,
   },
   caption: {
     fontFamily: "Inter, sans-serif",
-    [baseTheme.breakpoints.down("md")]: {
-      fontSize: "0.725rem",
-    },
-    [baseTheme.breakpoints.up("lg")]: {
-      fontSize: "0.85rem",
-    },
+    fontSize: "0.75rem",
   },
   overline: {
     fontFamily: "Inter, sans-serif",
-    [baseTheme.breakpoints.down("md")]: {
-      fontSize: "0.725rem",
-    },
-    [baseTheme.breakpoints.up("lg")]: {
-      fontSize: "0.85rem",
-    },
+    fontSize: "0.75rem",
+    textTransform: "uppercase",
   },
 };
 

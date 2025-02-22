@@ -117,7 +117,10 @@ const CharacteristicsInput = ({ onInputSubmit }) => {
         name="characteristics"
         label="What qualities do you look for in a developer?"
         sx={{
-          "& .MuiInputLabel-root": { whiteSpace: "normal" },
+          "& .MuiInputLabel-root": {
+            whiteSpace: "normal",
+            fontSize: "0.875rem",
+          },
         }}
         fullWidth
         multiline
