@@ -11,7 +11,7 @@ function ExperienceSection({ Typography, Chip }, ref) {
   const screenSize = useScreenSize();
 
   return (
-    <Container maxWidth={screenSize === "xl" ? "xl" : "lg"}>
+    <Container maxWidth={screenSize === "xl" ? "xl" : "lg"} sx={{ mt: 20 }}>
       <Grid ref={ref} container sx={{ minHeight: "100vh" }}>
         <Grid container item xs={12} spacing={5}>
           <Grid item xs={12}>

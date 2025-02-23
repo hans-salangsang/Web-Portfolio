@@ -7,6 +7,7 @@ import { ScreenProvider } from "./ScreenContext";
 import AppNavBar from "./components/AppNavBar";
 import BottomAppNavBar from "./components/BottomAppNavBar";
 import LandingSection from "./components/LandingSection";
+import SkillsSection from "./components/SkillsSection";
 import ExperienceSection from "./components/ExperienceSection";
 import ProjectsSection from "./components/ProjectsSection";
 import ConnectSection from "./components/ConnectSection";
@@ -44,6 +45,7 @@ const Chip = styled(BaseChip)`
 
 function App() {
   const landingSectionRef = useRef(null);
+  const skillsSectionRef = useRef(null);
   const experienceSectionRef = useRef(null);
   const projectsSectionRef = useRef(null);
   const connectSectionRef = useRef(null);
@@ -244,6 +246,8 @@ function App() {
     const handleScroll = () => {
       const landingSectionRect =
         landingSectionRef.current.getBoundingClientRect();
+      const skillsSectionRect =
+        skillsSectionRef.current.getBoundingClientRect();
       const experienceSectionRect =
         experienceSectionRef.current.getBoundingClientRect();
       const projectsSectionRect =
@@ -273,6 +277,8 @@ function App() {
 
       if (isInView(landingSectionRect)) {
         setActiveSection("landing");
+      } else if (isInView(skillsSectionRect)) {
+        setActiveSection("skills");
       } else if (isInView(experienceSectionRect)) {
         setActiveSection("experience");
       } else if (isInView(projectsSectionRect)) {
@@ -389,7 +395,7 @@ function App() {
                   top: 0,
                   height: { lg: "100vh", xs: "auto" },
                   overflow: { lg: "hidden", xs: "visible" },
-                  pt: { lg: theme.spacing(30), xs: theme.spacing(15) },
+                  pt: { lg: theme.spacing(30), xs: theme.spacing(20) },
                 }}
               >
                 <LandingSection
@@ -406,9 +412,15 @@ function App() {
                 xs={12}
                 lg={6}
                 sx={{
-                  pt: theme.spacing(30),
+                  pt: { lg: theme.spacing(30), xs: theme.spacing(0) },
                 }}
               >
+                <SkillsSection
+                  ref={skillsSectionRef}
+                  Typography={Typography}
+                  Chip={Chip}
+                />
+
                 <ExperienceSection
                   ref={experienceSectionRef}
                   Typography={Typography}

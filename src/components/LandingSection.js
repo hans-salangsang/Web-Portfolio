@@ -27,8 +27,7 @@ function LandingSection({ Typography, onColorChange }, ref) {
       maxWidth={screenSize === "xl" ? "xl" : "lg"}
       ref={ref}
       sx={{
-        minHeight: "100vh",
-        pb: "15vh",
+        mb: "15vh",
       }}
     >
       {/* <Stack spacing={2} ref={scope}> */}
