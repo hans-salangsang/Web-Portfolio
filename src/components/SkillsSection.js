@@ -9,9 +9,12 @@ import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 import "devicon/devicon.min.css";
 import { SiDotnet } from "react-icons/si";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import { useTheme } from "@mui/material/styles";
+import tinycolor from "tinycolor2";
 
 function SkillsSection({ Typography, Chip }, ref) {
   const screenSize = useScreenSize();
+  const theme = useTheme();
 
   const skills = {
     "Programming & Development": {
@@ -62,25 +65,43 @@ function SkillsSection({ Typography, Chip }, ref) {
   return (
     <Container maxWidth={screenSize === "xl" ? "xl" : "lg"}>
       {/* <Grid ref={ref} container sx={{ minHeight: "100vh" }}> */}
-      <Grid ref={ref} container>
+      <Grid ref={ref} container sx={{ pt: 15 }}>
         <Grid container item xs={12} spacing={3}>
-          <Grid item xs={12} sx={{ mb: 2 }}>
+          <Grid item xs={12} sx={{ mb: 1 }}>
             <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
               <Typography
                 variant="h3"
-                color="text.textPrimary.dark"
-                fontWeight={400}
+                color="text.textSecondary.main"
                 sx={{
-                  textAlign: "left",
+                  textAlign: "center",
+                  background: `linear-gradient(67deg, ${tinycolor(
+                    theme.palette.text.textSecondary.light
+                  )
+                    .brighten(40)
+                    .toString()}, ${tinycolor(
+                    theme.palette.text.textSecondary.light
+                  )
+                    .desaturate(30)
+                    .darken(40)
+                    .toString()})`,
+                  backgroundSize: "200% 200%",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  animation: "goldShine 5s infinite linear",
+                  "@keyframes goldShine": {
+                    "0%": { backgroundPosition: "0% 50%" },
+                    "50%": { backgroundPosition: "100% 50%" },
+                    "100%": { backgroundPosition: "0% 50%" },
+                  },
                 }}
               >
-                Skills
+                My Skills
               </Typography>
             </ScrollRevealAnimation>
           </Grid>
 
           {Object.entries(skills).map(([category, skillList]) => (
-            <Grid container item spacing={1} sx={{ mb: 1 }}>
+            <Grid container item spacing={1}>
               <Grid item xs={12}>
                 <ScrollRevealAnimation spring={true} reveal={true}>
                   <Typography
@@ -140,8 +161,6 @@ function SkillsSection({ Typography, Chip }, ref) {
             </Grid>
           ))}
         </Grid>
-
-        <Grid container item xs={5}></Grid>
       </Grid>
     </Container>
   );

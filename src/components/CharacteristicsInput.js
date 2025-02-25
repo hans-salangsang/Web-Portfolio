@@ -66,13 +66,13 @@ const TextField = styled(BaseTextField)(({ theme }) => ({
 
 const Button = styled(BaseButton)(({ theme }) => ({
   fontWeight: 700,
-  backgroundColor: theme.palette.button.fill,
-  color: theme.palette.button.text,
-  borderColor: theme.palette.button.border,
+  backgroundColor: theme.palette.button.textAccent,
+  color: theme.palette.button.fillAccent,
+  // borderColor: theme.palette.button.border,
   "&:hover": {
-    backgroundColor: theme.palette.button.fillHovered,
-    color: theme.palette.button.textHovered,
-    borderColor: theme.palette.button.borderHovered,
+    backgroundColor: theme.palette.button.textHoveredAccent,
+    color: theme.palette.button.fillHoveredAccent,
+    // borderColor: theme.palette.button.borderHovered,
   },
 }));
 
@@ -135,7 +135,7 @@ const CharacteristicsInput = ({ onInputSubmit }) => {
       />
       <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
         <Button
-          variant="outlined"
+          variant="contained"
           size="small"
           sx={{ width: "100%" }}
           onClick={handleSubmit}

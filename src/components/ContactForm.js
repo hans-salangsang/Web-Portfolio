@@ -12,36 +12,27 @@ import { toast, ToastContainer, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useToastStyles from "./useToastStyles";
 
-const Paper = styled(BasePaper)(({ theme }) => ({
-  padding: 35,
-  backgroundColor: theme.palette.paper.fill,
-}));
-
-const Button = styled(BaseButton)(({ theme }) => ({
-  backgroundColor: theme.palette.button.fill,
-  color: theme.palette.button.text,
-  "&:hover": {
-    backgroundColor: theme.palette.button.fillHovered,
-    color: theme.palette.button.textHovered,
-  },
-}));
-
 const TextField = styled(BaseTextField)(({ theme }) => ({
   "& label.MuiFormLabel-root": {
     color: theme.palette.textField.label,
   },
+  "&:hover label": {
+    color: theme.palette.textField.labelHovered,
+  },
   "& label.Mui-focused": {
     color: theme.palette.textField.labelFocused,
   },
+
+  // Filled TextField
   "& .MuiFilledInput-root": {
     "& fieldset": {
       borderColor: "red",
     },
     "&:hover fieldset": {
-      borderColor: "#B2BAC2",
+      borderColor: "red",
     },
     "&.Mui-focused fieldset": {
-      borderColor: "#6F7E8C",
+      borderColor: "red",
     },
     color: theme.palette.textField.text,
     backgroundColor: theme.palette.textField.fill,
@@ -63,6 +54,32 @@ const TextField = styled(BaseTextField)(({ theme }) => ({
   },
   "& .MuiFormHelperText-root": {
     color: theme.palette.textField.helperText,
+  },
+
+  // Outlined TextField
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: theme.palette.textField.border,
+    },
+    "&:hover fieldset": {
+      borderColor: theme.palette.textField.borderHovered,
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: theme.palette.textField.borderFocused,
+    },
+    color: theme.palette.textField.text,
+  },
+}));
+
+const Button = styled(BaseButton)(({ theme }) => ({
+  fontWeight: 700,
+  backgroundColor: theme.palette.button.textAccent,
+  color: theme.palette.button.fillAccent,
+  // borderColor: theme.palette.button.border,
+  "&:hover": {
+    backgroundColor: theme.palette.button.textHoveredAccent,
+    color: theme.palette.button.fillHoveredAccent,
+    // borderColor: theme.palette.button.borderHovered,
   },
 }));
 
@@ -157,80 +174,83 @@ const ContactForm = ({ Typography }) => {
   };
 
   return (
-    <Paper elevation={5}>
-      <Stack
-        component="form"
-        spacing={3}
-        noValidate
-        autoComplete="off"
-        onSubmit={handleSubmit}
+    <Stack
+      component="form"
+      spacing={3}
+      noValidate
+      autoComplete="off"
+      onSubmit={handleSubmit}
+    >
+      <Typography
+        variant="h6"
+        color="button.fill"
+        fontWeight={600}
+        fontFamily="Jetbrains Mono, sans-serif"
       >
-        <Typography
-          variant="h6"
-          color="button.fill"
-          fontWeight={600}
-          fontFamily="Jetbrains Mono, sans-serif"
+        Send me a message
+      </Typography>
+      <TextField
+        required
+        id="name"
+        name="name"
+        label="Name"
+        variant="filled"
+        size="small"
+        value={formData.name}
+        onChange={handleChange}
+        helperText="Please enter a valid email address"
+        error={false}
+      />
+      <TextField
+        required
+        id="email"
+        name="email"
+        label="Email Address"
+        type="email"
+        variant="filled"
+        size="small"
+        value={formData.email}
+        onChange={handleChange}
+        helperText="Please enter a valid email address"
+        error={false}
+      />
+      <TextField
+        id="phone"
+        name="phone"
+        label="Phone Number (Optional)"
+        variant="filled"
+        size="small"
+        value={formData.phone}
+        onChange={handleChange}
+        helperText="Please enter a valid email address"
+        error={false}
+      />
+      <TextField
+        required
+        id="message"
+        name="message"
+        label="Message"
+        multiline
+        rows={4}
+        defaultValue="Default Value"
+        variant="filled"
+        size="small"
+        value={formData.message}
+        onChange={handleChange}
+        helperText="Please enter a valid email address"
+        error={false}
+      />
+      <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+        <Button
+          variant="contained"
+          size="small"
+          sx={{ width: "100%" }}
+          type="submit"
         >
-          Send me a message
-        </Typography>
-        <TextField
-          required
-          id="name"
-          name="name"
-          label="Name"
-          variant="filled"
-          size="small"
-          value={formData.name}
-          onChange={handleChange}
-          helperText="Please enter a valid email address"
-          error={false}
-        />
-        <TextField
-          required
-          id="email"
-          name="email"
-          label="Email Address"
-          type="email"
-          variant="filled"
-          size="small"
-          value={formData.email}
-          onChange={handleChange}
-          helperText="Please enter a valid email address"
-          error={false}
-        />
-        <TextField
-          id="phone"
-          name="phone"
-          label="Phone Number (Optional)"
-          variant="filled"
-          size="small"
-          value={formData.phone}
-          onChange={handleChange}
-          helperText="Please enter a valid email address"
-          error={false}
-        />
-        <TextField
-          required
-          id="message"
-          name="message"
-          label="Message"
-          multiline
-          rows={4}
-          defaultValue="Default Value"
-          variant="filled"
-          size="small"
-          value={formData.message}
-          onChange={handleChange}
-          helperText="Please enter a valid email address"
-          error={false}
-        />
-        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-          <Button variant="contained" sx={{ width: "100%" }} type="submit">
-            Send Message
-          </Button>
-        </motion.div>
-      </Stack>
-    </Paper>
+          Send Message
+        </Button>
+      </motion.div>
+    </Stack>
   );
 };
 

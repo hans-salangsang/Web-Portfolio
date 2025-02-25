@@ -30,6 +30,7 @@ function DynamicIsland({
   Typography,
   scrollToSection,
   landingSectionRef,
+  skillsSectionRef,
   experienceSectionRef,
   projectsSectionRef,
   connectSectionRef,
@@ -47,7 +48,7 @@ function DynamicIsland({
         // hoveredButton !== "" ? "background.accentHover" : "background.accent",
         backdropFilter: "blur(200px)",
         justifyContent: "center",
-        backgroundColor: theme.palette.background.default,
+        backgroundColor: "transparent",
         justifyContent: "center",
         borderRadius: 2,
         // boxShadow: theme.shadows[5],
@@ -55,6 +56,42 @@ function DynamicIsland({
       }}
     >
       <Stack direction="row" spacing={0}>
+        <motion.div
+          whileHover={{ scale: 1.2, y: -4 }}
+          whileTap={{ scale: 0.9, y: -2 }}
+          onMouseEnter={() => setHoveredButton("Skills")}
+          onMouseLeave={() => setHoveredButton("")}
+          animate={{
+            scale:
+              hoveredButton === "" ? 1 : hoveredButton !== "Skills" ? 0.9 : 1,
+          }}
+        >
+          <Button
+            color="inherit"
+            onClick={() => scrollToSection(skillsSectionRef)}
+          >
+            <Typography
+              variant="button"
+              color={
+                activeSection === "skills"
+                  ? "text.textDynamicIsland.main"
+                  : "text.textDynamicIsland.dark"
+              }
+              fontWeight={activeSection === "skills" ? 700 : 700}
+              textAlign="center"
+              sx={{
+                borderBottom:
+                  activeSection === "skills"
+                    ? "2px solid currentColor"
+                    : "none",
+                paddingBottom: activeSection === "skills" ? "0px" : "0",
+              }}
+            >
+              Skills
+            </Typography>
+          </Button>
+        </motion.div>
+
         <motion.div
           whileHover={{ scale: 1.2, y: -4 }}
           whileTap={{ scale: 0.9, y: -2 }}
@@ -94,41 +131,7 @@ function DynamicIsland({
             </Typography>
           </Button>
         </motion.div>
-        <motion.div
-          whileHover={{ scale: 1.2, y: -4 }}
-          whileTap={{ scale: 0.9, y: -2 }}
-          onMouseEnter={() => setHoveredButton("Projects")}
-          onMouseLeave={() => setHoveredButton("")}
-          animate={{
-            scale:
-              hoveredButton === "" ? 1 : hoveredButton !== "Projects" ? 0.9 : 1,
-          }}
-        >
-          <Button
-            color="inherit"
-            onClick={() => scrollToSection(projectsSectionRef)}
-          >
-            <Typography
-              variant="button"
-              color={
-                activeSection === "projects"
-                  ? "text.textDynamicIsland.main"
-                  : "text.textDynamicIsland.dark"
-              }
-              fontWeight={activeSection === "projects" ? 700 : 700}
-              textAlign="center"
-              sx={{
-                borderBottom:
-                  activeSection === "projects"
-                    ? "2px solid currentColor"
-                    : "none",
-                paddingBottom: activeSection === "projects" ? "0px" : "0",
-              }}
-            >
-              Projects
-            </Typography>
-          </Button>
-        </motion.div>
+
         <motion.div
           whileHover={{ scale: 1.2, y: -4 }}
           whileTap={{ scale: 0.9, y: -2 }}

@@ -66,6 +66,7 @@ function AppNavBar({
   Typography,
   scrollToSection,
   landingSectionRef,
+  skillsSectionRef,
   experienceSectionRef,
   projectsSectionRef,
   connectSectionRef,
@@ -182,6 +183,7 @@ function AppNavBar({
                 Typography={Typography}
                 scrollToSection={scrollToSection}
                 landingSectionRef={landingSectionRef}
+                skillsSectionRef={skillsSectionRef}
                 experienceSectionRef={experienceSectionRef}
                 projectsSectionRef={projectsSectionRef}
                 connectSectionRef={connectSectionRef}
@@ -224,7 +226,7 @@ function AppNavBar({
                   py: screenSize === "md" ? 0 : 1,
                 }}
               >
-                <Tooltip
+                {/* <Tooltip
                   title={
                     isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
                   }
@@ -235,7 +237,7 @@ function AppNavBar({
                     size="small"
                     defaultChecked
                   />
-                </Tooltip>
+                </Tooltip> */}
 
                 {screenSize !== "xs" && screenSize !== "sm" && (
                   <>
@@ -251,7 +253,7 @@ function AppNavBar({
                     >
                       <Typography
                         variant="body2"
-                        color="text.textPrimary.light"
+                        color="text.textPrimary.dark"
                         fontWeight={400}
                         textAlign="right"
                         sx={{

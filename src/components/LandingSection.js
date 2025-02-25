@@ -11,6 +11,7 @@ import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 import CharacteristicsInput from "./CharacteristicsInput";
 import FloatingSocials from "./FloatingSocials";
 import { useTheme } from "@mui/material/styles";
+import tinycolor from "tinycolor2";
 
 function LandingSection({ Typography, onColorChange }, ref) {
   const screenSize = useScreenSize();
@@ -32,64 +33,81 @@ function LandingSection({ Typography, onColorChange }, ref) {
     >
       {/* <Stack spacing={2} ref={scope}> */}
       <Stack spacing={2}>
-        <Grid container>
+        <Grid container justifyContent="center" alignItems="center">
           <Grid item xs={12}>
             <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
               <Typography
                 variant="body1"
                 color="text.textSecondary.main"
                 fontWeight={400}
-                textAlign="left"
+                textAlign="center"
                 sx={{
-                  fontFamily: "JetBrains Mono, monospace",
-                  mb:
-                    screenSize === "xs"
-                      ? "2vh"
-                      : screenSize === "xl"
-                      ? "2vh"
-                      : "2vh",
+                  fontFamily: "Fliege Mono, monospace",
+                  mb: "4vh",
                 }}
               >
                 Hello, I'm
               </Typography>
               <Typography
                 variant="h1"
-                color="text.textPrimary.light"
+                color="text.textPrimary.dark"
                 fontWeight={700}
                 paragraph
-                textAlign="left"
-                lineHeight={1}
+                textAlign="center"
+                lineHeight={0.9}
                 letterSpacing="0.02em"
               >
-                Hans Salangsang
+                Hans Wilhelm
+                <br />
+                <span
+                  style={{
+                    color: theme.palette.text.textSecondary.main,
+                  }}
+                >
+                  Salangsang
+                </span>
               </Typography>
               <Typography
                 variant="h2"
-                color="text.textPrimary.main"
+                color="text.textSecondary.light"
                 fontWeight={200}
                 paragraph
-                textAlign="left"
-                lineHeight={1}
-                letterSpacing="0.02em"
+                textAlign="center"
                 sx={{
-                  mt:
-                    screenSize === "xs"
-                      ? "2vh"
-                      : screenSize === "xl"
-                      ? "2vh"
-                      : "2vh",
+                  mt: "-2vh",
+                  background: `linear-gradient(67deg, ${tinycolor(
+                    theme.palette.text.textSecondary.light
+                  )
+                    .brighten(40)
+                    .toString()}, ${tinycolor(
+                    theme.palette.text.textSecondary.light
+                  )
+                    .desaturate(30)
+                    .darken(40)
+                    .toString()})`,
+                  backgroundSize: "200% 200%",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  animation: "goldShine 5s infinite linear",
+                  "@keyframes goldShine": {
+                    "0%": { backgroundPosition: "0% 50%" },
+                    "50%": { backgroundPosition: "100% 50%" },
+                    "100%": { backgroundPosition: "0% 50%" },
+                  },
                 }}
               >
-                Full Stack Developer
+                Full Stack Developer.
               </Typography>
             </ScrollRevealAnimation>
           </Grid>
 
           <Grid
             item
-            xs={12}
+            xs={10}
+            sm={8}
+            lg={6}
             sx={{
-              mt: "2vh",
+              mt: "17vh",
             }}
           >
             <ScrollRevealAnimation spring={true} reveal={true}>
@@ -98,13 +116,11 @@ function LandingSection({ Typography, onColorChange }, ref) {
                 color="text.textPrimary.main"
                 fontWeight={400}
                 paragraph
-                textAlign="left"
-                lineHeight={1.6}
+                textAlign="center"
+                lineHeight={1.2}
               >
-                From graphic design to programming, I've explored
-                <br />
-                pixels and codes to become a versatile developer.
-                <br />
+                From graphic design to programming, I've explored pixels and
+                codes to become a versatile developer.{" "}
                 <span
                   style={{
                     fontWeight: 700,
@@ -132,7 +148,7 @@ function LandingSection({ Typography, onColorChange }, ref) {
             item
             xs={12}
             sx={{
-              mt: "5vh",
+              mt: "1vh",
             }}
           >
             <Box sx={{ width: "400px" }}>

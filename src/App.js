@@ -7,6 +7,7 @@ import { ScreenProvider } from "./ScreenContext";
 import AppNavBar from "./components/AppNavBar";
 import BottomAppNavBar from "./components/BottomAppNavBar";
 import LandingSection from "./components/LandingSection";
+import AboutMeSection from "./components/AboutMeSection";
 import SkillsSection from "./components/SkillsSection";
 import ExperienceSection from "./components/ExperienceSection";
 import ProjectsSection from "./components/ProjectsSection";
@@ -28,6 +29,7 @@ import ScrollRevealAnimation from "./components/ScrollRevealAnimation";
 import Spline from "@splinetool/react-spline";
 import tinycolor from "tinycolor2";
 import Grid from "@mui/material/Grid";
+import "./App.css";
 
 const Typography = styled(BaseTypography)`
   ${({ theme }) => `
@@ -52,7 +54,7 @@ function App() {
 
   const [activeSection, setActiveSection] = useState("landing");
 
-  const [accentColor, setAccentColor] = useState("#6093D6");
+  const [accentColor, setAccentColor] = useState("#7549ff");
   const [backgroundColor, setBackgroundColor] = useState("");
   const [darkBackgroundColor, setDarkBackgroundColor] = useState("");
   const [lightBackgroundColor, setLightBackgroundColor] = useState("");
@@ -67,8 +69,8 @@ function App() {
   const handleColorChange = (newColor, newDescription) => {
     setAccentColor(newColor);
 
-    const newDark = tinycolor(newColor).setAlpha(1).darken(55).toString();
-    const newLight = tinycolor(newColor).setAlpha(1).brighten(55).toString();
+    const newDark = tinycolor(newColor).setAlpha(1).darken(70).toString();
+    const newLight = tinycolor(newColor).setAlpha(1).brighten(70).toString();
 
     setAccentColor(newColor);
     setDarkBackgroundColor(newDark);
@@ -99,30 +101,33 @@ function App() {
             ? darkTheme.palette.text.textPrimary
             : lightTheme.palette.text.textPrimary),
           light: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).brighten(55).toString()
-            : tinycolor(accentColor).darken(55).toString(),
+            ? tinycolor(accentColor).brighten(85).toString()
+            : tinycolor(accentColor).darken(85).toString(),
           main: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).desaturate(70).brighten(15).toString()
-            : tinycolor(accentColor).desaturate(70).darken(15).toString(),
+            ? tinycolor(accentColor).desaturate(90).brighten(15).toString()
+            : tinycolor(accentColor).desaturate(90).darken(30).toString(),
           dark: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor)
-                .saturate(0)
-                .brighten(0)
-                .spin(180)
-                .toString()
-            : tinycolor(accentColor)
-                .saturate(100)
-                .darken(20)
-                .spin(180)
-                .toString(),
+            ? tinycolor(accentColor).darken(85).toString()
+            : tinycolor(accentColor).darken(85).toString(),
         },
         textSecondary: {
           ...(isDarkMode
             ? darkTheme.palette.text.textSecondary
             : lightTheme.palette.text.textSecondary),
+          light: tinycolor(backgroundColor).isDark()
+            ? tinycolor(accentColor)
+                .desaturate(50)
+                .brighten(10)
+                .spin(140)
+                .toString()
+            : tinycolor(accentColor)
+                .desaturate(50)
+                .darken(30)
+                .spin(140)
+                .toString(),
           main: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).saturate(100).brighten(10).toString()
-            : tinycolor(accentColor).saturate(100).darken(10).toString(),
+            ? tinycolor(accentColor).toString()
+            : tinycolor(accentColor).toString(),
           dark: tinycolor(backgroundColor).isDark()
             ? tinycolor(accentColor).desaturate(70).brighten(0).toString()
             : tinycolor(accentColor).desaturate(70).darken(0).toString(),
@@ -132,37 +137,25 @@ function App() {
             ? darkTheme.palette.text.textDynamicIsland
             : lightTheme.palette.text.textDynamicIsland),
           light: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor)
-                .saturate(0)
-                .brighten(40)
-                .spin(40)
-                .toString()
+            ? tinycolor(accentColor).saturate(0).brighten(80).spin(0).toString()
             : tinycolor(accentColor)
                 .saturate(100)
-                .darken(40)
-                .spin(40)
+                .darken(80)
+                .spin(0)
                 .toString(),
           main: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor)
-                .saturate(0)
-                .brighten(50)
-                .spin(40)
-                .toString()
+            ? tinycolor(accentColor).saturate(0).brighten(80).spin(0).toString()
             : tinycolor(accentColor)
                 .saturate(100)
-                .darken(60)
-                .spin(40)
+                .darken(80)
+                .spin(0)
                 .toString(),
           dark: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor)
-                .saturate(0)
-                .brighten(0)
-                .spin(180)
-                .toString()
+            ? tinycolor(accentColor).saturate(0).brighten(0).spin(0).toString()
             : tinycolor(accentColor)
                 .saturate(100)
                 .darken(20)
-                .spin(180)
+                .spin(0)
                 .toString(),
         },
       },
@@ -171,49 +164,57 @@ function App() {
         fillHovered: backgroundColor,
         fillFocused: backgroundColor,
         text: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).brighten(55).toString()
-          : tinycolor(accentColor).darken(55).toString(),
+          ? tinycolor(accentColor).brighten(90).toString()
+          : tinycolor(accentColor).darken(90).toString(),
         label: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).desaturate(70).brighten(15).toString()
-          : tinycolor(accentColor).desaturate(70).darken(15).toString(),
+          ? tinycolor(accentColor).desaturate(90).brighten(15).toString()
+          : tinycolor(accentColor).desaturate(90).darken(15).toString(),
         labelHovered: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).brighten(55).toString()
-          : tinycolor(accentColor).darken(55).toString(),
+          ? tinycolor(accentColor).brighten(90).toString()
+          : tinycolor(accentColor).darken(90).toString(),
         labelFocused: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).saturate(100).brighten(10).toString()
-          : tinycolor(accentColor).saturate(100).darken(10).toString(),
+          ? tinycolor(accentColor).saturate(0).brighten(20).toString()
+          : tinycolor(accentColor).saturate(0).darken(20).toString(),
         helperText: "9B9EAB",
         border: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).desaturate(70).brighten(15).toString()
-          : tinycolor(accentColor).desaturate(70).darken(15).toString(),
+          ? tinycolor(accentColor).desaturate(90).brighten(0).toString()
+          : tinycolor(accentColor).desaturate(90).darken(0).toString(),
         borderHovered: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).brighten(55).toString()
-          : tinycolor(accentColor).darken(55).toString(),
+          ? tinycolor(accentColor).brighten(90).toString()
+          : tinycolor(accentColor).darken(90).toString(),
         borderFocused: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).saturate(100).brighten(10).toString()
-          : tinycolor(accentColor).saturate(100).darken(10).toString(),
+          ? tinycolor(accentColor).saturate(0).brighten(0).toString()
+          : tinycolor(accentColor).saturate(0).darken(0).toString(),
       },
       button: {
         ...(isDarkMode ? darkTheme.palette.button : lightTheme.palette.button),
         fill: backgroundColor,
+        fillAccent: backgroundColor,
         fillHovered: tinycolor(backgroundColor).isDark()
           ? tinycolor(backgroundColor).saturate(0).brighten(5).toString()
           : tinycolor(backgroundColor).saturate(0).darken(5).toString(),
+        fillHoveredAccent: backgroundColor,
         fillFocused: "#E9E9ED",
         text: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).saturate(100).brighten(10).toString()
-          : tinycolor(accentColor).saturate(100).darken(10).toString(),
+          ? tinycolor(accentColor).saturate(0).brighten(0).toString()
+          : tinycolor(accentColor).saturate(0).darken(0).toString(),
+        textAccent: tinycolor(backgroundColor).isDark()
+          ? tinycolor(accentColor).saturate(0).brighten(0).toString()
+          : tinycolor(accentColor).saturate().darken(0).toString(),
         textHovered: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).saturate(100).brighten(20).toString()
-          : tinycolor(accentColor).saturate(100).darken(20).toString(),
+          ? tinycolor(accentColor).saturate(0).brighten(90).toString()
+          : tinycolor(accentColor).saturate(0).darken(90).toString(),
+        textHoveredAccent: tinycolor(backgroundColor).isDark()
+          ? tinycolor(accentColor).saturate(0).brighten(90).toString()
+          : tinycolor(accentColor).saturate(0).darken(90).toString(),
         label: "#42566E",
         labelFocused: "#6093D6",
         border: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).saturate(100).brighten(10).toString()
-          : tinycolor(accentColor).saturate(100).darken(10).toString(),
+          ? tinycolor(accentColor).saturate(0).brighten(0).toString()
+          : tinycolor(accentColor).saturate(0).darken(0).toString(),
         borderHovered: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).saturate(100).brighten(20).toString()
-          : tinycolor(accentColor).saturate(100).darken(20).toString(),
+          ? tinycolor(accentColor).saturate(0).brighten(0).toString()
+          : tinycolor(accentColor).saturate(0).darken(0).toString(),
         borderFocused: "#6093D6",
       },
     },
@@ -227,6 +228,8 @@ function App() {
   const isXl = useMediaQuery(theme.breakpoints.up("xl"));
 
   let screenSize = "";
+
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
 
   if (isXs) {
     screenSize = "xs";
@@ -243,60 +246,65 @@ function App() {
   }
 
   useEffect(() => {
+    const isInView = (rect) => {
+      const windowHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+
+      const visibleHeight =
+        Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
+      const sectionHeight = rect.bottom - rect.top;
+
+      return visibleHeight / sectionHeight > 0.7;
+    };
+
     const handleScroll = () => {
-      const landingSectionRect =
-        landingSectionRef.current.getBoundingClientRect();
-      const skillsSectionRect =
-        skillsSectionRef.current.getBoundingClientRect();
-      const experienceSectionRect =
-        experienceSectionRef.current.getBoundingClientRect();
-      const projectsSectionRect =
-        projectsSectionRef.current.getBoundingClientRect();
-      const connectSectionRect =
-        connectSectionRef.current.getBoundingClientRect();
+      if (
+        !skillsSectionRef.current ||
+        !experienceSectionRef.current ||
+        // !projectsSectionRef.current ||
+        !connectSectionRef.current
+      ) {
+        return;
+      }
 
-      const isInView = (rect) => {
-        const windowHeight =
-          window.innerHeight || document.documentElement.clientHeight;
-        const topThreshold = -0.2;
-        const bottomThreshold = 1.2;
+      const sections = isLargeScreen
+        ? [
+            { ref: skillsSectionRef, name: "skills" },
+            { ref: experienceSectionRef, name: "experience" },
+            // { ref: projectsSectionRef, name: "projects" },
+            { ref: connectSectionRef, name: "connect" },
+          ]
+        : [
+            { ref: landingSectionRef, name: "landing" },
+            { ref: skillsSectionRef, name: "skills" },
+            { ref: experienceSectionRef, name: "experience" },
+            // { ref: projectsSectionRef, name: "projects" },
+            { ref: connectSectionRef, name: "connect" },
+          ];
 
-        let view = false;
+      let foundSection = false;
 
-        if (isXs || isSm) {
-          view =
-            rect.top >= -0.8 * windowHeight && rect.top <= 0.2 * windowHeight;
-        } else {
-          view =
-            rect.top >= topThreshold * windowHeight &&
-            rect.bottom <= bottomThreshold * windowHeight;
+      for (let section of sections) {
+        if (isInView(section.ref.current.getBoundingClientRect())) {
+          setActiveSection(section.name);
+          foundSection = true;
+          break;
         }
+      }
 
-        return view;
-      };
-
-      if (isInView(landingSectionRect)) {
+      // If lg and no section is active, default to "landing"
+      if (!foundSection && isLargeScreen) {
         setActiveSection("landing");
-      } else if (isInView(skillsSectionRect)) {
-        setActiveSection("skills");
-      } else if (isInView(experienceSectionRect)) {
-        setActiveSection("experience");
-      } else if (isInView(projectsSectionRect)) {
-        setActiveSection("projects");
-      } else if (isInView(connectSectionRect)) {
-        setActiveSection("connect");
       }
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
-
-  // useSmoothScroll();
-  const isLargeScreen = useMediaQuery(theme.breakpoints.up("md"));
+  }, [setActiveSection]);
 
   return (
     <ParallaxProvider>
@@ -324,6 +332,7 @@ function App() {
               isDarkMode={isDarkMode}
               scrollToSection={scrollToSection}
               landingSectionRef={landingSectionRef}
+              skillsSectionRef={skillsSectionRef}
               experienceSectionRef={experienceSectionRef}
               projectsSectionRef={projectsSectionRef}
               connectSectionRef={connectSectionRef}
@@ -337,6 +346,7 @@ function App() {
               isDarkMode={isDarkMode}
               scrollToSection={scrollToSection}
               landingSectionRef={landingSectionRef}
+              skillsSectionRef={skillsSectionRef}
               experienceSectionRef={experienceSectionRef}
               projectsSectionRef={projectsSectionRef}
               connectSectionRef={connectSectionRef}
@@ -349,6 +359,7 @@ function App() {
             Chip={Chip}
             scrollToSection={scrollToSection}
             landingSectionRef={landingSectionRef}
+            skillsSectionRef={skillsSectionRef}
             experienceSectionRef={experienceSectionRef}
             projectsSectionRef={projectsSectionRef}
             connectSectionRef={connectSectionRef}
@@ -382,6 +393,7 @@ function App() {
           >
             {/* keyboard */}
             {/* <Spline scene="https://prod.spline.design/gqzHKulT7OQ4j813/scene.splinecode" /> */}
+            <Spline scene="https://prod.spline.design/NhsgbKrO1ru5ZQ8l/scene.splinecode" />
           </Box>
 
           <Container maxWidth="lg">
@@ -389,13 +401,15 @@ function App() {
               <Grid
                 item
                 xs={12}
-                lg={5}
+                // sx={{
+                //   position: { lg: "sticky", xs: "relative" },
+                //   top: 0,
+                //   height: { lg: "100vh", xs: "auto" },
+                //   overflow: { lg: "hidden", xs: "visible" },
+                //   pt: { lg: theme.spacing(30), xs: theme.spacing(20) },
+                // }}
                 sx={{
-                  position: { lg: "sticky", xs: "relative" },
-                  top: 0,
-                  height: { lg: "100vh", xs: "auto" },
-                  overflow: { lg: "hidden", xs: "visible" },
-                  pt: { lg: theme.spacing(30), xs: theme.spacing(20) },
+                  pt: { lg: theme.spacing(25), xs: theme.spacing(20) },
                 }}
               >
                 <LandingSection
@@ -405,16 +419,15 @@ function App() {
                 />
               </Grid>
 
-              <Grid item xs={1}></Grid>
-
               <Grid
                 item
                 xs={12}
-                lg={6}
                 sx={{
-                  pt: { lg: theme.spacing(30), xs: theme.spacing(0) },
+                  pt: { lg: theme.spacing(20), xs: theme.spacing(0) },
                 }}
               >
+                <AboutMeSection Typography={Typography} Chip={Chip} />
+
                 <SkillsSection
                   ref={skillsSectionRef}
                   Typography={Typography}
@@ -427,24 +440,23 @@ function App() {
                   Chip={Chip}
                 />
 
-                <ProjectsSection
+                {/* <ProjectsSection
                   ref={projectsSectionRef}
                   Typography={Typography}
                   Chip={Chip}
-                />
-
+                /> */}
+                {/* 
                 <Box
                   sx={{
-                    background: theme.palette.background.contrast,
                     minWidth: "100%",
                   }}
-                >
-                  <ConnectSection
-                    ref={connectSectionRef}
-                    Typography={Typography}
-                    Chip={Chip}
-                  />
-                </Box>
+                > */}
+                <ConnectSection
+                  ref={connectSectionRef}
+                  Typography={Typography}
+                  Chip={Chip}
+                />
+                {/* </Box> */}
                 <Footer Typography={Typography} Chip={Chip} />
               </Grid>
             </Grid>

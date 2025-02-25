@@ -64,6 +64,7 @@ function BottomAppNavBar({
   Typography,
   scrollToSection,
   landingSectionRef,
+  skillsSectionRef,
   experienceSectionRef,
   projectsSectionRef,
   connectSectionRef,
@@ -109,6 +110,7 @@ function BottomAppNavBar({
             Typography={Typography}
             scrollToSection={scrollToSection}
             landingSectionRef={landingSectionRef}
+            skillsSectionRef={skillsSectionRef}
             experienceSectionRef={experienceSectionRef}
             projectsSectionRef={projectsSectionRef}
             connectSectionRef={connectSectionRef}

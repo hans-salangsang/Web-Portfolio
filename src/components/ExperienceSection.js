@@ -6,25 +6,46 @@ import Box from "@mui/material/Box";
 import { useScreenSize } from "../ScreenContext";
 import ScrollRevealAnimation from "./ScrollRevealAnimation";
 import { ParallaxProvider, Parallax } from "react-scroll-parallax";
+import { useTheme } from "@mui/material/styles";
+import tinycolor from "tinycolor2";
 
 function ExperienceSection({ Typography, Chip }, ref) {
   const screenSize = useScreenSize();
+  const theme = useTheme();
 
   return (
-    <Container maxWidth={screenSize === "xl" ? "xl" : "lg"} sx={{ mt: 20 }}>
-      <Grid ref={ref} container sx={{ minHeight: "100vh" }}>
+    <Container maxWidth={screenSize === "xl" ? "xl" : "lg"}>
+      <Grid ref={ref} container sx={{ pt: 15 }}>
         <Grid container item xs={12} spacing={5}>
-          <Grid item xs={12}>
+          <Grid item xs={12} sx={{ mb: 1 }}>
             <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
               <Typography
                 variant="h3"
-                color="text.textPrimary.dark"
-                fontWeight={400}
+                color="text.textSecondary.main"
                 sx={{
-                  textAlign: "left",
+                  textAlign: "center",
+                  background: `linear-gradient(67deg, ${tinycolor(
+                    theme.palette.text.textSecondary.light
+                  )
+                    .brighten(40)
+                    .toString()}, ${tinycolor(
+                    theme.palette.text.textSecondary.light
+                  )
+                    .desaturate(30)
+                    .darken(40)
+                    .toString()})`,
+                  backgroundSize: "200% 200%",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  animation: "goldShine 5s infinite linear",
+                  "@keyframes goldShine": {
+                    "0%": { backgroundPosition: "0% 50%" },
+                    "50%": { backgroundPosition: "100% 50%" },
+                    "100%": { backgroundPosition: "0% 50%" },
+                  },
                 }}
               >
-                Experience
+                My Experience
               </Typography>
             </ScrollRevealAnimation>
           </Grid>
@@ -94,8 +115,6 @@ function ExperienceSection({ Typography, Chip }, ref) {
             </Grid>
           </Grid>
         </Grid>
-
-        <Grid container item xs={5}></Grid>
       </Grid>
     </Container>
   );

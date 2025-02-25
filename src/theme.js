@@ -4,57 +4,59 @@ const baseTheme = createTheme();
 
 const typography = {
   h1: {
-    fontFamily: "Inter, sans-serif",
-    fontSize: "3rem",
+    fontFamily: "Schabo, sans-serif",
+    fontSize: `clamp(5rem, 12vw, 12rem)`,
+    textTransform: "uppercase",
   },
   h2: {
-    fontFamily: "Inter, sans-serif",
-    fontSize: "2rem",
+    fontFamily: "Fliege Mono, monospace",
+    fontSize: `clamp(1.3rem, 3vw, 2rem)`,
   },
   h3: {
-    fontFamily: "Jetbrains Mono, monospace",
-    fontSize: "1.5rem",
+    fontFamily: "Inter, sans-serif",
+    fontSize: `clamp(1.75rem, 5vw, 2.75rem)`,
+    fontWeight: 700,
   },
   h4: {
     fontFamily: "Inter, sans-serif",
-    fontSize: "1.115rem",
+    fontSize: `clamp(1.125rem, 2vw, 1.25rem)`,
   },
   h5: {
-    fontFamily: "Jetbrains Mono, monospace",
-    fontSize: "1rem",
+    fontFamily: "Fliege Mono, monospace",
+    fontSize: `clamp(1rem, 1.75vw, 1.125rem)`,
   },
   h6: {
-    fontFamily: "Jetbrains Mono, monospace",
-    fontSize: "1rem",
+    fontFamily: "Fliege Mono, monospace",
+    fontSize: `clamp(0.875rem, 1.5vw, 1rem)`,
   },
   subtitle1: {
     fontFamily: "Inter, sans-serif",
-    fontSize: "1rem",
+    fontSize: `clamp(0.875rem, 1.5vw, 1rem)`,
   },
   subtitle2: {
     fontFamily: "Inter, sans-serif",
-    fontSize: "0.875rem",
+    fontSize: `clamp(0.75rem, 1.25vw, 0.875rem)`,
   },
   body1: {
     fontFamily: "Inter, sans-serif",
-    fontSize: "0.875rem",
+    fontSize: `clamp(0.8rem, 1.25vw, 0.875rem)`,
   },
   body2: {
     fontFamily: "Inter, sans-serif",
-    fontSize: "0.8rem",
+    fontSize: `clamp(0.7rem, 1vw, 0.8rem)`,
   },
   button: {
     fontFamily: "Inter, sans-serif",
-    fontSize: "0.875rem",
+    fontSize: `clamp(0.75rem, 1.5vw, 0.875rem)`,
     fontWeight: 600,
   },
   caption: {
     fontFamily: "Inter, sans-serif",
-    fontSize: "0.75rem",
+    fontSize: `clamp(0.625rem, 1vw, 0.75rem)`,
   },
   overline: {
     fontFamily: "Inter, sans-serif",
-    fontSize: "0.75rem",
+    fontSize: `clamp(0.625rem, 1vw, 0.75rem)`,
     textTransform: "uppercase",
   },
 };

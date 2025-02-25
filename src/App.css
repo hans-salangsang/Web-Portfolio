@@ -36,3 +36,91 @@
     transform: rotate(360deg);
   }
 }
+
+/* Schabo Font */
+@font-face {
+  font-family: "Schabo";
+  src: url("./assets/fonts/SCHABO-Condensed.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Fliege Mono Font */
+@font-face {
+  font-family: "Fliege Mono";
+  src: url("./assets/fonts/FliegeMono-Thin.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fliege Mono";
+  src: url("./assets/fonts/FliegeMono-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fliege Mono";
+  src: url("./assets/fonts/FliegeMono-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fliege Mono";
+  src: url("./assets/fonts/FliegeMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fliege Mono";
+  src: url("./assets/fonts/FliegeMono-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fliege Mono";
+  src: url("./assets/fonts/FliegeMono-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fliege Mono";
+  src: url("./assets/fonts/FliegeMono-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fliege Mono";
+  src: url("./assets/fonts/FliegeMono-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fliege Mono";
+  src: url("./assets/fonts/FliegeMono-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Inter Font */
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/fonts/Inter-Italic-VariableFont_opsz,wght.woff2")
+    format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+}
