@@ -1,18 +1,17 @@
 ::-webkit-scrollbar {
-    width: 6px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(129, 158, 197, 0.8);
-    border-radius: 5px;
-    backdrop-filter: blur(30px);
+  background: rgba(255, 251, 255, 1);
+  border: 1px solid;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(129, 158, 197, 1);
+  background: rgba(255, 251, 255, 0.7);
 }
-  

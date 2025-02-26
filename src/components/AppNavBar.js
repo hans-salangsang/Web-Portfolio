@@ -130,13 +130,11 @@ function AppNavBar({
                 screenSize !== "md" && (
                   <Typography
                     variant="h6"
-                    color="text.textPrimary.light"
-                    fontWeight={400}
-                    fontFamily="Jetbrains Mono, sans-serif"
+                    color="text.textPrimary.dark"
                     textAlign="left"
                     sx={{ cursor: "pointer" }}
                   >
-                    Hans<span style={{ fontSize: "0.5em" }}>&nbsp;</span>
+                    Hans<span>&nbsp;</span>
                     <span
                       style={{ color: theme.palette.text.textSecondary.main }}
                     >
@@ -150,8 +148,7 @@ function AppNavBar({
                 <>
                   <Typography
                     variant="h6"
-                    color="text.textPrimary.light"
-                    fontWeight={400}
+                    color="text.textPrimary.dark"
                     textAlign="left"
                     sx={{ cursor: "pointer" }}
                   >
@@ -160,7 +157,6 @@ function AppNavBar({
                   <Typography
                     variant="h6"
                     color="text.textSecondary.main"
-                    fontWeight={400}
                     textAlign="left"
                     sx={{ cursor: "pointer" }}
                   >
@@ -239,7 +235,7 @@ function AppNavBar({
                   />
                 </Tooltip> */}
 
-                {screenSize !== "xs" && screenSize !== "sm" && (
+                {screenSize !== "xs" && (
                   <>
                     <Tooltip
                       title={
@@ -257,8 +253,7 @@ function AppNavBar({
                         fontWeight={400}
                         textAlign="right"
                         sx={{
-                          pl:
-                            screenSize !== "xs" && screenSize !== "sm" ? 1 : 0,
+                          pl: screenSize !== "xs" ? 1 : 0,
                         }}
                       >
                         <Clock onUpdate={updateTime} />
@@ -273,7 +268,7 @@ function AppNavBar({
         </Grid>
       )}
 
-      {screenSize === "xs" && (
+      {/* {screenSize === "xs" && (
         <Container maxWidth={screenSize === "xl" ? "xl" : "lg"} sx={{ px: 3 }}>
           <Grid
             container
@@ -284,14 +279,13 @@ function AppNavBar({
           >
             <Grid item xs={8} sx={{ py: 1 }}>
               <Typography
-                variant="h5"
-                color="text.textPrimary.light"
-                fontWeight={400}
-                fontFamily="Jetbrains Mono, sans-serif"
+                variant="h6"
+                color="text.textPrimary.dark"
                 textAlign="left"
+                sx={{ cursor: "pointer" }}
               >
-                Hans<span style={{ fontSize: "0.5em" }}>&nbsp;</span>
-                <span style={{ color: theme.palette.text.textSecondary.light }}>
+                Hans<span>&nbsp;</span>
+                <span style={{ color: theme.palette.text.textSecondary.main }}>
                   Salangsang
                 </span>
               </Typography>
@@ -317,7 +311,7 @@ function AppNavBar({
             </Grid>
           </Grid>
         </Container>
-      )}
+      )} */}
     </AppBar>
   );
 }

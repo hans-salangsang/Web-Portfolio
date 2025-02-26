@@ -15,8 +15,12 @@ const Toolbar = styled(BaseToolbar)`
 `;
 
 const Button = styled(BaseButton)(({ theme }) => ({
-  paddingLeft: "50px",
-  paddingRight: "50px",
+  paddingLeft: "2vw",
+  paddingRight: "2vw",
+  [theme.breakpoints.down("sm")]: {
+    paddingLeft: "4vw",
+    paddingRight: "4vw",
+  },
   "&:hover .MuiTypography-root": {
     fontWeight: 700,
     color: theme.palette.text.textDynamicIsland.light,
@@ -48,11 +52,10 @@ function DynamicIsland({
         // hoveredButton !== "" ? "background.accentHover" : "background.accent",
         backdropFilter: "blur(200px)",
         justifyContent: "center",
-        backgroundColor: "transparent",
+        backgroundColor: "background.default",
         justifyContent: "center",
         borderRadius: 2,
         // boxShadow: theme.shadows[5],
-        width: "650px",
       }}
     >
       <Stack direction="row" spacing={0}>

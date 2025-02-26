@@ -9,13 +9,13 @@ import { useScreenSize } from "../ScreenContext";
 import Tooltip from "./CustomTooltip";
 
 const IconButton = styled(BaseIconButton)(({ theme }) => ({
-  backgroundColor: "rgba(129, 158, 197, 0.3)",
+  backgroundColor: theme.palette.background.default,
   backdropFilter: "blur(12px)",
-  color: "rgba(129, 158, 197, 1)",
+  color: theme.palette.text.textDynamicIsland.dark,
   boxShadow: theme.shadows[5],
   "&:hover": {
-    color: "rgba(16, 18, 24, 1)",
-    backgroundColor: "rgba(129, 158, 197, 0.7)",
+    color: theme.palette.background.default,
+    backgroundColor: theme.palette.text.textDynamicIsland.dark,
   },
 }));
 

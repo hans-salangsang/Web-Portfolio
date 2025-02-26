@@ -69,8 +69,16 @@ function App() {
   const handleColorChange = (newColor, newDescription) => {
     setAccentColor(newColor);
 
-    const newDark = tinycolor(newColor).setAlpha(1).darken(70).toString();
-    const newLight = tinycolor(newColor).setAlpha(1).brighten(70).toString();
+    const newDark = tinycolor(newColor)
+      .setAlpha(1)
+      .desaturate(100)
+      .darken(67)
+      .toString();
+    const newLight = tinycolor(newColor)
+      .setAlpha(1)
+      .desaturate(100)
+      .brighten(70)
+      .toString();
 
     setAccentColor(newColor);
     setDarkBackgroundColor(newDark);
@@ -354,7 +362,7 @@ function App() {
             />
           )}
 
-          <ScrollProgressIndicator
+          {/* <ScrollProgressIndicator
             Typography={Typography}
             Chip={Chip}
             scrollToSection={scrollToSection}
@@ -364,7 +372,7 @@ function App() {
             projectsSectionRef={projectsSectionRef}
             connectSectionRef={connectSectionRef}
             activeSection={activeSection}
-          />
+          /> */}
           <BackToTop
             Typography={Typography}
             Chip={Chip}
@@ -409,7 +417,7 @@ function App() {
                 //   pt: { lg: theme.spacing(30), xs: theme.spacing(20) },
                 // }}
                 sx={{
-                  pt: { lg: theme.spacing(25), xs: theme.spacing(20) },
+                  pt: { lg: theme.spacing(35), xs: theme.spacing(20) },
                 }}
               >
                 <LandingSection

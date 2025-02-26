@@ -7,6 +7,7 @@ import Container from "@mui/material/Container";
 import Switch from "@mui/material/Switch";
 import { styled } from "@mui/material/styles";
 import { useTheme } from "@mui/material/styles";
+import DynamicIsland from "./DynamicIsland";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 56,
@@ -90,7 +91,7 @@ function BottomAppNavBar({
     <AppBar
       position="fixed"
       sx={(theme) => ({
-        backdropFilter: "blur(50px)",
+        // backdropFilter: "blur(50px)",
         justifyContent: "center",
         backgroundColor: "transparent",
         transition: `background-color ${theme.transitions.duration.standard}ms ${theme.transitions.easing.standard}`,
@@ -104,9 +105,10 @@ function BottomAppNavBar({
         direction="row"
         justifyContent="space-around"
         alignItems="flex-start"
+        sx={{ mt: 3, mb: 2, px: 2 }}
       >
         <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
-          <BottomIsland
+          <DynamicIsland
             Typography={Typography}
             scrollToSection={scrollToSection}
             landingSectionRef={landingSectionRef}

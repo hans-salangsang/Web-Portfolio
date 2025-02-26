@@ -77,12 +77,12 @@ function SkillsSection({ Typography, Chip }, ref) {
                   background: `linear-gradient(67deg, ${tinycolor(
                     theme.palette.text.textSecondary.light
                   )
-                    .brighten(40)
+                    .desaturate(30)
+                    .darken(40)
                     .toString()}, ${tinycolor(
                     theme.palette.text.textSecondary.light
                   )
-                    .desaturate(30)
-                    .darken(40)
+                    .brighten(40)
                     .toString()})`,
                   backgroundSize: "200% 200%",
                   WebkitBackgroundClip: "text",
@@ -123,7 +123,8 @@ function SkillsSection({ Typography, Chip }, ref) {
                         <Grid
                           container
                           item
-                          xs={4}
+                          xs={6}
+                          sm={4}
                           key={index}
                           sx={{
                             mb: 0.5,

@@ -36,7 +36,7 @@ function LandingSection({ Typography, onColorChange }, ref) {
         <Grid container justifyContent="center" alignItems="center">
           <Grid item xs={12}>
             <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
-              <Typography
+              {/* <Typography
                 variant="body1"
                 color="text.textSecondary.main"
                 fontWeight={400}
@@ -47,7 +47,7 @@ function LandingSection({ Typography, onColorChange }, ref) {
                 }}
               >
                 Hello, I'm
-              </Typography>
+              </Typography> */}
               <Typography
                 variant="h1"
                 color="text.textPrimary.dark"
@@ -74,16 +74,16 @@ function LandingSection({ Typography, onColorChange }, ref) {
                 paragraph
                 textAlign="center"
                 sx={{
-                  mt: "-2vh",
+                  mt: "-1vh",
                   background: `linear-gradient(67deg, ${tinycolor(
-                    theme.palette.text.textSecondary.light
-                  )
-                    .brighten(40)
-                    .toString()}, ${tinycolor(
                     theme.palette.text.textSecondary.light
                   )
                     .desaturate(30)
                     .darken(40)
+                    .toString()}, ${tinycolor(
+                    theme.palette.text.textSecondary.light
+                  )
+                    .brighten(40)
                     .toString()})`,
                   backgroundSize: "200% 200%",
                   WebkitBackgroundClip: "text",
@@ -107,7 +107,7 @@ function LandingSection({ Typography, onColorChange }, ref) {
             sm={8}
             lg={6}
             sx={{
-              mt: "17vh",
+              mt: "18vh",
             }}
           >
             <ScrollRevealAnimation spring={true} reveal={true}>
@@ -147,15 +147,13 @@ function LandingSection({ Typography, onColorChange }, ref) {
           <Grid
             item
             xs={12}
+            sm={8}
+            lg={4}
             sx={{
               mt: "1vh",
             }}
           >
-            <Box sx={{ width: "400px" }}>
-              <CharacteristicsInput
-                onInputSubmit={handleCharacteristicsSubmit}
-              />
-            </Box>
+            <CharacteristicsInput onInputSubmit={handleCharacteristicsSubmit} />
           </Grid>
         </Grid>
       </Stack>

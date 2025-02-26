@@ -27,12 +27,12 @@ function ConnectSection({ Typography, Chip }, ref) {
                     background: `linear-gradient(67deg, ${tinycolor(
                       theme.palette.text.textSecondary.light
                     )
-                      .brighten(40)
+                      .desaturate(30)
+                      .darken(40)
                       .toString()}, ${tinycolor(
                       theme.palette.text.textSecondary.light
                     )
-                      .desaturate(30)
-                      .darken(40)
+                      .brighten(40)
                       .toString()})`,
                     backgroundSize: "200% 200%",
                     WebkitBackgroundClip: "text",
