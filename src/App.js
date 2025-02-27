@@ -417,7 +417,7 @@ function App() {
                 //   pt: { lg: theme.spacing(30), xs: theme.spacing(20) },
                 // }}
                 sx={{
-                  pt: { lg: theme.spacing(35), xs: theme.spacing(20) },
+                  pt: { lg: "30vh", xs: "30vh" },
                 }}
               >
                 <LandingSection
