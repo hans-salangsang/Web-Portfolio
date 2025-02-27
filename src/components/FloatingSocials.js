@@ -40,7 +40,7 @@ function FloatingSocials({ Typography, Chip }) {
         ? theme.palette.text.textDynamicIsland.dark
         : theme.palette.text.textDynamicIsland.dark,
     "&:hover": {
-      color: theme.palette.text.textDynamicIsland.light,
+      color: theme.palette.button.textHoveredAccent,
       backgroundColor: "transparent",
     },
   }));
@@ -64,7 +64,7 @@ function FloatingSocials({ Typography, Chip }) {
             scale:
               hoveredButton === "" ? 1 : hoveredButton !== "GitHub" ? 0.9 : 1,
           }}
-          transition={{ type: 'spring', stiffness: 300, damping: 70 }}
+          transition={{ type: "spring", stiffness: 300, damping: 70 }}
         >
           <IconButton
             aria-label="GitHub"
@@ -89,7 +89,7 @@ function FloatingSocials({ Typography, Chip }) {
             scale:
               hoveredButton === "" ? 1 : hoveredButton !== "LinkedIn" ? 0.9 : 1,
           }}
-          transition={{ type: 'spring', stiffness: 300, damping: 70 }}
+          transition={{ type: "spring", stiffness: 300, damping: 70 }}
         >
           <IconButton
             aria-label="LinkedIn"

@@ -52,7 +52,7 @@ function DynamicIsland({
         // hoveredButton !== "" ? "background.accentHover" : "background.accent",
         backdropFilter: "blur(200px)",
         justifyContent: "center",
-        backgroundColor: "background.default",
+        backgroundColor: "background.defaultReverse",
         justifyContent: "center",
         borderRadius: 2,
         height: "7vh !important",

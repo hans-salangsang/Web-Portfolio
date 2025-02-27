@@ -56,6 +56,7 @@ function App() {
 
   const [accentColor, setAccentColor] = useState("#7549ff");
   const [backgroundColor, setBackgroundColor] = useState("");
+  const [reverseBackgroundColor, setReverseBackgroundColor] = useState("");
   const [darkBackgroundColor, setDarkBackgroundColor] = useState("");
   const [lightBackgroundColor, setLightBackgroundColor] = useState("");
 
@@ -77,14 +78,16 @@ function App() {
     const newLight = tinycolor(newColor)
       .setAlpha(1)
       .desaturate(100)
-      .brighten(70)
+      .lighten(67)
       .toString();
 
     setAccentColor(newColor);
+
     setDarkBackgroundColor(newDark);
     setLightBackgroundColor(newLight);
 
     setBackgroundColor(isDarkMode ? newDark : newLight);
+    setReverseBackgroundColor(isDarkMode ? newLight : newDark);
   };
 
   useEffect(() => {
@@ -101,6 +104,7 @@ function App() {
           ? darkTheme.palette.background
           : lightTheme.palette.background),
         default: backgroundColor,
+        defaultReverse: reverseBackgroundColor,
       },
       text: {
         ...(isDarkMode ? darkTheme.palette.text : lightTheme.palette.text),
@@ -145,19 +149,11 @@ function App() {
             ? darkTheme.palette.text.textDynamicIsland
             : lightTheme.palette.text.textDynamicIsland),
           light: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).saturate(0).brighten(80).spin(0).toString()
-            : tinycolor(accentColor)
-                .saturate(100)
-                .darken(80)
-                .spin(0)
-                .toString(),
+            ? tinycolor(accentColor).darken(85).toString()
+            : tinycolor(accentColor).darken(85).toString(),
           main: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).saturate(0).brighten(80).spin(0).toString()
-            : tinycolor(accentColor)
-                .saturate(100)
-                .darken(80)
-                .spin(0)
-                .toString(),
+            ? tinycolor(accentColor).darken(85).toString()
+            : tinycolor(accentColor).darken(85).toString(),
           dark: tinycolor(backgroundColor).isDark()
             ? tinycolor(accentColor).saturate(0).brighten(0).spin(0).toString()
             : tinycolor(accentColor)
