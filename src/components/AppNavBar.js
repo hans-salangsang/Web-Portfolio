@@ -105,7 +105,7 @@ function AppNavBar({
           direction="row"
           justifyContent="space-around"
           alignItems="flex-start"
-          sx={{ mt: 3, mb: 2, px: 2 }}
+          sx={{ mt: 2, mb: 2, px: 2 }}
         >
           {screenSize !== "xs" && (
             <Grid

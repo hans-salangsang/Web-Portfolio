@@ -5,12 +5,12 @@ const baseTheme = createTheme();
 const typography = {
   h1: {
     fontFamily: "Schabo, sans-serif",
-    fontSize: `clamp(5rem, 11vw, 11rem)`,
+    fontSize: `clamp(5rem, 10vw, 11rem)`,
     textTransform: "uppercase",
   },
   h2: {
-    fontFamily: "Fliege Mono, monospace",
-    fontSize: `clamp(1.3rem, 3vw, 2rem)`,
+    fontFamily: "Inter, sans-serif",
+    fontSize: `clamp(1.3rem, 2.5vw, 2rem)`,
   },
   h3: {
     fontFamily: "Schabo, sans-serif",

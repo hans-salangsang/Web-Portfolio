@@ -37,8 +37,10 @@ function BackToTop({ Typography, Chip, scrollToSection, landingSectionRef }) {
     >
       <Tooltip title="Back to top" placement="left">
         <motion.div
-          whileHover={{ scale: 1.2, marginTop: -4 }}
-          whileTap={{ scale: 0.9, marginTop: -2 }}
+          
+          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.3 } }}
+          whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
+          transition={{ type: 'spring', stiffness: 300, damping: 70 }}
         >
           <IconButton
             aria-label="Back to Top"

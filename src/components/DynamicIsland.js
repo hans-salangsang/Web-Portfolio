@@ -55,19 +55,24 @@ function DynamicIsland({
         backgroundColor: "background.default",
         justifyContent: "center",
         borderRadius: 2,
+        height: "7vh !important",
+        paddingTop: "0px !important",
+        paddingBottom: "0px !important",
+        minHeight: "7vh !important",
         // boxShadow: theme.shadows[5],
       }}
     >
       <Stack direction="row" spacing={0}>
         <motion.div
-          whileHover={{ scale: 1.2, y: -4 }}
-          whileTap={{ scale: 0.9, y: -2 }}
+          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.3 } }}
+          whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
           onMouseEnter={() => setHoveredButton("Skills")}
           onMouseLeave={() => setHoveredButton("")}
           animate={{
             scale:
               hoveredButton === "" ? 1 : hoveredButton !== "Skills" ? 0.9 : 1,
           }}
+          transition={{ type: "spring", stiffness: 300, damping: 70 }}
         >
           <Button
             color="inherit"
@@ -96,8 +101,8 @@ function DynamicIsland({
         </motion.div>
 
         <motion.div
-          whileHover={{ scale: 1.2, y: -4 }}
-          whileTap={{ scale: 0.9, y: -2 }}
+          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.3 } }}
+          whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
           onMouseEnter={() => setHoveredButton("Experience")}
           onMouseLeave={() => setHoveredButton("")}
           animate={{
@@ -108,6 +113,7 @@ function DynamicIsland({
                 ? 0.9
                 : 1,
           }}
+          transition={{ type: "spring", stiffness: 300, damping: 70 }}
         >
           <Button
             color="inherit"
@@ -136,14 +142,15 @@ function DynamicIsland({
         </motion.div>
 
         <motion.div
-          whileHover={{ scale: 1.2, y: -4 }}
-          whileTap={{ scale: 0.9, y: -2 }}
+          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.3 } }}
+          whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
           onMouseEnter={() => setHoveredButton("Connect")}
           onMouseLeave={() => setHoveredButton("")}
           animate={{
             scale:
               hoveredButton === "" ? 1 : hoveredButton !== "Connect" ? 0.9 : 1,
           }}
+          transition={{ type: "spring", stiffness: 300, damping: 70 }}
         >
           <Button
             color="inherit"

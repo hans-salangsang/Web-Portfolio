@@ -73,6 +73,7 @@ function LandingSection({ Typography, onColorChange }, ref) {
                 fontWeight={200}
                 paragraph
                 textAlign="center"
+                letterSpacing="0.02em"
                 sx={{
                   mt: "-1vh",
                   background: `linear-gradient(67deg, ${tinycolor(
@@ -107,7 +108,7 @@ function LandingSection({ Typography, onColorChange }, ref) {
             sm={8}
             lg={6}
             sx={{
-              mt: "18vh",
+              mt: "8vh",
             }}
           >
             <ScrollRevealAnimation spring={true} reveal={true}>
