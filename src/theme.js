@@ -18,6 +18,7 @@ const typography = {
     fontSize: `clamp(1.75rem, 5vw, 2.75rem)`,
     fontWeight: 700,
     textTransform: "uppercase",
+    letterSpacing: "0.03em",
   },
   h4: {
     fontFamily: "Inter, sans-serif",

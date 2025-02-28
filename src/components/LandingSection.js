@@ -59,13 +59,13 @@ function LandingSection({ Typography, onColorChange }, ref) {
               >
                 Hans Wilhelm
                 <br />
-                <span
+                {/* <span
                   style={{
                     color: theme.palette.text.textSecondary.main,
                   }}
-                >
-                  Salangsang
-                </span>
+                > */}
+                Salangsang
+                {/* </span> */}
               </Typography>
               <Typography
                 variant="h2"
