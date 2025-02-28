@@ -28,7 +28,7 @@ function LandingSection({ Typography, onColorChange }, ref) {
       maxWidth={screenSize === "xl" ? "xl" : "lg"}
       ref={ref}
       sx={{
-        mb: "15vh",
+        pt: "25vh",
       }}
     >
       {/* <Stack spacing={2} ref={scope}> */}
@@ -70,12 +70,12 @@ function LandingSection({ Typography, onColorChange }, ref) {
               <Typography
                 variant="h2"
                 color="text.textSecondary.light"
-                fontWeight={200}
+                fontWeight={700}
                 paragraph
                 textAlign="center"
                 letterSpacing="0.02em"
                 sx={{
-                  mt: "-1vh",
+                  mt: "-2vh",
                   background: `linear-gradient(67deg, ${tinycolor(
                     theme.palette.text.textSecondary.light
                   )
@@ -97,7 +97,7 @@ function LandingSection({ Typography, onColorChange }, ref) {
                   },
                 }}
               >
-                Full Stack Developer.
+                Full Stack Developer
               </Typography>
             </ScrollRevealAnimation>
           </Grid>

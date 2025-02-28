@@ -15,11 +15,11 @@ const Toolbar = styled(BaseToolbar)`
 `;
 
 const Button = styled(BaseButton)(({ theme }) => ({
-  paddingLeft: "2vw",
-  paddingRight: "2vw",
+  paddingLeft: "1.5rem",
+  paddingRight: "1.5rem",
   [theme.breakpoints.down("sm")]: {
-    paddingLeft: "4vw",
-    paddingRight: "4vw",
+    paddingLeft: "1rem",
+    paddingRight: "1rem",
   },
   "&:hover .MuiTypography-root": {
     fontWeight: 700,
@@ -55,10 +55,6 @@ function DynamicIsland({
         backgroundColor: "background.defaultReverse",
         justifyContent: "center",
         borderRadius: 2,
-        height: "7vh !important",
-        paddingTop: "0px !important",
-        paddingBottom: "0px !important",
-        minHeight: "7vh !important",
         // boxShadow: theme.shadows[5],
       }}
     >

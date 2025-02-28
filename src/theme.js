@@ -5,12 +5,13 @@ const baseTheme = createTheme();
 const typography = {
   h1: {
     fontFamily: "Schabo, sans-serif",
-    fontSize: `clamp(5rem, 10vw, 11rem)`,
+    fontSize: `clamp(5rem, 8vw, 11rem)`,
     textTransform: "uppercase",
   },
   h2: {
     fontFamily: "Inter, sans-serif",
-    fontSize: `clamp(1.3rem, 2.5vw, 2rem)`,
+    fontSize: `clamp(1.3rem, 1.75vw, 2rem)`,
+    textTransform: "uppercase",
   },
   h3: {
     fontFamily: "Schabo, sans-serif",
@@ -28,7 +29,7 @@ const typography = {
   },
   h6: {
     fontFamily: "Schabo, sans-serif",
-    fontSize: `clamp(1.875rem, 1.5vw, 2rem)`,
+    fontSize: `clamp(1.5rem, 1vw, 2rem)`,
     fontWeight: 700,
     textTransform: "uppercase",
   },

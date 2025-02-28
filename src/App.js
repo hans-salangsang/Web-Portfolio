@@ -258,7 +258,9 @@ function App() {
         Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0);
       const sectionHeight = rect.bottom - rect.top;
 
-      return visibleHeight / sectionHeight > 0.7;
+      const threshold = window.innerWidth > 1200 ? 0.5 : 0.5;
+
+      return visibleHeight / sectionHeight > threshold;
     };
 
     const handleScroll = () => {
@@ -387,12 +389,12 @@ function App() {
           <Box
             sx={{
               position: "absolute",
-              top: 0,
               left: "0%",
               width: "100%",
-              height: "100%",
+              height: "100vh",
               zIndex: -1,
               pointerEvents: "auto",
+              transform: "translateY(25vh)",
             }}
           >
             {/* keyboard */}
@@ -400,71 +402,72 @@ function App() {
             <Spline scene="https://prod.spline.design/NhsgbKrO1ru5ZQ8l/scene.splinecode" />
           </Box>
 
-          <Container maxWidth="lg">
-            <Grid container>
-              <Grid
-                item
-                xs={12}
-                // sx={{
-                //   position: { lg: "sticky", xs: "relative" },
-                //   top: 0,
-                //   height: { lg: "100vh", xs: "auto" },
-                //   overflow: { lg: "hidden", xs: "visible" },
-                //   pt: { lg: theme.spacing(30), xs: theme.spacing(20) },
-                // }}
+          <Grid container>
+            <Grid
+              item
+              xs={12}
+              // sx={{
+              //   position: { lg: "sticky", xs: "relative" },
+              //   top: 0,
+              //   height: { lg: "100vh", xs: "auto" },
+              //   overflow: { lg: "hidden", xs: "visible" },
+              //   pt: { lg: theme.spacing(30), xs: theme.spacing(20) },
+              // }}
+            >
+              <Box
                 sx={{
-                  pt: { lg: "30vh", xs: "30vh" },
+                  minHeight: "100vh",
                 }}
               >
-                <LandingSection
-                  ref={landingSectionRef}
-                  Typography={Typography}
-                  onColorChange={handleColorChange}
-                />
-              </Grid>
-
-              <Grid
-                item
-                xs={12}
-                sx={{
-                  pt: { lg: theme.spacing(20), xs: theme.spacing(0) },
-                }}
-              >
-                <AboutMeSection Typography={Typography} Chip={Chip} />
-
-                <SkillsSection
-                  ref={skillsSectionRef}
-                  Typography={Typography}
-                  Chip={Chip}
-                />
-
-                <ExperienceSection
-                  ref={experienceSectionRef}
-                  Typography={Typography}
-                  Chip={Chip}
-                />
-
-                {/* <ProjectsSection
-                  ref={projectsSectionRef}
-                  Typography={Typography}
-                  Chip={Chip}
-                /> */}
-                {/* 
-                <Box
-                  sx={{
-                    minWidth: "100%",
-                  }}
-                > */}
-                <ConnectSection
-                  ref={connectSectionRef}
-                  Typography={Typography}
-                  Chip={Chip}
-                />
-                {/* </Box> */}
-                <Footer Typography={Typography} Chip={Chip} />
-              </Grid>
+                <Container maxWidth="lg">
+                  <LandingSection
+                    ref={landingSectionRef}
+                    Typography={Typography}
+                    onColorChange={handleColorChange}
+                  />
+                </Container>
+              </Box>
             </Grid>
-          </Container>
+
+            <Grid item xs={12}>
+              <Box sx={{}}>
+                <Container maxWidth="lg">
+                  <AboutMeSection Typography={Typography} Chip={Chip} />
+
+                  <SkillsSection
+                    ref={skillsSectionRef}
+                    Typography={Typography}
+                    Chip={Chip}
+                  />
+
+                  <ExperienceSection
+                    ref={experienceSectionRef}
+                    Typography={Typography}
+                    Chip={Chip}
+                  />
+
+                  {/* <ProjectsSection
+ref={projectsSectionRef}
+Typography={Typography}
+Chip={Chip}
+/> */}
+                  {/* 
+<Box
+sx={{
+minWidth: "100%",
+}}
+> */}
+                  <ConnectSection
+                    ref={connectSectionRef}
+                    Typography={Typography}
+                    Chip={Chip}
+                  />
+                  {/* </Box> */}
+                  <Footer Typography={Typography} Chip={Chip} />
+                </Container>
+              </Box>
+            </Grid>
+          </Grid>
         </ScreenProvider>
       </ThemeProvider>
     </ParallaxProvider>
