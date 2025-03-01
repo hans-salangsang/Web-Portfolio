@@ -4,21 +4,20 @@ const baseTheme = createTheme();
 
 const typography = {
   h1: {
-    fontFamily: "Schabo, sans-serif",
-    fontSize: `clamp(5rem, 8vw, 11rem)`,
+    fontFamily: "Sage Grotesk, sans-serif",
+    fontSize: `clamp(2rem, 5vw, 7rem)`,
     textTransform: "uppercase",
   },
   h2: {
     fontFamily: "Inter, sans-serif",
-    fontSize: `clamp(1.3rem, 1.75vw, 2rem)`,
+    fontSize: `clamp(1rem, 1.25vw, 2rem)`,
     textTransform: "uppercase",
   },
   h3: {
-    fontFamily: "Schabo, sans-serif",
-    fontSize: `clamp(1.75rem, 5vw, 2.75rem)`,
-    fontWeight: 700,
+    fontFamily: "Inter, sans-serif",
+    fontSize: `clamp(1.75rem, 2vw, 2.75rem)`,
     textTransform: "uppercase",
-    letterSpacing: "0.03em",
+    fontWeight: 900,
   },
   h4: {
     fontFamily: "Inter, sans-serif",
@@ -29,9 +28,8 @@ const typography = {
     fontSize: `clamp(1rem, 1.75vw, 1.125rem)`,
   },
   h6: {
-    fontFamily: "Schabo, sans-serif",
-    fontSize: `clamp(1.5rem, 1vw, 2rem)`,
-    fontWeight: 700,
+    fontFamily: "Sage Grotesk, sans-serif",
+    fontSize: `clamp(1rem, 1vw, 2rem)`,
     textTransform: "uppercase",
   },
   subtitle1: {

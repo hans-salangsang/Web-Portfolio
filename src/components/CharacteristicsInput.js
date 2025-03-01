@@ -111,7 +111,7 @@ const CharacteristicsInput = ({ onInputSubmit }) => {
   };
 
   return (
-    <Stack spacing={1} sx={{ mt: "15vh" }}>
+    <Stack spacing={1}>
       <TextField
         id="characteristics"
         name="characteristics"

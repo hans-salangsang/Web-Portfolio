@@ -7,11 +7,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 251, 255, 1);
-  border: 1px solid;
-  border-radius: 5px;
+  background: rgb(173, 173, 173);
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 251, 255, 0.7);
+  background: rgba(167, 167, 167, 0.7);
 }

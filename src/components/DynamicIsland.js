@@ -22,7 +22,7 @@ const Button = styled(BaseButton)(({ theme }) => ({
     paddingRight: "1rem",
   },
   "&:hover .MuiTypography-root": {
-    fontWeight: 700,
+    fontWeight: 400,
     color: theme.palette.text.textDynamicIsland.light,
   },
   "&:hover": {
@@ -52,7 +52,7 @@ function DynamicIsland({
         // hoveredButton !== "" ? "background.accentHover" : "background.accent",
         backdropFilter: "blur(200px)",
         justifyContent: "center",
-        backgroundColor: "background.defaultReverse",
+        backgroundColor: "background.defaultSubtleAccent",
         justifyContent: "center",
         borderRadius: 2,
         // boxShadow: theme.shadows[5],
@@ -81,12 +81,12 @@ function DynamicIsland({
                   ? "text.textDynamicIsland.main"
                   : "text.textDynamicIsland.dark"
               }
-              fontWeight={activeSection === "skills" ? 700 : 700}
+              fontWeight={activeSection === "skills" ? 400 : 400}
               textAlign="center"
               sx={{
                 borderBottom:
                   activeSection === "skills"
-                    ? "2px solid currentColor"
+                    ? "1px solid currentColor"
                     : "none",
                 paddingBottom: activeSection === "skills" ? "0px" : "0",
               }}
@@ -122,12 +122,12 @@ function DynamicIsland({
                   ? "text.textDynamicIsland.main"
                   : "text.textDynamicIsland.dark"
               }
-              fontWeight={activeSection === "experience" ? 700 : 700}
+              fontWeight={activeSection === "experience" ? 400 : 400}
               textAlign="center"
               sx={{
                 borderBottom:
                   activeSection === "experience"
-                    ? "2px solid currentColor"
+                    ? "1px solid currentColor"
                     : "none",
                 paddingBottom: activeSection === "experience" ? "0px" : "0",
               }}
@@ -159,12 +159,12 @@ function DynamicIsland({
                   ? "text.textDynamicIsland.main"
                   : "text.textDynamicIsland.dark"
               }
-              fontWeight={activeSection === "connect" ? 700 : 700}
+              fontWeight={activeSection === "connect" ? 400 : 400}
               textAlign="center"
               sx={{
                 borderBottom:
                   activeSection === "connect"
-                    ? "2px solid currentColor"
+                    ? "1px solid currentColor"
                     : "none",
                 paddingBottom: activeSection === "connect" ? "0px" : "0",
               }}

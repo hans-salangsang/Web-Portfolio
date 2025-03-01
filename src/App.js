@@ -54,7 +54,7 @@ function App() {
 
   const [activeSection, setActiveSection] = useState("landing");
 
-  const [accentColor, setAccentColor] = useState("#7549ff");
+  const [accentColor, setAccentColor] = useState("#7B61FF");
   const [backgroundColor, setBackgroundColor] = useState("");
   const [reverseBackgroundColor, setReverseBackgroundColor] = useState("");
   const [darkBackgroundColor, setDarkBackgroundColor] = useState("");
@@ -78,7 +78,7 @@ function App() {
     const newLight = tinycolor(newColor)
       .setAlpha(1)
       .desaturate(100)
-      .lighten(67)
+      .lighten(30)
       .toString();
 
     setAccentColor(newColor);
@@ -104,6 +104,9 @@ function App() {
           ? darkTheme.palette.background
           : lightTheme.palette.background),
         default: backgroundColor,
+        defaultSubtleAccent: tinycolor(backgroundColor).isDark()
+          ? tinycolor(backgroundColor).brighten(11).toString()
+          : tinycolor(backgroundColor).darken(5).toString(),
         defaultReverse: reverseBackgroundColor,
       },
       text: {
@@ -112,15 +115,17 @@ function App() {
           ...(isDarkMode
             ? darkTheme.palette.text.textPrimary
             : lightTheme.palette.text.textPrimary),
+          // Body Hightlight Font Color
           light: tinycolor(backgroundColor).isDark()
             ? tinycolor(accentColor).brighten(85).toString()
             : tinycolor(accentColor).darken(85).toString(),
+          // Body Main Font Color
           main: tinycolor(backgroundColor).isDark()
             ? tinycolor(accentColor).desaturate(90).brighten(15).toString()
             : tinycolor(accentColor).desaturate(90).darken(30).toString(),
           dark: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).darken(85).toString()
-            : tinycolor(accentColor).darken(85).toString(),
+            ? tinycolor(accentColor).desaturate(90).darken(25).toString()
+            : tinycolor(accentColor).desaturate(90).darken(0).toString(),
         },
         textSecondary: {
           ...(isDarkMode
@@ -149,10 +154,10 @@ function App() {
             ? darkTheme.palette.text.textDynamicIsland
             : lightTheme.palette.text.textDynamicIsland),
           light: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).darken(85).toString()
+            ? tinycolor(accentColor).brighten(85).toString()
             : tinycolor(accentColor).darken(85).toString(),
           main: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).darken(85).toString()
+            ? tinycolor(accentColor).brighten(85).toString()
             : tinycolor(accentColor).darken(85).toString(),
           dark: tinycolor(backgroundColor).isDark()
             ? tinycolor(accentColor).saturate(0).brighten(0).spin(0).toString()
@@ -391,15 +396,21 @@ function App() {
               position: "absolute",
               left: "0%",
               width: "100%",
-              height: "100vh",
+              height: "105vh", // Adjust this to crop more or less
+              overflow: "hidden",
               zIndex: -1,
-              pointerEvents: "auto",
-              transform: "translateY(25vh)",
             }}
           >
-            {/* keyboard */}
-            {/* <Spline scene="https://prod.spline.design/gqzHKulT7OQ4j813/scene.splinecode" /> */}
-            <Spline scene="https://prod.spline.design/NhsgbKrO1ru5ZQ8l/scene.splinecode" />
+            <Box
+              sx={{
+                position: "absolute",
+                width: "100%",
+                height: "100vh",
+                transform: "translateY(25vh)", // Moves it up while keeping crop
+              }}
+            >
+              <Spline scene="https://prod.spline.design/W2Uc6rCFA70MJwXq/scene.splinecode" />
+            </Box>
           </Box>
 
           <Grid container>
@@ -429,7 +440,7 @@ function App() {
               </Box>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid item xs={12} sx={{ mt: "15vh" }}>
               <Box sx={{}}>
                 <Container maxWidth="lg">
                   <AboutMeSection Typography={Typography} Chip={Chip} />

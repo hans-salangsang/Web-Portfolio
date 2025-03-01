@@ -28,7 +28,7 @@ function LandingSection({ Typography, onColorChange }, ref) {
       maxWidth={screenSize === "xl" ? "xl" : "lg"}
       ref={ref}
       sx={{
-        pt: "25vh",
+        pt: "23vh",
       }}
     >
       {/* <Stack spacing={2} ref={scope}> */}
@@ -50,14 +50,21 @@ function LandingSection({ Typography, onColorChange }, ref) {
               </Typography> */}
               <Typography
                 variant="h1"
-                color="text.textPrimary.dark"
+                color="text.textPrimary.light"
                 fontWeight={700}
                 paragraph
                 textAlign="center"
                 lineHeight={0.9}
-                letterSpacing="0.02em"
               >
-                Hans Wilhelm
+                Hans
+                <span
+                  style={{
+                    color: theme.palette.text.textPrimary.dark,
+                  }}
+                >
+                  {" "}
+                  Wilhelm
+                </span>
                 <br />
                 {/* <span
                   style={{
@@ -69,33 +76,11 @@ function LandingSection({ Typography, onColorChange }, ref) {
               </Typography>
               <Typography
                 variant="h2"
-                color="text.textSecondary.light"
-                fontWeight={700}
+                color="text.textSecondary.main"
+                fontWeight={200}
                 paragraph
                 textAlign="center"
-                letterSpacing="0.02em"
-                sx={{
-                  mt: "-2vh",
-                  background: `linear-gradient(67deg, ${tinycolor(
-                    theme.palette.text.textSecondary.light
-                  )
-                    .desaturate(30)
-                    .darken(40)
-                    .toString()}, ${tinycolor(
-                    theme.palette.text.textSecondary.light
-                  )
-                    .brighten(40)
-                    .toString()})`,
-                  backgroundSize: "200% 200%",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  animation: "goldShine 5s infinite linear",
-                  "@keyframes goldShine": {
-                    "0%": { backgroundPosition: "0% 50%" },
-                    "50%": { backgroundPosition: "100% 50%" },
-                    "100%": { backgroundPosition: "0% 50%" },
-                  },
-                }}
+                letterSpacing="0.1em"
               >
                 Full Stack Developer
               </Typography>
@@ -108,7 +93,7 @@ function LandingSection({ Typography, onColorChange }, ref) {
             sm={8}
             lg={6}
             sx={{
-              mt: "8vh",
+              mt: "7vh",
             }}
           >
             <ScrollRevealAnimation spring={true} reveal={true}>
@@ -118,7 +103,7 @@ function LandingSection({ Typography, onColorChange }, ref) {
                 fontWeight={400}
                 paragraph
                 textAlign="center"
-                lineHeight={1.2}
+                lineHeight={1.6}
               >
                 From graphic design to programming, I've explored pixels and
                 codes to become a versatile developer.{" "}
@@ -126,7 +111,6 @@ function LandingSection({ Typography, onColorChange }, ref) {
                   style={{
                     fontWeight: 700,
                     color: theme.palette.text.textPrimary.light,
-                    lineHeight: 1.8,
                   }}
                 >
                   Let’s build something great together!
@@ -145,17 +129,17 @@ function LandingSection({ Typography, onColorChange }, ref) {
               <FloatingSocials Typography={Typography} />
             </Box>
           </Grid>
-          <Grid
+          {/* <Grid
             item
             xs={12}
             sm={8}
             lg={4}
             sx={{
-              mt: "1vh",
+              mt: "50vh",
             }}
           >
             <CharacteristicsInput onInputSubmit={handleCharacteristicsSubmit} />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Stack>
     </Container>

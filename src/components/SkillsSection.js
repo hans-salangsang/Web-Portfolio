@@ -71,29 +71,8 @@ function SkillsSection({ Typography, Chip }, ref) {
             <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
               <Typography
                 variant="h3"
-                color="text.textSecondary.main"
-                sx={{
-                  textAlign: "center",
-                  background: `linear-gradient(67deg, ${tinycolor(
-                    theme.palette.text.textSecondary.light
-                  )
-                    .desaturate(30)
-                    .darken(40)
-                    .toString()}, ${tinycolor(
-                    theme.palette.text.textSecondary.light
-                  )
-                    .brighten(40)
-                    .toString()})`,
-                  backgroundSize: "200% 200%",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  animation: "goldShine 5s infinite linear",
-                  "@keyframes goldShine": {
-                    "0%": { backgroundPosition: "0% 50%" },
-                    "50%": { backgroundPosition: "100% 50%" },
-                    "100%": { backgroundPosition: "0% 50%" },
-                  },
-                }}
+                color="text.textPrimary.light"
+                textAlign="center"
               >
                 My Skills
               </Typography>
@@ -106,7 +85,7 @@ function SkillsSection({ Typography, Chip }, ref) {
                 <ScrollRevealAnimation spring={true} reveal={true}>
                   <Typography
                     variant="h4"
-                    color="text.textSecondary.main"
+                    color="text.textPrimary.light"
                     fontWeight={700}
                     textAlign="left"
                   >
