@@ -51,7 +51,7 @@ function LandingSection({ Typography, onColorChange }, ref) {
               <Typography
                 variant="h1"
                 color="text.textPrimary.light"
-                fontWeight={700}
+                fontWeight={400}
                 paragraph
                 textAlign="center"
                 lineHeight={0.9}
