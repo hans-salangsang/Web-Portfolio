@@ -67,7 +67,7 @@ function SkillsSection({ Typography, Chip }, ref) {
       {/* <Grid ref={ref} container sx={{ minHeight: "100vh" }}> */}
       <Grid ref={ref} container sx={{ pt: 15 }}>
         <Grid container item xs={12} spacing={3}>
-          <Grid item xs={12} sx={{ mb: 1 }}>
+          <Grid item xs={12} sx={{ mb: 5 }}>
             <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
               <Typography
                 variant="h3"

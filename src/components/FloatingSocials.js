@@ -47,10 +47,14 @@ function FloatingSocials({ Typography, Chip }) {
 
   return (
     <Stack
-      direction="row"
+      direction={{ xs: "column", xl: "row" }}
       justifyContent="space-between"
       spacing={0}
       sx={{
+        position: "fixed",
+        top: screenSize === "lg" ? "70vh" : "91vh",
+        left: screenSize === "lg" ? "" : "clamp(60px, 4vw, 300px)",
+        right: screenSize === "lg" ? 15 : "",
         borderRadius: 2,
       }}
     >

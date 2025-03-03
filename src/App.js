@@ -30,6 +30,7 @@ import Spline from "@splinetool/react-spline";
 import tinycolor from "tinycolor2";
 import Grid from "@mui/material/Grid";
 import "./App.css";
+import BackgroundParticles from "./components/BackgroundParticles";
 
 const Typography = styled(BaseTypography)`
   ${({ theme }) => `
@@ -121,8 +122,8 @@ function App() {
             : tinycolor(accentColor).darken(85).toString(),
           // Body Main Font Color
           main: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).desaturate(90).brighten(15).toString()
-            : tinycolor(accentColor).desaturate(90).darken(30).toString(),
+            ? tinycolor(accentColor).desaturate(90).brighten(5).toString()
+            : tinycolor(accentColor).desaturate(90).darken(25).toString(),
           dark: tinycolor(backgroundColor).isDark()
             ? tinycolor(accentColor).desaturate(90).darken(25).toString()
             : tinycolor(accentColor).desaturate(90).darken(0).toString(),
@@ -431,6 +432,7 @@ function App() {
                 }}
               >
                 <Container maxWidth="lg">
+                  {/* <BackgroundParticles /> */}
                   <LandingSection
                     ref={landingSectionRef}
                     Typography={Typography}
@@ -440,7 +442,7 @@ function App() {
               </Box>
             </Grid>
 
-            <Grid item xs={12} sx={{ mt: "15vh" }}>
+            <Grid item xs={12} sx={{ mt: "16vh" }}>
               <Box sx={{}}>
                 <Container maxWidth="lg">
                   <AboutMeSection Typography={Typography} Chip={Chip} />
@@ -474,7 +476,7 @@ minWidth: "100%",
                     Chip={Chip}
                   />
                   {/* </Box> */}
-                  <Footer Typography={Typography} Chip={Chip} />
+                  {/* <Footer Typography={Typography} Chip={Chip} /> */}
                 </Container>
               </Box>
             </Grid>

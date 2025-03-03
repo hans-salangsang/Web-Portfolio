@@ -17,7 +17,7 @@ function ConnectSection({ Typography, Chip }, ref) {
       <Grid ref={ref} container sx={{ pt: 15, pb: 10 }}>
         <Grid container item xs={12}>
           <Grid container item spacing={2} xs={12}>
-            <Grid item xs={12} sx={{ mb: 1 }}>
+            <Grid item xs={12} sx={{ mb: 5 }}>
               <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
                 <Typography
                   variant="h3"

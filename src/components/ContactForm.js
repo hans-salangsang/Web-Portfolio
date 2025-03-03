@@ -107,7 +107,7 @@ const ContactForm = ({ Typography }) => {
     const serviceID = "service_cqrx68b";
     const templateIDself = "template_kn13p6u";
     const templateIDclient = "template_6glavlq";
-    const userID = "YnyQL9xOeiMmoCkab";
+    const userID = "DuOIGvb1rpUgpnm4s";
 
     emailjs
       .send(serviceID, templateIDself, formData, userID)
@@ -198,7 +198,7 @@ const ContactForm = ({ Typography }) => {
         size="small"
         value={formData.name}
         onChange={handleChange}
-        helperText="Please enter a valid email address"
+        // helperText="Please enter a valid email address"
         error={false}
       />
       <TextField
@@ -211,7 +211,7 @@ const ContactForm = ({ Typography }) => {
         size="small"
         value={formData.email}
         onChange={handleChange}
-        helperText="Please enter a valid email address"
+        // helperText="Please enter a valid email address"
         error={false}
       />
       <TextField
@@ -222,7 +222,7 @@ const ContactForm = ({ Typography }) => {
         size="small"
         value={formData.phone}
         onChange={handleChange}
-        helperText="Please enter a valid email address"
+        // helperText="Please enter a valid email address"
         error={false}
       />
       <TextField
@@ -237,7 +237,7 @@ const ContactForm = ({ Typography }) => {
         size="small"
         value={formData.message}
         onChange={handleChange}
-        helperText="Please enter a valid email address"
+        // helperText="Please enter a valid email address"
         error={false}
       />
       <motion.div
