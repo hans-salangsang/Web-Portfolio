@@ -65,6 +65,7 @@ function BottomAppNavBar({
   Typography,
   scrollToSection,
   landingSectionRef,
+  aboutSectionRef,
   skillsSectionRef,
   experienceSectionRef,
   projectsSectionRef,
@@ -105,13 +106,14 @@ function BottomAppNavBar({
         direction="row"
         justifyContent="space-around"
         alignItems="flex-start"
-        sx={{ mt: 3, mb: 2, px: 2 }}
+        sx={{ mt: 3, mb: 0, px: 2 }}
       >
         <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
           <DynamicIsland
             Typography={Typography}
             scrollToSection={scrollToSection}
             landingSectionRef={landingSectionRef}
+            aboutSectionRef={aboutSectionRef}
             skillsSectionRef={skillsSectionRef}
             experienceSectionRef={experienceSectionRef}
             projectsSectionRef={projectsSectionRef}

@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import { toast, ToastContainer, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useToastStyles from "./useToastStyles";
+import tinycolor from "tinycolor2";
 
 const TextField = styled(BaseTextField)(({ theme }) => ({
   "& label.MuiFormLabel-root": {
@@ -35,9 +36,17 @@ const TextField = styled(BaseTextField)(({ theme }) => ({
       borderColor: "red",
     },
     color: theme.palette.textField.text,
-    backgroundColor: theme.palette.textField.fill,
+    backgroundColor: tinycolor(theme.palette.background.defaultSubtleAccent)
+      .brighten(0)
+      .toString(),
     "&:hover": {
-      backgroundColor: theme.palette.textField.fillHovered,
+      backgroundColor: tinycolor(theme.palette.background.default).isDark()
+        ? tinycolor(theme.palette.background.defaultSubtleAccent)
+            .brighten(5)
+            .toString()
+        : tinycolor(theme.palette.background.defaultSubtleAccent)
+            .darken(5)
+            .toString(),
     },
     "&.Mui-focused": {
       backgroundColor: theme.palette.textField.fillFocused,
@@ -67,7 +76,7 @@ const TextField = styled(BaseTextField)(({ theme }) => ({
     "&.Mui-focused fieldset": {
       borderColor: theme.palette.textField.borderFocused,
     },
-    color: theme.palette.textField.text,
+    color: "theme.palette.textField.text",
   },
 }));
 
@@ -180,15 +189,16 @@ const ContactForm = ({ Typography }) => {
       noValidate
       autoComplete="off"
       onSubmit={handleSubmit}
+      sx={{ pt: 4 }}
     >
-      <Typography
+      {/* <Typography
         variant="h6"
         color="button.fill"
         fontWeight={600}
         fontFamily="Jetbrains Mono, sans-serif"
       >
         Send me a message
-      </Typography>
+      </Typography> */}
       <TextField
         required
         id="name"

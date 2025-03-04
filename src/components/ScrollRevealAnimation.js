@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   motion,
   useScroll,
@@ -18,18 +18,14 @@ function ScrollRevealAnimation({ children, delay, spring, reveal, zIndex }) {
   const outputRangeDown = [0, -50];
   const outputRangeUp = [0, 50];
 
-  const y = useTransform(
-    scrollVelocity,
-    inputRange,
-    scrollVelocity.current >= -100000 ? outputRangeDown : outputRangeUp
-  );
+  const y = useTransform(scrollVelocity, inputRange, outputRangeDown);
 
   return (
     <motion.div
       initial={reveal && { opacity: 0 }}
       whileInView={reveal && { opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut", delay: delay || 0 }}
-      viewport={reveal && { once: true, amount: 0.9 }}
+      viewport={{ once: true, amount: 0.3 }} // Reduced amount for better visibility
       style={{ zIndex }}
     >
       {children}

@@ -50,13 +50,21 @@ function FloatingSocials({ Typography, Chip }) {
       direction={{ xs: "column", xl: "row" }}
       justifyContent="space-between"
       spacing={0}
-      sx={{
+      sx={(theme) => ({
         position: "fixed",
-        top: screenSize === "lg" ? "70vh" : "91vh",
-        left: screenSize === "lg" ? "" : "clamp(60px, 4vw, 300px)",
-        right: screenSize === "lg" ? 15 : "",
+        top: "91vh",
+        left: 140,
+        right: "auto",
+
+        [theme.breakpoints.down("xl")]: {
+          top: "70vh",
+          left: "auto",
+          right: 15,
+        },
+
         borderRadius: 2,
-      }}
+        zIndex: 999,
+      })}
     >
       <Tooltip title="GitHub" placement="bottom">
         <motion.div

@@ -34,6 +34,7 @@ function DynamicIsland({
   Typography,
   scrollToSection,
   landingSectionRef,
+  aboutSectionRef,
   skillsSectionRef,
   experienceSectionRef,
   projectsSectionRef,
@@ -54,11 +55,47 @@ function DynamicIsland({
         justifyContent: "center",
         backgroundColor: "background.defaultSubtleAccent",
         justifyContent: "center",
+        // borderRadius: (theme) => `0 0 ${theme.spacing(2)} ${theme.spacing(2)}`,
         borderRadius: 2,
         // boxShadow: theme.shadows[5],
       }}
     >
       <Stack direction="row" spacing={0}>
+        <motion.div
+          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.3 } }}
+          whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
+          onMouseEnter={() => setHoveredButton("About")}
+          onMouseLeave={() => setHoveredButton("")}
+          animate={{
+            scale:
+              hoveredButton === "" ? 1 : hoveredButton !== "About" ? 0.9 : 1,
+          }}
+          transition={{ type: "spring", stiffness: 300, damping: 70 }}
+        >
+          <Button
+            color="inherit"
+            onClick={() => scrollToSection(aboutSectionRef)}
+          >
+            <Typography
+              variant="button"
+              color={
+                activeSection === "about"
+                  ? "text.textDynamicIsland.main"
+                  : "text.textDynamicIsland.dark"
+              }
+              fontWeight={activeSection === "about" ? 400 : 400}
+              textAlign="center"
+              sx={{
+                borderBottom:
+                  activeSection === "about" ? "1px solid currentColor" : "none",
+                paddingBottom: activeSection === "about" ? "0px" : "0",
+              }}
+            >
+              About
+            </Typography>
+          </Button>
+        </motion.div>
+
         <motion.div
           whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.3 } }}
           whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}

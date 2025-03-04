@@ -30,7 +30,7 @@ import Spline from "@splinetool/react-spline";
 import tinycolor from "tinycolor2";
 import Grid from "@mui/material/Grid";
 import "./App.css";
-import BackgroundParticles from "./components/BackgroundParticles";
+import AbstractGradientBackground from "./components/AbstractGradientBackground";
 
 const Typography = styled(BaseTypography)`
   ${({ theme }) => `
@@ -48,6 +48,7 @@ const Chip = styled(BaseChip)`
 
 function App() {
   const landingSectionRef = useRef(null);
+  const aboutSectionRef = useRef(null);
   const skillsSectionRef = useRef(null);
   const experienceSectionRef = useRef(null);
   const projectsSectionRef = useRef(null);
@@ -122,7 +123,7 @@ function App() {
             : tinycolor(accentColor).darken(85).toString(),
           // Body Main Font Color
           main: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).desaturate(90).brighten(5).toString()
+            ? tinycolor(accentColor).desaturate(90).brighten(0).toString()
             : tinycolor(accentColor).desaturate(90).darken(25).toString(),
           dark: tinycolor(backgroundColor).isDark()
             ? tinycolor(accentColor).desaturate(90).darken(25).toString()
@@ -162,11 +163,7 @@ function App() {
             : tinycolor(accentColor).darken(85).toString(),
           dark: tinycolor(backgroundColor).isDark()
             ? tinycolor(accentColor).saturate(0).brighten(0).spin(0).toString()
-            : tinycolor(accentColor)
-                .saturate(100)
-                .darken(20)
-                .spin(0)
-                .toString(),
+            : tinycolor(accentColor).saturate(0).darken(0).spin(0).toString(),
         },
       },
       textField: {
@@ -271,6 +268,7 @@ function App() {
 
     const handleScroll = () => {
       if (
+        !aboutSectionRef.current ||
         !skillsSectionRef.current ||
         !experienceSectionRef.current ||
         // !projectsSectionRef.current ||
@@ -281,6 +279,7 @@ function App() {
 
       const sections = isLargeScreen
         ? [
+            { ref: aboutSectionRef, name: "about" },
             { ref: skillsSectionRef, name: "skills" },
             { ref: experienceSectionRef, name: "experience" },
             // { ref: projectsSectionRef, name: "projects" },
@@ -288,6 +287,7 @@ function App() {
           ]
         : [
             { ref: landingSectionRef, name: "landing" },
+            { ref: aboutSectionRef, name: "about" },
             { ref: skillsSectionRef, name: "skills" },
             { ref: experienceSectionRef, name: "experience" },
             // { ref: projectsSectionRef, name: "projects" },
@@ -330,8 +330,12 @@ function App() {
               // cursor: `url(${process.env.PUBLIC_URL}/custom_cursor.svg), auto`,
             },
             "::selection": {
-              backgroundColor: "#ABBFD8",
-              color: "#101218",
+              backgroundColor: tinycolor(backgroundColor).isDark()
+                ? tinycolor(accentColor).toString()
+                : tinycolor(accentColor).toString(),
+              color: tinycolor(backgroundColor).isDark()
+                ? "#050505"
+                : "#F4F4F4",
             },
           }}
         />
@@ -344,6 +348,7 @@ function App() {
               isDarkMode={isDarkMode}
               scrollToSection={scrollToSection}
               landingSectionRef={landingSectionRef}
+              aboutSectionRef={aboutSectionRef}
               skillsSectionRef={skillsSectionRef}
               experienceSectionRef={experienceSectionRef}
               projectsSectionRef={projectsSectionRef}
@@ -358,6 +363,7 @@ function App() {
               isDarkMode={isDarkMode}
               scrollToSection={scrollToSection}
               landingSectionRef={landingSectionRef}
+              aboutSectionRef={aboutSectionRef}
               skillsSectionRef={skillsSectionRef}
               experienceSectionRef={experienceSectionRef}
               projectsSectionRef={projectsSectionRef}
@@ -413,6 +419,27 @@ function App() {
               <Spline scene="https://prod.spline.design/W2Uc6rCFA70MJwXq/scene.splinecode" />
             </Box>
           </Box>
+          <Box
+            sx={{
+              position: "absolute",
+              left: "0%",
+              width: "100%",
+              height: "105vh", // Adjust this to crop more or less
+              overflow: "hidden",
+              zIndex: 0,
+            }}
+          >
+            <Box
+              sx={{
+                position: "absolute",
+                width: "100%",
+                height: "100vh",
+                transform: "translateY(12vh)", // Moves it up while keeping crop
+              }}
+            >
+              <Spline scene="https://prod.spline.design/1B3IJzPvmnO-xLRw/scene.splinecode" />
+            </Box>
+          </Box>
 
           <Grid container>
             <Grid
@@ -432,20 +459,26 @@ function App() {
                 }}
               >
                 <Container maxWidth="lg">
-                  {/* <BackgroundParticles /> */}
                   <LandingSection
                     ref={landingSectionRef}
                     Typography={Typography}
                     onColorChange={handleColorChange}
+                    scrollToSection={scrollToSection}
+                    connectSectionRef={connectSectionRef}
                   />
                 </Container>
               </Box>
             </Grid>
 
-            <Grid item xs={12} sx={{ mt: "16vh" }}>
+            <Grid item xs={12}>
               <Box sx={{}}>
                 <Container maxWidth="lg">
-                  <AboutMeSection Typography={Typography} Chip={Chip} />
+                  <AboutMeSection
+                    ref={aboutSectionRef}
+                    Typography={Typography}
+                    onColorChange={handleColorChange}
+                    Chip={Chip}
+                  />
 
                   <SkillsSection
                     ref={skillsSectionRef}

@@ -4,6 +4,9 @@ import { styled } from "@mui/material/styles";
 import BaseButton from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import { motion } from "framer-motion";
+import tinycolor from "tinycolor2";
+import { IconButton } from "@mui/material";
+import Wand2Icon from "@mui/icons-material/AutoFixHigh";
 
 const TextField = styled(BaseTextField)(({ theme }) => ({
   "& label.MuiFormLabel-root": {
@@ -28,9 +31,17 @@ const TextField = styled(BaseTextField)(({ theme }) => ({
       borderColor: "red",
     },
     color: theme.palette.textField.text,
-    backgroundColor: theme.palette.textField.fill,
+    backgroundColor: tinycolor(theme.palette.background.defaultSubtleAccent)
+      .brighten(0)
+      .toString(),
     "&:hover": {
-      backgroundColor: theme.palette.textField.fillHovered,
+      backgroundColor: tinycolor(theme.palette.background.default).isDark()
+        ? tinycolor(theme.palette.background.defaultSubtleAccent)
+            .brighten(5)
+            .toString()
+        : tinycolor(theme.palette.background.defaultSubtleAccent)
+            .darken(5)
+            .toString(),
     },
     "&.Mui-focused": {
       backgroundColor: theme.palette.textField.fillFocused,
@@ -111,12 +122,13 @@ const CharacteristicsInput = ({ onInputSubmit }) => {
   };
 
   return (
-    <Stack spacing={1}>
+    <Stack direction="row" spacing={1} sx={{ mt: 5, alignItems: "center" }}>
       <TextField
         id="characteristics"
         name="characteristics"
         label="What qualities do you look for in a developer?"
         sx={{
+          flex: 1,
           "& .MuiInputLabel-root": {
             whiteSpace: "normal",
             fontSize: "0.875rem",
@@ -138,13 +150,8 @@ const CharacteristicsInput = ({ onInputSubmit }) => {
         whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
         transition={{ type: "spring", stiffness: 300, damping: 70 }}
       >
-        <Button
-          variant="contained"
-          size="small"
-          sx={{ width: "100%" }}
-          onClick={handleSubmit}
-        >
-          Style My Portfolio
+        <Button variant="contained" size="small" sx={{}} onClick={handleSubmit}>
+          <Wand2Icon sx={{}} fontSize="small" />
         </Button>
       </motion.div>
     </Stack>

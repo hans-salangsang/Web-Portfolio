@@ -7,14 +7,19 @@ import ContactForm from "./ContactForm";
 import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 import { useTheme } from "@mui/material/styles";
 import tinycolor from "tinycolor2";
+import AbstractGradientBackground from "./AbstractGradientBackground";
 
 function ConnectSection({ Typography, Chip }, ref) {
   const screenSize = useScreenSize();
   const theme = useTheme();
 
   return (
-    <Container maxWidth={screenSize === "xl" ? "xl" : "lg"}>
-      <Grid ref={ref} container sx={{ pt: 15, pb: 10 }}>
+    <Container
+      maxWidth={screenSize === "xl" ? "xl" : "lg"}
+      sx={{ position: "relative" }}
+    >
+      {/* <AbstractGradientBackground /> */}
+      <Grid ref={ref} container sx={{ pt: 15, pb: 15 }}>
         <Grid container item xs={12}>
           <Grid container item spacing={2} xs={12}>
             <Grid item xs={12} sx={{ mb: 5 }}>

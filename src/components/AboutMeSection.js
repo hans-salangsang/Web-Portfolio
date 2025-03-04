@@ -11,15 +11,28 @@ import { SiDotnet } from "react-icons/si";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useTheme } from "@mui/material/styles";
 import tinycolor from "tinycolor2";
+import AbstractGradientBackground from "./AbstractGradientBackground";
+import Spline from "@splinetool/react-spline";
+import CharacteristicsInput from "./CharacteristicsInput";
 
-function AboutMeSection({ Typography, Chip }, ref) {
+function AboutMeSection({ Typography, onColorChange, Chip }, ref) {
   const screenSize = useScreenSize();
   const theme = useTheme();
 
+  const handleCharacteristicsSubmit = (newColor, newDescription) => {
+    console.log("New Color:", newColor);
+
+    onColorChange(newColor, newDescription);
+  };
+
   return (
-    <Container maxWidth={screenSize === "xl" ? "xl" : "lg"}>
+    <Container
+      maxWidth={screenSize === "xl" ? "xl" : "lg"}
+      sx={{ position: "relative" }}
+    >
       {/* <Grid ref={ref} container sx={{ minHeight: "100vh" }}> */}
-      <Grid ref={ref} container>
+      <AbstractGradientBackground />
+      <Grid ref={ref} container sx={{ pt: 17 }}>
         <Grid container item xs={12} spacing={3}>
           <Grid item xs={12} sx={{ mb: 5 }}>
             <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
@@ -33,7 +46,29 @@ function AboutMeSection({ Typography, Chip }, ref) {
             </ScrollRevealAnimation>
           </Grid>
 
-          <Grid item xs={12}>
+          <Grid
+            item
+            xs={12}
+            lg={5}
+            sx={{ display: { xs: "none", md: "block" } }}
+          >
+            <script
+              type="module"
+              src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"
+            ></script>
+            <spline-viewer
+              url="https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode"
+              events-target="global"
+            ></spline-viewer>
+            <Box
+              sx={{
+                zIndex: -1,
+              }}
+            >
+              {/* <Spline scene="https://prod.spline.design/MyOVV7bet1nZ1oFh/scene.splinecode" /> */}
+            </Box>
+          </Grid>
+          <Grid item xs={12} lg={7}>
             <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
               <Typography
                 variant="body1"
@@ -129,6 +164,12 @@ function AboutMeSection({ Typography, Chip }, ref) {
                   let's connect!
                 </span>
               </Typography>
+            </ScrollRevealAnimation>
+
+            <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
+              <CharacteristicsInput
+                onInputSubmit={handleCharacteristicsSubmit}
+              />
             </ScrollRevealAnimation>
           </Grid>
         </Grid>

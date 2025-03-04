@@ -11,6 +11,7 @@ import { SiDotnet } from "react-icons/si";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useTheme } from "@mui/material/styles";
 import tinycolor from "tinycolor2";
+import AbstractGradientBackground from "./AbstractGradientBackground";
 
 function SkillsSection({ Typography, Chip }, ref) {
   const screenSize = useScreenSize();
@@ -63,8 +64,12 @@ function SkillsSection({ Typography, Chip }, ref) {
   };
 
   return (
-    <Container maxWidth={screenSize === "xl" ? "xl" : "lg"}>
+    <Container
+      maxWidth={screenSize === "xl" ? "xl" : "lg"}
+      sx={{ position: "relative" }}
+    >
       {/* <Grid ref={ref} container sx={{ minHeight: "100vh" }}> */}
+      <AbstractGradientBackground />
       <Grid ref={ref} container sx={{ pt: 15 }}>
         <Grid container item xs={12} spacing={3}>
           <Grid item xs={12} sx={{ mb: 5 }}>
@@ -78,68 +83,75 @@ function SkillsSection({ Typography, Chip }, ref) {
               </Typography>
             </ScrollRevealAnimation>
           </Grid>
+          <Grid container item spacing={1} xs={12} lg={6}>
+            {Object.entries(skills).map(([category, skillList]) => (
+              <>
+                <Grid item xs={12} sx={{ mt: 3 }}>
+                  <ScrollRevealAnimation spring={true} reveal={true}>
+                    <Typography
+                      variant="h4"
+                      color="text.textPrimary.light"
+                      fontWeight={700}
+                      textAlign="left"
+                    >
+                      {category}
+                    </Typography>
+                  </ScrollRevealAnimation>
+                </Grid>
 
-          {Object.entries(skills).map(([category, skillList]) => (
-            <Grid container item spacing={1}>
-              <Grid item xs={12}>
-                <ScrollRevealAnimation spring={true} reveal={true}>
-                  <Typography
-                    variant="h4"
-                    color="text.textPrimary.light"
-                    fontWeight={700}
-                    textAlign="left"
-                  >
-                    {category}
-                  </Typography>
-                </ScrollRevealAnimation>
-              </Grid>
-
-              <Grid item xs={12}>
-                <ScrollRevealAnimation spring={true} reveal={true}>
-                  <Grid container xs={12}>
-                    {Object.entries(skillList).map(
-                      ([skill, classNameOrIcon], index) => (
-                        <Grid
-                          container
-                          item
-                          xs={6}
-                          sm={4}
-                          key={index}
-                          sx={{
-                            mb: 0.5,
-                            transition: "color 0.3s ease-in-out",
-                            "&:hover .hover-effect": {
-                              color: "text.textPrimary.light",
-                            },
-                          }}
-                        >
-                          <Grid item xs={1}>
-                            <ChevronRightIcon
-                              className="hover-effect"
-                              sx={{
-                                fontSize: 14,
-                                color: "text.textPrimary.main",
-                              }}
-                            />
+                <Grid item xs={12}>
+                  <ScrollRevealAnimation spring={true} reveal={true}>
+                    <Grid container xs={12}>
+                      {Object.entries(skillList).map(
+                        ([skill, classNameOrIcon], index) => (
+                          <Grid
+                            container
+                            item
+                            xs={6}
+                            sm={4}
+                            key={index}
+                            sx={{
+                              mb: 0.5,
+                              transition: "color 0.3s ease-in-out",
+                              "&:hover .hover-effect": {
+                                color: "text.textPrimary.light",
+                              },
+                            }}
+                          >
+                            <Grid item xs={1}>
+                              <ChevronRightIcon
+                                className="hover-effect"
+                                sx={{
+                                  fontSize: 14,
+                                  color: "text.textPrimary.main",
+                                }}
+                              />
+                            </Grid>
+                            <Grid item xs={11} sx={{ pl: 1 }}>
+                              <Typography
+                                className="hover-effect"
+                                variant="body1"
+                                color="text.textPrimary.main"
+                                fontWeight={400}
+                              >
+                                {skill}
+                              </Typography>
+                            </Grid>
                           </Grid>
-                          <Grid item xs={11} sx={{ pl: 1 }}>
-                            <Typography
-                              className="hover-effect"
-                              variant="body1"
-                              color="text.textPrimary.main"
-                              fontWeight={400}
-                            >
-                              {skill}
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      )
-                    )}
-                  </Grid>
-                </ScrollRevealAnimation>
-              </Grid>
-            </Grid>
-          ))}
+                        )
+                      )}
+                    </Grid>
+                  </ScrollRevealAnimation>
+                </Grid>
+              </>
+            ))}
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            lg={6}
+            sx={{ display: { xs: "none", md: "block" } }}
+          ></Grid>
         </Grid>
       </Grid>
     </Container>

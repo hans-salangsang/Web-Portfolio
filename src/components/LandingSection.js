@@ -12,8 +12,13 @@ import CharacteristicsInput from "./CharacteristicsInput";
 import FloatingSocials from "./FloatingSocials";
 import { useTheme } from "@mui/material/styles";
 import tinycolor from "tinycolor2";
+import BaseButton from "@mui/material/Button";
+import { styled } from "@mui/material/styles";
 
-function LandingSection({ Typography, onColorChange }, ref) {
+function LandingSection(
+  { Typography, onColorChange, scrollToSection, connectSectionRef },
+  ref
+) {
   const screenSize = useScreenSize();
   const theme = useTheme();
 
@@ -23,12 +28,24 @@ function LandingSection({ Typography, onColorChange }, ref) {
     onColorChange(newColor, newDescription);
   };
 
+  const Button = styled(BaseButton)(({ theme }) => ({
+    fontWeight: 700,
+    backgroundColor: theme.palette.button.textAccent,
+    color: theme.palette.button.fillAccent,
+    // borderColor: theme.palette.button.border,
+    "&:hover": {
+      backgroundColor: theme.palette.button.textHoveredAccent,
+      color: theme.palette.button.fillHoveredAccent,
+      // borderColor: theme.palette.button.borderHovered,
+    },
+  }));
+
   return (
     <Container
       maxWidth={screenSize === "xl" ? "xl" : "lg"}
       ref={ref}
       sx={{
-        pt: "23vh",
+        pt: { xs: "18vh", sm: "23vh" },
       }}
     >
       {/* <Stack spacing={2} ref={scope}> */}
@@ -93,7 +110,7 @@ function LandingSection({ Typography, onColorChange }, ref) {
             sm={8}
             lg={6}
             sx={{
-              mt: "7vh",
+              mt: "10vh",
             }}
           >
             <ScrollRevealAnimation spring={true} reveal={true}>
@@ -116,6 +133,36 @@ function LandingSection({ Typography, onColorChange }, ref) {
                   Let’s build something great together!
                 </span>
               </Typography>
+            </ScrollRevealAnimation>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sx={{
+              mt: "23vh",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <ScrollRevealAnimation spring={true} reveal={true}>
+              <motion.div
+                whileHover={{
+                  scale: 1.1,
+                  y: -4,
+                  transition: { duration: 0.3 },
+                }}
+                whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
+                transition={{ type: "spring", stiffness: 300, damping: 70 }}
+              >
+                <Button
+                  variant="contained"
+                  size="large"
+                  onClick={() => scrollToSection(connectSectionRef)}
+                >
+                  Send Me A Message
+                </Button>
+              </motion.div>
             </ScrollRevealAnimation>
           </Grid>
           <Grid

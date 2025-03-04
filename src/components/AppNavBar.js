@@ -20,6 +20,7 @@ function AppNavBar({
   Typography,
   scrollToSection,
   landingSectionRef,
+  aboutSectionRef,
   skillsSectionRef,
   experienceSectionRef,
   projectsSectionRef,
@@ -62,7 +63,7 @@ function AppNavBar({
           direction="row"
           justifyContent="space-around"
           alignItems="flex-start"
-          sx={{ mt: 2, mb: 0, px: 0 }}
+          sx={{ mt: 0, mb: 0, px: 0 }}
         >
           {screenSize !== "xs" && (
             <Grid
@@ -78,7 +79,7 @@ function AppNavBar({
                     ? 4
                     : 10,
                 display: "flex",
-                py: 1,
+                py: 3,
               }}
               onClick={() => scrollToSection(landingSectionRef)}
             >
@@ -136,6 +137,7 @@ function AppNavBar({
                 Typography={Typography}
                 scrollToSection={scrollToSection}
                 landingSectionRef={landingSectionRef}
+                aboutSectionRef={aboutSectionRef}
                 skillsSectionRef={skillsSectionRef}
                 experienceSectionRef={experienceSectionRef}
                 projectsSectionRef={projectsSectionRef}
@@ -158,7 +160,7 @@ function AppNavBar({
                     : screenSize === "md"
                     ? 4
                     : 10,
-                py: screenSize === "md" ? 2 : 0,
+                py: screenSize === "md" ? 2 : 1,
               }}
             >
               <Stack
