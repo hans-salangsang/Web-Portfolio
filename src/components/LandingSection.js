@@ -139,7 +139,7 @@ function LandingSection(
             item
             xs={12}
             sx={{
-              mt: "23vh",
+              mt: { xs: "15vh", xl: "25vh" },
               display: "flex",
               justifyContent: "center",
               alignItems: "center",

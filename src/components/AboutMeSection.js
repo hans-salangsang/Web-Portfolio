@@ -166,11 +166,11 @@ function AboutMeSection({ Typography, onColorChange, Chip }, ref) {
               </Typography>
             </ScrollRevealAnimation>
 
-            <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
+            {/* <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
               <CharacteristicsInput
                 onInputSubmit={handleCharacteristicsSubmit}
               />
-            </ScrollRevealAnimation>
+            </ScrollRevealAnimation> */}
           </Grid>
         </Grid>
       </Grid>
