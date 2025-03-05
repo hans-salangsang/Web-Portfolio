@@ -427,6 +427,7 @@ function App() {
               height: "105vh", // Adjust this to crop more or less
               overflow: "hidden",
               zIndex: 0,
+              display: { xs: "none", sm: "block" },
             }}
           >
             <Box
