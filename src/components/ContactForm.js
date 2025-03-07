@@ -8,10 +8,11 @@ import { useTheme } from "@mui/material/styles";
 import BaseButton from "@mui/material/Button";
 import BasePaper from "@mui/material/Paper";
 import { motion } from "framer-motion";
-import { toast, ToastContainer, Bounce } from "react-toastify";
+import { toast, ToastContainer, Bounce, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useToastStyles from "./useToastStyles";
 import tinycolor from "tinycolor2";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const TextField = styled(BaseTextField)(({ theme }) => ({
   "& label.MuiFormLabel-root": {
@@ -90,9 +91,18 @@ const Button = styled(BaseButton)(({ theme }) => ({
     color: theme.palette.button.fillHoveredAccent,
     // borderColor: theme.palette.button.borderHovered,
   },
+  "&.Mui-disabled": {
+    backgroundColor: theme.palette.button.textHoveredAccent, // Use a theme-based disabled color
+    color: theme.palette.button.fillHoveredAccent, // Adjust text color for better readability
+    cursor: "not-allowed",
+  },
 }));
 
 const ContactForm = ({ Typography }) => {
+  const theme = useTheme();
+
+  const [loading, setLoading] = useState(false);
+
   const { success, error } = useToastStyles();
 
   const [formData, setFormData] = useState({
@@ -102,84 +112,113 @@ const ContactForm = ({ Typography }) => {
     message: "",
   });
 
+  const [formErrors, setFormErrors] = useState({
+    name: false,
+    email: false,
+    message: false,
+  });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+
+    setFormData((prev) => ({
+      ...prev,
       [name]: value,
-    });
+    }));
+
+    setFormErrors((prev) => ({
+      ...prev,
+      [name]: false,
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const serviceID = "service_cqrx68b";
     const templateIDself = "template_kn13p6u";
     const templateIDclient = "template_6glavlq";
     const userID = "DuOIGvb1rpUgpnm4s";
 
-    emailjs
-      .send(serviceID, templateIDself, formData, userID)
-      .then((response) => {
-        console.log(
-          "Self email sent successfully!",
-          response.status,
-          response.text
-        );
-      })
-      .catch((err) => {
-        console.error("Failed to send self email...", err);
-      });
+    const errors = {
+      name: !formData.name.trim(),
+      email: !formData.email.trim(),
+      message: !formData.message.trim(),
+    };
 
-    emailjs
-      .send(serviceID, templateIDclient, formData, userID)
-      .then((response) => {
-        console.log(
-          "Client email sent successfully!",
-          response.status,
-          response.text
-        );
-        toast.success(
-          "Your message has been sent! Looking forward to speaking with you!",
-          {
-            position: "bottom-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            transition: Bounce,
-            style: success,
-          }
-        );
-      })
-      .catch((err) => {
-        console.error("Failed to send client email...", err);
-        toast.error(
-          "Oops! Something went wrong while sending your message. Please try again.",
-          {
-            position: "bottom-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            transition: Bounce,
-            style: error,
-          }
-        );
-      });
+    setFormErrors(errors);
 
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
-    });
+    if (Object.values(errors).some((error) => error)) {
+      setLoading(false);
+      return;
+    } else {
+      emailjs
+        .send(serviceID, templateIDself, formData, userID)
+        .then((response) => {
+          console.log(
+            "Self email sent successfully!",
+            response.status,
+            response.text
+          );
+        })
+        .catch((err) => {
+          console.error("Failed to send self email...", err);
+        });
+
+      emailjs
+        .send(serviceID, templateIDclient, formData, userID)
+        .then((response) => {
+          console.log(
+            "Client email sent successfully!",
+            response.status,
+            response.text
+          );
+          toast.success(
+            "Your message has been sent! Looking forward to speaking with you!",
+            {
+              position: "bottom-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              transition: Zoom,
+              style: success,
+            }
+          );
+        })
+        .catch((err) => {
+          console.error("Failed to send client email...", err);
+          toast.error(
+            "Oops! Something went wrong while sending your message. Please try again.",
+            {
+              position: "bottom-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              transition: Zoom,
+              style: error,
+            }
+          );
+        })
+        .finally(() => {
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            message: "",
+          });
+
+          setLoading(false);
+        });
+    }
   };
 
   return (
@@ -208,8 +247,8 @@ const ContactForm = ({ Typography }) => {
         size="small"
         value={formData.name}
         onChange={handleChange}
-        // helperText="Please enter a valid email address"
-        error={false}
+        error={formErrors.name}
+        helperText={formErrors.name ? "Please enter your name." : ""}
       />
       <TextField
         required
@@ -221,8 +260,8 @@ const ContactForm = ({ Typography }) => {
         size="small"
         value={formData.email}
         onChange={handleChange}
-        // helperText="Please enter a valid email address"
-        error={false}
+        error={formErrors.email}
+        helperText={formErrors.email ? "Please enter your email address." : ""}
       />
       <TextField
         id="phone"
@@ -247,8 +286,8 @@ const ContactForm = ({ Typography }) => {
         size="small"
         value={formData.message}
         onChange={handleChange}
-        // helperText="Please enter a valid email address"
-        error={false}
+        error={formErrors.message}
+        helperText={formErrors.message ? "Please enter your message." : ""}
       />
       <motion.div
         whileHover={{ scale: 1.1, y: -4, transition: { duration: 0.3 } }}
@@ -260,8 +299,16 @@ const ContactForm = ({ Typography }) => {
           size="small"
           sx={{ width: "100%" }}
           type="submit"
+          disabled={loading} // Disable button while loading
         >
-          Send Message
+          {loading ? (
+            <CircularProgress
+              size={20}
+              sx={{ color: theme.palette.button.fillHoveredAccent }}
+            />
+          ) : (
+            "Send Message"
+          )}
         </Button>
       </motion.div>
     </Stack>

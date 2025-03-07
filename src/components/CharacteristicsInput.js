@@ -7,6 +7,12 @@ import { motion } from "framer-motion";
 import tinycolor from "tinycolor2";
 import { IconButton } from "@mui/material";
 import Wand2Icon from "@mui/icons-material/AutoFixHigh";
+import Tooltip from "./CustomTooltip";
+import CircularProgress from "@mui/material/CircularProgress";
+import { useTheme } from "@mui/material/styles";
+import { toast, ToastContainer, Bounce, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import useToastStyles from "./useToastStyles";
 
 const TextField = styled(BaseTextField)(({ theme }) => ({
   "& label.MuiFormLabel-root": {
@@ -88,11 +94,20 @@ const Button = styled(BaseButton)(({ theme }) => ({
 }));
 
 const CharacteristicsInput = ({ onInputSubmit }) => {
+  const theme = useTheme();
+
+  const [loading, setLoading] = useState(false);
+
   const [input, setInput] = useState("");
   const [error, setError] = useState(false);
 
+  const { success } = useToastStyles();
+
   const handleSubmit = async () => {
+    setLoading(true);
+
     if (input.trim()) {
+      let data = null;
       try {
         const response = await fetch("/api/generateColor", {
           method: "POST",
@@ -102,7 +117,10 @@ const CharacteristicsInput = ({ onInputSubmit }) => {
           body: JSON.stringify({ characteristics: input.trim() }),
         });
 
-        const data = await response.json();
+        data = await response.json();
+
+        // const data = await response.json();
+
         if (data) {
           console.log("Color:", data.color);
           console.log("Name:", data.name);
@@ -114,15 +132,40 @@ const CharacteristicsInput = ({ onInputSubmit }) => {
         }
       } catch (error) {
         console.error("Error fetching color:", error);
+      } finally {
+        setLoading(false);
+
+        toast.info(`${data?.description ? `${data.description}` : ""}`, {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Zoom,
+          icon: false,
+          style: {
+            background: theme.palette.background.default,
+            color: theme.palette.text.textPrimary.light,
+          },
+          progressStyle: {
+            // background: theme.palette.text.textSecondary.main,
+            background: theme.palette.text.textPrimary.light,
+          },
+        });
       }
+
       setInput("");
     } else {
       setError(true); // Show error if input is empty
+      setLoading(false);
     }
   };
 
   return (
-    <Stack direction="row" spacing={1} sx={{ mt: 5, alignItems: "center" }}>
+    <Stack direction="row" spacing={1} sx={{ mt: 5, alignItems: "stretch" }}>
       <TextField
         id="characteristics"
         name="characteristics"
@@ -131,29 +174,60 @@ const CharacteristicsInput = ({ onInputSubmit }) => {
           flex: 1,
           "& .MuiInputLabel-root": {
             whiteSpace: "normal",
-            fontSize: "0.875rem",
+            overflow: "visible",
+            textOverflow: "unset",
+            display: "block",
+            maxWidth: "100%",
+          },
+          "& .MuiInputBase-root": {
+            minHeight: { xs: "60px", sm: "auto" },
+          },
+          "& .MuiFormHelperText-root": {
+            position: "absolute",
+            bottom: "-24px",
           },
         }}
         fullWidth
         multiline
-        rows={1}
+        minRows={1}
         defaultValue="Default Value"
         variant="filled"
         size="small"
         value={input}
-        onChange={(e) => setInput(e.target.value)}
+        onChange={(e) => {
+          setInput(e.target.value);
+          setError(false);
+        }}
         helperText={error ? "Please enter some characteristics." : ""}
         error={error}
       />
-      <motion.div
-        whileHover={{ scale: 1.1, y: -4, transition: { duration: 0.3 } }}
-        whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
-        transition={{ type: "spring", stiffness: 300, damping: 70 }}
+      <Tooltip
+        title="My portfolio will adapt its colors based on your input!"
+        placement="bottom"
       >
-        <Button variant="contained" size="small" sx={{}} onClick={handleSubmit}>
-          <Wand2Icon sx={{}} fontSize="small" />
-        </Button>
-      </motion.div>
+        <motion.div
+          whileHover={{ scale: 1.1, y: -4, transition: { duration: 0.3 } }}
+          whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
+          transition={{ type: "spring", stiffness: 300, damping: 70 }}
+          style={{ display: "flex", alignSelf: "stretch" }} // Ensures the button stretches
+        >
+          <Button
+            variant="contained"
+            size="small"
+            sx={{ alignSelf: "stretch", minWidth: "40px" }} // Adjust minWidth if needed
+            onClick={handleSubmit}
+          >
+            {loading ? (
+              <CircularProgress
+                size={20}
+                sx={{ color: theme.palette.button.fillHoveredAccent }}
+              />
+            ) : (
+              <Wand2Icon fontSize="small" />
+            )}
+          </Button>
+        </motion.div>
+      </Tooltip>
     </Stack>
   );
 };

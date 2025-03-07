@@ -1,4 +1,5 @@
 import { useTheme } from "@mui/material/styles";
+import { useEffect, useState } from "react";
 import { useRef } from "react";
 import tinycolor from "tinycolor2";
 
@@ -55,11 +56,17 @@ const generateGradient = (theme) => {
 
 const AbstractGradientBackground = () => {
   const theme = useTheme();
-  const backgroundRef = useRef(null);
+  const [background, setBackground] = useState("");
+  const prevThemeRef = useRef(JSON.stringify(theme)); // Store theme as a string
 
-  if (!backgroundRef.current) {
-    backgroundRef.current = generateGradient(theme);
-  }
+  useEffect(() => {
+    const currentThemeString = JSON.stringify(theme);
+
+    if (prevThemeRef.current !== currentThemeString) {
+      setBackground(generateGradient(theme)); // Update state to trigger re-render
+      prevThemeRef.current = currentThemeString;
+    }
+  }, [theme]);
 
   return (
     <div
@@ -70,7 +77,7 @@ const AbstractGradientBackground = () => {
         width: "100%",
         height: "100%",
         zIndex: -1,
-        background: backgroundRef.current,
+        background,
         filter: "blur(220px)",
       }}
     />

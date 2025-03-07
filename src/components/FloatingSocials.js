@@ -11,6 +11,7 @@ import { useState } from "react";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailIcon from "@mui/icons-material/Email";
 import Tooltip from "./CustomTooltip";
 
 const Stack = styled(BaseStack)`
@@ -112,6 +113,32 @@ function FloatingSocials({ Typography, Chip }) {
             rel="noopener noreferrer"
           >
             <LinkedInIcon />
+          </IconButton>
+        </motion.div>
+      </Tooltip>
+
+      <Tooltip title="Email" placement="bottom">
+        <motion.div
+          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.3 } }}
+          whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
+          onMouseEnter={() => setHoveredButton("Email")}
+          onMouseLeave={() => setHoveredButton("")}
+          animate={{
+            scale:
+              hoveredButton === "" ? 1 : hoveredButton !== "Email" ? 0.9 : 1,
+          }}
+          transition={{ type: "spring", stiffness: 300, damping: 70 }}
+        >
+          <IconButton
+            aria-label="Email"
+            size="small"
+            component="a"
+            href="mailto:hans.salangsang@gmail.com"
+            // href="https://mail.google.com/mail/?view=cm&fs=1&to=hans.salangsang@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <EmailIcon />
           </IconButton>
         </motion.div>
       </Tooltip>
