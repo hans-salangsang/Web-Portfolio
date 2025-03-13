@@ -58,7 +58,7 @@ function FloatingSocials({ Typography, Chip }) {
         right: "auto",
 
         [theme.breakpoints.down("xl")]: {
-          top: "70vh",
+          top: "55vh",
           left: "auto",
           right: 15,
         },

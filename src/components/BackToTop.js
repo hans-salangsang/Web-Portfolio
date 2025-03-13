@@ -29,7 +29,7 @@ function BackToTop({ Typography, Chip, scrollToSection, landingSectionRef }) {
       flexWrap="wrap"
       sx={{
         position: "fixed",
-        top: screenSize === "xs" ? "82vh" : "91vh",
+        top: screenSize === "xs" ? "79vh" : "87vh",
         right: 15,
         zIndex: 999,
       }}

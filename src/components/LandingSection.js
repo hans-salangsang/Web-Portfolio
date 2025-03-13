@@ -45,7 +45,7 @@ function LandingSection(
       maxWidth={screenSize === "xl" ? "xl" : "lg"}
       ref={ref}
       sx={{
-        pt: { xs: "18vh", sm: "23vh" },
+        pt: { xs: "9rem", sm: "9rem" },
       }}
     >
       {/* <Stack spacing={2} ref={scope}> */}
@@ -68,21 +68,21 @@ function LandingSection(
               <Typography
                 variant="h1"
                 color="text.textPrimary.light"
-                fontWeight={400}
+                fontWeight={700}
                 paragraph
                 textAlign="center"
-                lineHeight={0.9}
+                lineHeight={1}
               >
                 Hans
-                <span
+                {/* <span
                   style={{
                     color: theme.palette.text.textPrimary.dark,
                   }}
                 >
-                  {" "}
+                  
                   Wilhelm
                 </span>
-                <br />
+                <br /> */}{" "}
                 {/* <span
                   style={{
                     color: theme.palette.text.textSecondary.main,
@@ -93,11 +93,13 @@ function LandingSection(
               </Typography>
               <Typography
                 variant="h2"
-                color="text.textSecondary.main"
+                color="text.textPrimary.light"
                 fontWeight={200}
                 paragraph
                 textAlign="center"
-                letterSpacing="0.1em"
+                sx={{
+                  mt: "1.5rem",
+                }}
               >
                 Full Stack Developer
               </Typography>
@@ -106,11 +108,11 @@ function LandingSection(
 
           <Grid
             item
-            xs={10}
-            sm={8}
+            xs={12}
+            sm={10}
             lg={6}
             sx={{
-              mt: "10vh",
+              mt: "2rem",
             }}
           >
             <ScrollRevealAnimation spring={true} reveal={true}>
@@ -126,7 +128,7 @@ function LandingSection(
                 codes to become a versatile developer.{" "}
                 <span
                   style={{
-                    fontWeight: 700,
+                    // fontWeight: 700,
                     color: theme.palette.text.textPrimary.light,
                   }}
                 >
@@ -139,7 +141,7 @@ function LandingSection(
             item
             xs={12}
             sx={{
-              mt: { xs: "15vh", xl: "25vh" },
+              mt: { xs: "1rem", xl: "1rem" },
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -169,7 +171,7 @@ function LandingSection(
             item
             xs={12}
             sx={{
-              mt: "2vh",
+              mt: "5rem",
             }}
           >
             <Box sx={{ width: "70px" }}>

@@ -38,7 +38,7 @@ function ExperienceSection({ Typography, Chip }, ref) {
       maxWidth={screenSize === "xl" ? "xl" : "lg"}
       sx={{ position: "relative" }}
     >
-      <AbstractGradientBackground />
+      {/* <AbstractGradientBackground /> */}
       <Grid ref={ref} container sx={{ pt: 15 }}>
         <Grid container item xs={12} spacing={5}>
           <Grid item xs={12} sx={{ mb: 5 }}>
@@ -78,15 +78,18 @@ function ExperienceSection({ Typography, Chip }, ref) {
                       alignItems: "center", // Align items vertically
                       gap: 2, // Adds spacing between elements
                       flexWrap: "wrap", // Wraps to a new line if needed on smaller screens
+                      justifyContent: "space-between", // Ensures the elements are spaced at both ends
                     }}
                   >
                     <Typography
-                      variant="h4"
+                      variant="h5"
                       color="text.textSecondary.main"
-                      fontWeight={700}
-                      sx={{
-                        textTransform: "uppercase",
-                      }}
+                      fontWeight={400}
+                      sx={
+                        {
+                          // textTransform: "uppercase",
+                        }
+                      }
                     >
                       Infor
                     </Typography>
@@ -116,6 +119,7 @@ function ExperienceSection({ Typography, Chip }, ref) {
                     color="text.textPrimary.main"
                     fontWeight={400}
                     sx={{ mt: 1.2 }}
+                    lineHeight={1.6}
                   >
                     As an Associate Technical Consultant at Infor, I assist in
                     the implementation, support, and optimization of enterprise
@@ -165,15 +169,18 @@ function ExperienceSection({ Typography, Chip }, ref) {
                       alignItems: "center", // Align items vertically
                       gap: 2, // Adds spacing between elements
                       flexWrap: "wrap", // Wraps to a new line if needed on smaller screens
+                      justifyContent: "space-between", // Ensures the elements are spaced at both ends
                     }}
                   >
                     <Typography
-                      variant="h4"
+                      variant="h5"
                       color="text.textSecondary.main"
-                      fontWeight={700}
-                      sx={{
-                        textTransform: "uppercase",
-                      }}
+                      fontWeight={400}
+                      sx={
+                        {
+                          // textTransform: "uppercase",
+                        }
+                      }
                     >
                       LexMeet, Inc.
                     </Typography>
@@ -203,6 +210,7 @@ function ExperienceSection({ Typography, Chip }, ref) {
                     color="text.textPrimary.main"
                     fontWeight={400}
                     sx={{ mt: 1.2 }}
+                    lineHeight={1.6}
                   >
                     As the team leader for the development of LexTasker,
                     LexMeet's intuitive to-do app, I had the privilege of

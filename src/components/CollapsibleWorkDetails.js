@@ -73,6 +73,7 @@ function CollapsibleWorkDetails({ tasks = [] }) {
               <ListItemText
                 primary={text}
                 sx={{ color: theme.palette.text.textPrimary.main }}
+                lineHeight={1.6}
               />
             </ListItem>
           ))}

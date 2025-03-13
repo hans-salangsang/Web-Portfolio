@@ -69,7 +69,7 @@ function SkillsSection({ Typography, Chip }, ref) {
       sx={{ position: "relative" }}
     >
       {/* <Grid ref={ref} container sx={{ minHeight: "100vh" }}> */}
-      <AbstractGradientBackground />
+      {/* <AbstractGradientBackground /> */}
       <Grid ref={ref} container sx={{ pt: 15 }}>
         <Grid container item xs={12} spacing={3}>
           <Grid item xs={12} sx={{ mb: 3 }}>

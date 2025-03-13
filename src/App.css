@@ -125,9 +125,17 @@
   font-style: italic;
 }
 
-/* ZTRavigsfen Font */
+/* Sage Grotesk Font */
 @font-face {
   font-family: "Sage Grotesk";
   src: url("./assets/fonts/Sage Grotesk.woff2") format("woff2");
+  font-style: normal;
+}
+
+/* Diether Font */
+@font-face {
+  font-family: "Diether";
+  src: url("./assets/fonts/Diether-Heavy.otf") format("opentype");
+  font-weight: 900;
   font-style: normal;
 }

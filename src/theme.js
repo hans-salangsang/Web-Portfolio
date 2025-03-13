@@ -4,62 +4,63 @@ const baseTheme = createTheme();
 
 const typography = {
   h1: {
-    fontFamily: "Sage Grotesk, sans-serif",
-    fontSize: `clamp(2rem, 5vw, 7rem)`,
-    textTransform: "uppercase",
+    fontFamily: "Inter, sans-serif",
+    fontSize: `clamp(2rem, 8vw, 5rem)`, // Fibonacci scale: 5 (as max)
+    letterSpacing: "0.01em",
   },
   h2: {
     fontFamily: "Inter, sans-serif",
-    fontSize: `clamp(1rem, 1.25vw, 2rem)`,
-    textTransform: "uppercase",
+    fontSize: `clamp(1.5rem, 4vw, 2rem)`, // Adjusted max value to 2.5rem (smaller)
+    letterSpacing: "0.01em",
   },
   h3: {
     fontFamily: "Inter, sans-serif",
-    fontSize: `clamp(1.75rem, 2vw, 2.75rem)`,
-    textTransform: "uppercase",
-    fontWeight: 900,
+    fontSize: `clamp(1.25rem, 4.5vw, 2.25rem)`, // Fibonacci scale: 2.25 (as max)
+    // textTransform: "uppercase",
+    fontWeight: 700,
+    letterSpacing: "0.01em",
   },
   h4: {
     fontFamily: "Inter, sans-serif",
-    fontSize: `clamp(1.125rem, 2vw, 1.25rem)`,
+    fontSize: `clamp(1.125rem, 1.75vw, 1.5rem)`, // Fibonacci scale: 1.5 (as max)
   },
   h5: {
-    fontFamily: "Fliege Mono, monospace",
-    fontSize: `clamp(1rem, 1.75vw, 1.125rem)`,
+    fontFamily: "Inter, sans-serif",
+    fontSize: `clamp(1.25rem, 1.5vw, 1.25rem)`, // Fibonacci scale: 1.25 (as max)
   },
   h6: {
-    fontFamily: "Sage Grotesk, sans-serif",
-    fontSize: `clamp(1rem, 1vw, 2rem)`,
-    textTransform: "uppercase",
+    fontFamily: "Inter, sans-serif",
+    fontSize: `clamp(0.875rem, 1.5vw, 1.5rem)`, // Fibonacci scale: 1.5 (as max)
+    // textTransform: "uppercase",
   },
   subtitle1: {
     fontFamily: "Inter, sans-serif",
-    fontSize: `clamp(0.875rem, 1.5vw, 1rem)`,
+    fontSize: `clamp(0.875rem, 1.75vw, 1rem)`, // Fibonacci scale: 1 (as max)
   },
   subtitle2: {
     fontFamily: "Inter, sans-serif",
-    fontSize: `clamp(0.75rem, 1.25vw, 0.875rem)`,
+    fontSize: `clamp(0.75rem, 1.25vw, 0.875rem)`, // Fibonacci scale: 0.875 (as max)
   },
   body1: {
     fontFamily: "Inter, sans-serif",
-    fontSize: `clamp(0.8rem, 1.25vw, 0.875rem)`,
+    fontSize: `clamp(1rem, 1.25vw, 1rem)`, // Increased max size to 1rem
   },
   body2: {
     fontFamily: "Inter, sans-serif",
-    fontSize: `clamp(0.7rem, 1vw, 0.8rem)`,
+    fontSize: `clamp(0.875rem, 1vw, 0.875rem)`, // Increased max size to 0.875rem
   },
   button: {
     fontFamily: "Inter, sans-serif",
-    fontSize: `clamp(0.75rem, 1.5vw, 0.875rem)`,
+    fontSize: `clamp(0.75rem, 1vw, 1rem)`, // Fibonacci scale: 1 (as max)
     fontWeight: 600,
   },
   caption: {
     fontFamily: "Inter, sans-serif",
-    fontSize: `clamp(0.625rem, 1vw, 0.75rem)`,
+    fontSize: `clamp(0.625rem, 1vw, 0.75rem)`, // Fibonacci scale: 0.75 (as max)
   },
   overline: {
     fontFamily: "Inter, sans-serif",
-    fontSize: `clamp(0.625rem, 1vw, 0.75rem)`,
+    fontSize: `clamp(0.625rem, 1vw, 0.75rem)`, // Fibonacci scale: 0.75 (as max)
     textTransform: "uppercase",
   },
 };
