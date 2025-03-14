@@ -68,7 +68,7 @@ function LandingSection(
               <Box
                 sx={{
                   flexDirection: "column",
-                  transition: "transform 0.5s ease-in-out",
+                  transition: "transform 0.3s ease-in-out",
                   transform: "skew(-10deg) rotate(-3deg)",
                   "&:hover": {
                     transform: "skew(0deg) rotate(0deg)",
