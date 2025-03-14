@@ -5,12 +5,12 @@ const baseTheme = createTheme();
 const typography = {
   h1: {
     fontFamily: "Bebas Neue, sans-serif",
-    fontSize: `clamp(4.5rem, 10vw, 10rem)`, // Fibonacci scale: 5 (as max)
+    fontSize: `clamp(4.5rem, 8vw, 10rem)`, // Fibonacci scale: 5 (as max)
     letterSpacing: "0.01em",
   },
   h2: {
     fontFamily: "Inter, sans-serif",
-    fontSize: `clamp(1.5rem, 4vw, 2.5rem)`, // Adjusted max value to 2.5rem (smaller)
+    fontSize: `clamp(1.5rem, 3vw, 2.5rem)`, // Adjusted max value to 2.5rem (smaller)
     letterSpacing: "0.01em",
   },
   h3: {

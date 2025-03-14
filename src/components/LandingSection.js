@@ -45,7 +45,7 @@ function LandingSection(
       maxWidth={screenSize === "xl" ? "xl" : "lg"}
       ref={ref}
       sx={{
-        pt: { xs: "8rem", sm: "9rem", lg: "11rem", xl: "12rem" },
+        pt: { xs: "8rem", sm: "8rem", lg: "8rem", xl: "12rem" },
       }}
     >
       {/* <Stack spacing={2} ref={scope}> */}
@@ -121,7 +121,7 @@ function LandingSection(
             sm={10}
             lg={6}
             sx={{
-              mt: "5rem",
+              mt: { xs: "3rem", xl: "5rem" },
             }}
           >
             <ScrollRevealAnimation spring={true} reveal={true}>
@@ -150,7 +150,7 @@ function LandingSection(
             item
             xs={12}
             sx={{
-              mt: { xs: "1rem", xl: "1rem" },
+              mt: { xs: ".5rem", xl: "1rem" },
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
