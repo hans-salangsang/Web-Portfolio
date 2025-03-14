@@ -62,7 +62,7 @@ function DynamicIsland({
     >
       <Stack direction="row" spacing={0}>
         <motion.div
-          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.3 } }}
+          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.1 } }}
           whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
           onMouseEnter={() => setHoveredButton("About")}
           onMouseLeave={() => setHoveredButton("")}
@@ -70,7 +70,7 @@ function DynamicIsland({
             scale:
               hoveredButton === "" ? 1 : hoveredButton !== "About" ? 0.9 : 1,
           }}
-          transition={{ type: "spring", stiffness: 300, damping: 70 }}
+          transition={{ type: "spring", stiffness: 300, damping: 10 }}
         >
           <Button
             color="inherit"
@@ -97,7 +97,7 @@ function DynamicIsland({
         </motion.div>
 
         <motion.div
-          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.3 } }}
+          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.1 } }}
           whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
           onMouseEnter={() => setHoveredButton("Skills")}
           onMouseLeave={() => setHoveredButton("")}
@@ -105,7 +105,7 @@ function DynamicIsland({
             scale:
               hoveredButton === "" ? 1 : hoveredButton !== "Skills" ? 0.9 : 1,
           }}
-          transition={{ type: "spring", stiffness: 300, damping: 70 }}
+          transition={{ type: "spring", stiffness: 300, damping: 10 }}
         >
           <Button
             color="inherit"
@@ -134,7 +134,7 @@ function DynamicIsland({
         </motion.div>
 
         <motion.div
-          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.3 } }}
+          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.1 } }}
           whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
           onMouseEnter={() => setHoveredButton("Experience")}
           onMouseLeave={() => setHoveredButton("")}
@@ -146,7 +146,7 @@ function DynamicIsland({
                 ? 0.9
                 : 1,
           }}
-          transition={{ type: "spring", stiffness: 300, damping: 70 }}
+          transition={{ type: "spring", stiffness: 300, damping: 10 }}
         >
           <Button
             color="inherit"
@@ -175,7 +175,7 @@ function DynamicIsland({
         </motion.div>
 
         <motion.div
-          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.3 } }}
+          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.1 } }}
           whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
           onMouseEnter={() => setHoveredButton("Connect")}
           onMouseLeave={() => setHoveredButton("")}
@@ -183,7 +183,7 @@ function DynamicIsland({
             scale:
               hoveredButton === "" ? 1 : hoveredButton !== "Connect" ? 0.9 : 1,
           }}
-          transition={{ type: "spring", stiffness: 300, damping: 70 }}
+          transition={{ type: "spring", stiffness: 300, damping: 10 }}
         >
           <Button
             color="inherit"

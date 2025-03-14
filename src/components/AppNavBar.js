@@ -92,12 +92,13 @@ function AppNavBar({
                     textAlign="left"
                     sx={{ cursor: "pointer" }}
                   >
-                    Hans<span>&nbsp;</span>
+                    hans
+                    {/* <span>&nbsp;</span>
                     <span
                       style={{ color: theme.palette.text.textPrimary.light }}
                     >
                       Salangsang
-                    </span>
+                    </span> */}
                   </Typography>
                 )}
               {(screenSize === "xs" ||
@@ -110,15 +111,7 @@ function AppNavBar({
                     textAlign="left"
                     sx={{ cursor: "pointer" }}
                   >
-                    H
-                  </Typography>
-                  <Typography
-                    variant="h6"
-                    color="text.textPrimary.light"
-                    textAlign="left"
-                    sx={{ cursor: "pointer" }}
-                  >
-                    S
+                    h
                   </Typography>
                 </>
               )}
@@ -191,14 +184,14 @@ function AppNavBar({
                     whileHover={{
                       scale: 1.1,
                       y: -4,
-                      transition: { duration: 0.3 },
+                      transition: { duration: 0.1 },
                     }}
                     whileTap={{
                       scale: 0.9,
                       y: -2,
                       transition: { duration: 0.1 },
                     }}
-                    transition={{ type: "spring", stiffness: 300, damping: 70 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 10 }}
                   >
                     <IconButton onClick={handleToggleDarkMode} color="inherit">
                       {darkMode ? (
@@ -257,17 +250,14 @@ function AppNavBar({
             sx={{ mt: 2, mb: 1 }}
           >
             <Grid item xs={8} sx={{ py: 1 }}>
-              {/* <Typography
+              <Typography
                 variant="h6"
-                color="text.textPrimary.dark"
+                color="text.textPrimary.light"
                 textAlign="left"
                 sx={{ cursor: "pointer" }}
               >
-                Hans<span>&nbsp;</span>
-                <span style={{ color: theme.palette.text.textSecondary.main }}>
-                  Salangsang
-                </span>
-              </Typography> */}
+                hans
+              </Typography>
             </Grid>
 
             <Grid
@@ -285,14 +275,14 @@ function AppNavBar({
                   whileHover={{
                     scale: 1.1,
                     y: -4,
-                    transition: { duration: 0.3 },
+                    transition: { duration: 0.1 },
                   }}
                   whileTap={{
                     scale: 0.9,
                     y: -2,
                     transition: { duration: 0.1 },
                   }}
-                  transition={{ type: "spring", stiffness: 300, damping: 70 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 10 }}
                 >
                   <IconButton onClick={handleToggleDarkMode} color="inherit">
                     {darkMode ? (

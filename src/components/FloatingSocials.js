@@ -69,7 +69,7 @@ function FloatingSocials({ Typography, Chip }) {
     >
       <Tooltip title="GitHub" placement="bottom">
         <motion.div
-          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.3 } }}
+          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.1 } }}
           whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
           onMouseEnter={() => setHoveredButton("GitHub")}
           onMouseLeave={() => setHoveredButton("")}
@@ -77,7 +77,7 @@ function FloatingSocials({ Typography, Chip }) {
             scale:
               hoveredButton === "" ? 1 : hoveredButton !== "GitHub" ? 0.9 : 1,
           }}
-          transition={{ type: "spring", stiffness: 300, damping: 70 }}
+          transition={{ type: "spring", stiffness: 300, damping: 10 }}
         >
           <IconButton
             aria-label="GitHub"
@@ -94,7 +94,7 @@ function FloatingSocials({ Typography, Chip }) {
 
       <Tooltip title="LinkedIn" placement="bottom">
         <motion.div
-          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.3 } }}
+          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.1 } }}
           whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
           onMouseEnter={() => setHoveredButton("LinkedIn")}
           onMouseLeave={() => setHoveredButton("")}
@@ -102,7 +102,7 @@ function FloatingSocials({ Typography, Chip }) {
             scale:
               hoveredButton === "" ? 1 : hoveredButton !== "LinkedIn" ? 0.9 : 1,
           }}
-          transition={{ type: "spring", stiffness: 300, damping: 70 }}
+          transition={{ type: "spring", stiffness: 300, damping: 10 }}
         >
           <IconButton
             aria-label="LinkedIn"
@@ -119,7 +119,7 @@ function FloatingSocials({ Typography, Chip }) {
 
       <Tooltip title="Email" placement="bottom">
         <motion.div
-          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.3 } }}
+          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.1 } }}
           whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
           onMouseEnter={() => setHoveredButton("Email")}
           onMouseLeave={() => setHoveredButton("")}
@@ -127,7 +127,7 @@ function FloatingSocials({ Typography, Chip }) {
             scale:
               hoveredButton === "" ? 1 : hoveredButton !== "Email" ? 0.9 : 1,
           }}
-          transition={{ type: "spring", stiffness: 300, damping: 70 }}
+          transition={{ type: "spring", stiffness: 300, damping: 10 }}
         >
           <IconButton
             aria-label="Email"

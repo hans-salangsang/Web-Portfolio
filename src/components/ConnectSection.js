@@ -8,6 +8,7 @@ import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 import { useTheme } from "@mui/material/styles";
 import tinycolor from "tinycolor2";
 import AbstractGradientBackground from "./AbstractGradientBackground";
+import { useAnimate, useInView, stagger, motion } from "framer-motion";
 
 function ConnectSection({ Typography, Chip }, ref) {
   const screenSize = useScreenSize();
@@ -24,13 +25,23 @@ function ConnectSection({ Typography, Chip }, ref) {
           <Grid container item spacing={2} xs={12}>
             <Grid item xs={12} sx={{ mb: 5 }}>
               <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
-                <Typography
-                  variant="h3"
-                  color="text.textPrimary.light"
-                  textAlign="center"
+                <motion.div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                  initial={{ skewX: 0, rotate: 0 }}
+                  whileHover={{ skewX: -10, rotate: -3, scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 10 }}
                 >
-                  Let's Connect!
-                </Typography>
+                  <Typography
+                    variant="h3"
+                    color="text.textPrimary.light"
+                    textAlign="center"
+                  >
+                    Let's Connect!
+                  </Typography>
+                </motion.div>
               </ScrollRevealAnimation>
             </Grid>
           </Grid>

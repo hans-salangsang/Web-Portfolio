@@ -138,3 +138,10 @@
   src: url("./assets/fonts/BebasNeue-Regular.woff2") format("woff2");
   font-style: normal;
 }
+
+/* Hypik Font */
+@font-face {
+  font-family: "Hypik";
+  src: url("./assets/fonts/hypik.woff2") format("woff2");
+  font-style: normal;
+}

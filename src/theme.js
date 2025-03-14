@@ -28,7 +28,7 @@ const typography = {
     fontSize: `clamp(1.25rem, 1.5vw, 1.25rem)`, // Fibonacci scale: 1.25 (as max)
   },
   h6: {
-    fontFamily: "Bebas Neue, sans-serif",
+    fontFamily: "Hypik, sans-serif",
     fontSize: `clamp(1.5rem, 1.5vw, 2rem)`, // Fibonacci scale: 1.5 (as max)
     // textTransform: "uppercase",
   },

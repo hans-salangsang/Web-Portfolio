@@ -65,15 +65,14 @@ function LandingSection(
               >
                 Hello, I'm
               </Typography> */}
-              <Box
-                sx={{
+              <motion.div
+                style={{
+                  display: "flex",
                   flexDirection: "column",
-                  transition: "transform 0.3s ease-in-out",
-                  transform: "skew(-10deg) rotate(-3deg)",
-                  "&:hover": {
-                    transform: "skew(0deg) rotate(0deg)",
-                  },
                 }}
+                initial={{ skewX: -10, rotate: -3 }}
+                whileHover={{ skewX: 0, rotate: 0, scale: 1.2 }}
+                transition={{ type: "spring", stiffness: 300, damping: 10 }}
               >
                 <Typography
                   variant="h1"
@@ -111,7 +110,7 @@ function LandingSection(
                 >
                   Full Stack Developer
                 </Typography>
-              </Box>
+              </motion.div>
             </ScrollRevealAnimation>
           </Grid>
 
@@ -161,10 +160,10 @@ function LandingSection(
                 whileHover={{
                   scale: 1.1,
                   y: -4,
-                  transition: { duration: 0.3 },
+                  transition: { duration: 0.1 },
                 }}
                 whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
-                transition={{ type: "spring", stiffness: 300, damping: 70 }}
+                transition={{ type: "spring", stiffness: 300, damping: 10 }}
               >
                 <Button
                   variant="contained"

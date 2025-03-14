@@ -14,6 +14,7 @@ import tinycolor from "tinycolor2";
 import AbstractGradientBackground from "./AbstractGradientBackground";
 import Spline from "@splinetool/react-spline";
 import CharacteristicsInput from "./CharacteristicsInput";
+import { useAnimate, useInView, stagger, motion } from "framer-motion";
 
 function AboutMeSection({ Typography, onColorChange, Chip }, ref) {
   const screenSize = useScreenSize();
@@ -36,13 +37,23 @@ function AboutMeSection({ Typography, onColorChange, Chip }, ref) {
         <Grid container item xs={12} spacing={3}>
           <Grid item xs={12} sx={{ mb: 5 }}>
             <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
-              <Typography
-                variant="h3"
-                color="text.textPrimary.light"
-                textAlign="center"
+              <motion.div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+                initial={{ skewX: 0, rotate: 0 }}
+                whileHover={{ skewX: -10, rotate: -3, scale: 1.2 }}
+                transition={{ type: "spring", stiffness: 300, damping: 10 }}
               >
-                About Me
-              </Typography>
+                <Typography
+                  variant="h3"
+                  color="text.textPrimary.light"
+                  textAlign="center"
+                >
+                  About Me
+                </Typography>
+              </motion.div>
             </ScrollRevealAnimation>
           </Grid>
 
