@@ -132,10 +132,9 @@
   font-style: normal;
 }
 
-/* Diether Font */
+/* Bebas Neue Font */
 @font-face {
-  font-family: "Diether";
-  src: url("./assets/fonts/Diether-Heavy.otf") format("opentype");
-  font-weight: 900;
+  font-family: "Bebas Neue";
+  src: url("./assets/fonts/BebasNeue-Regular.woff2") format("woff2");
   font-style: normal;
 }

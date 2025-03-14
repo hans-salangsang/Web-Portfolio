@@ -45,7 +45,7 @@ function LandingSection(
       maxWidth={screenSize === "xl" ? "xl" : "lg"}
       ref={ref}
       sx={{
-        pt: { xs: "9rem", sm: "9rem" },
+        pt: { xs: "8rem", sm: "9rem", lg: "11rem", xl: "12rem" },
       }}
     >
       {/* <Stack spacing={2} ref={scope}> */}
@@ -65,16 +65,26 @@ function LandingSection(
               >
                 Hello, I'm
               </Typography> */}
-              <Typography
-                variant="h1"
-                color="text.textPrimary.light"
-                fontWeight={700}
-                paragraph
-                textAlign="center"
-                lineHeight={1}
+              <Box
+                sx={{
+                  flexDirection: "column",
+                  transition: "transform 0.5s ease-in-out",
+                  transform: "skew(-10deg) rotate(-3deg)",
+                  "&:hover": {
+                    transform: "skew(0deg) rotate(0deg)",
+                  },
+                }}
               >
-                Hans
-                {/* <span
+                <Typography
+                  variant="h1"
+                  color="text.textPrimary.light"
+                  fontWeight={400}
+                  paragraph
+                  textAlign="center"
+                  lineHeight={0.9}
+                >
+                  Hans
+                  {/* <span
                   style={{
                     color: theme.palette.text.textPrimary.dark,
                   }}
@@ -83,26 +93,25 @@ function LandingSection(
                   Wilhelm
                 </span>
                 <br /> */}{" "}
-                {/* <span
+                  {/* <span
                   style={{
                     color: theme.palette.text.textSecondary.main,
                   }}
                 > */}
-                Salangsang
-                {/* </span> */}
-              </Typography>
-              <Typography
-                variant="h2"
-                color="text.textPrimary.light"
-                fontWeight={200}
-                paragraph
-                textAlign="center"
-                sx={{
-                  mt: "1.5rem",
-                }}
-              >
-                Full Stack Developer
-              </Typography>
+                  <br />
+                  Salangsang
+                  {/* </span> */}
+                </Typography>
+                <Typography
+                  variant="h2"
+                  color="text.textPrimary.light"
+                  fontWeight={200}
+                  paragraph
+                  textAlign="center"
+                >
+                  Full Stack Developer
+                </Typography>
+              </Box>
             </ScrollRevealAnimation>
           </Grid>
 
@@ -112,7 +121,7 @@ function LandingSection(
             sm={10}
             lg={6}
             sx={{
-              mt: "2rem",
+              mt: "5rem",
             }}
           >
             <ScrollRevealAnimation spring={true} reveal={true}>

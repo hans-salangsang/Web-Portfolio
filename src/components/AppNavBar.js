@@ -79,7 +79,7 @@ function AppNavBar({
                     ? 4
                     : 10,
                 display: "flex",
-                py: 3,
+                py: 2,
               }}
               onClick={() => scrollToSection(landingSectionRef)}
             >

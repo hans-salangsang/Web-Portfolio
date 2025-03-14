@@ -4,20 +4,19 @@ const baseTheme = createTheme();
 
 const typography = {
   h1: {
-    fontFamily: "Inter, sans-serif",
-    fontSize: `clamp(2rem, 8vw, 5rem)`, // Fibonacci scale: 5 (as max)
+    fontFamily: "Bebas Neue, sans-serif",
+    fontSize: `clamp(4.5rem, 10vw, 10rem)`, // Fibonacci scale: 5 (as max)
     letterSpacing: "0.01em",
   },
   h2: {
     fontFamily: "Inter, sans-serif",
-    fontSize: `clamp(1.5rem, 4vw, 2rem)`, // Adjusted max value to 2.5rem (smaller)
+    fontSize: `clamp(1.5rem, 4vw, 2.5rem)`, // Adjusted max value to 2.5rem (smaller)
     letterSpacing: "0.01em",
   },
   h3: {
-    fontFamily: "Inter, sans-serif",
-    fontSize: `clamp(1.25rem, 4.5vw, 2.25rem)`, // Fibonacci scale: 2.25 (as max)
+    fontFamily: "Bebas Neue, sans-serif",
+    fontSize: `clamp(3rem, 4.5vw, 4rem)`, // Fibonacci scale: 2.25 (as max)
     // textTransform: "uppercase",
-    fontWeight: 700,
     letterSpacing: "0.01em",
   },
   h4: {
@@ -29,8 +28,8 @@ const typography = {
     fontSize: `clamp(1.25rem, 1.5vw, 1.25rem)`, // Fibonacci scale: 1.25 (as max)
   },
   h6: {
-    fontFamily: "Inter, sans-serif",
-    fontSize: `clamp(0.875rem, 1.5vw, 1.5rem)`, // Fibonacci scale: 1.5 (as max)
+    fontFamily: "Bebas Neue, sans-serif",
+    fontSize: `clamp(1.5rem, 1.5vw, 2rem)`, // Fibonacci scale: 1.5 (as max)
     // textTransform: "uppercase",
   },
   subtitle1: {

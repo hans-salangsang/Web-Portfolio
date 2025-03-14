@@ -123,7 +123,7 @@ function App() {
             : tinycolor(accentColor).darken(85).toString(),
           // Body Main Font Color
           main: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).desaturate(60).brighten(5).toString()
+            ? tinycolor(accentColor).desaturate(60).brighten(10).toString()
             : tinycolor(accentColor).desaturate(90).darken(40).toString(),
           dark: tinycolor(backgroundColor).isDark()
             ? tinycolor(accentColor).desaturate(90).darken(25).toString()
@@ -398,7 +398,7 @@ function App() {
             url="https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode"
             events-target="global"
           ></spline-viewer>
-          <Box
+          {/* <Box
             sx={{
               position: "absolute",
               left: "0%",
@@ -440,7 +440,7 @@ function App() {
             >
               <Spline scene="https://prod.spline.design/1B3IJzPvmnO-xLRw/scene.splinecode" />
             </Box>
-          </Box>
+          </Box> */}
 
           <Grid container>
             <Grid
