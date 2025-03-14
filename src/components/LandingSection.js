@@ -121,7 +121,7 @@ function LandingSection(
             sm={10}
             lg={6}
             sx={{
-              mt: { xs: "3rem", xl: "5rem" },
+              mt: { xs: "3rem", xl: "6rem" },
             }}
           >
             <ScrollRevealAnimation spring={true} reveal={true}>
