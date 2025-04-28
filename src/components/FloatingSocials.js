@@ -13,6 +13,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
 import Tooltip from "./CustomTooltip";
+import MagnetButton from "./MagnetButton";
 
 const Stack = styled(BaseStack)`
   ${({ theme }) => `
@@ -41,7 +42,7 @@ function FloatingSocials({ Typography, Chip }) {
         ? theme.palette.text.textDynamicIsland.dark
         : theme.palette.text.textDynamicIsland.dark,
     "&:hover": {
-      color: theme.palette.button.textHoveredAccent,
+      color: theme.palette.text.textDynamicIsland.light,
       backgroundColor: "transparent",
     },
   }));
@@ -68,79 +69,55 @@ function FloatingSocials({ Typography, Chip }) {
       })}
     >
       <Tooltip title="GitHub" placement="bottom">
-        <motion.div
-          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.1 } }}
-          whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
-          onMouseEnter={() => setHoveredButton("GitHub")}
-          onMouseLeave={() => setHoveredButton("")}
-          animate={{
-            scale:
-              hoveredButton === "" ? 1 : hoveredButton !== "GitHub" ? 0.9 : 1,
-          }}
-          transition={{ type: "spring", stiffness: 300, damping: 10 }}
-        >
-          <IconButton
-            aria-label="GitHub"
-            size="small"
-            component="a"
-            href="https://github.com/hans-salangsang"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <GitHubIcon />
-          </IconButton>
-        </motion.div>
+        <span>
+          <MagnetButton>
+            <IconButton
+              aria-label="GitHub"
+              size="small"
+              component="a"
+              href="https://github.com/hans-salangsang"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GitHubIcon />
+            </IconButton>
+          </MagnetButton>
+        </span>
       </Tooltip>
 
       <Tooltip title="LinkedIn" placement="bottom">
-        <motion.div
-          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.1 } }}
-          whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
-          onMouseEnter={() => setHoveredButton("LinkedIn")}
-          onMouseLeave={() => setHoveredButton("")}
-          animate={{
-            scale:
-              hoveredButton === "" ? 1 : hoveredButton !== "LinkedIn" ? 0.9 : 1,
-          }}
-          transition={{ type: "spring", stiffness: 300, damping: 10 }}
-        >
-          <IconButton
-            aria-label="LinkedIn"
-            size="small"
-            component="a"
-            href="https://www.linkedin.com/in/hans-wilhelm-salangsang/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <LinkedInIcon />
-          </IconButton>
-        </motion.div>
+        <span>
+          <MagnetButton>
+            <IconButton
+              aria-label="LinkedIn"
+              size="small"
+              component="a"
+              href="https://www.linkedin.com/in/hans-wilhelm-salangsang/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedInIcon />
+            </IconButton>
+          </MagnetButton>
+        </span>
       </Tooltip>
 
       <Tooltip title="Email" placement="bottom">
-        <motion.div
-          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.1 } }}
-          whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
-          onMouseEnter={() => setHoveredButton("Email")}
-          onMouseLeave={() => setHoveredButton("")}
-          animate={{
-            scale:
-              hoveredButton === "" ? 1 : hoveredButton !== "Email" ? 0.9 : 1,
-          }}
-          transition={{ type: "spring", stiffness: 300, damping: 10 }}
-        >
-          <IconButton
-            aria-label="Email"
-            size="small"
-            component="a"
-            href="mailto:hans.salangsang@gmail.com"
-            // href="https://mail.google.com/mail/?view=cm&fs=1&to=hans.salangsang@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <EmailIcon />
-          </IconButton>
-        </motion.div>
+        <span>
+          <MagnetButton>
+            <IconButton
+              aria-label="Email"
+              size="small"
+              component="a"
+              href="mailto:hans.salangsang@gmail.com"
+              // href="https://mail.google.com/mail/?view=cm&fs=1&to=hans.salangsang@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <EmailIcon />
+            </IconButton>
+          </MagnetButton>
+        </span>
       </Tooltip>
     </Stack>
   );

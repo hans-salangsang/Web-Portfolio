@@ -13,6 +13,7 @@ import { useTheme } from "@mui/material/styles";
 import { toast, ToastContainer, Bounce, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useToastStyles from "./useToastStyles";
+import MagnetButton from "./MagnetButton";
 
 const TextField = styled(BaseTextField)(({ theme }) => ({
   "& label.MuiFormLabel-root": {
@@ -205,28 +206,25 @@ const CharacteristicsInput = ({ onInputSubmit }) => {
         title="My portfolio will adapt its colors based on your input!"
         placement="bottom"
       >
-        <motion.div
-          whileHover={{ scale: 1.1, y: -4, transition: { duration: 0.1 } }}
-          whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
-          transition={{ type: "spring", stiffness: 300, damping: 10 }}
-          style={{ display: "flex", alignSelf: "stretch" }} // Ensures the button stretches
-        >
-          <Button
-            variant="contained"
-            size="small"
-            sx={{ alignSelf: "stretch", minWidth: "40px" }} // Adjust minWidth if needed
-            onClick={handleSubmit}
-          >
-            {loading ? (
-              <CircularProgress
-                size={20}
-                sx={{ color: theme.palette.button.fillHoveredAccent }}
-              />
-            ) : (
-              <Wand2Icon fontSize="small" />
-            )}
-          </Button>
-        </motion.div>
+        <span style={{ display: "flex", alignSelf: "stretch" }}>
+          <MagnetButton>
+            <Button
+              variant="contained"
+              size="small"
+              sx={{ alignSelf: "stretch", minWidth: "40px" }} // Adjust minWidth if needed
+              onClick={handleSubmit}
+            >
+              {loading ? (
+                <CircularProgress
+                  size={20}
+                  sx={{ color: theme.palette.button.fillHoveredAccent }}
+                />
+              ) : (
+                <Wand2Icon fontSize="small" />
+              )}
+            </Button>
+          </MagnetButton>
+        </span>
       </Tooltip>
     </Stack>
   );

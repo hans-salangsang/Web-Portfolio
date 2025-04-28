@@ -43,6 +43,9 @@ const CustomTooltip = styled(({ title, placement, className, ...props }) => (
     backdropFilter: "blur(6px)",
   },
   [`& .MuiTooltip-tooltip`]: {
+    fontFamily: "JetBrains Mono",
+    textTransform: "uppercase",
+    fontSize: "0.75rem",
     color: theme.palette.text.textFooter.light,
     backgroundColor: alpha(theme.palette.background.contrast, 0.8),
     backdropFilter: "blur(6px)",

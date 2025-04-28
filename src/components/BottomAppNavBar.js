@@ -92,9 +92,8 @@ function BottomAppNavBar({
     <AppBar
       position="fixed"
       sx={(theme) => ({
-        // backdropFilter: "blur(50px)",
         justifyContent: "center",
-        backgroundColor: "transparent",
+        backgroundColor: theme.palette.background.default,
         transition: `background-color ${theme.transitions.duration.standard}ms ${theme.transitions.easing.standard}`,
         top: "auto",
         bottom: 0,
@@ -106,7 +105,7 @@ function BottomAppNavBar({
         direction="row"
         justifyContent="space-around"
         alignItems="flex-start"
-        sx={{ mt: 3, mb: 0, px: 2 }}
+        sx={{ mt: 0, mb: 0, px: 2 }}
       >
         <Grid item xs={12} sx={{ display: "flex", justifyContent: "center" }}>
           <DynamicIsland

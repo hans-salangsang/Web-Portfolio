@@ -7,6 +7,7 @@ import { styled } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useTheme } from "@mui/material/styles";
+import MagnetButton from "./MagnetButton";
 
 const Toolbar = styled(BaseToolbar)`
   ${({ theme }) => `
@@ -22,8 +23,8 @@ const Button = styled(BaseButton)(({ theme }) => ({
     paddingRight: "1rem",
   },
   "&:hover .MuiTypography-root": {
-    fontWeight: 400,
-    color: theme.palette.text.textDynamicIsland.light,
+    fontWeight: 700,
+    color: theme.palette.background.accent,
   },
   "&:hover": {
     backgroundColor: "transparent",
@@ -51,26 +52,24 @@ function DynamicIsland({
       sx={{
         // backgroundColor:
         // hoveredButton !== "" ? "background.accentHover" : "background.accent",
-        backdropFilter: "blur(200px)",
+        // backdropFilter: "blur(200px)",
         justifyContent: "center",
-        backgroundColor: "background.defaultSubtleAccent",
+        // backgroundColor: "background.defaultSubtleAccent",
         justifyContent: "center",
         // borderRadius: (theme) => `0 0 ${theme.spacing(2)} ${theme.spacing(2)}`,
         borderRadius: 2,
         // boxShadow: theme.shadows[5],
+        py: 2,
       }}
     >
       <Stack direction="row" spacing={0}>
-        <motion.div
-          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.1 } }}
-          whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
+        {/* <MagnetButton
           onMouseEnter={() => setHoveredButton("About")}
           onMouseLeave={() => setHoveredButton("")}
           animate={{
             scale:
               hoveredButton === "" ? 1 : hoveredButton !== "About" ? 0.9 : 1,
           }}
-          transition={{ type: "spring", stiffness: 300, damping: 10 }}
         >
           <Button
             color="inherit"
@@ -94,18 +93,15 @@ function DynamicIsland({
               About
             </Typography>
           </Button>
-        </motion.div>
+        </MagnetButton> */}
 
-        <motion.div
-          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.1 } }}
-          whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
+        <MagnetButton
           onMouseEnter={() => setHoveredButton("Skills")}
           onMouseLeave={() => setHoveredButton("")}
           animate={{
             scale:
               hoveredButton === "" ? 1 : hoveredButton !== "Skills" ? 0.9 : 1,
           }}
-          transition={{ type: "spring", stiffness: 300, damping: 10 }}
         >
           <Button
             color="inherit"
@@ -115,8 +111,8 @@ function DynamicIsland({
               variant="button"
               color={
                 activeSection === "skills"
-                  ? "text.textDynamicIsland.main"
-                  : "text.textDynamicIsland.dark"
+                  ? "text.textPrimary.light"
+                  : "text.textPrimary.dark"
               }
               fontWeight={activeSection === "skills" ? 400 : 400}
               textAlign="center"
@@ -131,11 +127,9 @@ function DynamicIsland({
               Skills
             </Typography>
           </Button>
-        </motion.div>
+        </MagnetButton>
 
-        <motion.div
-          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.1 } }}
-          whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
+        <MagnetButton
           onMouseEnter={() => setHoveredButton("Experience")}
           onMouseLeave={() => setHoveredButton("")}
           animate={{
@@ -146,7 +140,6 @@ function DynamicIsland({
                 ? 0.9
                 : 1,
           }}
-          transition={{ type: "spring", stiffness: 300, damping: 10 }}
         >
           <Button
             color="inherit"
@@ -156,8 +149,8 @@ function DynamicIsland({
               variant="button"
               color={
                 activeSection === "experience"
-                  ? "text.textDynamicIsland.main"
-                  : "text.textDynamicIsland.dark"
+                  ? "text.textPrimary.light"
+                  : "text.textPrimary.dark"
               }
               fontWeight={activeSection === "experience" ? 400 : 400}
               textAlign="center"
@@ -172,18 +165,15 @@ function DynamicIsland({
               Experience
             </Typography>
           </Button>
-        </motion.div>
+        </MagnetButton>
 
-        <motion.div
-          whileHover={{ scale: 1.2, y: -4, transition: { duration: 0.1 } }}
-          whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
+        <MagnetButton
           onMouseEnter={() => setHoveredButton("Connect")}
           onMouseLeave={() => setHoveredButton("")}
           animate={{
             scale:
               hoveredButton === "" ? 1 : hoveredButton !== "Connect" ? 0.9 : 1,
           }}
-          transition={{ type: "spring", stiffness: 300, damping: 10 }}
         >
           <Button
             color="inherit"
@@ -193,8 +183,8 @@ function DynamicIsland({
               variant="button"
               color={
                 activeSection === "connect"
-                  ? "text.textDynamicIsland.main"
-                  : "text.textDynamicIsland.dark"
+                  ? "text.textPrimary.light"
+                  : "text.textPrimary.dark"
               }
               fontWeight={activeSection === "connect" ? 400 : 400}
               textAlign="center"
@@ -209,7 +199,7 @@ function DynamicIsland({
               Connect
             </Typography>
           </Button>
-        </motion.div>
+        </MagnetButton>
       </Stack>
     </Toolbar>
   );

@@ -14,6 +14,7 @@ import { useTheme } from "@mui/material/styles";
 import tinycolor from "tinycolor2";
 import BaseButton from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
+import MagnetButton from "./MagnetButton";
 
 function LandingSection(
   { Typography, onColorChange, scrollToSection, connectSectionRef },
@@ -30,12 +31,13 @@ function LandingSection(
 
   const Button = styled(BaseButton)(({ theme }) => ({
     fontWeight: 700,
-    backgroundColor: theme.palette.button.textAccent,
-    color: theme.palette.button.fillAccent,
+    // borderRadius: 9999,
+    backgroundColor: theme.palette.button.fillAccent,
+    color: theme.palette.button.textAccent,
     // borderColor: theme.palette.button.border,
     "&:hover": {
-      backgroundColor: theme.palette.button.textHoveredAccent,
-      color: theme.palette.button.fillHoveredAccent,
+      backgroundColor: theme.palette.button.fillHoveredAccent,
+      color: theme.palette.button.textHoveredAccent,
       // borderColor: theme.palette.button.borderHovered,
     },
   }));
@@ -45,10 +47,28 @@ function LandingSection(
       maxWidth={screenSize === "xl" ? "xl" : "lg"}
       ref={ref}
       sx={{
-        pt: { xs: "8rem", sm: "8rem", lg: "7rem", xl: "12rem" },
+        pt: { xs: "10rem", sm: "10rem", lg: "9rem", xl: "14rem" },
+        position: "relative",
       }}
     >
       {/* <Stack spacing={2} ref={scope}> */}
+
+      {/* <Box
+        component="img"
+        src="/images/pexels-italo-melo-881954-2379004.jpg"
+        alt="Portrait of Hans Wilhelm Salangsang"
+        sx={{
+          position: "absolute", // Position it absolutely inside the container
+          top: "20%", // Center the image vertically
+          left: "52%", // Center the image horizontally
+          // transform: "translate(-50%, -50%)", // Offset the image by its own width and height
+          width: "40%",
+          height: "auto", // Stretch it to cover the whole container
+          zIndex: -1, // Push the image behind the text
+          borderRadius: 2, // Optional: Add rounded corners if you like
+        }}
+      /> */}
+
       <Stack spacing={2}>
         <Grid container justifyContent="center" alignItems="center">
           <Grid item xs={12}>
@@ -65,25 +85,32 @@ function LandingSection(
               >
                 Hello, I'm
               </Typography> */}
-              <motion.div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
+              {/* <Typography
+                variant="body1"
+                color="text.textPrimary.dark"
+                fontWeight={400}
+                paragraph
+                // textAlign="center"
+                // lineHeight={0.9}
+                sx={{
+                  fontFamily: "JetBrains Mono",
+                  textTransform: "uppercase",
+                  pl: "0.3rem",
+                  mb: "1.5rem",
                 }}
-                initial={{ skewX: -10, rotate: -3 }}
-                whileHover={{ skewX: 0, rotate: 0, scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 300, damping: 10 }}
               >
-                <Typography
-                  variant="h1"
-                  color="text.textPrimary.light"
-                  fontWeight={400}
-                  paragraph
-                  textAlign="center"
-                  lineHeight={0.9}
-                >
-                  Hans
-                  {/* <span
+                Hello! I'm
+              </Typography> */}
+              <Typography
+                variant="h1"
+                color="text.textPrimary.light"
+                fontWeight={500}
+                paragraph
+                textAlign="center"
+                lineHeight={0.9}
+              >
+                Hans
+                {/* <span
                   style={{
                     color: theme.palette.text.textPrimary.dark,
                   }}
@@ -92,33 +119,35 @@ function LandingSection(
                   Wilhelm
                 </span>
                 <br /> */}{" "}
-                  {/* <span
+                {/* <span
                   style={{
                     color: theme.palette.text.textSecondary.main,
                   }}
                 > */}
-                  <br />
-                  Salangsang
-                  {/* </span> */}
-                </Typography>
-                <Typography
-                  variant="h2"
-                  color="text.textPrimary.light"
-                  fontWeight={200}
-                  paragraph
-                  textAlign="center"
-                >
-                  Full Stack Developer
-                </Typography>
-              </motion.div>
+                <br />
+                Salangsang.
+                {/* </span> */}
+              </Typography>
+              <Typography
+                variant="h2"
+                color="text.textPrimary.main"
+                fontWeight={200}
+                paragraph
+                textAlign="center"
+                sx={{
+                  mt: "1.5rem",
+                }}
+              >
+                Software Engineer
+              </Typography>
             </ScrollRevealAnimation>
           </Grid>
 
           <Grid
             item
             xs={12}
-            sm={10}
-            lg={6}
+            // sm={10}
+            // lg={6}
             sx={{
               mt: { xs: "3rem", xl: "6rem" },
             }}
@@ -132,15 +161,16 @@ function LandingSection(
                 textAlign="center"
                 lineHeight={1.6}
               >
-                From graphic design to programming, I've explored pixels and
-                codes to become a versatile developer.{" "}
+                I develop digital solutions{" "}
                 <span
                   style={{
                     // fontWeight: 700,
                     color: theme.palette.text.textPrimary.light,
+                    // fontFamily: "Playfair Display",
+                    fontStyle: "italic",
                   }}
                 >
-                  Let’s build something great together!
+                  that solve real-world problems.
                 </span>
               </Typography>
             </ScrollRevealAnimation>
@@ -156,15 +186,7 @@ function LandingSection(
             }}
           >
             <ScrollRevealAnimation spring={true} reveal={true}>
-              <motion.div
-                whileHover={{
-                  scale: 1.1,
-                  y: -4,
-                  transition: { duration: 0.1 },
-                }}
-                whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
-                transition={{ type: "spring", stiffness: 300, damping: 10 }}
-              >
+              <MagnetButton>
                 <Button
                   variant="contained"
                   size="large"
@@ -172,7 +194,7 @@ function LandingSection(
                 >
                   Send Me A Message
                 </Button>
-              </motion.div>
+              </MagnetButton>
             </ScrollRevealAnimation>
           </Grid>
           <Grid

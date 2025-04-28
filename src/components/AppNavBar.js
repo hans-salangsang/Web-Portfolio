@@ -5,6 +5,7 @@ import DynamicIsland from "./DynamicIsland";
 import { useScreenSize } from "../ScreenContext";
 import Container from "@mui/material/Container";
 import Switch from "@mui/material/Switch";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import { styled } from "@mui/material/styles";
 import { useTheme } from "@mui/material/styles";
 import { useState } from "react";
@@ -13,6 +14,7 @@ import BaseButton from "@mui/material/Button";
 import { IconButton } from "@mui/material";
 import { DarkMode, LightMode } from "@mui/icons-material";
 import { motion } from "framer-motion";
+import MagnetButton from "./MagnetButton";
 
 function AppNavBar({
   setIsDarkMode,
@@ -32,10 +34,11 @@ function AppNavBar({
 
   const [darkMode, setDarkMode] = useState(true);
 
-  const handleToggleDarkMode = () => {
-    setDarkMode((prev) => !prev);
-    // Call setIsDarkMode to toggle the mode
-    setIsDarkMode((prevMode) => !prevMode);
+  const handleToggleDarkMode = (event) => {
+    const isChecked = event.target.checked;
+
+    setDarkMode(isChecked); // this triggers the smooth toggle
+    setIsDarkMode(isChecked); // your own logic
   };
 
   // Define a state to hold the current time
@@ -46,13 +49,92 @@ function AppNavBar({
     setCurrentTime(newTime);
   };
 
+  const IOSSwitch = styled((props) => (
+    <Switch
+      focusVisibleClassName=".Mui-focusVisible"
+      disableRipple
+      {...props}
+    />
+  ))(({ theme }) => ({
+    width: 42,
+    height: 26,
+    padding: 0,
+    "& .MuiSwitch-switchBase": {
+      padding: 0,
+      margin: 2,
+      color: theme.palette.button.textAccent,
+      transitionDuration: "300ms",
+      "& + .MuiSwitch-track": {
+        backgroundColor: theme.palette.button.fillAccent,
+      },
+      "&.Mui-checked": {
+        transform: "translateX(16px)",
+        color: theme.palette.button.textAccent,
+        "& + .MuiSwitch-track": {
+          backgroundColor: theme.palette.button.fillAccent,
+          opacity: 1,
+          border: 0,
+          ...theme.applyStyles("dark", {
+            backgroundColor: "#2ECA45",
+          }),
+        },
+        "&.Mui-disabled + .MuiSwitch-track": {
+          opacity: 0.5,
+        },
+      },
+      "&.Mui-focusVisible .MuiSwitch-thumb": {
+        color: "#33cf4d",
+        border: "6px solid #fff",
+      },
+      "&.Mui-disabled .MuiSwitch-thumb": {
+        color: theme.palette.grey[100],
+        ...theme.applyStyles("dark", {
+          color: theme.palette.grey[600],
+        }),
+      },
+      "&.Mui-disabled + .MuiSwitch-track": {
+        opacity: 0.7,
+        ...theme.applyStyles("dark", {
+          opacity: 0.3,
+        }),
+      },
+    },
+    "& .MuiSwitch-thumb": {
+      boxSizing: "border-box",
+      width: 22,
+      height: 22,
+      position: "relative",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      "& .icon-light, & .icon-dark": {
+        position: "absolute",
+        fontSize: 16,
+        transition: "opacity 0.3s ease",
+      },
+      "& .icon-dark": {
+        opacity: 0,
+      },
+    },
+    "& .MuiSwitch-track": {
+      borderRadius: 26 / 2,
+      backgroundColor: "#E9E9EA",
+      opacity: 1,
+      transition: theme.transitions.create(["background-color"], {
+        duration: 500,
+      }),
+      ...theme.applyStyles("dark", {
+        backgroundColor: "#39393D",
+      }),
+    },
+  }));
+
   return (
     <AppBar
       position="fixed"
       sx={(theme) => ({
-        // backdropFilter: "blur(50px)",
         justifyContent: "center",
-        backgroundColor: "transparent",
+        backgroundColor: theme.palette.background.default,
         transition: `background-color ${theme.transitions.duration.standard}ms ${theme.transitions.easing.standard}`,
       })}
       elevation={0}
@@ -92,7 +174,7 @@ function AppNavBar({
                     textAlign="left"
                     sx={{ cursor: "pointer" }}
                   >
-                    hans
+                    h
                     {/* <span>&nbsp;</span>
                     <span
                       style={{ color: theme.palette.text.textPrimary.light }}
@@ -171,7 +253,7 @@ function AppNavBar({
                       ? "flex-end"
                       : "center",
                   justifyContent: "flex-end",
-                  py: screenSize === "md" ? 0 : 1,
+                  py: screenSize === "md" ? 0 : 2,
                 }}
               >
                 <Tooltip
@@ -180,31 +262,44 @@ function AppNavBar({
                   }
                   placement="bottom"
                 >
-                  <motion.div
-                    whileHover={{
-                      scale: 1.1,
-                      y: -4,
-                      transition: { duration: 0.1 },
-                    }}
-                    whileTap={{
-                      scale: 0.9,
-                      y: -2,
-                      transition: { duration: 0.1 },
-                    }}
-                    transition={{ type: "spring", stiffness: 300, damping: 10 }}
-                  >
-                    <IconButton onClick={handleToggleDarkMode} color="inherit">
-                      {darkMode ? (
-                        <DarkMode
-                          sx={{ color: theme.palette.text.textPrimary.light }}
-                        />
-                      ) : (
-                        <LightMode
-                          sx={{ color: theme.palette.text.textPrimary.light }}
-                        />
-                      )}
-                    </IconButton>
-                  </motion.div>
+                  <FormControlLabel
+                    control={
+                      <IOSSwitch
+                        checked={darkMode}
+                        onChange={handleToggleDarkMode}
+                        icon={
+                          <LightMode
+                            className="icon-light"
+                            sx={{ fontSize: "1.4rem" }}
+                          />
+                        }
+                        checkedIcon={
+                          <DarkMode
+                            className="icon-dark"
+                            sx={{ fontSize: "1.4rem" }}
+                          />
+                        }
+                      />
+                    }
+                  />
+                  {/* <span>
+                    <MagnetButton>
+                      <IconButton
+                        onClick={handleToggleDarkMode}
+                        color="inherit"
+                      >
+                        {darkMode ? (
+                          <DarkMode
+                            sx={{ color: theme.palette.text.textPrimary.light }}
+                          />
+                        ) : (
+                          <LightMode
+                            sx={{ color: theme.palette.text.textPrimary.light }}
+                          />
+                        )}
+                      </IconButton>
+                    </MagnetButton>
+                  </span> */}
                 </Tooltip>
 
                 {screenSize !== "xs" && (
@@ -241,22 +336,22 @@ function AppNavBar({
       )}
 
       {screenSize === "xs" && (
-        <Container maxWidth={screenSize === "xl" ? "xl" : "lg"} sx={{ px: 3 }}>
+        <Container maxWidth={screenSize === "xl" ? "xl" : "lg"} sx={{ px: 0 }}>
           <Grid
             container
             direction="row"
             justifyContent="space-between"
             alignItems="flex-start"
-            sx={{ mt: 2, mb: 1 }}
+            sx={{ mt: 1 }}
           >
-            <Grid item xs={8} sx={{ py: 1 }}>
+            <Grid item xs={8} sx={{ py: 1, px: 3 }}>
               <Typography
                 variant="h6"
                 color="text.textPrimary.light"
                 textAlign="left"
                 sx={{ cursor: "pointer" }}
               >
-                hans
+                h
               </Typography>
             </Grid>
 
@@ -271,31 +366,26 @@ function AppNavBar({
                 }
                 placement="bottom"
               >
-                <motion.div
-                  whileHover={{
-                    scale: 1.1,
-                    y: -4,
-                    transition: { duration: 0.1 },
-                  }}
-                  whileTap={{
-                    scale: 0.9,
-                    y: -2,
-                    transition: { duration: 0.1 },
-                  }}
-                  transition={{ type: "spring", stiffness: 300, damping: 10 }}
-                >
-                  <IconButton onClick={handleToggleDarkMode} color="inherit">
-                    {darkMode ? (
-                      <DarkMode
-                        sx={{ color: theme.palette.text.textPrimary.light }}
-                      />
-                    ) : (
-                      <LightMode
-                        sx={{ color: theme.palette.text.textPrimary.light }}
-                      />
-                    )}
-                  </IconButton>
-                </motion.div>
+                <FormControlLabel
+                  control={
+                    <IOSSwitch
+                      checked={darkMode}
+                      onChange={handleToggleDarkMode}
+                      icon={
+                        <LightMode
+                          className="icon-light"
+                          sx={{ fontSize: "1.4rem" }}
+                        />
+                      }
+                      checkedIcon={
+                        <DarkMode
+                          className="icon-dark"
+                          sx={{ fontSize: "1.4rem" }}
+                        />
+                      }
+                    />
+                  }
+                />
               </Tooltip>
             </Grid>
           </Grid>

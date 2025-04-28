@@ -48,7 +48,7 @@ const Chip = styled(BaseChip)`
 
 function App() {
   const landingSectionRef = useRef(null);
-  const aboutSectionRef = useRef(null);
+  // const aboutSectionRef = useRef(null);
   const skillsSectionRef = useRef(null);
   const experienceSectionRef = useRef(null);
   const projectsSectionRef = useRef(null);
@@ -56,7 +56,7 @@ function App() {
 
   const [activeSection, setActiveSection] = useState("landing");
 
-  const [accentColor, setAccentColor] = useState("#7B61FF");
+  const [accentColor, setAccentColor] = useState("#7AA2F7");
   const [backgroundColor, setBackgroundColor] = useState("");
   const [reverseBackgroundColor, setReverseBackgroundColor] = useState("");
   const [darkBackgroundColor, setDarkBackgroundColor] = useState("");
@@ -74,13 +74,14 @@ function App() {
 
     const newDark = tinycolor(newColor)
       .setAlpha(1)
-      .desaturate(60)
-      .darken(61)
+      .spin(35)
+      .desaturate(0)
+      .darken(65)
       .toString();
     const newLight = tinycolor(newColor)
       .setAlpha(1)
       .desaturate(70)
-      .lighten(35)
+      .lighten(45)
       .toString();
 
     setAccentColor(newColor);
@@ -105,10 +106,14 @@ function App() {
         ...(isDarkMode
           ? darkTheme.palette.background
           : lightTheme.palette.background),
+        accent: accentColor,
         default: backgroundColor,
         defaultSubtleAccent: tinycolor(backgroundColor).isDark()
-          ? tinycolor(backgroundColor).brighten(11).toString()
+          ? tinycolor(backgroundColor).brighten(8).toString()
           : tinycolor(backgroundColor).darken(5).toString(),
+        defaultSubtleAccentAccent: tinycolor(backgroundColor).isDark()
+          ? tinycolor(accentColor).desaturate(40).darken(45).toString()
+          : tinycolor(accentColor).darken(85).toString(),
         defaultReverse: reverseBackgroundColor,
       },
       text: {
@@ -119,14 +124,18 @@ function App() {
             : lightTheme.palette.text.textPrimary),
           // Body Hightlight Font Color
           light: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).desaturate(90).brighten(20).toString()
+            ? tinycolor(accentColor)
+                .desaturate(70) // remove the blue
+                .brighten(20) // brighten it heavily
+                .spin(180) // rotate hue to warm (orange-ish)
+                .toString()
             : tinycolor(accentColor).darken(85).toString(),
           // Body Main Font Color
           main: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).desaturate(60).brighten(10).toString()
-            : tinycolor(accentColor).desaturate(90).darken(40).toString(),
+            ? tinycolor(accentColor).desaturate(40).brighten(-15).toString()
+            : tinycolor(accentColor).desaturate(90).darken(20).toString(),
           dark: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).desaturate(90).darken(25).toString()
+            ? tinycolor(accentColor).desaturate(70).darken(30).toString()
             : tinycolor(accentColor).desaturate(90).darken(0).toString(),
         },
         textSecondary: {
@@ -156,14 +165,14 @@ function App() {
             ? darkTheme.palette.text.textDynamicIsland
             : lightTheme.palette.text.textDynamicIsland),
           light: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).brighten(85).toString()
-            : tinycolor(accentColor).darken(85).toString(),
+            ? tinycolor(accentColor).toString()
+            : tinycolor(accentColor).toString(),
           main: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).brighten(85).toString()
+            ? tinycolor(accentColor).desaturate(40).brighten(20).toString()
             : tinycolor(accentColor).darken(85).toString(),
           dark: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).saturate(0).brighten(0).spin(0).toString()
-            : tinycolor(accentColor).saturate(0).darken(0).spin(0).toString(),
+            ? tinycolor(accentColor).desaturate(70).darken(30).toString()
+            : tinycolor(accentColor).desaturate(90).darken(0).toString(),
         },
       },
       textField: {
@@ -196,24 +205,28 @@ function App() {
       button: {
         ...(isDarkMode ? darkTheme.palette.button : lightTheme.palette.button),
         fill: backgroundColor,
-        fillAccent: backgroundColor,
+        fillAccent: tinycolor(backgroundColor).isDark()
+          ? tinycolor(accentColor).saturate(0).brighten(0).toString()
+          : tinycolor(accentColor).saturate(0).darken(0).toString(),
         fillHovered: tinycolor(backgroundColor).isDark()
           ? tinycolor(backgroundColor).saturate(0).brighten(5).toString()
           : tinycolor(backgroundColor).saturate(0).darken(5).toString(),
-        fillHoveredAccent: backgroundColor,
+        fillHoveredAccent: tinycolor(backgroundColor).isDark()
+          ? tinycolor(accentColor)
+              .desaturate(70) // remove the blue
+              .brighten(20) // brighten it heavily
+              .spin(180) // rotate hue to warm (orange-ish)
+              .toString()
+          : tinycolor(accentColor).darken(85).toString(),
         fillFocused: "#E9E9ED",
         text: tinycolor(backgroundColor).isDark()
           ? tinycolor(accentColor).saturate(0).brighten(0).toString()
           : tinycolor(accentColor).saturate(0).darken(0).toString(),
-        textAccent: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).saturate(0).brighten(0).toString()
-          : tinycolor(accentColor).saturate().darken(0).toString(),
+        textAccent: backgroundColor,
         textHovered: tinycolor(backgroundColor).isDark()
           ? tinycolor(accentColor).saturate(0).brighten(90).toString()
           : tinycolor(accentColor).saturate(0).darken(90).toString(),
-        textHoveredAccent: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).saturate(0).brighten(90).toString()
-          : tinycolor(accentColor).saturate(0).darken(90).toString(),
+        textHoveredAccent: backgroundColor,
         label: "#42566E",
         labelFocused: "#6093D6",
         border: tinycolor(backgroundColor).isDark()
@@ -268,7 +281,7 @@ function App() {
 
     const handleScroll = () => {
       if (
-        !aboutSectionRef.current ||
+        // !aboutSectionRef.current ||
         !skillsSectionRef.current ||
         !experienceSectionRef.current ||
         // !projectsSectionRef.current ||
@@ -279,7 +292,7 @@ function App() {
 
       const sections = isLargeScreen
         ? [
-            { ref: aboutSectionRef, name: "about" },
+            // { ref: aboutSectionRef, name: "about" },
             { ref: skillsSectionRef, name: "skills" },
             { ref: experienceSectionRef, name: "experience" },
             // { ref: projectsSectionRef, name: "projects" },
@@ -287,7 +300,7 @@ function App() {
           ]
         : [
             { ref: landingSectionRef, name: "landing" },
-            { ref: aboutSectionRef, name: "about" },
+            // { ref: aboutSectionRef, name: "about" },
             { ref: skillsSectionRef, name: "skills" },
             { ref: experienceSectionRef, name: "experience" },
             // { ref: projectsSectionRef, name: "projects" },
@@ -348,7 +361,7 @@ function App() {
               isDarkMode={isDarkMode}
               scrollToSection={scrollToSection}
               landingSectionRef={landingSectionRef}
-              aboutSectionRef={aboutSectionRef}
+              // aboutSectionRef={aboutSectionRef}
               skillsSectionRef={skillsSectionRef}
               experienceSectionRef={experienceSectionRef}
               projectsSectionRef={projectsSectionRef}
@@ -363,7 +376,7 @@ function App() {
               isDarkMode={isDarkMode}
               scrollToSection={scrollToSection}
               landingSectionRef={landingSectionRef}
-              aboutSectionRef={aboutSectionRef}
+              // aboutSectionRef={aboutSectionRef}
               skillsSectionRef={skillsSectionRef}
               experienceSectionRef={experienceSectionRef}
               projectsSectionRef={projectsSectionRef}
@@ -476,12 +489,12 @@ function App() {
             <Grid item xs={12}>
               <Box sx={{}}>
                 <Container maxWidth="lg">
-                  <AboutMeSection
+                  {/* <AboutMeSection
                     ref={aboutSectionRef}
                     Typography={Typography}
                     onColorChange={handleColorChange}
                     Chip={Chip}
-                  />
+                  /> */}
 
                   <SkillsSection
                     ref={skillsSectionRef}

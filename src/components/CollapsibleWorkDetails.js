@@ -13,7 +13,7 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 
-function CollapsibleWorkDetails({ tasks = [] }) {
+function CollapsibleWorkDetails({ tasks = [], title, company }) {
   // Accepts tasks as a prop
   const [expanded, setExpanded] = useState(false);
   const theme = useTheme();
@@ -48,7 +48,18 @@ function CollapsibleWorkDetails({ tasks = [] }) {
           },
         }}
       >
-        <Typography variant="body1">My role involves:</Typography>
+        <Typography variant="h4" color="text.textPrimary.light">
+          {title}{" "}
+          <span
+            style={{
+              fontFamily: "Playfair Display",
+              fontStyle: "italic",
+              color: theme.palette.background.accent,
+            }}
+          >
+            — {company}
+          </span>
+        </Typography>
       </AccordionSummary>
 
       <AccordionDetails>

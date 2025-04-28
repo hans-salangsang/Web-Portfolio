@@ -4,28 +4,34 @@ const baseTheme = createTheme();
 
 const typography = {
   h1: {
-    fontFamily: "Bebas Neue, sans-serif",
-    fontSize: `clamp(4.5rem, 8vw, 10rem)`, // Fibonacci scale: 5 (as max)
-    letterSpacing: "0.01em",
+    fontFamily: "Geist, sans-serif",
+    fontSize: `clamp(4rem, 5vw, 8rem)`, // Fibonacci scale: 5 (as max)
+    // letterSpacing: "0.01em",
   },
   h2: {
-    fontFamily: "Inter, sans-serif",
-    fontSize: `clamp(1.5rem, 3vw, 2.5rem)`, // Adjusted max value to 2.5rem (smaller)
-    letterSpacing: "0.01em",
+    fontFamily: "JetBrains Mono, monospace",
+    fontSize: `clamp(1.75rem, 3vw, 2.5rem)`, // Adjusted max value to 2.5rem (smaller)
+    textTransform: "uppercase",
+    // letterSpacing: "0.01em",
+    // fontStyle: "italic",
   },
   h3: {
-    fontFamily: "Bebas Neue, sans-serif",
-    fontSize: `clamp(3rem, 4.5vw, 4rem)`, // Fibonacci scale: 2.25 (as max)
-    // textTransform: "uppercase",
-    letterSpacing: "0.01em",
+    fontFamily: "JetBrains Mono, monospace",
+    fontSize: `clamp(2.25rem, 3.5vw, 3rem)`, // Fibonacci scale: 2.25 (as max)
+    textTransform: "uppercase",
+    // letterSpacing: "-0.05em",
+    // fontStyle: "italic",
+    fontWeight: 700,
   },
   h4: {
-    fontFamily: "Inter, sans-serif",
+    fontFamily: "Geist, sans-serif",
     fontSize: `clamp(1.125rem, 1.75vw, 1.5rem)`, // Fibonacci scale: 1.5 (as max)
+    fontWeight: 600,
   },
   h5: {
-    fontFamily: "Inter, sans-serif",
-    fontSize: `clamp(1.25rem, 1.5vw, 1.25rem)`, // Fibonacci scale: 1.25 (as max)
+    fontFamily: "Playfair Display, serif",
+    fontSize: `clamp(1.25rem, 1.5vw, 1.5rem)`, // Fibonacci scale: 1.25 (as max)
+    fontStyle: "italic",
   },
   h6: {
     fontFamily: "Hypik, sans-serif",
@@ -33,32 +39,34 @@ const typography = {
     // textTransform: "uppercase",
   },
   subtitle1: {
-    fontFamily: "Inter, sans-serif",
+    fontFamily: "Geist, sans-serif",
     fontSize: `clamp(0.875rem, 1.75vw, 1rem)`, // Fibonacci scale: 1 (as max)
   },
   subtitle2: {
-    fontFamily: "Inter, sans-serif",
+    fontFamily: "Geist, sans-serif",
     fontSize: `clamp(0.75rem, 1.25vw, 0.875rem)`, // Fibonacci scale: 0.875 (as max)
   },
   body1: {
-    fontFamily: "Inter, sans-serif",
+    fontFamily: "Geist, sans-serif",
     fontSize: `clamp(1rem, 1.25vw, 1rem)`, // Increased max size to 1rem
   },
   body2: {
-    fontFamily: "Inter, sans-serif",
+    fontFamily: "JetBrains Mono, monospace",
     fontSize: `clamp(0.875rem, 1vw, 0.875rem)`, // Increased max size to 0.875rem
   },
   button: {
-    fontFamily: "Inter, sans-serif",
-    fontSize: `clamp(0.75rem, 1vw, 1rem)`, // Fibonacci scale: 1 (as max)
-    fontWeight: 600,
+    fontFamily: "JetBrains Mono, monospace",
+    fontSize: `clamp(1rem, 1vw, 1rem)`, // Fibonacci scale: 1 (as max)
+    // fontWeight: 700,
+    // textTransform: "uppercase",
+    // fontStyle: "italic",
   },
   caption: {
-    fontFamily: "Inter, sans-serif",
+    fontFamily: "Geist, sans-serif",
     fontSize: `clamp(0.625rem, 1vw, 0.75rem)`, // Fibonacci scale: 0.75 (as max)
   },
   overline: {
-    fontFamily: "Inter, sans-serif",
+    fontFamily: "Geist, sans-serif",
     fontSize: `clamp(0.625rem, 1vw, 0.75rem)`, // Fibonacci scale: 0.75 (as max)
     textTransform: "uppercase",
   },
@@ -68,7 +76,7 @@ const components = {
   MuiChip: {
     styleOverrides: {
       root: {
-        fontFamily: "Inter, sans-serif",
+        fontFamily: "Geist, sans-serif",
         [baseTheme.breakpoints.down("md")]: {
           fontSize: "0.75rem",
         },
@@ -81,7 +89,7 @@ const components = {
   MuiTooltip: {
     styleOverrides: {
       tooltip: {
-        fontFamily: "Inter, sans-serif",
+        fontFamily: "Geist, sans-serif",
         [baseTheme.breakpoints.down("md")]: {
           fontSize: "0.75rem",
         },
@@ -94,7 +102,7 @@ const components = {
   MuiTextField: {
     styleOverrides: {
       root: {
-        fontFamily: "Inter, sans-serif",
+        fontFamily: "Geist, sans-serif",
         [baseTheme.breakpoints.down("md")]: {
           fontSize: "0.75rem",
         },
@@ -107,7 +115,7 @@ const components = {
   MuiFilledInput: {
     styleOverrides: {
       root: {
-        fontFamily: "Inter, sans-serif",
+        fontFamily: "Geist, sans-serif",
         [baseTheme.breakpoints.down("md")]: {
           fontSize: "0.75rem",
         },
@@ -120,7 +128,7 @@ const components = {
   MuiFormLabel: {
     styleOverrides: {
       root: {
-        fontFamily: "Inter, sans-serif",
+        fontFamily: "Geist, sans-serif",
         [baseTheme.breakpoints.down("md")]: {
           fontSize: "0.75rem",
         },

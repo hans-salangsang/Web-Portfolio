@@ -19,20 +19,37 @@ function ExperienceSection({ Typography, Chip }, ref) {
   const screenSize = useScreenSize();
   const theme = useTheme();
 
-  const inforWorkTasks = [
-    "Collaborating with business analysts and solution architects to analyze business requirements and translate them into scalable Infor ERP technical solutions.",
-    "Designing, developing, and implementing system customizations and extensions using TypeScript, Angular, and JavaScript.",
-    "Integrating enterprise applications and ensuring smooth system interoperability using dataflows, workflows, Java mapping tool in Eclipse, and APIs.",
-    "Customizing business documents and forms using XML, XPath, and StreamServe.",
-    "Utilizing Jira to manage tasks, track progress, and collaborate within an Agile framework.",
-    "Communicating with global clients, providing technical support and troubleshooting software-related issues.",
-  ];
-
-  const lexmeetWorkTasks = [
-    "Leading the development of LexTasker, and collaborating with my fellow interns, demonstrating leadership and teamwork.",
-    "Utilizing a full-stack tech stack: ReactJS, HTML, CSS, Bootstrap, PHP Laravel, GitLab, MySQL, and Figma, enhancing my development skills, and gaining hands-on experience with modern web technologies.",
-    "Designing and developing an optimized user experience, improving organization and productivity for users.",
-  ];
+  const experiences = {
+    entries: [
+      {
+        company: "Infor",
+        dates: "AUG 2023 - PRESENT",
+        title: "Associate Technical Consultant",
+        level: "Associate",
+        description: `As an Associate Technical Consultant at Infor, I assist in the implementation, support...`,
+        tasks: [
+          "Collaborating with business analysts and solution architects to analyze business requirements and translate them into scalable Infor ERP technical solutions.",
+          "Designing, developing, and implementing system customizations and extensions using TypeScript, Angular, and JavaScript.",
+          "Integrating enterprise applications and ensuring smooth system interoperability using dataflows, workflows, Java mapping tool in Eclipse, and APIs.",
+          "Customizing business documents and forms using XML, XPath, and StreamServe.",
+          "Utilizing Jira to manage tasks, track progress, and collaborate within an Agile framework.",
+          "Communicating with global clients, providing technical support and troubleshooting software-related issues.",
+        ],
+      },
+      {
+        company: "LexMeet, Inc.",
+        dates: "MAR 2023 - JUN 2023",
+        title: "Web Developer Intern",
+        level: "Intern",
+        description: `As the team leader for the development of LexTasker, LexMeet's intuitive to-do app...`,
+        tasks: [
+          "Leading the development of LexTasker, and collaborating with my fellow interns, demonstrating leadership and teamwork.",
+          "Utilizing a full-stack tech stack: ReactJS, HTML, CSS, Bootstrap, PHP Laravel, GitLab, MySQL, and Figma, enhancing my development skills, and gaining hands-on experience with modern web technologies.",
+          "Designing and developing an optimized user experience, improving organization and productivity for users.",
+        ],
+      },
+    ],
+  };
 
   return (
     <Container
@@ -44,23 +61,13 @@ function ExperienceSection({ Typography, Chip }, ref) {
         <Grid container item xs={12} spacing={5}>
           <Grid item xs={12} sx={{ mb: 5 }}>
             <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
-              <motion.div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-                initial={{ skewX: 0, rotate: 0 }}
-                whileHover={{ skewX: -10, rotate: -3, scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 300, damping: 10 }}
+              <Typography
+                variant="h3"
+                color="text.textPrimary.light"
+                // textAlign="center"
               >
-                <Typography
-                  variant="h3"
-                  color="text.textPrimary.light"
-                  textAlign="center"
-                >
-                  My Experience
-                </Typography>
-              </motion.div>
+                Experience
+              </Typography>
             </ScrollRevealAnimation>
           </Grid>
 
@@ -71,191 +78,101 @@ function ExperienceSection({ Typography, Chip }, ref) {
             sx={{ display: { xs: "none", md: "block" } }}
           ></Grid>
 
-          <Grid container item xs={12} lg={6}>
-            <Grid container item spacing={{ xs: 1, lg: 1 }}>
-              {/* <Paper
-                elevation={0}
+          <Grid container item xs={12} lg={12}>
+            {experiences.entries.map((exp, index) => (
+              <Grid
+                container
+                item
+                key={index}
+                spacing={2}
                 sx={{
-                  p: 3,
-                  borderRadius: 2,
-                  backgroundColor: theme.palette.background.defaultSubtleAccent,
+                  position: "relative",
+                  mb: 5,
+                  pl: 5, // Push content to make space for the dot and line
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    left: 15,
+                    top: 25,
+                    bottom: -55,
+                    width:
+                      index === experiences.entries.length - 1 ? "0px" : "1px",
+                    backgroundColor: theme.palette.text.textSecondary.main,
+                  },
                 }}
-              > */}
-              <Grid item xs={12} lg={12} sx={{ mb: 1 }}>
-                <ScrollRevealAnimation spring={true} reveal={true}>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center", // Align items vertically
-                      gap: 2, // Adds spacing between elements
-                      flexWrap: "wrap", // Wraps to a new line if needed on smaller screens
-                      justifyContent: "space-between", // Ensures the elements are spaced at both ends
-                    }}
-                  >
-                    <Typography
-                      variant="h5"
-                      color="text.textSecondary.main"
-                      fontWeight={400}
-                      sx={
-                        {
-                          // textTransform: "uppercase",
-                        }
-                      }
+              >
+                {/* Timeline Dot */}
+                <Box
+                  sx={{
+                    position: "absolute",
+                    left: 9,
+                    top: 23,
+                    width: 14,
+                    height: 14,
+                    borderRadius: "50%",
+                    backgroundColor: theme.palette.text.textSecondary.main,
+                    zIndex: 1,
+                  }}
+                />
+
+                {/* Content */}
+                <Grid item xs={12} lg={12} sx={{ mb: -2 }}>
+                  <ScrollRevealAnimation spring={true} reveal={true}>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 2,
+                        flexWrap: "wrap",
+                        justifyContent: "space-between",
+                      }}
                     >
-                      Infor
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="text.textPrimary.dark"
+                      <Typography
+                        variant="body2"
+                        color="text.textPrimary.dark"
+                        fontWeight={400}
+                      >
+                        {exp.dates}
+                      </Typography>
+                    </Box>
+                  </ScrollRevealAnimation>
+                </Grid>
+
+                <Grid item xs={12} lg={12}>
+                  <ScrollRevealAnimation spring={true} reveal={true}>
+                    {/* <Typography
+                      variant="h4"
+                      color="text.textPrimary.light"
                       fontWeight={700}
                     >
-                      AUG 2023 - PRESENT
-                    </Typography>
-                  </Box>
-                </ScrollRevealAnimation>
+                      {exp.title}{" "}
+                      <span
+                        style={{
+                          fontFamily: "Playfair Display",
+                          fontStyle: "italic",
+                          color: theme.palette.text.textPrimary.main,
+                        }}
+                      >
+                        — {exp.company}
+                      </span>
+                    </Typography> */}
+                    <CollapsibleWorkDetails
+                      tasks={exp.tasks}
+                      title={exp.title}
+                      company={exp.company}
+                    />
+                    <Box
+                      sx={{
+                        pt: 4,
+                        borderBottom: "1px solid",
+                        borderColor:
+                          theme.palette.background.defaultSubtleAccentAccent,
+                      }}
+                    ></Box>
+                  </ScrollRevealAnimation>
+                </Grid>
               </Grid>
-
-              <Grid item xs={12} lg={12}>
-                <ScrollRevealAnimation spring={true} reveal={true}>
-                  <Typography
-                    variant="h4"
-                    color="text.textPrimary.light"
-                    fontWeight={700}
-                  >
-                    Technical Consultant,{" "}
-                    <span style={{ fontWeight: 200 }}>Associate</span>
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    color="text.textPrimary.main"
-                    fontWeight={400}
-                    sx={{ mt: 1.2 }}
-                    lineHeight={1.6}
-                  >
-                    As an Associate Technical Consultant at Infor, I assist in
-                    the implementation, support, and optimization of enterprise
-                    software solutions, ensuring seamless integration and
-                    functionality for clients across various industries. I
-                    collaborate with international clients to analyze business
-                    processes, troubleshoot technical issues, and deliver
-                    tailored solutions that enhance operational efficiency.
-                    <CollapsibleWorkDetails tasks={inforWorkTasks} />
-                  </Typography>
-                </ScrollRevealAnimation>
-
-                {/* <ScrollRevealAnimation spring={true} reveal={true}>
-                <Stack
-                  direction="row"
-                  spacing={1}
-                  useFlexGap
-                  flexWrap="wrap"
-                  sx={{ pt: 2 }}
-                >
-                  <Chip label="Java" color="darkBlue" />
-                  <Chip label="JavaScript" color="darkBlue" />
-                  <Chip label="TypeScript" color="darkBlue" />
-                  <Chip label="jQuery" color="darkBlue" />
-                  <Chip label="XML" color="darkBlue" />
-                  <Chip label="Python" color="darkBlue" />
-                </Stack>
-              </ScrollRevealAnimation> */}
-              </Grid>
-              {/* </Paper> */}
-            </Grid>
-
-            <Grid container item spacing={{ xs: 1, lg: 1 }} sx={{ pt: 5 }}>
-              {/* <Paper
-                elevation={0}
-                sx={{
-                  p: 3,
-                  borderRadius: 2,
-                  backgroundColor: theme.palette.background.defaultSubtleAccent,
-                }}
-              > */}
-              <Grid item xs={12} lg={12} sx={{ mb: 1 }}>
-                <ScrollRevealAnimation spring={true} reveal={true}>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center", // Align items vertically
-                      gap: 2, // Adds spacing between elements
-                      flexWrap: "wrap", // Wraps to a new line if needed on smaller screens
-                      justifyContent: "space-between", // Ensures the elements are spaced at both ends
-                    }}
-                  >
-                    <Typography
-                      variant="h5"
-                      color="text.textSecondary.main"
-                      fontWeight={400}
-                      sx={
-                        {
-                          // textTransform: "uppercase",
-                        }
-                      }
-                    >
-                      LexMeet, Inc.
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="text.textPrimary.dark"
-                      fontWeight={700}
-                    >
-                      MAR 2023 - JUN 2023
-                    </Typography>
-                  </Box>
-                </ScrollRevealAnimation>
-              </Grid>
-
-              <Grid item xs={12} lg={12}>
-                <ScrollRevealAnimation spring={true} reveal={true}>
-                  <Typography
-                    variant="h4"
-                    color="text.textPrimary.light"
-                    fontWeight={700}
-                  >
-                    Web Developer,{" "}
-                    <span style={{ fontWeight: 200 }}>Intern</span>
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    color="text.textPrimary.main"
-                    fontWeight={400}
-                    sx={{ mt: 1.2 }}
-                    lineHeight={1.6}
-                  >
-                    As the team leader for the development of LexTasker,
-                    LexMeet's intuitive to-do app, I had the privilege of
-                    collaborating with a dedicated group of interns. Together,
-                    we crafted an exceptional user experience, empowering
-                    individuals to stay organized and enhance productivity. This
-                    invaluable opportunity not only honed my skills as a
-                    Full-Stack Web Developer but also deepened my understanding
-                    of cutting-edge technologies. It has been an enriching
-                    experience, showcasing the power of teamwork and innovation
-                    even among interns.
-                    <CollapsibleWorkDetails tasks={lexmeetWorkTasks} />
-                  </Typography>
-                </ScrollRevealAnimation>
-
-                {/* <ScrollRevealAnimation spring={true} reveal={true}>
-                <Stack
-                  direction="row"
-                  spacing={1}
-                  useFlexGap
-                  flexWrap="wrap"
-                  sx={{ pt: 2 }}
-                >
-                  <Chip label="Java" color="darkBlue" />
-                  <Chip label="JavaScript" color="darkBlue" />
-                  <Chip label="TypeScript" color="darkBlue" />
-                  <Chip label="jQuery" color="darkBlue" />
-                  <Chip label="XML" color="darkBlue" />
-                  <Chip label="Python" color="darkBlue" />
-                </Stack>
-              </ScrollRevealAnimation> */}
-              </Grid>
-              {/* </Paper> */}
-            </Grid>
+            ))}
           </Grid>
         </Grid>
       </Grid>

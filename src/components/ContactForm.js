@@ -13,6 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import useToastStyles from "./useToastStyles";
 import tinycolor from "tinycolor2";
 import CircularProgress from "@mui/material/CircularProgress";
+import MagnetButton from "./MagnetButton";
 
 const TextField = styled(BaseTextField)(({ theme }) => ({
   "& label.MuiFormLabel-root": {
@@ -83,12 +84,13 @@ const TextField = styled(BaseTextField)(({ theme }) => ({
 
 const Button = styled(BaseButton)(({ theme }) => ({
   fontWeight: 700,
-  backgroundColor: theme.palette.button.textAccent,
-  color: theme.palette.button.fillAccent,
+  // borderRadius: 9999,
+  backgroundColor: theme.palette.button.fillAccent,
+  color: theme.palette.button.textAccent,
   // borderColor: theme.palette.button.border,
   "&:hover": {
-    backgroundColor: theme.palette.button.textHoveredAccent,
-    color: theme.palette.button.fillHoveredAccent,
+    backgroundColor: theme.palette.button.fillHoveredAccent,
+    color: theme.palette.button.textHoveredAccent,
     // borderColor: theme.palette.button.borderHovered,
   },
   "&.Mui-disabled": {
@@ -289,11 +291,7 @@ const ContactForm = ({ Typography }) => {
         error={formErrors.message}
         helperText={formErrors.message ? "Please enter your message." : ""}
       />
-      <motion.div
-        whileHover={{ scale: 1.1, y: -4, transition: { duration: 0.1 } }}
-        whileTap={{ scale: 0.9, y: -2, transition: { duration: 0.1 } }}
-        transition={{ type: "spring", stiffness: 300, damping: 10 }}
-      >
+      <MagnetButton>
         <Button
           variant="contained"
           size="small"
@@ -310,7 +308,7 @@ const ContactForm = ({ Typography }) => {
             "Send Message"
           )}
         </Button>
-      </motion.div>
+      </MagnetButton>
     </Stack>
   );
 };

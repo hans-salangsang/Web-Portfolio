@@ -25,23 +25,13 @@ function ConnectSection({ Typography, Chip }, ref) {
           <Grid container item spacing={2} xs={12}>
             <Grid item xs={12} sx={{ mb: 5 }}>
               <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
-                <motion.div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                  initial={{ skewX: 0, rotate: 0 }}
-                  whileHover={{ skewX: -10, rotate: -3, scale: 1.2 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                <Typography
+                  variant="h3"
+                  color="text.textPrimary.light"
+                  // textAlign="center"
                 >
-                  <Typography
-                    variant="h3"
-                    color="text.textPrimary.light"
-                    textAlign="center"
-                  >
-                    Let's Connect!
-                  </Typography>
-                </motion.div>
+                  Connect
+                </Typography>
               </ScrollRevealAnimation>
             </Grid>
           </Grid>
