@@ -77,7 +77,7 @@ function CollapsibleWorkDetails({ tasks = [], title, company }) {
               >
                 <HorizontalRuleIcon
                   sx={{
-                    color: theme.palette.text.textPrimary.light,
+                    color: theme.palette.text.textPrimary.main,
                     fontSize: "0.5rem",
                     padding: 0,
                   }}

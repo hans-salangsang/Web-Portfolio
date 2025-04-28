@@ -26,7 +26,7 @@ const typography = {
   h4: {
     fontFamily: "Geist, sans-serif",
     fontSize: `clamp(1.125rem, 1.75vw, 1.5rem)`, // Fibonacci scale: 1.5 (as max)
-    fontWeight: 500,
+    fontWeight: 400,
   },
   h5: {
     fontFamily: "JetBrains Mono, monospace",

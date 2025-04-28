@@ -107,7 +107,7 @@ function LandingSection(
                 fontWeight={500}
                 paragraph
                 textAlign="center"
-                lineHeight={0.9}
+                lineHeight={1}
               >
                 Hans
                 {/* <span

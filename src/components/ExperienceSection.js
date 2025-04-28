@@ -97,7 +97,7 @@ function ExperienceSection({ Typography, Chip }, ref) {
                     bottom: -55,
                     width:
                       index === experiences.entries.length - 1 ? "0px" : "1px",
-                    backgroundColor: theme.palette.text.textSecondary.main,
+                    backgroundColor: theme.palette.background.accent,
                   },
                 }}
               >
@@ -110,7 +110,7 @@ function ExperienceSection({ Typography, Chip }, ref) {
                     width: 14,
                     height: 14,
                     borderRadius: "50%",
-                    backgroundColor: theme.palette.text.textSecondary.main,
+                    backgroundColor: theme.palette.background.accent,
                     zIndex: 1,
                   }}
                 />
