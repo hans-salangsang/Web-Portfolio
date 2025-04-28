@@ -73,7 +73,7 @@ const Skill = ({
                     <Typography
                       variant="body1"
                       // fontFamily={"JetBrains Mono"}
-                      fontWeight={500}
+                      fontWeight={400}
                       color="text.textPrimary.main"
                     >
                       {description}

@@ -10,7 +10,7 @@ const typography = {
   },
   h2: {
     fontFamily: "JetBrains Mono, monospace",
-    fontSize: `clamp(1.75rem, 3vw, 2.5rem)`, // Adjusted max value to 2.5rem (smaller)
+    fontSize: `clamp(1.25rem, 2.25vw, 2rem)`, // Adjusted max value to 2.5rem (smaller)
     textTransform: "uppercase",
     // letterSpacing: "0.01em",
     // fontStyle: "italic",
@@ -26,12 +26,12 @@ const typography = {
   h4: {
     fontFamily: "Geist, sans-serif",
     fontSize: `clamp(1.125rem, 1.75vw, 1.5rem)`, // Fibonacci scale: 1.5 (as max)
-    fontWeight: 600,
+    fontWeight: 500,
   },
   h5: {
-    fontFamily: "Playfair Display, serif",
+    fontFamily: "JetBrains Mono, monospace",
     fontSize: `clamp(1.25rem, 1.5vw, 1.5rem)`, // Fibonacci scale: 1.25 (as max)
-    fontStyle: "italic",
+    // fontStyle: "italic",
   },
   h6: {
     fontFamily: "Hypik, sans-serif",

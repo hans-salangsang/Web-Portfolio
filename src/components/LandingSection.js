@@ -125,17 +125,17 @@ function LandingSection(
                   }}
                 > */}
                 <br />
-                Salangsang.
+                Salangsang
                 {/* </span> */}
               </Typography>
               <Typography
                 variant="h2"
-                color="text.textPrimary.main"
+                color="background.accent"
                 fontWeight={200}
                 paragraph
                 textAlign="center"
                 sx={{
-                  mt: "1.5rem",
+                  mt: "2.5rem",
                 }}
               >
                 Software Engineer

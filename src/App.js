@@ -132,7 +132,7 @@ function App() {
             : tinycolor(accentColor).darken(85).toString(),
           // Body Main Font Color
           main: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).desaturate(40).brighten(-15).toString()
+            ? tinycolor(accentColor).desaturate(40).brighten(-10).toString()
             : tinycolor(accentColor).desaturate(90).darken(20).toString(),
           dark: tinycolor(backgroundColor).isDark()
             ? tinycolor(accentColor).desaturate(70).darken(30).toString()
