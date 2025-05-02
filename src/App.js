@@ -109,7 +109,7 @@ function App() {
         accent: accentColor,
         default: backgroundColor,
         defaultSubtleAccent: tinycolor(backgroundColor).isDark()
-          ? tinycolor(backgroundColor).brighten(8).toString()
+          ? tinycolor(backgroundColor).brighten(5).toString()
           : tinycolor(backgroundColor).darken(5).toString(),
         defaultSubtleAccentAccent: tinycolor(backgroundColor).isDark()
           ? tinycolor(accentColor).desaturate(40).darken(45).toString()
@@ -212,12 +212,8 @@ function App() {
           ? tinycolor(backgroundColor).saturate(0).brighten(5).toString()
           : tinycolor(backgroundColor).saturate(0).darken(5).toString(),
         fillHoveredAccent: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor)
-              .desaturate(70) // remove the blue
-              .brighten(20) // brighten it heavily
-              .spin(180) // rotate hue to warm (orange-ish)
-              .toString()
-          : tinycolor(accentColor).darken(85).toString(),
+          ? tinycolor(accentColor).spin(180).saturate(0).darken(10).toString()
+          : tinycolor(accentColor).spin(180).saturate(0).darken(0).toString(),
         fillFocused: "#E9E9ED",
         text: tinycolor(backgroundColor).isDark()
           ? tinycolor(accentColor).saturate(0).brighten(0).toString()

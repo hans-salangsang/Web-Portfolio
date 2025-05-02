@@ -24,7 +24,7 @@ const Skill = ({
       >
         <Typography
           variant="h4"
-          color="background.accent"
+          color="button.fillAccent"
           textAlign="left"
           sx={{ mb: 5 }}
         >

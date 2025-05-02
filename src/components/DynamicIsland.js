@@ -24,7 +24,7 @@ const Button = styled(BaseButton)(({ theme }) => ({
   },
   "&:hover .MuiTypography-root": {
     fontWeight: 700,
-    color: theme.palette.background.accent,
+    color: theme.palette.button.fillAccent,
   },
   "&:hover": {
     backgroundColor: "transparent",

@@ -35,6 +35,14 @@ function ExperienceSection({ Typography, Chip }, ref) {
           "Utilizing Jira to manage tasks, track progress, and collaborate within an Agile framework.",
           "Communicating with global clients, providing technical support and troubleshooting software-related issues.",
         ],
+        skills: [
+          "Java",
+          "Angular",
+          "TypeScript",
+          "SQL",
+          "GitLab",
+          "Technical Consulting",
+        ],
       },
       {
         company: "LexMeet, Inc.",
@@ -47,6 +55,7 @@ function ExperienceSection({ Typography, Chip }, ref) {
           "Utilizing a full-stack tech stack: ReactJS, HTML, CSS, Bootstrap, PHP Laravel, GitLab, MySQL, and Figma, enhancing my development skills, and gaining hands-on experience with modern web technologies.",
           "Designing and developing an optimized user experience, improving organization and productivity for users.",
         ],
+        skills: ["React", "Laravel", "SQL", "Bootstrap", "GitHub", "Figma"],
       },
     ],
   };
@@ -59,7 +68,7 @@ function ExperienceSection({ Typography, Chip }, ref) {
       {/* <AbstractGradientBackground /> */}
       <Grid ref={ref} container sx={{ pt: 15 }}>
         <Grid container item xs={12} spacing={5}>
-          <Grid item xs={12} sx={{ mb: 5 }}>
+          <Grid item xs={12} sx={{ mb: 0 }}>
             <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
               <Typography
                 variant="h3"
@@ -160,6 +169,7 @@ function ExperienceSection({ Typography, Chip }, ref) {
                       tasks={exp.tasks}
                       title={exp.title}
                       company={exp.company}
+                      skills={exp.skills}
                     />
                     <Box
                       sx={{

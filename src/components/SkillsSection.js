@@ -46,17 +46,17 @@ function SkillsSection({ Typography, Chip }, ref) {
         iconColor: "#FFCE1E",
         description: "Dynamic Typing",
       },
-      HTML5: {
-        icon: "devicon-html5-plain colored",
-        backgroundColor: "#e34f26",
-        iconColor: "#ffffff",
-        description: "Web Structure",
+      Angular: {
+        icon: "devicon-angular-plain colored",
+        backgroundColor: "#DD0031",
+        iconColor: "#FFFFFF",
+        description: "Front-End",
       },
-      CSS3: {
-        icon: "devicon-css3-plain colored",
-        backgroundColor: "#1572b6",
-        iconColor: "#ffffff",
-        description: "Styling Web",
+      TypeScript: {
+        icon: "devicon-typescript-plain colored",
+        backgroundColor: "#3286E2",
+        iconColor: "#FFFFFF",
+        description: "Strongly Typed",
       },
       PHP: {
         icon: "devicon-php-plain colored",
@@ -169,27 +169,21 @@ function SkillsSection({ Typography, Chip }, ref) {
         iconColor: "#ffffff",
         description: "User Assistance",
       },
+      Documentation: {
+        icon: "fas fa-file-alt", // FontAwesome
+        backgroundColor: "#A93911", // Brown-gray
+        iconColor: "#ffffff",
+        description: "Clear Records",
+      },
       "Unit Testing": {
         icon: "fas fa-vial", // FontAwesome
         backgroundColor: "#2CB532", // Green
         iconColor: "#ffffff",
         description: "Code Validation",
       },
-      Documentation: {
-        icon: "fas fa-file-alt", // FontAwesome
-        backgroundColor: "#953F20", // Brown-gray
-        iconColor: "#ffffff",
-        description: "Clear Records",
-      },
-      "Client Relations": {
-        icon: "fas fa-handshake-simple", // FontAwesome
-        backgroundColor: "#942DD4", // Purple
-        iconColor: "#ffffff",
-        description: "Trust Building",
-      },
       Communication: {
         icon: "fas fa-globe", // FontAwesome
-        backgroundColor: "#29CCE1", // Teal
+        backgroundColor: "#FF7301", // Teal
         iconColor: "#000000",
         description: "Global Teamwork",
       },
@@ -231,7 +225,7 @@ function SkillsSection({ Typography, Chip }, ref) {
       {/* <AbstractGradientBackground /> */}
       <Grid ref={ref} container sx={{ pt: 15 }}>
         <Grid container item xs={12} spacing={3}>
-          <Grid item xs={12} sx={{ mb: 3 }}>
+          <Grid item xs={12} sx={{ mb: 4 }}>
             <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
               <Typography
                 variant="h3"

@@ -39,10 +39,10 @@ function FloatingSocials({ Typography, Chip }) {
     backgroundColor: "transparent",
     color:
       hoveredButton !== ""
-        ? theme.palette.text.textDynamicIsland.dark
-        : theme.palette.text.textDynamicIsland.dark,
+        ? theme.palette.text.textPrimary.dark
+        : theme.palette.text.textPrimary.dark,
     "&:hover": {
-      color: theme.palette.text.textDynamicIsland.light,
+      color: theme.palette.button.fillAccent,
       backgroundColor: "transparent",
     },
   }));

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import {
   Accordion,
   AccordionSummary,
@@ -12,8 +13,16 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
+import BaseChip from "@mui/material/Chip";
+import Stack from "@mui/material/Stack";
+import Box from "@mui/material/Box";
 
-function CollapsibleWorkDetails({ tasks = [], title, company }) {
+const Chip = styled(BaseChip)(({ theme }) => ({
+  backgroundColor: theme.palette.button.fillAccent, // background color
+  color: theme.palette.background.default, // text color
+}));
+
+function CollapsibleWorkDetails({ tasks = [], title, company, skills = [] }) {
   // Accepts tasks as a prop
   const [expanded, setExpanded] = useState(false);
   const theme = useTheme();
@@ -48,20 +57,35 @@ function CollapsibleWorkDetails({ tasks = [], title, company }) {
           },
         }}
       >
-        <Typography variant="h4" color="text.textPrimary.light">
-          {title}
-          <span
-            style={{
-              fontFamily: "JetBrains Mono, monospace",
-              fontWeight: 400,
-              color: theme.palette.background.accent,
-              textTransform: "uppercase",
+        <Box>
+          <Typography variant="h4" color="text.textPrimary.light">
+            {title}
+            <span
+              style={{
+                fontFamily: "JetBrains Mono, monospace",
+                fontWeight: 400,
+                color: theme.palette.background.accent,
+                textTransform: "uppercase",
+              }}
+            >
+              {" "}
+              — {company}
+            </span>
+          </Typography>
+
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              mt: 3,
+              gap: 1, // both row and column gap
             }}
           >
-            {" "}
-            — {company}
-          </span>
-        </Typography>
+            {skills.map((text, index) => (
+              <Chip key={index} label={text} />
+            ))}
+          </Box>
+        </Box>
       </AccordionSummary>
 
       <AccordionDetails>

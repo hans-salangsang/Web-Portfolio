@@ -10,11 +10,11 @@ import Tooltip from "./CustomTooltip";
 import MagnetButton from "./MagnetButton";
 
 const IconButton = styled(BaseIconButton)(({ theme }) => ({
-  backgroundColor: theme.palette.text.textDynamicIsland.dark,
+  backgroundColor: theme.palette.text.textPrimary.dark,
   backdropFilter: "blur(12px)",
   color: theme.palette.background.default,
   "&:hover": {
-    backgroundColor: theme.palette.text.textDynamicIsland.light,
+    backgroundColor: theme.palette.button.fillAccent,
   },
 }));
 

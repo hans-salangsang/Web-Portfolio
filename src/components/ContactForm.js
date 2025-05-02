@@ -17,13 +17,13 @@ import MagnetButton from "./MagnetButton";
 
 const TextField = styled(BaseTextField)(({ theme }) => ({
   "& label.MuiFormLabel-root": {
-    color: theme.palette.textField.label,
+    color: theme.palette.background.accent,
   },
   "&:hover label": {
-    color: theme.palette.textField.labelHovered,
+    color: theme.palette.background.accent,
   },
   "& label.Mui-focused": {
-    color: theme.palette.textField.labelFocused,
+    color: theme.palette.text.textPrimary.light,
   },
 
   // Filled TextField
@@ -37,7 +37,7 @@ const TextField = styled(BaseTextField)(({ theme }) => ({
     "&.Mui-focused fieldset": {
       borderColor: "red",
     },
-    color: theme.palette.textField.text,
+    color: theme.palette.text.textPrimary.light,
     backgroundColor: tinycolor(theme.palette.background.defaultSubtleAccent)
       .brighten(0)
       .toString(),
@@ -51,17 +51,17 @@ const TextField = styled(BaseTextField)(({ theme }) => ({
             .toString(),
     },
     "&.Mui-focused": {
-      backgroundColor: theme.palette.textField.fillFocused,
+      backgroundColor: theme.palette.background.default,
     },
   },
   "& .MuiFilledInput-underline:before": {
-    borderBottomColor: theme.palette.textField.border,
+    borderBottomColor: theme.palette.background.accent,
   },
   "& .MuiFilledInput-underline:after": {
-    borderBottomColor: theme.palette.textField.borderFocused,
+    borderBottomColor: theme.palette.text.textPrimary.light,
   },
   "& .MuiFilledInput-underline:hover:before": {
-    borderBottomColor: theme.palette.textField.borderHovered,
+    borderBottomColor: theme.palette.background.accent,
   },
   "& .MuiFormHelperText-root": {
     color: theme.palette.textField.helperText,
@@ -294,7 +294,7 @@ const ContactForm = ({ Typography }) => {
       <MagnetButton>
         <Button
           variant="contained"
-          size="small"
+          size="large"
           sx={{ width: "100%" }}
           type="submit"
           disabled={loading} // Disable button while loading
