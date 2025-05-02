@@ -206,8 +206,8 @@ function App() {
         ...(isDarkMode ? darkTheme.palette.button : lightTheme.palette.button),
         fill: backgroundColor,
         fillAccent: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).saturate(0).brighten(0).toString()
-          : tinycolor(accentColor).saturate(0).darken(0).toString(),
+          ? tinycolor(accentColor).spin(180).saturate(0).brighten(0).toString()
+          : tinycolor(accentColor).spin(180).saturate(0).darken(0).toString(),
         fillHovered: tinycolor(backgroundColor).isDark()
           ? tinycolor(backgroundColor).saturate(0).brighten(5).toString()
           : tinycolor(backgroundColor).saturate(0).darken(5).toString(),

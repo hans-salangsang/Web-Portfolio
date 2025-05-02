@@ -104,7 +104,7 @@ function LandingSection(
               <Typography
                 variant="h1"
                 color="text.textPrimary.light"
-                fontWeight={500}
+                fontWeight={600}
                 paragraph
                 textAlign="center"
                 lineHeight={1}
@@ -135,7 +135,7 @@ function LandingSection(
                 paragraph
                 textAlign="center"
                 sx={{
-                  mt: "2.5rem",
+                  mt: "2rem",
                 }}
               >
                 Software Engineer
@@ -201,7 +201,7 @@ function LandingSection(
             item
             xs={12}
             sx={{
-              mt: "5rem",
+              mt: "15rem",
             }}
           >
             <Box sx={{ width: "70px" }}>
