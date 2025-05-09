@@ -134,7 +134,7 @@ function AppNavBar({
       position="fixed"
       sx={(theme) => ({
         justifyContent: "center",
-        backgroundColor: theme.palette.background.default,
+        backgroundColor: "transparent",
         transition: `background-color ${theme.transitions.duration.standard}ms ${theme.transitions.easing.standard}`,
       })}
       elevation={0}

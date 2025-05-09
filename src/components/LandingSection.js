@@ -30,14 +30,15 @@ function LandingSection(
   };
 
   const Button = styled(BaseButton)(({ theme }) => ({
-    fontWeight: 700,
+    fontWeight: 500,
     // borderRadius: 9999,
-    backgroundColor: theme.palette.button.fillAccent,
-    color: theme.palette.button.textAccent,
+    backgroundColor: theme.palette.button.fill,
+    color: theme.palette.button.text,
+    textTransform: "none",
     // borderColor: theme.palette.button.border,
     "&:hover": {
-      backgroundColor: theme.palette.button.fillHoveredAccent,
-      color: theme.palette.button.textHoveredAccent,
+      backgroundColor: theme.palette.button.fillHovered,
+      color: theme.palette.button.textHovered,
       // borderColor: theme.palette.button.borderHovered,
     },
   }));
@@ -104,38 +105,34 @@ function LandingSection(
               <Typography
                 variant="h1"
                 color="text.textPrimary.light"
-                fontWeight={600}
+                fontWeight={500}
                 paragraph
                 textAlign="center"
                 lineHeight={1}
+                sx={{ letterSpacing: "-0.04em", mt: 5 }}
               >
-                Hans
-                {/* <span
+                <span
                   style={{
-                    color: theme.palette.text.textPrimary.dark,
+                    display: "block",
+                    fontWeight: 200,
+                    fontSize: "clamp(1.5rem, 2.5vw, 2.125rem)",
+                    letterSpacing: "-0.02em",
+                    marginBottom: "1rem",
                   }}
                 >
-                  
-                  Wilhelm
+                  Hello, I'm
                 </span>
-                <br /> */}{" "}
-                {/* <span
-                  style={{
-                    color: theme.palette.text.textSecondary.main,
-                  }}
-                > */}
-                <br />
-                Salangsang
-                {/* </span> */}
+                Hans Salangsang.
               </Typography>
               <Typography
                 variant="h2"
-                color="background.accent"
+                component="p"
+                color="text.textPrimary.light"
                 fontWeight={200}
                 paragraph
                 textAlign="center"
                 sx={{
-                  mt: "2rem",
+                  mt: "1.5rem",
                 }}
               >
                 Software Engineer
@@ -156,10 +153,10 @@ function LandingSection(
               <Typography
                 variant="body1"
                 color="text.textPrimary.main"
-                fontWeight={400}
+                // fontWeight={400}
                 paragraph
                 textAlign="center"
-                lineHeight={1.6}
+                // lineHeight={1.6}
               >
                 I develop digital solutions{" "}
                 <span
@@ -192,7 +189,7 @@ function LandingSection(
                   size="large"
                   onClick={() => scrollToSection(connectSectionRef)}
                 >
-                  Send Me A Message
+                  Send me a message
                 </Button>
               </MagnetButton>
             </ScrollRevealAnimation>

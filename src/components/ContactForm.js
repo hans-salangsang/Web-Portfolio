@@ -83,10 +83,11 @@ const TextField = styled(BaseTextField)(({ theme }) => ({
 }));
 
 const Button = styled(BaseButton)(({ theme }) => ({
-  fontWeight: 700,
+  fontWeight: 500,
   // borderRadius: 9999,
-  backgroundColor: theme.palette.button.fillAccent,
-  color: theme.palette.button.textAccent,
+  backgroundColor: theme.palette.button.fill,
+  color: theme.palette.button.text,
+  textTransform: "none",
   // borderColor: theme.palette.button.border,
   "&:hover": {
     backgroundColor: theme.palette.button.fillHoveredAccent,

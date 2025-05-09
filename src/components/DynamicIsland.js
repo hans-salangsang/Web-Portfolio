@@ -54,12 +54,13 @@ function DynamicIsland({
         // hoveredButton !== "" ? "background.accentHover" : "background.accent",
         // backdropFilter: "blur(200px)",
         justifyContent: "center",
-        // backgroundColor: "background.defaultSubtleAccent",
+        backgroundColor: "background.default",
         justifyContent: "center",
         // borderRadius: (theme) => `0 0 ${theme.spacing(2)} ${theme.spacing(2)}`,
         borderRadius: 2,
         // boxShadow: theme.shadows[5],
-        py: 2,
+        // py: 2,
+        mt: 2,
       }}
     >
       <Stack direction="row" spacing={0}>
@@ -112,15 +113,16 @@ function DynamicIsland({
               color={
                 activeSection === "skills"
                   ? "text.textPrimary.light"
-                  : "text.textPrimary.dark"
+                  : "text.textPrimary.main"
               }
               fontWeight={activeSection === "skills" ? 400 : 400}
               textAlign="center"
               sx={{
-                borderBottom:
-                  activeSection === "skills"
-                    ? "1px solid currentColor"
-                    : "none",
+                textTransform: "none",
+                // borderBottom:
+                //   activeSection === "skills"
+                //     ? "1px solid currentColor"
+                //     : "none",
                 paddingBottom: activeSection === "skills" ? "0px" : "0",
               }}
             >
@@ -150,15 +152,16 @@ function DynamicIsland({
               color={
                 activeSection === "experience"
                   ? "text.textPrimary.light"
-                  : "text.textPrimary.dark"
+                  : "text.textPrimary.main"
               }
               fontWeight={activeSection === "experience" ? 400 : 400}
               textAlign="center"
               sx={{
-                borderBottom:
-                  activeSection === "experience"
-                    ? "1px solid currentColor"
-                    : "none",
+                textTransform: "none",
+                // borderBottom:
+                //   activeSection === "experience"
+                //     ? "1px solid currentColor"
+                //     : "none",
                 paddingBottom: activeSection === "experience" ? "0px" : "0",
               }}
             >
@@ -184,15 +187,16 @@ function DynamicIsland({
               color={
                 activeSection === "connect"
                   ? "text.textPrimary.light"
-                  : "text.textPrimary.dark"
+                  : "text.textPrimary.main"
               }
               fontWeight={activeSection === "connect" ? 400 : 400}
               textAlign="center"
               sx={{
-                borderBottom:
-                  activeSection === "connect"
-                    ? "1px solid currentColor"
-                    : "none",
+                textTransform: "none",
+                // borderBottom:
+                //   activeSection === "connect"
+                //     ? "1px solid currentColor"
+                //     : "none",
                 paddingBottom: activeSection === "connect" ? "0px" : "0",
               }}
             >

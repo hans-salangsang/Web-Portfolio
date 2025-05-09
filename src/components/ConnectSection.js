@@ -26,11 +26,15 @@ function ConnectSection({ Typography, Chip }, ref) {
             <Grid item xs={12} sx={{ mb: 5 }}>
               <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
                 <Typography
-                  variant="h3"
-                  color="text.textPrimary.light"
-                  // textAlign="center"
+                  variant="h2"
+                  sx={(theme) => ({
+                    background: `linear-gradient(90deg, ${theme.palette.text.textPrimary.light} -10%, ${theme.palette.background.accent} 35%)`,
+
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  })}
                 >
-                  Connect
+                  Let's get in touch
                 </Typography>
               </ScrollRevealAnimation>
             </Grid>

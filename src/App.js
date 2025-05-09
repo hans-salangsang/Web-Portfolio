@@ -106,14 +106,21 @@ function App() {
         ...(isDarkMode
           ? darkTheme.palette.background
           : lightTheme.palette.background),
-        accent: accentColor,
-        default: backgroundColor,
-        defaultSubtleAccent: tinycolor(backgroundColor).isDark()
-          ? tinycolor(backgroundColor).brighten(5).toString()
-          : tinycolor(backgroundColor).darken(5).toString(),
-        defaultSubtleAccentAccent: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).desaturate(40).darken(45).toString()
-          : tinycolor(accentColor).darken(85).toString(),
+        accent: isDarkMode
+          ? tinycolor("#739BFF").toString()
+          : tinycolor("#0A0A0A").toString(),
+        default: isDarkMode
+          ? tinycolor("#0A0A0A").toString()
+          : tinycolor("#F0F0F0").toString(),
+        defaultSubtleAccent: isDarkMode
+          ? tinycolor("#0A0A0A").brighten(4).toString()
+          : tinycolor("#0A0A0A").toString(),
+        defaultSubtleAccent2: isDarkMode
+          ? tinycolor("#0A0A0A").brighten(4).brighten(8).toString()
+          : tinycolor("#0A0A0A").toString(),
+        defaultSubtleAccentAccent: isDarkMode
+          ? tinycolor("#0A0A0A").brighten(4).brighten(10).toString()
+          : tinycolor("#0A0A0A").toString(),
         defaultReverse: reverseBackgroundColor,
       },
       text: {
@@ -123,56 +130,16 @@ function App() {
             ? darkTheme.palette.text.textPrimary
             : lightTheme.palette.text.textPrimary),
           // Body Hightlight Font Color
-          light: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor)
-                .desaturate(70) // remove the blue
-                .brighten(20) // brighten it heavily
-                .spin(180) // rotate hue to warm (orange-ish)
-                .toString()
-            : tinycolor(accentColor).darken(85).toString(),
+          light: isDarkMode
+            ? tinycolor("#FCFCFC").toString()
+            : tinycolor("#121212").toString(),
           // Body Main Font Color
-          main: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).desaturate(40).brighten(-10).toString()
-            : tinycolor(accentColor).desaturate(90).darken(20).toString(),
-          dark: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).desaturate(70).darken(30).toString()
-            : tinycolor(accentColor).desaturate(90).darken(0).toString(),
-        },
-        textSecondary: {
-          ...(isDarkMode
-            ? darkTheme.palette.text.textSecondary
-            : lightTheme.palette.text.textSecondary),
-          light: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor)
-                .desaturate(50)
-                .brighten(10)
-                .spin(140)
-                .toString()
-            : tinycolor(accentColor)
-                .desaturate(50)
-                .darken(30)
-                .spin(140)
-                .toString(),
-          main: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).toString()
-            : tinycolor(accentColor).toString(),
-          dark: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).desaturate(70).brighten(0).toString()
-            : tinycolor(accentColor).desaturate(70).darken(0).toString(),
-        },
-        textDynamicIsland: {
-          ...(isDarkMode
-            ? darkTheme.palette.text.textDynamicIsland
-            : lightTheme.palette.text.textDynamicIsland),
-          light: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).toString()
-            : tinycolor(accentColor).toString(),
-          main: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).desaturate(40).brighten(20).toString()
-            : tinycolor(accentColor).darken(85).toString(),
-          dark: tinycolor(backgroundColor).isDark()
-            ? tinycolor(accentColor).desaturate(70).darken(30).toString()
-            : tinycolor(accentColor).desaturate(90).darken(0).toString(),
+          main: isDarkMode
+            ? tinycolor("#FCFCFC").darken(35).toString()
+            : tinycolor("#FCFCFC").toString(),
+          dark: isDarkMode
+            ? tinycolor("#FCFCFC").darken(35).darken(25).toString()
+            : tinycolor("#FCFCFC").toString(),
         },
       },
       textField: {
@@ -204,24 +171,26 @@ function App() {
       },
       button: {
         ...(isDarkMode ? darkTheme.palette.button : lightTheme.palette.button),
-        fill: backgroundColor,
+        fill: isDarkMode
+          ? tinycolor("#FCFCFC").toString()
+          : tinycolor("#72C0F8").toString(),
         fillAccent: tinycolor(backgroundColor).isDark()
           ? tinycolor(accentColor).spin(180).saturate(0).brighten(0).toString()
           : tinycolor(accentColor).spin(180).saturate(0).darken(0).toString(),
-        fillHovered: tinycolor(backgroundColor).isDark()
-          ? tinycolor(backgroundColor).saturate(0).brighten(5).toString()
-          : tinycolor(backgroundColor).saturate(0).darken(5).toString(),
+        fillHovered: isDarkMode
+          ? tinycolor("#0A0A0A").toString()
+          : tinycolor("#72C0F8").toString(),
         fillHoveredAccent: tinycolor(backgroundColor).isDark()
           ? tinycolor(accentColor).spin(180).saturate(0).darken(10).toString()
           : tinycolor(accentColor).spin(180).saturate(0).darken(0).toString(),
         fillFocused: "#E9E9ED",
-        text: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).saturate(0).brighten(0).toString()
-          : tinycolor(accentColor).saturate(0).darken(0).toString(),
+        text: isDarkMode
+          ? tinycolor("#0A0A0A").toString()
+          : tinycolor("#0A0A0A").toString(),
         textAccent: backgroundColor,
-        textHovered: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).saturate(0).brighten(90).toString()
-          : tinycolor(accentColor).saturate(0).darken(90).toString(),
+        textHovered: isDarkMode
+          ? tinycolor("#FCFCFC").toString()
+          : tinycolor("#72C0F8").toString(),
         textHoveredAccent: backgroundColor,
         label: "#42566E",
         labelFocused: "#6093D6",
@@ -407,7 +376,7 @@ function App() {
             url="https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode"
             events-target="global"
           ></spline-viewer>
-          {/* <Box
+          <Box
             sx={{
               position: "absolute",
               left: "0%",
@@ -422,34 +391,11 @@ function App() {
                 position: "absolute",
                 width: "100%",
                 height: "100vh",
-                transform: "translateY(20vh)", // Moves it up while keeping crop
               }}
             >
-              <Spline scene="https://prod.spline.design/W2Uc6rCFA70MJwXq/scene.splinecode" />
+              <Spline scene="https://prod.spline.design/R2cAKmNsCDn1aklb/scene.splinecode" />
             </Box>
           </Box>
-          <Box
-            sx={{
-              position: "absolute",
-              left: "0%",
-              width: "100%",
-              height: "100vh", // Adjust this to crop more or less
-              overflow: "hidden",
-              zIndex: 0,
-              display: { xs: "none", sm: "block" },
-            }}
-          >
-            <Box
-              sx={{
-                position: "absolute",
-                width: "100%",
-                height: "100vh",
-                transform: "translateY(12vh)", // Moves it up while keeping crop
-              }}
-            >
-              <Spline scene="https://prod.spline.design/1B3IJzPvmnO-xLRw/scene.splinecode" />
-            </Box>
-          </Box> */}
 
           <Grid container>
             <Grid

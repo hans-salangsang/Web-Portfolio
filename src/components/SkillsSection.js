@@ -228,17 +228,21 @@ function SkillsSection({ Typography, Chip }, ref) {
           <Grid item xs={12} sx={{ mb: 4 }}>
             <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
               <Typography
-                variant="h3"
-                color="text.textPrimary.light"
-                // textAlign="center"
+                variant="h2"
+                sx={(theme) => ({
+                  background: `linear-gradient(90deg, ${theme.palette.text.textPrimary.light} -10%, ${theme.palette.background.accent} 40%)`,
+
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                })}
               >
-                Skills
+                Technologies I use
               </Typography>
             </ScrollRevealAnimation>
           </Grid>
 
-          <Grid container item spacing={1} xs={12} lg={12}>
-            <Grid container item spacing={1} xs={12} md={8}>
+          <Grid container item spacing={2} xs={12} lg={12}>
+            <Grid container item spacing={2} xs={12} md={8}>
               {Object.entries(skills).map(([category, skillList], index) => {
                 if (index !== 0) return null; // If it's not the third item, return null (skip it)
 

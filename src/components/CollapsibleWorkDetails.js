@@ -58,19 +58,11 @@ function CollapsibleWorkDetails({ tasks = [], title, company, skills = [] }) {
         }}
       >
         <Box>
+          <Typography variant="h3" color="text.textPrimary.light">
+            {company}
+          </Typography>
           <Typography variant="h4" color="text.textPrimary.light">
             {title}
-            <span
-              style={{
-                fontFamily: "JetBrains Mono, monospace",
-                fontWeight: 400,
-                color: theme.palette.background.accent,
-                textTransform: "uppercase",
-              }}
-            >
-              {" "}
-              — {company}
-            </span>
           </Typography>
 
           <Box

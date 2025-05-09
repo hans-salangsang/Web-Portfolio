@@ -71,11 +71,15 @@ function ExperienceSection({ Typography, Chip }, ref) {
           <Grid item xs={12} sx={{ mb: 0 }}>
             <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
               <Typography
-                variant="h3"
-                color="text.textPrimary.light"
-                // textAlign="center"
+                variant="h2"
+                sx={(theme) => ({
+                  background: `linear-gradient(90deg, ${theme.palette.text.textPrimary.light} -10%, ${theme.palette.background.accent} 50%)`,
+
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                })}
               >
-                Experience
+                My professional journey
               </Typography>
             </ScrollRevealAnimation>
           </Grid>
@@ -137,7 +141,7 @@ function ExperienceSection({ Typography, Chip }, ref) {
                       }}
                     >
                       <Typography
-                        variant="body2"
+                        variant="body1"
                         color="text.textPrimary.dark"
                         fontWeight={400}
                       >

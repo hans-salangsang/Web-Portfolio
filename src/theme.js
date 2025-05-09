@@ -4,140 +4,166 @@ const baseTheme = createTheme();
 
 const typography = {
   h1: {
-    fontFamily: "Geist, sans-serif",
-    fontSize: `clamp(4rem, 5vw, 8rem)`, // Fibonacci scale: 5 (as max)
-    // letterSpacing: "0.01em",
+    fontFamily: "Roboto, sans-serif",
+    fontSize: `clamp(2.5rem, 5vw, 6rem)`, // 40px–96px
+    // fontWeight: 300,
+    // lineHeight: 1.167,
+    // letterSpacing: "-0.01562em",
   },
   h2: {
-    fontFamily: "JetBrains Mono, monospace",
-    fontSize: `clamp(1.25rem, 2.25vw, 2rem)`, // Adjusted max value to 2.5rem (smaller)
-    textTransform: "uppercase",
-    // letterSpacing: "0.01em",
-    // fontStyle: "italic",
+    fontFamily: "Roboto, sans-serif",
+    fontSize: `clamp(2rem, 4vw, 3.75rem)`, // 32px–60px
+    fontWeight: 500,
+    // lineHeight: 1.2,
+    // letterSpacing: "-0.00833em",
   },
   h3: {
-    fontFamily: "JetBrains Mono, monospace",
-    fontSize: `clamp(2.25rem, 3.5vw, 3rem)`, // Fibonacci scale: 2.25 (as max)
-    textTransform: "uppercase",
-    // letterSpacing: "-0.05em",
-    // fontStyle: "italic",
-    fontWeight: 700,
+    fontFamily: "Roboto, sans-serif",
+    fontSize: `clamp(1.75rem, 3vw, 3rem)`, // 28px–48px
+    // fontWeight: 400,
+    // lineHeight: 1.167,
+    // letterSpacing: "0em",
   },
   h4: {
-    fontFamily: "Geist, sans-serif",
-    fontSize: `clamp(1.125rem, 1.75vw, 1.5rem)`, // Fibonacci scale: 1.5 (as max)
-    fontWeight: 400,
+    fontFamily: "Roboto, sans-serif",
+    fontSize: `clamp(1.5rem, 2.5vw, 2.125rem)`, // 24px–34px
+    // fontWeight: 400,
+    // lineHeight: 1.235,
+    // letterSpacing: "0.00735em",
   },
   h5: {
-    fontFamily: "JetBrains Mono, monospace",
-    fontSize: `clamp(1.25rem, 1.5vw, 1.5rem)`, // Fibonacci scale: 1.25 (as max)
-    // fontStyle: "italic",
+    fontFamily: "Roboto, sans-serif",
+    fontSize: `clamp(1.25rem, 2vw, 1.5rem)`, // 20px–24px
+    fontWeight: 500,
+    // lineHeight: 1.334,
+    // letterSpacing: "0em",
   },
   h6: {
-    fontFamily: "Hypik, sans-serif",
-    fontSize: `clamp(1.5rem, 1.5vw, 2rem)`, // Fibonacci scale: 1.5 (as max)
-    // textTransform: "uppercase",
+    fontFamily: "Roboto, sans-serif",
+    fontSize: `clamp(1rem, 1.75vw, 1.25rem)`, // 16px–20px
+    // fontWeight: 500,
+    // lineHeight: 1.6,
+    // letterSpacing: "0.0075em",
   },
   subtitle1: {
-    fontFamily: "Geist, sans-serif",
-    fontSize: `clamp(0.875rem, 1.75vw, 1rem)`, // Fibonacci scale: 1 (as max)
+    fontFamily: "Roboto, sans-serif",
+    fontSize: `clamp(1rem, 1.5vw, 1rem)`, // 16px
+    // fontWeight: 400,
+    // lineHeight: 1.75,
+    // letterSpacing: "0.00938em",
   },
   subtitle2: {
-    fontFamily: "Geist, sans-serif",
-    fontSize: `clamp(0.75rem, 1.25vw, 0.875rem)`, // Fibonacci scale: 0.875 (as max)
+    fontFamily: "Roboto, sans-serif",
+    fontSize: `clamp(0.875rem, 1.25vw, 0.875rem)`, // 14px
+    // fontWeight: 500,
+    // lineHeight: 1.57,
+    // letterSpacing: "0.00714em",
   },
   body1: {
-    fontFamily: "Geist, sans-serif",
-    fontSize: `clamp(1rem, 1.25vw, 1rem)`, // Increased max size to 1rem
+    fontFamily: "Roboto, sans-serif",
+    fontSize: `clamp(1rem, 1.25vw, 1rem)`, // 16px
+    // fontWeight: 400,
+    // lineHeight: 1.5,
+    // letterSpacing: "0.03125em",
   },
   body2: {
-    fontFamily: "JetBrains Mono, monospace",
-    fontSize: `clamp(0.875rem, 1vw, 0.875rem)`, // Increased max size to 0.875rem
+    fontFamily: "Roboto, sans-serif",
+    fontSize: `clamp(0.875rem, 1vw, 0.875rem)`, // 14px
+    // fontWeight: 400,
+    // lineHeight: 1.43,
+    // letterSpacing: "0.01786em",
   },
   button: {
-    fontFamily: "JetBrains Mono, monospace",
-    fontSize: `clamp(1rem, 1vw, 1rem)`, // Fibonacci scale: 1 (as max)
-    // fontWeight: 700,
+    fontFamily: "Roboto, sans-serif",
+    fontSize: `clamp(0.875rem, 1vw, 0.875rem)`, // 14px
+    // fontWeight: 500,
+    // lineHeight: 1.75,
+    // letterSpacing: "0.08929em",
     // textTransform: "uppercase",
-    // fontStyle: "italic",
   },
   caption: {
-    fontFamily: "Geist, sans-serif",
-    fontSize: `clamp(0.625rem, 1vw, 0.75rem)`, // Fibonacci scale: 0.75 (as max)
+    fontFamily: "Roboto, sans-serif",
+    fontSize: `clamp(0.75rem, 0.9vw, 0.75rem)`, // 12px
+    // fontWeight: 400,
+    // lineHeight: 1.66,
+    // letterSpacing: "0.03333em",
   },
   overline: {
-    fontFamily: "Geist, sans-serif",
-    fontSize: `clamp(0.625rem, 1vw, 0.75rem)`, // Fibonacci scale: 0.75 (as max)
-    textTransform: "uppercase",
+    fontFamily: "Roboto, sans-serif",
+    fontSize: `clamp(0.625rem, 0.8vw, 0.75rem)`, // 10–12px range
+    // fontWeight: 400,
+    // lineHeight: 2.66,
+    // letterSpacing: "0.08333em",
+    // textTransform: "uppercase",
   },
 };
 
 const components = {
-  MuiChip: {
-    styleOverrides: {
-      root: {
-        fontFamily: "Geist, sans-serif",
-        [baseTheme.breakpoints.down("md")]: {
-          fontSize: "0.75rem",
-        },
-        [baseTheme.breakpoints.up("xl")]: {
-          fontSize: "1rem",
-        },
-      },
-    },
-  },
-  MuiTooltip: {
-    styleOverrides: {
-      tooltip: {
-        fontFamily: "Geist, sans-serif",
-        [baseTheme.breakpoints.down("md")]: {
-          fontSize: "0.75rem",
-        },
-        [baseTheme.breakpoints.up("xl")]: {
-          fontSize: "1rem",
-        },
-      },
-    },
-  },
-  MuiTextField: {
-    styleOverrides: {
-      root: {
-        fontFamily: "Geist, sans-serif",
-        [baseTheme.breakpoints.down("md")]: {
-          fontSize: "0.75rem",
-        },
-        [baseTheme.breakpoints.up("xl")]: {
-          fontSize: "1rem",
-        },
-      },
-    },
-  },
-  MuiFilledInput: {
-    styleOverrides: {
-      root: {
-        fontFamily: "Geist, sans-serif",
-        [baseTheme.breakpoints.down("md")]: {
-          fontSize: "0.75rem",
-        },
-        [baseTheme.breakpoints.up("xl")]: {
-          fontSize: "1rem",
-        },
-      },
-    },
-  },
-  MuiFormLabel: {
-    styleOverrides: {
-      root: {
-        fontFamily: "Geist, sans-serif",
-        [baseTheme.breakpoints.down("md")]: {
-          fontSize: "0.75rem",
-        },
-        [baseTheme.breakpoints.up("xl")]: {
-          fontSize: "1rem",
-        },
-      },
-    },
-  },
+  // MuiChip: {
+  //   styleOverrides: {
+  //     root: {
+  //       fontFamily: "Roboto, sans-serif",
+  //       [baseTheme.breakpoints.down("md")]: {
+  //         fontSize: "0.75rem",
+  //       },
+  //       [baseTheme.breakpoints.up("xl")]: {
+  //         fontSize: "1rem",
+  //       },
+  //     },
+  //   },
+  // },
+  // MuiTooltip: {
+  //   styleOverrides: {
+  //     tooltip: {
+  //       fontFamily: "Roboto, sans-serif",
+  //       [baseTheme.breakpoints.down("md")]: {
+  //         fontSize: "0.75rem",
+  //       },
+  //       [baseTheme.breakpoints.up("xl")]: {
+  //         fontSize: "1rem",
+  //       },
+  //     },
+  //   },
+  // },
+  // MuiTextField: {
+  //   styleOverrides: {
+  //     root: {
+  //       fontFamily: "Roboto, sans-serif",
+  //       [baseTheme.breakpoints.down("md")]: {
+  //         fontSize: "0.75rem",
+  //       },
+  //       [baseTheme.breakpoints.up("xl")]: {
+  //         fontSize: "1rem",
+  //       },
+  //     },
+  //   },
+  // },
+  // MuiFilledInput: {
+  //   styleOverrides: {
+  //     root: {
+  //       fontFamily: "Roboto, sans-serif",
+  //       [baseTheme.breakpoints.down("md")]: {
+  //         fontSize: "0.75rem",
+  //       },
+  //       [baseTheme.breakpoints.up("xl")]: {
+  //         fontSize: "1rem",
+  //       },
+  //     },
+  //   },
+  // },
+  // MuiFormLabel: {
+  //   styleOverrides: {
+  //     root: {
+  //       fontFamily: "Roboto, sans-serif",
+  //       [baseTheme.breakpoints.down("md")]: {
+  //         fontSize: "0.75rem",
+  //       },
+  //       [baseTheme.breakpoints.up("xl")]: {
+  //         fontSize: "1rem",
+  //       },
+  //     },
+  //   },
+  // },
 };
 
 const transitions = {
