@@ -50,6 +50,7 @@ function LandingSection(
       sx={{
         pt: { xs: "10rem", sm: "10rem", lg: "9rem", xl: "14rem" },
         position: "relative",
+        minHeight: "100vh",
       }}
     >
       {/* <Stack spacing={2} ref={scope}> */}
@@ -132,7 +133,7 @@ function LandingSection(
                 paragraph
                 textAlign="center"
                 sx={{
-                  mt: "1.5rem",
+                  mt: "1rem",
                 }}
               >
                 Software Engineer

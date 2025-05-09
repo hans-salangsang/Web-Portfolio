@@ -31,6 +31,7 @@ import tinycolor from "tinycolor2";
 import Grid from "@mui/material/Grid";
 import "./App.css";
 import AbstractGradientBackground from "./components/AbstractGradientBackground";
+import { alpha } from "@mui/material";
 
 const Typography = styled(BaseTypography)`
   ${({ theme }) => `
@@ -376,12 +377,12 @@ function App() {
             url="https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode"
             events-target="global"
           ></spline-viewer>
-          <Box
+          {/* <Box
             sx={{
               position: "absolute",
               left: "0%",
               width: "100%",
-              height: "105vh", // Adjust this to crop more or less
+              height: "100vh", // Adjust this to crop more or less
               overflow: "hidden",
               zIndex: -1,
             }}
@@ -390,12 +391,12 @@ function App() {
               sx={{
                 position: "absolute",
                 width: "100%",
-                height: "100vh",
+                height: "108vh",
               }}
             >
               <Spline scene="https://prod.spline.design/R2cAKmNsCDn1aklb/scene.splinecode" />
             </Box>
-          </Box>
+          </Box> */}
 
           <Grid container>
             <Grid
@@ -417,6 +418,42 @@ function App() {
                 }
               >
                 <Container maxWidth="lg">
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%", // Adjust this to crop more or less
+                      overflow: "hidden",
+                      zIndex: -1,
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        width: "100%",
+                        height: "106%",
+                      }}
+                    >
+                      <Spline scene="https://prod.spline.design/R2cAKmNsCDn1aklb/scene.splinecode" />
+                    </Box>
+
+                    {/* Gradient Overlay */}
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        bottom: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "20%", // Adjust this to control the gradient height
+                        background: `linear-gradient(transparent, ${tinycolor(
+                          theme.palette.background.default
+                        ).toString()})`,
+                        pointerEvents: "none", // Prevent overlay from interfering with interactions
+                      }}
+                    />
+                  </Box>
                   <LandingSection
                     ref={landingSectionRef}
                     Typography={Typography}
@@ -429,7 +466,38 @@ function App() {
             </Grid>
 
             <Grid item xs={12}>
-              <Box sx={{}}>
+              <Box
+                sx={{
+                  backgroundImage: `
+                    radial-gradient(circle at 80% 25%, ${alpha(
+                      tinycolor(theme.palette.background.accent)
+                        .darken(20)
+                        .spin(25)
+                        .desaturate(20)
+                        .toString(),
+                      0.15
+                    )} 0%, transparent 25%),
+                    radial-gradient(circle at 80% 80%, ${alpha(
+                      tinycolor(theme.palette.background.accent)
+                        .darken(50)
+                        .spin(25)
+                        .desaturate(0)
+                        .toString(),
+                      0.8
+                    )} 0%, transparent 30%),
+                    radial-gradient(circle at 20% 70%, ${alpha(
+                      tinycolor(theme.palette.background.accent)
+                        .darken(50)
+                        .spin(25)
+                        .desaturate(0)
+                        .toString(),
+                      0.8
+                    )} 0%, transparent 25%)
+                  `,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
                 <Container maxWidth="lg">
                   {/* <AboutMeSection
                     ref={aboutSectionRef}
