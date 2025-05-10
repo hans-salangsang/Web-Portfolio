@@ -12,13 +12,23 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useTheme } from "@mui/material/styles";
 import tinycolor from "tinycolor2";
 import AbstractGradientBackground from "./AbstractGradientBackground";
+import ScrollingBox from "./ScrollingBox";
 import Spline from "@splinetool/react-spline";
 import CharacteristicsInput from "./CharacteristicsInput";
 import { useAnimate, useInView, stagger, motion } from "framer-motion";
+import BaseChip from "@mui/material/Chip";
+import { styled } from "@mui/material/styles";
 
-function AboutMeSection({ Typography, onColorChange, Chip }, ref) {
+const Chip = styled(BaseChip)(({ theme }) => ({
+  backgroundColor: theme.palette.text.textPrimary.light, // background color
+  color: theme.palette.background.default, // text color
+}));
+
+function AboutMeSection({ Typography, onColorChange }, ref) {
   const screenSize = useScreenSize();
   const theme = useTheme();
+
+  const specializations = ["AI", "Data", "DevOps", "Consulting"];
 
   const handleCharacteristicsSubmit = (newColor, newDescription) => {
     console.log("New Color:", newColor);
@@ -33,146 +43,40 @@ function AboutMeSection({ Typography, onColorChange, Chip }, ref) {
     >
       {/* <Grid ref={ref} container sx={{ minHeight: "100vh" }}> */}
       {/* <AbstractGradientBackground /> */}
-      <Grid ref={ref} container sx={{ pt: 17 }}>
+      <Grid ref={ref} container sx={{ pt: 25 }}>
         <Grid container item xs={12} spacing={3}>
           <Grid item xs={12} sx={{ mb: 5 }}>
             <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
               <Typography
-                variant="h3"
+                variant="h2"
+                component="p"
+                fontWeight={500}
                 color="text.textPrimary.light"
                 textAlign="center"
+                sx={(theme) => ({
+                  background: `linear-gradient(90deg, ${theme.palette.background.accent} -80%, ${theme.palette.text.textPrimary.light} 40%, ${theme.palette.background.accent} 90%)`,
+
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                })}
               >
-                About
+                I develop scalable enterprise-level solutions for large
+                businesses.
               </Typography>
+              <ScrollingBox>
+                {specializations.map((text, index) => (
+                  <Chip key={index} label={text} />
+                ))}
+              </ScrollingBox>
             </ScrollRevealAnimation>
           </Grid>
-
-          <Grid
-            item
-            xs={12}
-            lg={5}
-            sx={{ display: { xs: "none", md: "block" } }}
-          >
-            <script
-              type="module"
-              src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"
-            ></script>
-            <spline-viewer
-              url="https://prod.spline.design/FVZWbQH2B6ndj9UU/scene.splinecode"
-              events-target="global"
-            ></spline-viewer>
-            <Box
-              sx={{
-                zIndex: -1,
-              }}
-            >
-              {/* <Spline scene="https://prod.spline.design/MyOVV7bet1nZ1oFh/scene.splinecode" /> */}
-            </Box>
-          </Grid>
-          <Grid item xs={12} lg={7}>
-            <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
-              <Typography
-                variant="body1"
-                color="text.textPrimary.main"
-                fontWeight={400}
-                paragraph
-                textAlign="left"
-                lineHeight={1.6}
-              >
-                Hi, I'm{" "}
-                <span
-                  style={{
-                    fontWeight: 400,
-                    color: theme.palette.text.textPrimary.light,
-                  }}
-                >
-                  Hans Wilhelm B. Salangsang
-                </span>
-                , a{" "}
-                <span
-                  style={{
-                    fontWeight: 400,
-                    color: theme.palette.text.textPrimary.light,
-                  }}
-                >
-                  full-stack developer
-                </span>{" "}
-                with a passion for building seamless and visually engaging
-                digital experiences. Currently, I'm an{" "}
-                <span
-                  style={{
-                    fontWeight: 400,
-                    color: theme.palette.text.textPrimary.light,
-                  }}
-                >
-                  Associate Technical Consultant at Infor
-                </span>
-                , where I work with ERP solutions to solve real-world business
-                challenges.
-                <br />
-                <br />I graduated{" "}
-                <span
-                  style={{
-                    fontWeight: 400,
-                    color: theme.palette.text.textPrimary.light,
-                  }}
-                >
-                  Magna Cum Laude from Polytechnic University of the Philippines
-                  with a Bachelor of Science in Information Technology
-                </span>
-                . While development is my main focus, I also have a strong eye
-                for design, applying my{" "}
-                <span
-                  style={{
-                    fontWeight: 400,
-                    color: theme.palette.text.textPrimary.light,
-                  }}
-                >
-                  graphic design skills
-                </span>{" "}
-                to create intuitive and visually appealing interfaces.
-                <br />
-                <br />
-                <span
-                  style={{
-                    fontWeight: 400,
-                    color: theme.palette.text.textPrimary.light,
-                  }}
-                >
-                  Coding gives me a drive that keeps me going late into the
-                  night
-                </span>
-                —there’s just something exciting about solving complex problems
-                and seeing a project come together. Outside of development,{" "}
-                <span
-                  style={{
-                    fontWeight: 400,
-                    color: theme.palette.text.textPrimary.light,
-                  }}
-                >
-                  I run a YouTube channel where I review songs
-                </span>
-                , blending my technical mindset with my love for music.
-                <br />
-                <br />
-                If you're looking for a dedicated and detail-oriented developer,{" "}
-                <span
-                  style={{
-                    fontWeight: 400,
-                    color: theme.palette.text.textPrimary.light,
-                  }}
-                >
-                  let's connect!
-                </span>
-              </Typography>
-            </ScrollRevealAnimation>
-
+          {/* <Grid item xs={12} lg={7}>
             <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
               <CharacteristicsInput
                 onInputSubmit={handleCharacteristicsSubmit}
               />
             </ScrollRevealAnimation>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Grid>
     </Container>

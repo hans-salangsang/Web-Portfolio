@@ -4,77 +4,77 @@ const baseTheme = createTheme();
 
 const typography = {
   h1: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Inter, sans-serif",
     fontSize: `clamp(2.5rem, 5vw, 6rem)`, // 40px–96px
     // fontWeight: 300,
     // lineHeight: 1.167,
     // letterSpacing: "-0.01562em",
   },
   h2: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Inter, sans-serif",
     fontSize: `clamp(2rem, 4vw, 3.75rem)`, // 32px–60px
     fontWeight: 500,
     // lineHeight: 1.2,
-    // letterSpacing: "-0.00833em",
+    letterSpacing: "-0.02em",
   },
   h3: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Inter, sans-serif",
     fontSize: `clamp(1.75rem, 3vw, 3rem)`, // 28px–48px
     // fontWeight: 400,
     // lineHeight: 1.167,
     // letterSpacing: "0em",
   },
   h4: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Inter, sans-serif",
     fontSize: `clamp(1.5rem, 2.5vw, 2.125rem)`, // 24px–34px
     // fontWeight: 400,
     // lineHeight: 1.235,
     // letterSpacing: "0.00735em",
   },
   h5: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Inter, sans-serif",
     fontSize: `clamp(1.25rem, 2vw, 1.5rem)`, // 20px–24px
     fontWeight: 500,
     // lineHeight: 1.334,
     // letterSpacing: "0em",
   },
   h6: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Inter, sans-serif",
     fontSize: `clamp(1rem, 1.75vw, 1.25rem)`, // 16px–20px
     // fontWeight: 500,
     // lineHeight: 1.6,
     // letterSpacing: "0.0075em",
   },
   subtitle1: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Inter, sans-serif",
     fontSize: `clamp(1rem, 1.5vw, 1rem)`, // 16px
     // fontWeight: 400,
     // lineHeight: 1.75,
     // letterSpacing: "0.00938em",
   },
   subtitle2: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Inter, sans-serif",
     fontSize: `clamp(0.875rem, 1.25vw, 0.875rem)`, // 14px
     // fontWeight: 500,
     // lineHeight: 1.57,
     // letterSpacing: "0.00714em",
   },
   body1: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Inter, sans-serif",
     fontSize: `clamp(1rem, 1.25vw, 1rem)`, // 16px
     // fontWeight: 400,
     // lineHeight: 1.5,
     // letterSpacing: "0.03125em",
   },
   body2: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Inter, sans-serif",
     fontSize: `clamp(0.875rem, 1vw, 0.875rem)`, // 14px
     // fontWeight: 400,
     // lineHeight: 1.43,
     // letterSpacing: "0.01786em",
   },
   button: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Inter, sans-serif",
     fontSize: `clamp(0.875rem, 1vw, 0.875rem)`, // 14px
     // fontWeight: 500,
     // lineHeight: 1.75,
@@ -82,14 +82,14 @@ const typography = {
     // textTransform: "uppercase",
   },
   caption: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Inter, sans-serif",
     fontSize: `clamp(0.75rem, 0.9vw, 0.75rem)`, // 12px
     // fontWeight: 400,
     // lineHeight: 1.66,
     // letterSpacing: "0.03333em",
   },
   overline: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Inter, sans-serif",
     fontSize: `clamp(0.625rem, 0.8vw, 0.75rem)`, // 10–12px range
     // fontWeight: 400,
     // lineHeight: 2.66,
@@ -102,7 +102,7 @@ const components = {
   // MuiChip: {
   //   styleOverrides: {
   //     root: {
-  //       fontFamily: "Roboto, sans-serif",
+  //       fontFamily: "Inter, sans-serif",
   //       [baseTheme.breakpoints.down("md")]: {
   //         fontSize: "0.75rem",
   //       },
@@ -115,7 +115,7 @@ const components = {
   // MuiTooltip: {
   //   styleOverrides: {
   //     tooltip: {
-  //       fontFamily: "Roboto, sans-serif",
+  //       fontFamily: "Inter, sans-serif",
   //       [baseTheme.breakpoints.down("md")]: {
   //         fontSize: "0.75rem",
   //       },
@@ -128,7 +128,7 @@ const components = {
   // MuiTextField: {
   //   styleOverrides: {
   //     root: {
-  //       fontFamily: "Roboto, sans-serif",
+  //       fontFamily: "Inter, sans-serif",
   //       [baseTheme.breakpoints.down("md")]: {
   //         fontSize: "0.75rem",
   //       },
@@ -141,7 +141,7 @@ const components = {
   // MuiFilledInput: {
   //   styleOverrides: {
   //     root: {
-  //       fontFamily: "Roboto, sans-serif",
+  //       fontFamily: "Inter, sans-serif",
   //       [baseTheme.breakpoints.down("md")]: {
   //         fontSize: "0.75rem",
   //       },
@@ -154,7 +154,7 @@ const components = {
   // MuiFormLabel: {
   //   styleOverrides: {
   //     root: {
-  //       fontFamily: "Roboto, sans-serif",
+  //       fontFamily: "Inter, sans-serif",
   //       [baseTheme.breakpoints.down("md")]: {
   //         fontSize: "0.75rem",
   //       },

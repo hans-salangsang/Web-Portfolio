@@ -104,26 +104,27 @@ function LandingSection(
                 Hello! I'm
               </Typography> */}
               <Typography
+                variant="h4"
+                component="p"
+                color="text.textPrimary.light"
+                fontWeight={200}
+                paragraph
+                textAlign="center"
+                lineHeight={1}
+                sx={{ letterSpacing: "-0.01em", mb: 2, mt: 5 }}
+              >
+                Hello, I'm
+              </Typography>
+              <Typography
                 variant="h1"
                 color="text.textPrimary.light"
                 fontWeight={500}
                 paragraph
                 textAlign="center"
                 lineHeight={1}
-                sx={{ letterSpacing: "-0.04em", mt: 5 }}
+                sx={{ letterSpacing: "-0.04em" }}
               >
-                <span
-                  style={{
-                    display: "block",
-                    fontWeight: 200,
-                    fontSize: "clamp(1.5rem, 2.5vw, 2.125rem)",
-                    letterSpacing: "-0.02em",
-                    marginBottom: "1rem",
-                  }}
-                >
-                  Hello, I'm
-                </span>
-                Hans Salangsang.
+                Hans Salangsang
               </Typography>
               <Typography
                 variant="h2"
@@ -165,7 +166,7 @@ function LandingSection(
                     // fontWeight: 700,
                     color: theme.palette.text.textPrimary.light,
                     // fontFamily: "Playfair Display",
-                    fontStyle: "italic",
+                    // fontStyle: "italic",
                   }}
                 >
                   that solve real-world problems.

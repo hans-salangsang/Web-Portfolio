@@ -502,12 +502,12 @@ function App() {
                 }}
               >
                 <Container maxWidth="lg">
-                  {/* <AboutMeSection
-                    ref={aboutSectionRef}
+                  <AboutMeSection
+                    // ref={aboutSectionRef}
                     Typography={Typography}
                     onColorChange={handleColorChange}
                     Chip={Chip}
-                  /> */}
+                  />
 
                   <SkillsSection
                     ref={skillsSectionRef}
