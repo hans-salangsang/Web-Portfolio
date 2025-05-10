@@ -108,19 +108,22 @@ function App() {
           ? darkTheme.palette.background
           : lightTheme.palette.background),
         accent: isDarkMode
-          ? tinycolor("#739BFF").toString()
+          ? tinycolor("#3E5AFF").toString()
+          : tinycolor("#0A0A0A").toString(),
+        accent2: isDarkMode
+          ? tinycolor("#3E5AFF").brighten(20).toString()
           : tinycolor("#0A0A0A").toString(),
         default: isDarkMode
           ? tinycolor("#0A0A0A").toString()
           : tinycolor("#F0F0F0").toString(),
         defaultSubtleAccent: isDarkMode
-          ? tinycolor("#0A0A0A").brighten(4).toString()
+          ? tinycolor("#0A0A0A").brighten(2).toString()
           : tinycolor("#0A0A0A").toString(),
         defaultSubtleAccent2: isDarkMode
-          ? tinycolor("#0A0A0A").brighten(4).brighten(8).toString()
+          ? tinycolor("#0A0A0A").brighten(2).brighten(6).toString()
           : tinycolor("#0A0A0A").toString(),
         defaultSubtleAccentAccent: isDarkMode
-          ? tinycolor("#0A0A0A").brighten(4).brighten(10).toString()
+          ? tinycolor("#0A0A0A").brighten(2).brighten(6).toString()
           : tinycolor("#0A0A0A").toString(),
         defaultReverse: reverseBackgroundColor,
       },

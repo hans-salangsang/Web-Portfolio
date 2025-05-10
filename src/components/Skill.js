@@ -26,15 +26,15 @@ const Skill = ({
           borderRadius: 2,
           p: 3,
           backgroundImage: `radial-gradient(circle at top, ${alpha(
-            tinycolor(theme.palette.background.accent)
+            tinycolor(theme.palette.background.accent2)
               .darken(40)
               .spin(0)
               .desaturate(50)
               .toString(),
-            0.35
+            0.25
           )} 0%, transparent 40%)`,
           borderImageSource: `radial-gradient(circle at top, ${alpha(
-            tinycolor(theme.palette.background.accent)
+            tinycolor(theme.palette.background.accent2)
               .darken(0)
               .spin(0)
               .desaturate(20)
@@ -83,7 +83,7 @@ const Skill = ({
                       className={icon}
                       style={{
                         fontSize: 22,
-                        color: theme.palette.background.accent,
+                        color: theme.palette.background.accent2,
                       }}
                     ></i>
                   </Box>
