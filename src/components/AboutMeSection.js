@@ -13,6 +13,7 @@ import { useTheme } from "@mui/material/styles";
 import tinycolor from "tinycolor2";
 import AbstractGradientBackground from "./AbstractGradientBackground";
 import ScrollingBox from "./ScrollingBox";
+import AutoScroll from "./AutoScroll";
 import Spline from "@splinetool/react-spline";
 import CharacteristicsInput from "./CharacteristicsInput";
 import { useAnimate, useInView, stagger, motion } from "framer-motion";
