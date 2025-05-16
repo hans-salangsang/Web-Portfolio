@@ -66,7 +66,7 @@ function ExperienceSection({ Typography, Chip }, ref) {
       sx={{ position: "relative" }}
     >
       {/* <AbstractGradientBackground /> */}
-      <Grid ref={ref} container sx={{ pt: 15 }}>
+      <Grid ref={ref} container sx={{ pt: 20 }}>
         <Grid container item xs={12} spacing={5}>
           <Grid item xs={12} sx={{ mb: 0 }}>
             <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>

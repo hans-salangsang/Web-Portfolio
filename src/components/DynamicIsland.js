@@ -23,8 +23,8 @@ const Button = styled(BaseButton)(({ theme }) => ({
     paddingRight: "1rem",
   },
   "&:hover .MuiTypography-root": {
-    fontWeight: 700,
-    color: theme.palette.button.fillAccent,
+    // fontWeight: 700,
+    color: theme.palette.text.textPrimary.light,
   },
   "&:hover": {
     backgroundColor: "transparent",

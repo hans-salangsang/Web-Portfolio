@@ -62,16 +62,16 @@ function AppNavBar({
     "& .MuiSwitch-switchBase": {
       padding: 0,
       margin: 2,
-      color: theme.palette.button.textAccent,
+      color: theme.palette.background.default,
       transitionDuration: "300ms",
       "& + .MuiSwitch-track": {
-        backgroundColor: theme.palette.button.fillAccent,
+        backgroundColor: theme.palette.text.textPrimary.light,
       },
       "&.Mui-checked": {
         transform: "translateX(16px)",
-        color: theme.palette.button.textAccent,
+        color: theme.palette.background.default,
         "& + .MuiSwitch-track": {
-          backgroundColor: theme.palette.button.fillAccent,
+          backgroundColor: theme.palette.text.textPrimary.light,
           opacity: 1,
           border: 0,
           ...theme.applyStyles("dark", {

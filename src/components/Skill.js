@@ -13,6 +13,7 @@ const Skill = ({
   columnWidthXs,
   columnWidthSm,
   columnWidthMd,
+  isDarkMode,
 }) => {
   const theme = useTheme();
 
@@ -25,22 +26,26 @@ const Skill = ({
           borderColor: theme.palette.background.defaultSubtleAccentAccent,
           borderRadius: 2,
           p: 3,
-          backgroundImage: `radial-gradient(circle at top, ${alpha(
-            tinycolor(theme.palette.background.accent2)
-              .darken(40)
-              .spin(0)
-              .desaturate(50)
-              .toString(),
-            0.25
-          )} 0%, transparent 40%)`,
-          borderImageSource: `radial-gradient(circle at top, ${alpha(
-            tinycolor(theme.palette.background.accent2)
-              .darken(0)
-              .spin(0)
-              .desaturate(20)
-              .toString(),
-            0.5
-          )} 0%, transparent 25%)`,
+          backgroundImage: isDarkMode
+            ? `radial-gradient(circle at top, ${alpha(
+                tinycolor(theme.palette.background.accent2)
+                  .darken(40)
+                  .spin(0)
+                  .desaturate(50)
+                  .toString(),
+                0.25
+              )} 0%, transparent 40%)`
+            : "none",
+          borderImageSource: isDarkMode
+            ? `radial-gradient(circle at top, ${alpha(
+                tinycolor(theme.palette.background.accent2)
+                  .darken(0)
+                  .spin(0)
+                  .desaturate(20)
+                  .toString(),
+                0.5
+              )} 0%, transparent 25%)`
+            : "none",
           borderImageSlice: 1,
         })}
       >
@@ -90,7 +95,7 @@ const Skill = ({
                   <Box>
                     <Typography
                       variant="body1"
-                      fontWeight={500}
+                      fontWeight={400}
                       color="text.textPrimary.light"
                       sx={{ mb: -0.25 }}
                     >

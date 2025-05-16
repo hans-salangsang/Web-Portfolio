@@ -109,22 +109,22 @@ function App() {
           : lightTheme.palette.background),
         accent: isDarkMode
           ? tinycolor("#3E5AFF").toString()
-          : tinycolor("#0A0A0A").toString(),
+          : tinycolor("#121212").toString(),
         accent2: isDarkMode
           ? tinycolor("#3E5AFF").brighten(20).toString()
-          : tinycolor("#0A0A0A").toString(),
+          : tinycolor("#E6E6E6").toString(),
         default: isDarkMode
-          ? tinycolor("#0A0A0A").toString()
-          : tinycolor("#F0F0F0").toString(),
+          ? tinycolor("#121212").toString()
+          : tinycolor("#E6E6E6").toString(),
         defaultSubtleAccent: isDarkMode
-          ? tinycolor("#0A0A0A").brighten(2).toString()
-          : tinycolor("#0A0A0A").toString(),
+          ? tinycolor("#121212").brighten(2).toString()
+          : tinycolor("#E6E6E6").darken(0).toString(),
         defaultSubtleAccent2: isDarkMode
-          ? tinycolor("#0A0A0A").brighten(2).brighten(6).toString()
-          : tinycolor("#0A0A0A").toString(),
+          ? tinycolor("#121212").brighten(2).brighten(6).toString()
+          : tinycolor("#121212").toString(),
         defaultSubtleAccentAccent: isDarkMode
-          ? tinycolor("#0A0A0A").brighten(2).brighten(6).toString()
-          : tinycolor("#0A0A0A").toString(),
+          ? tinycolor("#121212").brighten(2).brighten(6).toString()
+          : tinycolor("#E6E6E6").darken(0).darken(0).toString(),
         defaultReverse: reverseBackgroundColor,
       },
       text: {
@@ -135,15 +135,15 @@ function App() {
             : lightTheme.palette.text.textPrimary),
           // Body Hightlight Font Color
           light: isDarkMode
-            ? tinycolor("#FCFCFC").toString()
+            ? tinycolor("#E6E6E6").toString()
             : tinycolor("#121212").toString(),
           // Body Main Font Color
           main: isDarkMode
-            ? tinycolor("#FCFCFC").darken(35).toString()
-            : tinycolor("#FCFCFC").toString(),
+            ? tinycolor("#E6E6E6").darken(35).toString()
+            : tinycolor("#121212").brighten(30).toString(),
           dark: isDarkMode
-            ? tinycolor("#FCFCFC").darken(35).darken(25).toString()
-            : tinycolor("#FCFCFC").toString(),
+            ? tinycolor("#E6E6E6").brighten(35).brighten(35).toString()
+            : tinycolor("#121212").brighten(30).brighten(30).toString(),
         },
       },
       textField: {
@@ -176,35 +176,17 @@ function App() {
       button: {
         ...(isDarkMode ? darkTheme.palette.button : lightTheme.palette.button),
         fill: isDarkMode
-          ? tinycolor("#FCFCFC").toString()
-          : tinycolor("#72C0F8").toString(),
-        fillAccent: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).spin(180).saturate(0).brighten(0).toString()
-          : tinycolor(accentColor).spin(180).saturate(0).darken(0).toString(),
+          ? tinycolor("#E6E6E6").toString()
+          : tinycolor("#121212").toString(),
         fillHovered: isDarkMode
-          ? tinycolor("#0A0A0A").toString()
-          : tinycolor("#72C0F8").toString(),
-        fillHoveredAccent: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).spin(180).saturate(0).darken(10).toString()
-          : tinycolor(accentColor).spin(180).saturate(0).darken(0).toString(),
-        fillFocused: "#E9E9ED",
+          ? tinycolor("#121212").toString()
+          : tinycolor("#121212").brighten(12).toString(),
         text: isDarkMode
-          ? tinycolor("#0A0A0A").toString()
-          : tinycolor("#0A0A0A").toString(),
-        textAccent: backgroundColor,
+          ? tinycolor("#121212").toString()
+          : tinycolor("#E6E6E6").toString(),
         textHovered: isDarkMode
-          ? tinycolor("#FCFCFC").toString()
-          : tinycolor("#72C0F8").toString(),
-        textHoveredAccent: backgroundColor,
-        label: "#42566E",
-        labelFocused: "#6093D6",
-        border: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).saturate(0).brighten(0).toString()
-          : tinycolor(accentColor).saturate(0).darken(0).toString(),
-        borderHovered: tinycolor(backgroundColor).isDark()
-          ? tinycolor(accentColor).saturate(0).brighten(0).toString()
-          : tinycolor(accentColor).saturate(0).darken(0).toString(),
-        borderFocused: "#6093D6",
+          ? tinycolor("#E6E6E6").toString()
+          : tinycolor("#E6E6E6").toString(),
       },
     },
   });
@@ -421,42 +403,44 @@ function App() {
                 }
               >
                 <Container maxWidth="lg">
-                  <Box
-                    sx={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      width: "100%",
-                      height: "100%", // Adjust this to crop more or less
-                      overflow: "hidden",
-                      zIndex: -1,
-                    }}
-                  >
+                  {isDarkMode && (
                     <Box
                       sx={{
                         position: "absolute",
-                        width: "100%",
-                        height: "106%",
-                      }}
-                    >
-                      <Spline scene="https://prod.spline.design/R2cAKmNsCDn1aklb/scene.splinecode" />
-                    </Box>
-
-                    {/* Gradient Overlay */}
-                    <Box
-                      sx={{
-                        position: "absolute",
-                        bottom: 0,
+                        top: 0,
                         left: 0,
                         width: "100%",
-                        height: "20%", // Adjust this to control the gradient height
-                        background: `linear-gradient(transparent, ${tinycolor(
-                          theme.palette.background.default
-                        ).toString()})`,
-                        pointerEvents: "none", // Prevent overlay from interfering with interactions
+                        height: "100%", // Adjust this to crop more or less
+                        overflow: "hidden",
+                        zIndex: -1,
                       }}
-                    />
-                  </Box>
+                    >
+                      <Box
+                        sx={{
+                          position: "absolute",
+                          width: "100%",
+                          height: "106%",
+                        }}
+                      >
+                        <Spline scene="https://prod.spline.design/R2cAKmNsCDn1aklb/scene.splinecode" />
+                      </Box>
+
+                      {/* Gradient Overlay */}
+                      <Box
+                        sx={{
+                          position: "absolute",
+                          bottom: 0,
+                          left: 0,
+                          width: "100%",
+                          height: "20%", // Adjust this to control the gradient height
+                          background: `linear-gradient(transparent, ${tinycolor(
+                            theme.palette.background.default
+                          ).toString()})`,
+                          pointerEvents: "none", // Prevent overlay from interfering with interactions
+                        }}
+                      />
+                    </Box>
+                  )}
                   <LandingSection
                     ref={landingSectionRef}
                     Typography={Typography}
@@ -471,7 +455,8 @@ function App() {
             <Grid item xs={12}>
               <Box
                 sx={{
-                  backgroundImage: `
+                  backgroundImage: isDarkMode
+                    ? `
                     radial-gradient(circle at 80% 25%, ${alpha(
                       tinycolor(theme.palette.background.accent)
                         .darken(20)
@@ -496,7 +481,8 @@ function App() {
                         .toString(),
                       0.8
                     )} 0%, transparent 25%)
-                  `,
+                  `
+                    : "none",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -513,6 +499,7 @@ function App() {
                     ref={skillsSectionRef}
                     Typography={Typography}
                     Chip={Chip}
+                    isDarkMode={isDarkMode}
                   />
 
                   <ExperienceSection

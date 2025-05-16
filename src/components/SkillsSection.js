@@ -16,7 +16,7 @@ import tinycolor from "tinycolor2";
 import AbstractGradientBackground from "./AbstractGradientBackground";
 import { useAnimate, useInView, stagger, motion } from "framer-motion";
 
-function SkillsSection({ Typography, Chip }, ref) {
+function SkillsSection({ Typography, Chip, isDarkMode }, ref) {
   const screenSize = useScreenSize();
   const theme = useTheme();
 
@@ -223,7 +223,7 @@ function SkillsSection({ Typography, Chip }, ref) {
     >
       {/* <Grid ref={ref} container sx={{ minHeight: "100vh" }}> */}
       {/* <AbstractGradientBackground /> */}
-      <Grid ref={ref} container sx={{ pt: 15 }}>
+      <Grid ref={ref} container sx={{ pt: 20 }}>
         <Grid container item xs={12} spacing={3}>
           <Grid item xs={12} sx={{ mb: 4 }}>
             <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>
@@ -257,6 +257,7 @@ function SkillsSection({ Typography, Chip }, ref) {
                     columnWidthSm={6}
                     columnWidthMd={6}
                     index={index}
+                    isDarkMode={isDarkMode}
                   />
                 );
               })}
@@ -274,6 +275,7 @@ function SkillsSection({ Typography, Chip }, ref) {
                     columnWidthSm={6}
                     columnWidthMd={12}
                     index={index}
+                    isDarkMode={isDarkMode}
                   />
                 );
               })}
@@ -291,6 +293,7 @@ function SkillsSection({ Typography, Chip }, ref) {
                     columnWidthSm={6}
                     columnWidthMd={12}
                     index={index}
+                    isDarkMode={isDarkMode}
                   />
                 );
               })}
@@ -311,6 +314,7 @@ function SkillsSection({ Typography, Chip }, ref) {
                     columnWidthSm={6}
                     columnWidthMd={12}
                     index={index}
+                    isDarkMode={isDarkMode}
                   />
                 );
               })}
@@ -328,6 +332,7 @@ function SkillsSection({ Typography, Chip }, ref) {
                     columnWidthSm={6}
                     columnWidthMd={12}
                     index={index}
+                    isDarkMode={isDarkMode}
                   />
                 );
               })}
@@ -348,6 +353,7 @@ function SkillsSection({ Typography, Chip }, ref) {
                     columnWidthSm={6}
                     columnWidthMd={4}
                     index={index}
+                    isDarkMode={isDarkMode}
                   />
                 );
               })}

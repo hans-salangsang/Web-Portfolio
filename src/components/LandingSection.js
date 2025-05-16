@@ -111,7 +111,7 @@ function LandingSection(
                 paragraph
                 textAlign="center"
                 lineHeight={1}
-                sx={{ letterSpacing: "-0.01em", mb: 2, mt: 5 }}
+                sx={{ letterSpacing: "-0.0em", mb: 2, mt: 5 }}
               >
                 Hello, I'm
               </Typography>

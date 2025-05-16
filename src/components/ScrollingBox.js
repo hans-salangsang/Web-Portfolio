@@ -9,7 +9,12 @@ const ScrollingBox = ({ children }) => {
     <Box
       sx={{
         position: "relative",
-        width: "40%", // Set width to 40%
+        width: {
+          xs: "90%", // Small screens
+          sm: "70%", // Medium screens
+          md: "50%", // Large screens
+          lg: "40%", // Extra large screens
+        },
         margin: "0 auto", // Center the Box
         height: "5rem",
         mt: 3,
