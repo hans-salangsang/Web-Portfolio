@@ -39,7 +39,6 @@ function LandingSection(
     "&.light-button": {
       backgroundColor: theme.palette.button.light.fill,
       color: theme.palette.button.light.text,
-      border: `1px solid ${theme.palette.button.light.border}`,
 
       "&:hover": {
         backgroundColor: theme.palette.button.light.fillHovered,
