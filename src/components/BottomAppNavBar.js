@@ -94,7 +94,7 @@ function BottomAppNavBar({
       position="fixed"
       sx={(theme) => ({
         justifyContent: "center",
-        backgroundColor: alpha(theme.palette.background.default, 0), // Adjust opacity as needed
+        backgroundColor: alpha(theme.palette.background.default, 0.3), // Adjust opacity as needed
         backdropFilter: "blur(10px)", // Adjust blur strength
         WebkitBackdropFilter: "blur(10px)", // For Safari
         transition: `background-color ${theme.transitions.duration.standard}ms ${theme.transitions.easing.standard}`,
