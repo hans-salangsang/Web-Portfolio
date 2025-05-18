@@ -8,6 +8,7 @@ import Switch from "@mui/material/Switch";
 import { styled } from "@mui/material/styles";
 import { useTheme } from "@mui/material/styles";
 import DynamicIsland from "./DynamicIsland";
+import { alpha } from "@mui/material/styles";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 56,
@@ -93,7 +94,9 @@ function BottomAppNavBar({
       position="fixed"
       sx={(theme) => ({
         justifyContent: "center",
-        backgroundColor: theme.palette.background.default,
+        backgroundColor: alpha(theme.palette.background.default, 0), // Adjust opacity as needed
+        backdropFilter: "blur(10px)", // Adjust blur strength
+        WebkitBackdropFilter: "blur(10px)", // For Safari
         transition: `background-color ${theme.transitions.duration.standard}ms ${theme.transitions.easing.standard}`,
         top: "auto",
         bottom: 0,

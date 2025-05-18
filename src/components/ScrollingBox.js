@@ -60,7 +60,7 @@ const ScrollingBox = ({ children }) => {
         <motion.div
           style={{ display: "flex", gap: "0.5rem" }}
           animate={{ x: [110, -1000] }} // Adjust first argument to create seamless loop
-          transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
+          transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
         >
           {children}
           {children}

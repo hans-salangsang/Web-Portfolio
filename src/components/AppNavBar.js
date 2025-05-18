@@ -15,6 +15,8 @@ import { IconButton } from "@mui/material";
 import { DarkMode, LightMode } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import MagnetButton from "./MagnetButton";
+import Box from "@mui/material/Box";
+import { alpha } from "@mui/material/styles";
 
 function AppNavBar({
   setIsDarkMode,
@@ -134,127 +136,237 @@ function AppNavBar({
       position="fixed"
       sx={(theme) => ({
         justifyContent: "center",
-        backgroundColor: "transparent",
+        backgroundColor: alpha(theme.palette.background.default, 0), // Adjust opacity as needed
+        backdropFilter: "blur(10px)", // Adjust blur strength
+        WebkitBackdropFilter: "blur(10px)", // For Safari
         transition: `background-color ${theme.transitions.duration.standard}ms ${theme.transitions.easing.standard}`,
       })}
       elevation={0}
     >
-      {screenSize !== "xs" && (
-        <Grid
-          container
-          direction="row"
-          justifyContent="space-around"
-          alignItems="flex-start"
-          sx={{ mt: 0, mb: 0, px: 0 }}
-        >
-          {screenSize !== "xs" && (
-            <Grid
-              item
-              xs={0}
-              sm={1}
-              md
-              sx={{
-                pl:
-                  screenSize === "xs" || screenSize === "sm"
-                    ? 0
-                    : screenSize === "md"
-                    ? 4
-                    : 10,
-                display: "flex",
-                py: 2,
-              }}
-              onClick={() => scrollToSection(landingSectionRef)}
-            >
-              {screenSize !== "xs" &&
-                screenSize !== "sm" &&
-                screenSize !== "md" && (
-                  <Typography
-                    variant="h6"
-                    color="text.textPrimary.light"
-                    textAlign="left"
-                    sx={{ cursor: "pointer" }}
-                  >
-                    h
-                    {/* <span>&nbsp;</span>
-                    <span
-                      style={{ color: theme.palette.text.textPrimary.light }}
-                    >
-                      Salangsang
-                    </span> */}
-                  </Typography>
-                )}
-              {(screenSize === "xs" ||
-                screenSize === "sm" ||
-                screenSize === "md") && (
-                <>
-                  <Typography
-                    variant="h6"
-                    color="text.textPrimary.light"
-                    textAlign="left"
-                    sx={{ cursor: "pointer" }}
-                  >
-                    h
-                  </Typography>
-                </>
-              )}
-            </Grid>
-          )}
-          {screenSize !== "xs" && (
-            <Grid
-              item
-              xs={12}
-              sm={8}
-              md={8}
-              lg={7}
-              sx={{ display: "flex", justifyContent: "center" }}
-            >
-              <DynamicIsland
-                Typography={Typography}
-                scrollToSection={scrollToSection}
-                landingSectionRef={landingSectionRef}
-                aboutSectionRef={aboutSectionRef}
-                skillsSectionRef={skillsSectionRef}
-                experienceSectionRef={experienceSectionRef}
-                projectsSectionRef={projectsSectionRef}
-                connectSectionRef={connectSectionRef}
-                activeSection={activeSection}
-              />
-            </Grid>
-          )}
-          {screenSize !== "xs" && (
-            <Grid
-              item
-              xs={0}
-              sm={1}
-              md
-              sx={{
-                justifyContent: "flex-end",
-                pr:
-                  screenSize === "xs" || screenSize === "sm"
-                    ? 0
-                    : screenSize === "md"
-                    ? 4
-                    : 10,
-                py: screenSize === "md" ? 2 : 1,
-              }}
-            >
-              <Stack
-                direction={
-                  screenSize !== "xs" &&
-                  screenSize !== "lg" &&
-                  screenSize !== "xl"
-                    ? "column-reverse"
-                    : "row"
-                }
-                spacing={1}
+      <Container maxWidth={screenSize === "xl" ? "lg" : "lg"}>
+        {screenSize !== "xs" && (
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-around"
+            alignItems="flex-start"
+            sx={{ mt: 0.7, mb: 0.7, px: 3 }}
+          >
+            {screenSize !== "xs" && (
+              <Grid
+                item
+                xs={0}
+                sm={1}
+                md
                 sx={{
-                  alignItems:
-                    screenSize === "sm" || screenSize === "md"
-                      ? "flex-end"
-                      : "center",
-                  justifyContent: "flex-end",
-                  py: screenSize === "md" ? 0 : 2,
+                  display: "flex",
+                  py: 1,
                 }}
+                onClick={() => scrollToSection(landingSectionRef)}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: 2, // Space between items
+                    pt: 0.7,
+                  }}
+                >
+                  <Typography
+                    variant="h5"
+                    component="p"
+                    color="text.textPrimary.light"
+                    fontWeight={400}
+                    sx={{
+                      cursor: "pointer",
+                      fontFamily: "Hypik",
+                      // fontSize: `clamp(1.4rem, 2.25vw, 1.8rem)`,
+                    }}
+                  >
+                    h
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    component="p"
+                    color="text.textPrimary.light"
+                    fontWeight={700}
+                    sx={{
+                      cursor: "pointer",
+                      fontFamily: "Inter",
+                      letterSpacing: -0.2,
+                    }}
+                  >
+                    Hans Salangsang
+                  </Typography>
+                </Box>
+              </Grid>
+            )}
+            {screenSize !== "xs" && (
+              <Grid
+                item
+                xs={12}
+                sm={8}
+                md={8}
+                lg={7}
+                sx={{ display: "flex", justifyContent: "center", mt: 0.5 }}
+              >
+                <DynamicIsland
+                  Typography={Typography}
+                  scrollToSection={scrollToSection}
+                  landingSectionRef={landingSectionRef}
+                  aboutSectionRef={aboutSectionRef}
+                  skillsSectionRef={skillsSectionRef}
+                  experienceSectionRef={experienceSectionRef}
+                  projectsSectionRef={projectsSectionRef}
+                  connectSectionRef={connectSectionRef}
+                  activeSection={activeSection}
+                />
+              </Grid>
+            )}
+            {screenSize !== "xs" && (
+              <Grid
+                item
+                xs={0}
+                sm={1}
+                md
+                sx={{
+                  justifyContent: "flex-end",
+                  // py: screenSize === "md" ? 2 : 1,
+                }}
+              >
+                <Stack
+                  direction={
+                    screenSize !== "xs" &&
+                    screenSize !== "lg" &&
+                    screenSize !== "xl"
+                      ? "column-reverse"
+                      : "row"
+                  }
+                  spacing={1}
+                  sx={{
+                    alignItems:
+                      screenSize === "sm" || screenSize === "md"
+                        ? "flex-end"
+                        : "center",
+                    justifyContent: "flex-end",
+                    py: screenSize === "md" ? 0 : 2,
+                  }}
+                >
+                  <Tooltip
+                    title={
+                      isDarkMode
+                        ? "Switch to Light Mode"
+                        : "Switch to Dark Mode"
+                    }
+                    placement="bottom"
+                  >
+                    <FormControlLabel
+                      control={
+                        <IOSSwitch
+                          checked={darkMode}
+                          onChange={handleToggleDarkMode}
+                          icon={
+                            <LightMode
+                              className="icon-light"
+                              sx={{ fontSize: "1.4rem" }}
+                            />
+                          }
+                          checkedIcon={
+                            <DarkMode
+                              className="icon-dark"
+                              sx={{ fontSize: "1.4rem" }}
+                            />
+                          }
+                        />
+                      }
+                    />
+                    {/* <span>
+                    <MagnetButton>
+                      <IconButton
+                        onClick={handleToggleDarkMode}
+                        color="inherit"
+                      >
+                        {darkMode ? (
+                          <DarkMode
+                            sx={{ color: theme.palette.text.textPrimary.light }}
+                          />
+                        ) : (
+                          <LightMode
+                            sx={{ color: theme.palette.text.textPrimary.light }}
+                          />
+                        )}
+                      </IconButton>
+                    </MagnetButton>
+                  </span> */}
+                  </Tooltip>
+
+                  {screenSize !== "xs" && (
+                    <>
+                      <Tooltip
+                        title={
+                          <span>
+                            This is my local time.
+                            <br />
+                            UTC+8
+                          </span>
+                        }
+                        placement="bottom"
+                      >
+                        <Typography
+                          variant="body2"
+                          color="text.textPrimary.light"
+                          fontWeight={400}
+                          textAlign="right"
+                          sx={{
+                            pl: screenSize !== "xs" ? 1 : 0,
+                            letterSpacing: -0.2,
+                          }}
+                        >
+                          <Clock onUpdate={updateTime} />
+                          {currentTime}
+                        </Typography>
+                      </Tooltip>
+                    </>
+                  )}
+                </Stack>
+              </Grid>
+            )}
+          </Grid>
+        )}
+
+        {screenSize === "xs" && (
+          <Container
+            maxWidth={screenSize === "xl" ? "xl" : "lg"}
+            sx={{ px: 0 }}
+          >
+            <Grid
+              container
+              direction="row"
+              justifyContent="space-between"
+              alignItems="flex-start"
+              sx={{ mt: 1 }}
+            >
+              <Grid item xs={8} sx={{ py: 1, px: 3 }}>
+                <Typography
+                  variant="h5"
+                  component="p"
+                  color="text.textPrimary.light"
+                  fontWeight={400}
+                  sx={{
+                    cursor: "pointer",
+                    fontFamily: "Hypik",
+                    // fontSize: `clamp(1.4rem, 2.25vw, 1.8rem)`,
+                  }}
+                >
+                  h
+                </Typography>
+              </Grid>
+
+              <Grid
+                item
+                xs={4}
+                sx={{ py: 1, display: "flex", justifyContent: "flex-end" }}
               >
                 <Tooltip
                   title={
@@ -282,115 +394,12 @@ function AppNavBar({
                       />
                     }
                   />
-                  {/* <span>
-                    <MagnetButton>
-                      <IconButton
-                        onClick={handleToggleDarkMode}
-                        color="inherit"
-                      >
-                        {darkMode ? (
-                          <DarkMode
-                            sx={{ color: theme.palette.text.textPrimary.light }}
-                          />
-                        ) : (
-                          <LightMode
-                            sx={{ color: theme.palette.text.textPrimary.light }}
-                          />
-                        )}
-                      </IconButton>
-                    </MagnetButton>
-                  </span> */}
                 </Tooltip>
-
-                {screenSize !== "xs" && (
-                  <>
-                    <Tooltip
-                      title={
-                        <span>
-                          This is my local time.
-                          <br />
-                          UTC+8
-                        </span>
-                      }
-                      placement="bottom"
-                    >
-                      <Typography
-                        variant="body2"
-                        color="text.textPrimary.light"
-                        fontWeight={400}
-                        textAlign="right"
-                        sx={{
-                          pl: screenSize !== "xs" ? 1 : 0,
-                        }}
-                      >
-                        <Clock onUpdate={updateTime} />
-                        {currentTime}
-                      </Typography>
-                    </Tooltip>
-                  </>
-                )}
-              </Stack>
+              </Grid>
             </Grid>
-          )}
-        </Grid>
-      )}
-
-      {screenSize === "xs" && (
-        <Container maxWidth={screenSize === "xl" ? "xl" : "lg"} sx={{ px: 0 }}>
-          <Grid
-            container
-            direction="row"
-            justifyContent="space-between"
-            alignItems="flex-start"
-            sx={{ mt: 1 }}
-          >
-            <Grid item xs={8} sx={{ py: 1, px: 3 }}>
-              <Typography
-                variant="h6"
-                color="text.textPrimary.light"
-                textAlign="left"
-                sx={{ cursor: "pointer" }}
-              >
-                h
-              </Typography>
-            </Grid>
-
-            <Grid
-              item
-              xs={4}
-              sx={{ py: 1, display: "flex", justifyContent: "flex-end" }}
-            >
-              <Tooltip
-                title={
-                  isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
-                }
-                placement="bottom"
-              >
-                <FormControlLabel
-                  control={
-                    <IOSSwitch
-                      checked={darkMode}
-                      onChange={handleToggleDarkMode}
-                      icon={
-                        <LightMode
-                          className="icon-light"
-                          sx={{ fontSize: "1.4rem" }}
-                        />
-                      }
-                      checkedIcon={
-                        <DarkMode
-                          className="icon-dark"
-                          sx={{ fontSize: "1.4rem" }}
-                        />
-                      }
-                    />
-                  }
-                />
-              </Tooltip>
-            </Grid>
-          </Grid>
-        </Container>
-      )}
+          </Container>
+        )}
+      </Container>
     </AppBar>
   );
 }

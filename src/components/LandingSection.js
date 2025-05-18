@@ -31,15 +31,31 @@ function LandingSection(
 
   const Button = styled(BaseButton)(({ theme }) => ({
     fontWeight: 500,
-    // borderRadius: 9999,
-    backgroundColor: theme.palette.button.fill,
-    color: theme.palette.button.text,
+    borderRadius: 9999,
     textTransform: "none",
-    // borderColor: theme.palette.button.border,
-    "&:hover": {
-      backgroundColor: theme.palette.button.fillHovered,
-      color: theme.palette.button.textHovered,
-      // borderColor: theme.palette.button.borderHovered,
+    letterSpacing: "0rem",
+
+    // Light Button
+    "&.light-button": {
+      backgroundColor: theme.palette.button.light.fill,
+      color: theme.palette.button.light.text,
+      border: `1px solid ${theme.palette.button.light.border}`,
+
+      "&:hover": {
+        backgroundColor: theme.palette.button.light.fillHovered,
+        color: theme.palette.button.light.textHovered,
+      },
+    },
+
+    // Dark Button
+    "&.dark-button": {
+      backgroundColor: theme.palette.button.dark.fill,
+      color: theme.palette.button.dark.text,
+
+      "&:hover": {
+        backgroundColor: theme.palette.button.dark.fillHovered,
+        color: theme.palette.button.dark.textHovered,
+      },
     },
   }));
 
@@ -104,14 +120,14 @@ function LandingSection(
                 Hello! I'm
               </Typography> */}
               <Typography
-                variant="h4"
+                variant="h5"
                 component="p"
-                color="text.textPrimary.light"
-                fontWeight={200}
+                color="text.textPrimary.main"
+                fontWeight={300}
                 paragraph
                 textAlign="center"
                 lineHeight={1}
-                sx={{ letterSpacing: "-0.0em", mb: 2, mt: 5 }}
+                sx={{ letterSpacing: "-0.0em", mb: 2.5, mt: 5 }}
               >
                 Hello, I'm
               </Typography>
@@ -129,12 +145,12 @@ function LandingSection(
               <Typography
                 variant="h2"
                 component="p"
-                color="text.textPrimary.light"
-                fontWeight={200}
+                color="text.textPrimary.main"
+                fontWeight={500}
                 paragraph
                 textAlign="center"
                 sx={{
-                  mt: "1rem",
+                  mt: -1,
                 }}
               >
                 Software Engineer
@@ -147,8 +163,9 @@ function LandingSection(
             xs={12}
             // sm={10}
             // lg={6}
+
             sx={{
-              mt: { xs: "3rem", xl: "6rem" },
+              mt: { xs: 0 },
             }}
           >
             <ScrollRevealAnimation spring={true} reveal={true}>
@@ -161,16 +178,16 @@ function LandingSection(
                 // lineHeight={1.6}
               >
                 I develop digital solutions{" "}
-                <span
+                {/* <span
                   style={{
                     // fontWeight: 700,
                     color: theme.palette.text.textPrimary.light,
                     // fontFamily: "Playfair Display",
                     // fontStyle: "italic",
                   }}
-                >
-                  that solve real-world problems.
-                </span>
+                > */}
+                that solve real-world problems.
+                {/* </span> */}
               </Typography>
             </ScrollRevealAnimation>
           </Grid>
@@ -178,22 +195,35 @@ function LandingSection(
             item
             xs={12}
             sx={{
-              mt: { xs: ".5rem", xl: "1rem" },
+              mt: { xs: 2 },
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
             }}
           >
             <ScrollRevealAnimation spring={true} reveal={true}>
-              <MagnetButton>
-                <Button
-                  variant="contained"
-                  size="large"
-                  onClick={() => scrollToSection(connectSectionRef)}
-                >
-                  Send me a message
-                </Button>
-              </MagnetButton>
+              <Box sx={{ display: "flex", gap: 1.5 }}>
+                <MagnetButton>
+                  <Button
+                    variant="contained"
+                    size="medium"
+                    className="light-button"
+                    onClick={() => scrollToSection(connectSectionRef)}
+                  >
+                    Send me a message
+                  </Button>
+                </MagnetButton>
+                <MagnetButton>
+                  <Button
+                    variant="contained"
+                    size="medium"
+                    className="dark-button"
+                    onClick={() => scrollToSection(connectSectionRef)}
+                  >
+                    Download my CV
+                  </Button>
+                </MagnetButton>
+              </Box>
             </ScrollRevealAnimation>
           </Grid>
           <Grid

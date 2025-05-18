@@ -54,13 +54,13 @@ function DynamicIsland({
         // hoveredButton !== "" ? "background.accentHover" : "background.accent",
         // backdropFilter: "blur(200px)",
         justifyContent: "center",
-        backgroundColor: "background.default",
+        // backgroundColor: "background.default",
         justifyContent: "center",
         // borderRadius: (theme) => `0 0 ${theme.spacing(2)} ${theme.spacing(2)}`,
         borderRadius: 2,
         // boxShadow: theme.shadows[5],
         // py: 2,
-        mt: 2,
+        // mt: 0.5,
       }}
     >
       <Stack direction="row" spacing={0}>
@@ -115,10 +115,12 @@ function DynamicIsland({
                   ? "text.textPrimary.light"
                   : "text.textPrimary.main"
               }
-              fontWeight={activeSection === "skills" ? 400 : 400}
+              fontWeight={activeSection === "skills" ? 500 : 500}
               textAlign="center"
               sx={{
+                fontSize: "body1.fontSize",
                 textTransform: "none",
+                letterSpacing: -0.2,
                 // borderBottom:
                 //   activeSection === "skills"
                 //     ? "1px solid currentColor"
@@ -154,10 +156,12 @@ function DynamicIsland({
                   ? "text.textPrimary.light"
                   : "text.textPrimary.main"
               }
-              fontWeight={activeSection === "experience" ? 400 : 400}
+              fontWeight={activeSection === "experience" ? 500 : 500}
               textAlign="center"
               sx={{
+                fontSize: "body1.fontSize",
                 textTransform: "none",
+                letterSpacing: -0.2,
                 // borderBottom:
                 //   activeSection === "experience"
                 //     ? "1px solid currentColor"
@@ -189,10 +193,12 @@ function DynamicIsland({
                   ? "text.textPrimary.light"
                   : "text.textPrimary.main"
               }
-              fontWeight={activeSection === "connect" ? 400 : 400}
+              fontWeight={activeSection === "connect" ? 500 : 500}
               textAlign="center"
               sx={{
+                fontSize: "body1.fontSize",
                 textTransform: "none",
+                letterSpacing: -0.2,
                 // borderBottom:
                 //   activeSection === "connect"
                 //     ? "1px solid currentColor"

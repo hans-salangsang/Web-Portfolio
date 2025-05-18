@@ -175,18 +175,36 @@ function App() {
       },
       button: {
         ...(isDarkMode ? darkTheme.palette.button : lightTheme.palette.button),
-        fill: isDarkMode
-          ? tinycolor("#E6E6E6").toString()
-          : tinycolor("#121212").toString(),
-        fillHovered: isDarkMode
-          ? tinycolor("#121212").toString()
-          : tinycolor("#121212").brighten(12).toString(),
-        text: isDarkMode
-          ? tinycolor("#121212").toString()
-          : tinycolor("#E6E6E6").toString(),
-        textHovered: isDarkMode
-          ? tinycolor("#E6E6E6").toString()
-          : tinycolor("#E6E6E6").toString(),
+
+        light: {
+          fill: isDarkMode
+            ? tinycolor("#E6E6E6").toString()
+            : tinycolor("#121212").toString(),
+          fillHovered: isDarkMode
+            ? tinycolor("#E6E6E6").darken(24).toString()
+            : tinycolor("#121212").brighten(12).toString(),
+          text: isDarkMode
+            ? tinycolor("#121212").toString()
+            : tinycolor("#E6E6E6").toString(),
+          textHovered: isDarkMode
+            ? tinycolor("#121212").toString()
+            : tinycolor("#E6E6E6").toString(),
+        },
+
+        dark: {
+          fill: isDarkMode
+            ? tinycolor("#121212").brighten(12).toString()
+            : tinycolor("#E6E6E6").toString(),
+          fillHovered: isDarkMode
+            ? tinycolor("#121212").brighten(12).darken(5).toString()
+            : tinycolor("#121212").brighten(12).toString(),
+          text: isDarkMode
+            ? tinycolor("#E6E6E6").toString()
+            : tinycolor("#E6E6E6").toString(),
+          textHovered: isDarkMode
+            ? tinycolor("#E6E6E6").darken(24).toString()
+            : tinycolor("#E6E6E6").toString(),
+        },
       },
     },
   });
@@ -425,7 +443,6 @@ function App() {
                         <Spline scene="https://prod.spline.design/R2cAKmNsCDn1aklb/scene.splinecode" />
                       </Box>
 
-                      {/* Gradient Overlay */}
                       <Box
                         sx={{
                           position: "absolute",
