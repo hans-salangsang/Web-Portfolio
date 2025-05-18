@@ -44,7 +44,7 @@ function AboutMeSection({ Typography, onColorChange }, ref) {
     >
       {/* <Grid ref={ref} container sx={{ minHeight: "100vh" }}> */}
       {/* <AbstractGradientBackground /> */}
-      <Grid ref={ref} container sx={{ pt: 10, pb: 10 }}>
+      <Grid ref={ref} container sx={{ pt: 20, pb: 10 }}>
         <Grid container item xs={12} spacing={3}>
           <Grid item xs={12} sx={{ mb: 5 }}>
             <ScrollRevealAnimation spring={true} reveal={true} zIndex={2}>

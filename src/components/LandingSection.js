@@ -64,7 +64,7 @@ function LandingSection(
       maxWidth={screenSize === "xl" ? "xl" : "lg"}
       ref={ref}
       sx={{
-        pt: { xs: "10rem", sm: "10rem", lg: "9rem", xl: "14rem" },
+        pt: { xs: 10, sm: 10, lg: 10, xl: 15 },
         position: "relative",
         minHeight: "100vh",
       }}

@@ -108,10 +108,10 @@ function App() {
           ? darkTheme.palette.background
           : lightTheme.palette.background),
         accent: isDarkMode
-          ? tinycolor("#3E5AFF").toString()
+          ? tinycolor("#3183F8").toString()
           : tinycolor("#121212").toString(),
         accent2: isDarkMode
-          ? tinycolor("#3E5AFF").brighten(20).toString()
+          ? tinycolor("#3183F8").brighten(20).toString()
           : tinycolor("#E6E6E6").toString(),
         default: isDarkMode
           ? tinycolor("#121212").toString()
@@ -440,7 +440,8 @@ function App() {
                           height: "106%",
                         }}
                       >
-                        <Spline scene="https://prod.spline.design/R2cAKmNsCDn1aklb/scene.splinecode" />
+                        <Spline scene="https://prod.spline.design/er1uU-orZqxtrxKg/scene.splinecode" />
+                        {/* <Spline scene="https://prod.spline.design/R2cAKmNsCDn1aklb/scene.splinecode" /> */}
                       </Box>
 
                       <Box
